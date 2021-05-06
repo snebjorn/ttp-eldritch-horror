@@ -1,0 +1,50 @@
+{
+    "Type": "Card",
+    "GUID": "F08FE57A42BF4210B14A2AC6EC90DF87",
+    "Name": "Mystery",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "38WbJIi.jpg",
+    "BackTexture": "Oc1Av7C.png",
+    "BackIndex": -2,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 14.387475474108701,
+    "Height": 22.314459206400002,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        6,
+        5,
+        0,
+        2,
+        4,
+        1,
+        3
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

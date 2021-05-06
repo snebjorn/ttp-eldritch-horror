@@ -1,0 +1,51 @@
+{
+    "Type": "Card",
+    "GUID": "AAD574D2B3A14DA7A1A81436D5CD5CD0",
+    "Name": "Corona Borealis",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "C22587297F5ED49F9EDA3EAD7B78072385301055_Lots of Cards.jpg",
+    "BackTexture": "1794F448920FF7171E30152E6F56E6BBE949B7F4_Lots of Cards (More).jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 7.586910495899629,
+    "Height": 12.089224869000002,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        36,
+        43,
+        40,
+        38,
+        42,
+        37,
+        41,
+        39
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

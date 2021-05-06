@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "284E571B9684464CB345A8A7FD77638A",
+    "Name": "Signs of Carcosa",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "38AA954893258D26337A2C56A8B91D15B851B25E_eh06_rulesheet_lores-1.jpg",
+    "BackTexture": "DAC16340245CCEB16E059352E18EB7F7373C7553_eh06_rulesheet_lores-2.jpg",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 44.44766352327273,
+    "Height": 57.520505736000004,
+    "Thickness": 0.508,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

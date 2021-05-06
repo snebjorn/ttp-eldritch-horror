@@ -1,0 +1,49 @@
+{
+    "Type": "Card",
+    "GUID": "BF19E4CBC60643FDB81D815818D9EB36",
+    "Name": "Mystery",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "8A49493C18D6AD226A1D70DA480EF40EA8790803_Hypnos Atlach-Nacha Front.jpg",
+    "BackTexture": "7CBD35390F3B3BA9CB2507C1CB4383B494555A9F_Hypnos Back.png",
+    "BackIndex": -2,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 20.750685349896948,
+    "Height": 33.06480306,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        52,
+        50,
+        49,
+        48,
+        53,
+        51
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

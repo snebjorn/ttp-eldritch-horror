@@ -1,0 +1,51 @@
+{
+    "Type": "Card",
+    "GUID": "B9ED98CD14A94EAF88200BBB782B21C0",
+    "Name": "Dream Within a Dream",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "C22587297F5ED49F9EDA3EAD7B78072385301055.jpg",
+    "BackTexture": "1794F448920FF7171E30152E6F56E6BBE949B7F4.jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 7.586910495899629,
+    "Height": 12.089224869000002,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        35,
+        28,
+        32,
+        31,
+        30,
+        34,
+        33,
+        29
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

@@ -1,0 +1,50 @@
+{
+    "Type": "Generic",
+    "GUID": "BE92106BE1FD471A8C009BB9F1360060",
+    "Name": "Doppelganger",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0.3,
+    "Density": 1,
+    "SurfaceType": "Plastic",
+    "Roughness": 0.8,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 254,
+        "G": 253,
+        "B": 254
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": false,
+    "Blueprint": "",
+    "Models": [
+        {
+            "Model": "82D6619F4B6058DD76BEEDD8D9431D19BB80114D.obj",
+            "Offset": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 6.6039961138,
+                "Y": 6.6039961138,
+                "Z": 6.6039961138
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Texture": "mMplkzh.jpg",
+            "IsTransparent": false,
+            "UseOverrides": true,
+            "SurfaceType": "Plastic"
+        }
+    ],
+    "Collision": [],
+    "SnapPoints": []
+}

@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "6517382E9A0D4245B93FC4696391320F",
+    "Name": "Leopard Man",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "E6E245C767E0B22D90C2E0DB1CEE2EBE7D974720_leo1.JPG",
+    "BackTexture": "4CCA673B90C36567170377C5FF6755A2F25455B4_leo2.JPG",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 5.4526340770024815,
+    "Height": 5.439137458,
+    "Thickness": 0.254,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

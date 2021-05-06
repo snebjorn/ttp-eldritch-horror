@@ -1,0 +1,60 @@
+{
+	"Type": "Card",
+	"GUID": "89F3BD88B01B4638A5438FB5BBAB905D",
+	"Name": "Devastation Token",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "BEDAAD9D126F9DA7ADDAB84CC08D03E09DD54BC8_token.jpg",
+	"BackTexture": "",
+	"HiddenTexture": "",
+	"BackIndex": 0,
+	"HiddenIndex": -1,
+	"NumHorizontal": 1,
+	"NumVertical": 1,
+	"Width": 3.64184,
+	"Height": 3.5699,
+	"Thickness": 0.254,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": false,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"Model": "Square",
+	"Indices": [ 0, 0, 0, 0, 0, 0, 0, 0 ],
+	"CardNames":
+	{
+		"0": ""
+	}
+}

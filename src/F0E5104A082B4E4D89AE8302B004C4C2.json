@@ -1,0 +1,66 @@
+{
+	"Type": "Generic",
+	"GUID": "F0E5104A082B4E4D89AE8302B004C4C2",
+	"Name": "Worldrender",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Plastic",
+	"Roughness": 0.8,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 254,
+		"G": 253,
+		"B": 254
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [
+		{
+			"Model": "82D6619F4B6058DD76BEEDD8D9431D19BB80114D.obj",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 3,
+				"Y": 3,
+				"Z": 3
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": -90
+			},
+			"Texture": "9E99926263C19E5B5C8B8F3C7B7BE9EDC12F3134_worldr.jpg",
+			"NormalMap": "",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"UseOverrides": true,
+			"SurfaceType": "Plastic"
+		}
+	],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	}
+}

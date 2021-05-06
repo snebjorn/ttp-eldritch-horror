@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "1739EA2694BA497C807FB3614AE9C012",
+    "Name": "1739EA26",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "35EA3ED70C64AAC440854AE019C7F16BE59C6932_ehDreamlands_rulebook-page-003.jpg",
+    "BackTexture": "6BD101521F779BC44BA8F2C421903F7C88614593_ehDreamlands_rulebook-page-004.jpg",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 44.44766352327273,
+    "Height": 57.520505736000004,
+    "Thickness": 0.508,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

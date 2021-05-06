@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "852998DB22AE45B2BB1B7C38858066AF",
+    "Name": "Formless Spawn",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "A08CBB114BB079B6D5DEC58D7892BB0FAE7BEC15_formless1.JPG",
+    "BackTexture": "AC0944026B996CC3B54E3ED61027526B8D3D744B_formless2.JPG",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 5.534322363515001,
+    "Height": 5.439137458,
+    "Thickness": 0.254,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

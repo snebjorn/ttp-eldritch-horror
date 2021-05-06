@@ -1,0 +1,47 @@
+{
+    "Type": "Card",
+    "GUID": "D69831EF4F8D48D1928EC92A2AD99E1B",
+    "Name": "Europe",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "03D02EA7010EBF45617D445AC5BB23432789ED0C.jpg",
+    "BackTexture": "4F0F906425F8F63B905F8551711531E409B0C5B3_euro.jpg",
+    "BackIndex": -2,
+    "NumHorizontal": 4,
+    "NumVertical": 4,
+    "Width": 7.414148581923078,
+    "Height": 11.5660717878,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        6,
+        4,
+        7,
+        5
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

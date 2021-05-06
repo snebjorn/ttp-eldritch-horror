@@ -1,0 +1,47 @@
+{
+    "Type": "Card",
+    "GUID": "29ACF05DE5A6443DA5DDB679C7B28417",
+    "Name": "Yellow Sign Conditions",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "MG78wQZ.jpg",
+    "BackTexture": "7j4gXYl.jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 7.388741070525548,
+    "Height": 11.2473058518,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        1,
+        0,
+        2,
+        3
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

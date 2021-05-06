@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "4CF2159B69F347F6B21E75DD838E3CEE",
+    "Name": "Mountains of Madness",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "0E574DFDAED9185C748B86B2E45704C195D71D99_eh_MoM-rulebook-page-001.jpg",
+    "BackTexture": "0AD0E3F28380FE2B0727DF83B416BEAC9B710A53_eh_MoM-rulebook-page-002.jpg",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 44.44766352327273,
+    "Height": 57.520505736000004,
+    "Thickness": 0.508,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

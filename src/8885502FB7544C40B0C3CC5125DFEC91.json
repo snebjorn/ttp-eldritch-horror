@@ -1,0 +1,89 @@
+{
+	"Type": "Generic",
+	"GUID": "8885502FB7544C40B0C3CC5125DFEC91",
+	"Name": "Opened gate",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Plastic",
+	"Roughness": 0.8,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": false,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [
+		{
+			"Model": "6E96B8F900D9B5B71ABD5075C3465BE336B9E568_dt.obj",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 40.64,
+				"Y": 40.64,
+				"Z": 40.64
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Texture": "9117767E65579BDA03EDAF8FF6D9CBDCB7B977FC_defaultMat_Base_Color.png",
+			"NormalMap": "1DB0FB662BD818D042F9D0B5F9D5C53CD615C45E_defaultMat_Normal_OpenGL.png",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"UseOverrides": true,
+			"SurfaceType": "Plastic"
+		}
+	],
+	"Collision": [
+		{
+			"Model": "DFD330798BDFB70EEFC5E3B78D553A31732536A1_Colisor porto aberto.obj",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 40.64,
+				"Y": 40.64,
+				"Z": 40.64
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Type": "Convex"
+		}
+	],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	}
+}

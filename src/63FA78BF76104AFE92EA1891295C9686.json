@@ -1,0 +1,44 @@
+{
+    "Type": "Card",
+    "GUID": "63FA78BF76104AFE92EA1891295C9686",
+    "Name": "63FA78BF",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "563512BE0D1EEAB83799FAF69F7D2BAE4EFEC8C4_Eldritchrulebook-page-007.jpg",
+    "BackTexture": "5837C5552732B15D45CE3F453070488C6C5A753D_Eldritchrulebook-page-008.jpg",
+    "BackIndex": 0,
+    "NumHorizontal": 1,
+    "NumVertical": 1,
+    "Width": 44.44766352327273,
+    "Height": 57.520505736000004,
+    "Thickness": 0.508,
+    "HiddenInHand": false,
+    "CanStack": false,
+    "UsedWithCardHolders": false,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareSharp.SquareSharp'",
+    "Indices": [
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

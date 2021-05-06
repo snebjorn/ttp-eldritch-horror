@@ -1,0 +1,50 @@
+{
+    "Type": "Generic",
+    "GUID": "31A5D08C9CDD464DB433DC24B43AC58D",
+    "Name": "Firebug",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0.3,
+    "Density": 1,
+    "SurfaceType": "Plastic",
+    "Roughness": 0.8,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 254,
+        "G": 253,
+        "B": 254
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": false,
+    "Blueprint": "",
+    "Models": [
+        {
+            "Model": "D3024CC8DF509B58B81C4DC146580866E985DA0E.obj",
+            "Offset": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 4.6990009652,
+                "Y": 4.6990009652,
+                "Z": 4.6990009652
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Texture": "aD8KUE0.jpg",
+            "IsTransparent": false,
+            "UseOverrides": true,
+            "SurfaceType": "Plastic"
+        }
+    ],
+    "Collision": [],
+    "SnapPoints": []
+}

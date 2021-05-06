@@ -1,0 +1,51 @@
+{
+    "Type": "Card",
+    "GUID": "E65C5F983DAF4F48B93BE8EC383AFB58",
+    "Name": "Icon References",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "qqU3ZqD.jpg",
+    "BackTexture": "crfzX8n.jpg",
+    "BackIndex": -2,
+    "NumHorizontal": 3,
+    "NumVertical": 5,
+    "Width": 11.412693066995798,
+    "Height": 7.291868322000001,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        8,
+        5,
+        4,
+        7,
+        6,
+        3,
+        5,
+        9
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

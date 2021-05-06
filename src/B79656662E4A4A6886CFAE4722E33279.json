@@ -1,0 +1,49 @@
+{
+    "Type": "Card",
+    "GUID": "B79656662E4A4A6886CFAE4722E33279",
+    "Name": "Expedition",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "E640538273DAB71CCA5D3432D1E4B5BA4D483520_bbbbbbbbb.jpg",
+    "BackTexture": "4689BC22FCE75E769869B8F94F7F9F2527564EB4_aaaa.jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 5,
+    "NumVertical": 4,
+    "Width": 7.138579146153847,
+    "Height": 11.136183467999999,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        4,
+        5,
+        3,
+        0,
+        2,
+        1
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

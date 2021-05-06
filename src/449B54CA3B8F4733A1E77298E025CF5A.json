@@ -1,0 +1,50 @@
+{
+    "Type": "Generic",
+    "GUID": "449B54CA3B8F4733A1E77298E025CF5A",
+    "Name": "449B54CA",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0.3,
+    "Density": 1,
+    "SurfaceType": "Plastic",
+    "Roughness": 0.8,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 254,
+        "G": 253,
+        "B": 254
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": false,
+    "Blueprint": "",
+    "Models": [
+        {
+            "Model": "ucexportdownloadid0BzeCHt4DkKC0bWlZSGV5WFc2ajg.obj",
+            "Offset": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 9.588493573800001,
+                "Y": 9.588493573800001,
+                "Z": 9.588493573800001
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Texture": "nephren-ka.jpg",
+            "IsTransparent": false,
+            "UseOverrides": true,
+            "SurfaceType": "Plastic"
+        }
+    ],
+    "Collision": [],
+    "SnapPoints": []
+}

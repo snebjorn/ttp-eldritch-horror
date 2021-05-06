@@ -1,0 +1,51 @@
+{
+    "Type": "Card",
+    "GUID": "F2758A1B7CD94A81A835A2D897D7C99B",
+    "Name": "Banes",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "r5MtcQk.png",
+    "BackTexture": "JDJ3qZj.jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 7.086525580032001,
+    "Height": 11.072696218799999,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        4,
+        0,
+        3,
+        7,
+        2,
+        5,
+        6,
+        1
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

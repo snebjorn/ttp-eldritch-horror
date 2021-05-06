@@ -1,0 +1,51 @@
+{
+    "Type": "Card",
+    "GUID": "F816DF4D14C142C2BB5BAA421AD99681",
+    "Name": "Mysterious Disappearances",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "elder_things_special_disappearance.jpg",
+    "BackTexture": "elder_things_special_disappearance_back.jpg",
+    "BackIndex": -2,
+    "NumHorizontal": 4,
+    "NumVertical": 2,
+    "Width": 7.3718430655190215,
+    "Height": 11.5660717878,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

@@ -1,0 +1,59 @@
+{
+	"Type": "Card",
+	"GUID": "AE6F14924A56FB0D9A5E0383F0C6A37D",
+	"Name": "TestTile",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "9E99926263C19E5B5C8B8F3C7B7BE9EDC12F3134_worldr.jpg",
+	"BackTexture": "",
+	"HiddenTexture": "",
+	"BackIndex": 2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 2,
+	"NumVertical": 2,
+	"Width": 6,
+	"Height": 6,
+	"Thickness": 0.2,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": true,
+	"Model": "Square",
+	"Indices": [ 0 ],
+	"CardNames":
+	{
+	}
+}

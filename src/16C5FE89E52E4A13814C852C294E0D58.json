@@ -1,0 +1,47 @@
+{
+    "Type": "Card",
+    "GUID": "16C5FE89E52E4A13814C852C294E0D58",
+    "Name": "Cult",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "fLxQeem.jpg",
+    "BackTexture": "iOK2xh1.jpg",
+    "BackIndex": -3,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 6.063028846153846,
+    "Height": 9.524999999999999,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        3,
+        2,
+        1,
+        0
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}

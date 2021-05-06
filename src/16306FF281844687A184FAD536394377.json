@@ -1,0 +1,49 @@
+{
+    "Type": "Card",
+    "GUID": "16306FF281844687A184FAD536394377",
+    "Name": "Preludes",
+    "CollisionType": "Regular",
+    "Friction": 0.7,
+    "Restitution": 0,
+    "Density": 0.5,
+    "SurfaceType": "Cardboard",
+    "Roughness": 1,
+    "Metallic": 0,
+    "PrimaryColor": {
+        "R": 255,
+        "G": 255,
+        "B": 255
+    },
+    "SecondaryColor": {
+        "R": 0,
+        "G": 0,
+        "B": 0
+    },
+    "Flippable": true,
+    "Blueprint": "",
+    "Models": [],
+    "Collision": [],
+    "SnapPoints": [],
+    "FrontTexture": "34184411E2EC689FB67241B3117BFF6A9F19E808_Final (Front).jpg",
+    "BackTexture": "E3739F11156F683D5C5440ACFA3F6D2E38B13030.jpg",
+    "BackIndex": -2,
+    "NumHorizontal": 10,
+    "NumVertical": 7,
+    "Width": 10.190893488128607,
+    "Height": 16.23849432,
+    "Thickness": 0.05,
+    "HiddenInHand": true,
+    "CanStack": true,
+    "UsedWithCardHolders": true,
+    "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
+    "Indices": [
+        24,
+        27,
+        25,
+        29,
+        26,
+        28
+    ],
+    "ConvexCollision": true,
+    "ShapeAccuracy": 10
+}
