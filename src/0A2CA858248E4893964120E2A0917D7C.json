@@ -20,21 +20,34 @@
         "B": 0
     },
     "Flippable": true,
+    "AutoStraighten": false,
+    "ScriptName": "",
     "Blueprint": "",
     "Models": [],
     "Collision": [],
+    "SnapPointsGlobal": false,
     "SnapPoints": [],
+    "ZoomViewDirection": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+    },
     "FrontTexture": "c0OCLzr.jpg",
     "BackTexture": "DbSXG7D.jpg",
+    "HiddenTexture": "",
     "BackIndex": -3,
+    "HiddenIndex": -1,
     "NumHorizontal": 10,
     "NumVertical": 7,
-    "Width": 4.876799999999999,
+    "Width": 4.8768,
     "Height": 7.62,
     "Thickness": 0.05,
     "HiddenInHand": true,
-    "CanStack": true,
     "UsedWithCardHolders": true,
+    "CanStack": true,
+    "UsePrimaryColorForSide": false,
+    "FrontTextureOverrideExposed": false,
+    "AllowFlippedInStack": false,
     "Model": "StaticMesh'/Game/Meshes/Cards/SquareRounded.SquareRounded'",
     "Indices": [
         30,
@@ -69,6 +82,5 @@
         1,
         0
     ],
-    "ConvexCollision": true,
-    "ShapeAccuracy": 10
+    "CardNames": {}
 }
