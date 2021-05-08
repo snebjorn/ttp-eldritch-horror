@@ -1,0 +1,12 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[src/*.json]
+indent_size = 4
+indent_style = space
+# TTP doesn't insert these, it actively removes them
+insert_final_newline = false
