@@ -9,14 +9,12 @@
 	"SurfaceType": "Cardboard",
 	"Roughness": 1,
 	"Metallic": 0,
-	"PrimaryColor":
-	{
+	"PrimaryColor": {
 		"R": 255,
 		"G": 255,
 		"B": 255
 	},
-	"SecondaryColor":
-	{
+	"SecondaryColor": {
 		"R": 0,
 		"G": 0,
 		"B": 0
@@ -29,8 +27,7 @@
 	"Collision": [],
 	"SnapPointsGlobal": false,
 	"SnapPoints": [],
-	"ZoomViewDirection":
-	{
+	"ZoomViewDirection": {
 		"X": 0,
 		"Y": 0,
 		"Z": 0
@@ -54,9 +51,8 @@
 	"Model": "chipped tile.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
-	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
-	"CardNames":
-	{
+	"Indices": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+	"CardNames": {
 		"0": "Cthulhu",
 		"1": "Cthylla",
 		"2": "Dunwich Horror",

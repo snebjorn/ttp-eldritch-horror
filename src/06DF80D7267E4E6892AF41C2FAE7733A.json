@@ -1,44 +1,59 @@
 {
-    "Type": "Card",
-    "GUID": "06DF80D7267E4E6892AF41C2FAE7733A",
-    "Name": "06DF80D7",
-    "CollisionType": "Regular",
-    "Friction": 0.7,
-    "Restitution": 0,
-    "Density": 0.5,
-    "SurfaceType": "Cardboard",
-    "Roughness": 1,
-    "Metallic": 0,
-    "PrimaryColor": {
-        "R": 255,
-        "G": 255,
-        "B": 255
-    },
-    "SecondaryColor": {
-        "R": 0,
-        "G": 0,
-        "B": 0
-    },
-    "Flippable": true,
-    "Blueprint": "",
-    "Models": [],
-    "Collision": [],
-    "SnapPoints": [],
-    "FrontTexture": "kdvND2Z.png",
-    "BackTexture": "BLI5aOM.png",
-    "BackIndex": 0,
-    "NumHorizontal": 1,
-    "NumVertical": 1,
-    "Width": 9.83938088,
-    "Height": 9.83938088,
-    "Thickness": 0.508,
-    "HiddenInHand": false,
-    "CanStack": true,
-    "UsedWithCardHolders": false,
-    "Model": "StaticMesh'/Game/Meshes/Cards/Round.Round'",
-    "Indices": [
-        0
-    ],
-    "ConvexCollision": true,
-    "ShapeAccuracy": 10
+	"Type": "Card",
+	"GUID": "06DF80D7267E4E6892AF41C2FAE7733A",
+	"Name": "06DF80D7",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "kdvND2Z.png",
+	"BackTexture": "BLI5aOM.png",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 1,
+	"NumVertical": 1,
+	"Width": 9.83938,
+	"Height": 9.83938,
+	"Thickness": 0.508,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": false,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"Model": "StaticMesh'/Game/Meshes/Cards/Round.Round'",
+	"Indices": [ 0 ],
+	"CardNames":
+	{
+	}
 }
