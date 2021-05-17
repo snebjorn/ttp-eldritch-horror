@@ -11,3 +11,11 @@ An attempt to port [Eldritch Horror](https://steamcommunity.com/sharedfiles/file
     - ofn-layer-tiles
     - ofn-tiles
     - clear-layers
+
+## Development
+
+Symlink the src folder to a suitable subfolder in TTP's package location. The package location is by default in `<Tabletop Playground directory>/PersistentDownloadDir`.
+
+### Windows
+
+On Windows [Link Shell Extension](https://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html) can be used to make life easier.
