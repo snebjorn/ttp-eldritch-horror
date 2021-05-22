@@ -51,7 +51,7 @@
 	"Model": "Round",
 	"Indices": [0, 1, 2, 3, 4],
 	"CardNames": {
-		"0": "influance",
+		"0": "influence",
 		"1": "lore",
 		"2": "observation",
 		"3": "strength",
