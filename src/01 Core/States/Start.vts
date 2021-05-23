@@ -75,9 +75,9 @@
 				},
 				"translation":
 				{
-					"x": -0.15750019252300262,
-					"y": -1.2597601413726807,
-					"z": 86.184249877929688
+					"x": 24.807554244995117,
+					"y": -2.6245782375335693,
+					"z": 86.441558837890625
 				},
 				"scale3D":
 				{
@@ -122,6 +122,134 @@
 			"objectScriptName": "",
 			"persistentData": "",
 			"uniqueId": "1fd",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "DynamicObject",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": -3.0895793437957764,
+					"y": -5.7356123924255371,
+					"z": 83.23992919921875
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": false,
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0.30000001192092896,
+			"roughness": 0.60000002384185791,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType2",
+			"objectName": "",
+			"objectDescription": "",
+			"collisionType": "CB_Ground",
+			"templateId": "57C43863456EC91D75CBADAE933981D4",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "j8t",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "DynamicObject",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 4.6598358852123489e-13,
+					"y": -1.1920928244535389e-07,
+					"z": 3.9089541132852901e-06,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 24,
+					"y": -0.71599984169006348,
+					"z": 86.523757934570312
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": false,
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0.30000001192092896,
+			"roughness": 0.60000002384185791,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType2",
+			"objectName": "",
+			"objectDescription": "",
+			"collisionType": "CB_Ground",
+			"templateId": "57C43863456EC91D75CBADAE933981D4",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "ybg",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -212,16 +340,16 @@
 			{
 				"rotation":
 				{
-					"x": -5.3517368314714986e-07,
-					"y": 7.9894891769072274e-07,
-					"z": -1.0652639730324154e-06,
+					"x": -2.1801122329634381e-06,
+					"y": -5.9614691849674273e-08,
+					"z": 4.6104119064693805e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -25.02125358581543,
-					"y": 51.94110107421875,
-					"z": 87.072265625
+					"x": 0.042209818959236145,
+					"y": 49.793544769287109,
+					"z": 87.271263122558594
 				},
 				"scale3D":
 				{
@@ -279,16 +407,16 @@
 			{
 				"rotation":
 				{
-					"x": -1.976882913368172e-06,
-					"y": -3.5762784023063432e-07,
-					"z": -7.0698834156793233e-13,
+					"x": -1.770335870787676e-06,
+					"y": 1.1598136340218446e-10,
+					"z": -6.5513762820046395e-05,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -18.504127502441406,
-					"y": 51.950698852539062,
-					"z": 87.072265625
+					"x": 6.5593986511230469,
+					"y": 49.803184509277344,
+					"z": 87.271263122558594
 				},
 				"scale3D":
 				{
@@ -346,15 +474,15 @@
 			{
 				"rotation":
 				{
-					"x": -9.4858984311940731e-07,
+					"x": -9.4858961574573186e-07,
 					"y": 1.0652644277797663e-06,
-					"z": 4.8130640806220981e-08,
+					"z": 4.8130633700793624e-08,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 58.126262664794922,
-					"y": 79.737617492675781,
+					"y": 79.737625122070312,
 					"z": 86.7681884765625
 				},
 				"scale3D":
@@ -368,10 +496,10 @@
 			"bagType": "Stack",
 			"maxItems": 100,
 			"itemsJson": [
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"cgh\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"576\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"cgh\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.147850036621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"576\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
 				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wwa\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"E4D422574595392D68BE4A85FD87DE77\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"vbi\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"E4D422574595392D68BE4A85FD87DE77\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"vbi\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
 			],
 			"primaryColor":
 			{
@@ -427,7 +555,7 @@
 				{
 					"x": 57.786788940429688,
 					"y": 87.942535400390625,
-					"z": 86.768203735351562
+					"z": 86.768211364746094
 				},
 				"scale3D":
 				{
@@ -440,9 +568,9 @@
 			"bagType": "Stack",
 			"maxItems": 100,
 			"itemsJson": [
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.013084411621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"C961D0B94EB577B96C0BCC92024C12AA\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"a2n\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.110130310058594},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"z1o\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":5.3263249810697744e-07,\"y\":5.3263192967278883e-07,\"z\":-5.3263249810697744e-07,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.147880554199219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"dc6\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715190887451172,\"y\":87.826194763183594,\"z\":92.013084411621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"C961D0B94EB577B96C0BCC92024C12AA\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"a2n\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715190887451172,\"y\":87.826194763183594,\"z\":92.110130310058594},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"z1o\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715190887451172,\"y\":87.826194763183594,\"z\":92.147880554199219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"dc6\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
 			],
 			"primaryColor":
 			{
@@ -497,8 +625,8 @@
 				"translation":
 				{
 					"x": 57.644481658935547,
-					"y": 96.264297485351562,
-					"z": 86.768203735351562
+					"y": 96.264305114746094,
+					"z": 86.768211364746094
 				},
 				"scale3D":
 				{
@@ -511,9 +639,9 @@
 			"bagType": "Stack",
 			"maxItems": 100,
 			"itemsJson": [
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DE9401FF484FDAD15F54ABAD79196550\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"spk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DE9401FF484FDAD15F54ABAD79196550\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"spk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
 				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"fdb\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"8io\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.147850036621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"8io\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
 			],
 			"primaryColor":
 			{
@@ -560,16 +688,16 @@
 			{
 				"rotation":
 				{
-					"x": -6.4262695786965196e-07,
-					"y": 2.6631587957126612e-07,
-					"z": 3.5637970086099813e-07,
+					"x": 0,
+					"y": 0,
+					"z": 0,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 57.069122314453125,
 					"y": 104.27382659912109,
-					"z": 86.768203735351562
+					"z": 86.768211364746094
 				},
 				"scale3D":
 				{
@@ -582,10 +710,10 @@
 			"bagType": "Stack",
 			"maxItems": 100,
 			"itemsJson": [
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"Ancient Ones\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DD0820BD45F5FA983EA6E4B5AD69B93B\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"l8c\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"9dl\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"gm9\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"6zk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15749359130859,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"Ancient Ones\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DD0820BD45F5FA983EA6E4B5AD69B93B\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"l8c\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15749359130859,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"9dl\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15749359130859,\"z\":92.147850036621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"gm9\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15749359130859,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"6zk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
 			],
 			"primaryColor":
 			{
@@ -632,16 +760,16 @@
 			{
 				"rotation":
 				{
-					"x": 2.9292266390257282e-06,
-					"y": 1.0659537110768724e-06,
-					"z": 0.0002352809242438525,
+					"x": 7.989489745341416e-07,
+					"y": -2.3841649010591937e-07,
+					"z": 2.6048178369819652e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 56.261238098144531,
-					"y": -56.614608764648438,
-					"z": 86.768241882324219
+					"x": 60.635921478271484,
+					"y": -62.365333557128906,
+					"z": 86.967239379882812
 				},
 				"scale3D":
 				{
@@ -654,8 +782,8 @@
 			"bagType": "Stack",
 			"maxItems": 100,
 			"itemsJson": [
-				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":2.6631630589690758e-07,\"y\":-2.9802302492498711e-07,\"z\":6.4138833977267495e-07,\"w\":1},\"translation\":{\"x\":56.189666748046875,\"y\":-56.731010437011719,\"z\":92.13812255859375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"338DA1244B063E9DFEA276A77EE1AC28\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"kgd\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
-				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.189666748046875,\"y\":-56.731010437011719,\"z\":92.138114929199219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"EF397A45470AA8B016B1B197617AB46E\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wwk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":60.564292907714844,\"y\":-62.481685638427734,\"z\":92.337089538574219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Ground\",\"templateId\":\"338DA1244B063E9DFEA276A77EE1AC28\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"kgd\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":60.564292907714844,\"y\":-62.481685638427734,\"z\":92.337089538574219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Ground\",\"templateId\":\"EF397A45470AA8B016B1B197617AB46E\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wwk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
 			],
 			"primaryColor":
 			{
@@ -765,13 +893,22 @@
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
 		},
+		{
+			"objectType": "Card",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -9.5242058326377305e-14,
+					"y": -1.1920928244535389e-07,
+					"z": -7.9894834925653413e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 13.31610107421875,
-					"y": -75.056686401367188,
-					"z": 86.922264099121094
+					"x": 47.000450134277344,
+					"y": -58.267318725585938,
+					"z": 87.12127685546875
 				},
 				"scale3D":
 				{
@@ -830,10 +967,10 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999988079071045,
-					"y": -1.338099053782571e-07,
-					"z": 2.6631605010152271e-07,
-					"w": -1.192093321833454e-07
+					"x": 0.99999994039535522,
+					"y": 1.338099053782571e-07,
+					"z": -2.6631602167981328e-07,
+					"w": 3.5762789707405318e-07
 				},
 				"translation":
 				{
@@ -942,7 +1079,7 @@
 				"rotation":
 				{
 					"x": 0.99999994039535522,
-					"y": 9.5242085431431617e-14,
+					"y": 9.5242112536485929e-14,
 					"z": -2.6631607852323214e-07,
 					"w": 3.5762786865234375e-07
 				},
@@ -950,7 +1087,7 @@
 				{
 					"x": 52.099224090576172,
 					"y": -97.055992126464844,
-					"z": 87.055747985839844
+					"z": 87.05572509765625
 				},
 				"scale3D":
 				{
@@ -1076,16 +1213,16 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999994039535522,
-					"y": 2.6631607852323214e-06,
-					"z": -5.9605589797229186e-08,
-					"w": 3.5762769812208717e-07
+					"x": 0.99999994039535522,
+					"y": 2.9536019496845256e-07,
+					"z": 1.0562904717570376e-13,
+					"w": 3.5762786865234375e-07
 				},
 				"translation":
 				{
-					"x": -10.963702201843262,
-					"y": -70.049713134765625,
-					"z": 87.451713562011719
+					"x": 7.5003676414489746,
+					"y": -47.71612548828125,
+					"z": 87.650711059570312
 				},
 				"scale3D":
 				{
@@ -1355,16 +1492,16 @@
 			{
 				"rotation":
 				{
-					"x": 5.326312475517625e-07,
-					"y": -7.1525636258229497e-07,
-					"z": -1.3315801652424852e-06,
+					"x": -3.6428847406070469e-14,
+					"y": 2.6631610694494157e-07,
+					"z": 1.3678800314664841e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -31.672574996948242,
-					"y": -39.873611450195312,
-					"z": 86.922264099121094
+					"x": 44.161159515380859,
+					"y": -56.855098724365234,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -1423,16 +1560,16 @@
 			{
 				"rotation":
 				{
-					"x": -1,
-					"y": 5.3263505606082617e-07,
-					"z": 3.1957929422787856e-06,
-					"w": 8.940713769334252e-07
+					"x": -0.99999988079071045,
+					"y": -8.0466259078093572e-07,
+					"z": 5.3263204335962655e-07,
+					"w": -1.1920971587642271e-07
 				},
 				"translation":
 				{
-					"x": 16.954761505126953,
-					"y": -70.455642700195312,
-					"z": 86.922264099121094
+					"x": 50.000419616699219,
+					"y": -53.715797424316406,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -1499,8 +1636,8 @@
 				"translation":
 				{
 					"x": 46.612091064453125,
-					"y": 105.25105285644531,
-					"z": 86.925186157226562
+					"y": 105.25106048583984,
+					"z": 86.925193786621094
 				},
 				"scale3D":
 				{
@@ -1584,16 +1721,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -7.659843248575271e-08,
+					"y": -1.1920930376163597e-07,
+					"z": 3.2625879953229742e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -8.1854305267333984,
-					"y": -47.124626159667969,
-					"z": 87.091758728027344
+					"x": 21.5003662109375,
+					"y": -47.716018676757812,
+					"z": 87.290733337402344
 				},
 				"scale3D":
 				{
@@ -1731,16 +1868,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -6.9751109776916564e-07,
+					"y": 1.0652640867192531e-06,
+					"z": 4.7687677806607098e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -23.354970932006836,
-					"y": -46.860435485839844,
-					"z": 87.5106201171875
+					"x": 0.50036406517028809,
+					"y": -47.716182708740234,
+					"z": 87.709617614746094
 				},
 				"scale3D":
 				{
@@ -2034,16 +2171,16 @@
 			{
 				"rotation":
 				{
-					"x": -1,
-					"y": 1.0652697710611392e-06,
-					"z": 2.6631589662429178e-06,
-					"w": 2.0265606508473866e-06
+					"x": 0.99999994039535522,
+					"y": 8.9406950110060279e-07,
+					"z": -5.3263198651620769e-07,
+					"w": 1.7881441749523219e-07
 				},
 				"translation":
 				{
-					"x": 17.01887321472168,
-					"y": -67.594070434570312,
-					"z": 86.922264099121094
+					"x": 50.000392913818359,
+					"y": -50.715797424316406,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -2102,16 +2239,16 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999994039535522,
-					"y": 7.9894829241311527e-07,
-					"z": -2.8572619530792265e-13,
-					"w": 3.5762786865234375e-07
+					"x": -0.99999988079071045,
+					"y": -2.6822087306754838e-07,
+					"z": 2.6631605010152271e-07,
+					"w": -1.1920936060505483e-07
 				},
 				"translation":
 				{
-					"x": 17.229434967041016,
-					"y": -78.843772888183594,
-					"z": 86.922271728515625
+					"x": 50.00048828125,
+					"y": -62.715797424316406,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -2177,9 +2314,9 @@
 				},
 				"translation":
 				{
-					"x": 25.981199264526367,
-					"y": -41.616264343261719,
-					"z": 87.347618103027344
+					"x": 50.946189880371094,
+					"y": -42.981121063232422,
+					"z": 87.604904174804688
 				},
 				"scale3D":
 				{
@@ -2238,16 +2375,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.118526779464446e-05,
-					"y": -1.1146077667945065e-05,
-					"z": -7.9882369163897238e-07,
+					"x": -1.5717709800355806e-07,
+					"y": -1.1710605900792925e-13,
+					"z": 7.4505800284896395e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 14.134687423706055,
-					"y": -58.948051452636719,
-					"z": 86.922325134277344
+					"x": 47.0003662109375,
+					"y": -47.2158203125,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -2306,16 +2443,16 @@
 			{
 				"rotation":
 				{
-					"x": 2.3968457298906287e-06,
-					"y": 5.3262903065842693e-07,
-					"z": -1.3315817568582133e-06,
+					"x": -2.3212070487943492e-08,
+					"y": 2.6631610694494157e-07,
+					"z": 3.2782548942122958e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 10.463294982910156,
-					"y": -58.664535522460938,
-					"z": 86.92236328125
+					"x": 43.0003662109375,
+					"y": -47.215850830078125,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -2374,16 +2511,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -3.8652924416737733e-08,
+					"y": 2.0587793080582839e-14,
+					"z": -5.3263221388988313e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 33.897258758544922,
-					"y": -19.435079574584961,
-					"z": 86.982048034667969
+					"x": 58.000236511230469,
+					"y": -30.215734481811523,
+					"z": 87.181045532226562
 				},
 				"scale3D":
 				{
@@ -2485,16 +2622,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -6.5428963580416166e-08,
+					"y": 5.3263221388988313e-07,
+					"z": 4.3196216381602426e-08,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 33.501583099365234,
-					"y": 6.4869608879089355,
-					"z": 86.982048034667969
+					"x": 58.000041961669922,
+					"y": -6.2157325744628906,
+					"z": 87.1810302734375
 				},
 				"scale3D":
 				{
@@ -2596,16 +2733,16 @@
 			{
 				"rotation":
 				{
-					"x": -7.0113131300786335e-08,
-					"y": -5.9604978730476432e-08,
-					"z": 4.79817117593484e-06,
+					"x": -1.4113111035385373e-07,
+					"y": 2.6631272476151935e-07,
+					"z": 2.4050465071923099e-05,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 25.459699630737305,
-					"y": 36.093242645263672,
-					"z": 87.347618103027344
+					"x": 50.424816131591797,
+					"y": 34.728385925292969,
+					"z": 87.604904174804688
 				},
 				"scale3D":
 				{
@@ -2664,16 +2801,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -3.7972490929405467e-08,
+					"y": 1.0112685699687624e-14,
+					"z": -2.6631610694494157e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 32.86419677734375,
-					"y": -6.1054282188415527,
-					"z": 86.982048034667969
+					"x": 58.000137329101562,
+					"y": -18.215734481811523,
+					"z": 87.181045532226562
 				},
 				"scale3D":
 				{
@@ -2775,16 +2912,16 @@
 			{
 				"rotation":
 				{
-					"x": 5.326325549503963e-07,
-					"y": 2.6631539640220581e-07,
-					"z": -1.3315806199898361e-06,
-					"w": 1
+					"x": -0.99999994039535522,
+					"y": 7.9894840609995299e-07,
+					"z": 5.3263198651620769e-07,
+					"w": 1.7881436065181333e-07
 				},
 				"translation":
 				{
-					"x": 17.611440658569336,
-					"y": -58.964920043945312,
-					"z": 86.922203063964844
+					"x": 51.0003662109375,
+					"y": -47.215785980224609,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -2843,16 +2980,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -2.005538846105992e-08,
+					"y": 5.3263221388988313e-07,
+					"z": 1.068214595012669e-14,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 33.534557342529297,
-					"y": 19.785850524902344,
-					"z": 87.161949157714844
+					"x": 57.999858856201172,
+					"y": 17.784267425537109,
+					"z": 87.3609619140625
 				},
 				"scale3D":
 				{
@@ -3014,16 +3151,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.0643231007634313e-06,
-					"y": -5.9606322793115396e-06,
-					"z": -0.00015792544581927359,
+					"x": 3.4621000395418378e-06,
+					"y": -1.7464160919189453e-05,
+					"z": -5.3257173249221523e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 34.666423797607422,
-					"y": 19.771856307983398,
-					"z": 87.601646423339844
+					"x": 57.999874114990234,
+					"y": 17.784278869628906,
+					"z": 87.800498962402344
 				},
 				"scale3D":
 				{
@@ -3082,16 +3219,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -5.0433203568900353e-07,
+					"y": 1.065264541466604e-06,
+					"z": -2.6631556693246239e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 32.986991882324219,
-					"y": -30.668462753295898,
-					"z": 87.055755615234375
+					"x": 57.999950408935547,
+					"y": 5.784266471862793,
+					"z": 87.254745483398438
 				},
 				"scale3D":
 				{
@@ -3217,16 +3354,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -3.0230662417807252e-08,
+					"y": 2.4152737915141692e-14,
+					"z": -7.9894834925653413e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 33.411956787109375,
-					"y": -41.064796447753906,
-					"z": 87.263214111328125
+					"x": 58.000328063964844,
+					"y": -42.215736389160156,
+					"z": 87.462211608886719
 				},
 				"scale3D":
 				{
@@ -3424,16 +3561,16 @@
 			{
 				"rotation":
 				{
-					"x": 1,
-					"y": 2.9802386336541531e-08,
-					"z": -2.6631610694494157e-07,
-					"w": 3.5762786865234375e-07
+					"x": 0.99999994039535522,
+					"y": 2.9802304624126918e-08,
+					"z": 5.329067553585436e-15,
+					"w": 1.7881393432617188e-07
 				},
 				"translation":
 				{
-					"x": 17.163799285888672,
-					"y": -76.165428161621094,
-					"z": 86.922264099121094
+					"x": 50.000457763671875,
+					"y": -59.715797424316406,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -3492,15 +3629,15 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999988079071045,
-					"y": -5.5816101962591347e-08,
-					"z": 2.6631607852323214e-07,
-					"w": -1.1920930376163597e-07
+					"x": 0.99999994039535522,
+					"y": 5.5816137489728135e-08,
+					"z": -2.6631605010152271e-07,
+					"w": 3.5762789707405318e-07
 				},
 				"translation":
 				{
 					"x": 17.454479217529297,
-					"y": 102.37281799316406,
+					"y": 102.37282562255859,
 					"z": 86.9820556640625
 				},
 				"scale3D":
@@ -3603,16 +3740,16 @@
 			{
 				"rotation":
 				{
-					"x": -3.4021120339303157e-13,
+					"x": -3.4021117628797726e-13,
 					"y": 2.6631610694494157e-07,
-					"z": 1.277471369576233e-06,
+					"z": 1.2774712558893953e-06,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 36.539878845214844,
 					"y": 91.41326904296875,
-					"z": 86.925186157226562
+					"z": 86.925193786621094
 				},
 				"scale3D":
 				{
@@ -3705,7 +3842,7 @@
 				{
 					"x": 46.572990417480469,
 					"y": 91.434616088867188,
-					"z": 86.925216674804688
+					"z": 86.9251708984375
 				},
 				"scale3D":
 				{
@@ -3798,7 +3935,7 @@
 				{
 					"x": 36.470390319824219,
 					"y": 98.407623291015625,
-					"z": 87.055740356445312
+					"z": 87.055747985839844
 				},
 				"scale3D":
 				{
@@ -3924,16 +4061,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -7.3008972201193956e-09,
+					"y": 3.8886931089771818e-15,
+					"z": -5.3263221388988313e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 13.335655212402344,
-					"y": -70.877861022949219,
-					"z": 86.922264099121094
+					"x": 47.00042724609375,
+					"y": -55.256420135498047,
+					"z": 87.12127685546875
 				},
 				"scale3D":
 				{
@@ -4001,7 +4138,7 @@
 				{
 					"x": 46.613780975341797,
 					"y": 98.281486511230469,
-					"z": 86.9820556640625
+					"z": 86.982017517089844
 				},
 				"scale3D":
 				{
@@ -4103,16 +4240,16 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999982118606567,
-					"y": -0.00044068676652386785,
-					"z": 7.0920846972910567e-10,
-					"w": 1.6093251815618714e-06
+					"x": -0.99997878074645996,
+					"y": 0.0065076542086899281,
+					"z": -6.9205857471388299e-06,
+					"w": 9.6826261142268777e-07
 				},
 				"translation":
 				{
-					"x": -12.815597534179688,
-					"y": 51.924392700195312,
-					"z": 87.5360107421875
+					"x": 12.276561737060547,
+					"y": 49.768016815185547,
+					"z": 87.7349853515625
 				},
 				"scale3D":
 				{
@@ -4222,14 +4359,14 @@
 				{
 					"x": -2.41986579429046e-13,
 					"y": 2.6631610694494157e-07,
-					"z": 9.0864421053993283e-07,
+					"z": 9.0864415369651397e-07,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 36.439933776855469,
 					"y": 105.04934692382812,
-					"z": 86.925186157226562
+					"z": 86.925193786621094
 				},
 				"scale3D":
 				{
@@ -4322,7 +4459,7 @@
 				{
 					"x": 26.562999725341797,
 					"y": 91.373802185058594,
-					"z": 86.905960083007812
+					"z": 86.905929565429688
 				},
 				"scale3D":
 				{
@@ -4574,16 +4711,16 @@
 			{
 				"rotation":
 				{
-					"x": -1.6308740669046529e-06,
-					"y": 2.6631423111211916e-07,
-					"z": 1.1424965578044066e-06,
-					"w": 1
+					"x": 5.3699739055446116e-07,
+					"y": 2.9286800327099627e-06,
+					"z": -0.0014903043629601598,
+					"w": 0.99999886751174927
 				},
 				"translation":
 				{
-					"x": -25.004219055175781,
-					"y": 45.546867370605469,
-					"z": 87.971244812011719
+					"x": 0.04586193710565567,
+					"y": 43.4375,
+					"z": 88.170211791992188
 				},
 				"scale3D":
 				{
@@ -4727,16 +4864,16 @@
 			{
 				"rotation":
 				{
-					"x": -3.9270597085305781e-07,
-					"y": -8.9406910319667077e-07,
-					"z": -1.3315808473635116e-06,
+					"x": -2.1445480342663359e-06,
+					"y": -1.1921558495942008e-07,
+					"z": 2.9367108709266176e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -18.617198944091797,
-					"y": 45.529502868652344,
-					"z": 89.340019226074219
+					"x": 6.4464025497436523,
+					"y": 43.382034301757812,
+					"z": 89.538993835449219
 				},
 				"scale3D":
 				{
@@ -5006,16 +5143,16 @@
 			{
 				"rotation":
 				{
-					"x": 1,
-					"y": -2.6631556693246239e-07,
-					"z": -2.6631664695742074e-07,
-					"w": 2.0265579223632812e-06
+					"x": -0.99999988079071045,
+					"y": -1.7881392011531716e-07,
+					"z": 2.6631605010152271e-07,
+					"w": -1.192093321833454e-07
 				},
 				"translation":
 				{
-					"x": 17.258316040039062,
-					"y": -73.468032836914062,
-					"z": 86.922264099121094
+					"x": 50.000438690185547,
+					"y": -56.715797424316406,
+					"z": 87.121261596679688
 				},
 				"scale3D":
 				{
@@ -5074,16 +5211,16 @@
 			{
 				"rotation":
 				{
-					"x": -1,
-					"y": -1.6713889294805995e-07,
-					"z": 5.3263238442013972e-07,
-					"w": 8.9406955794402165e-07
+					"x": 0.99999994039535522,
+					"y": 4.9400193802284775e-07,
+					"z": 1.7666887375776541e-13,
+					"w": 3.5762786865234375e-07
 				},
 				"translation":
 				{
-					"x": -15.678938865661621,
-					"y": -46.938812255859375,
-					"z": 87.196273803710938
+					"x": 14.500368118286133,
+					"y": -47.716075897216797,
+					"z": 87.395278930664062
 				},
 				"scale3D":
 				{
@@ -5257,16 +5394,16 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999994039535522,
-					"y": -8.2639473930612439e-07,
-					"z": 5.3263244126355858e-07,
-					"w": 3.5762744232670229e-07
+					"x": -1,
+					"y": 8.0161145888268948e-05,
+					"z": -5.9657196516127442e-08,
+					"w": 6.5564631768211257e-07
 				},
 				"translation":
 				{
-					"x": -12.831447601318359,
-					"y": 45.603816986083984,
-					"z": 89.219329833984375
+					"x": 12.232110977172852,
+					"y": 43.4564208984375,
+					"z": 89.4183349609375
 				},
 				"scale3D":
 				{
@@ -5524,15 +5661,15 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -3.8326771800711867e-07,
+					"y": 2.6631596483639441e-07,
+					"z": 3.4272679272362438e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 43.741790771484375,
-					"y": -99.421684265136719,
+					"x": 44.660377502441406,
+					"y": -99.112632751464844,
 					"z": 86.86224365234375
 				},
 				"scale3D":
@@ -5590,14 +5727,14 @@
 				"rotation":
 				{
 					"x": 0,
-					"y": 0,
-					"z": 0,
+					"y": -0,
+					"z": 1.1920926112907182e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 43.428142547607422,
-					"y": -95.5670166015625,
+					"x": 44.673782348632812,
+					"y": -95.646408081054688,
 					"z": 86.86474609375
 				},
 				"scale3D":
