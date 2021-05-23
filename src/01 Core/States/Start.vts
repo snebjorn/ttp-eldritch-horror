@@ -51,6 +51,10 @@
 			"guid": "8A0B748B4DA2CE04CB79E4A02C7FD720"
 		},
 		{
+			"name": "Dice",
+			"guid": "3375DFAE0C458622B8D49AA8FA831D1E"
+		},
+		{
 			"name": "General",
 			"guid": "D74C7D5D6745CD565913DAA5FB3E9C93"
 		}
@@ -693,14 +697,74 @@
 			"bCanBeDamaged": false
 		},
 		{
-			"objectType": "Card",
+			"objectType": "Bag",
 			"transform":
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -6.7876694629376289e-06,
+					"y": 1.0651140200934606e-06,
+					"z": 2.2165324480738491e-05,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": -1.1449072360992432,
+					"y": 37.147621154785156,
+					"z": 87.4779052734375
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "InfiniteQueue",
+			"maxItems": 1,
+			"itemsJson": [
+				"{\"objectType\":\"Dice\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":-1.1807172298431396,\"y\":37.089462280273438,\"z\":90.98785400390625},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":186,\"g\":245,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.20000000298023224,\"friction\":0.69999998807907104,\"restitution\":0.5,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"A897158B490E36F0911B03B3BE9BA52A\",\"shouldSnap\":false,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"km7\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 224,
+				"r": 233,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Dice bag",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "h2d",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
 					"w": 1
 				},
 				"translation":
