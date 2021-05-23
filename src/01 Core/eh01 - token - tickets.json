@@ -38,7 +38,7 @@
 	"FrontTexture": "Travel Tickets.jpg",
 	"BackTexture": "",
 	"HiddenTexture": "",
-	"BackIndex": 0,
+	"BackIndex": -1,
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 1,
