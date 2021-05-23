@@ -336,20 +336,377 @@
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
 		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -9.4858984311940731e-07,
+					"y": 1.0652644277797663e-06,
+					"z": 4.8130640806220981e-08,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 58.126262664794922,
+					"y": 79.737617492675781,
+					"z": 86.7681884765625
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9F4F121C4296CCE0DDCDA6BD8B00FC72\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"cgh\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"46026ADD4F314D2A11EF43B5B00234DB\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"576\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"0F7E67F54F4BA6006CCD3E89A33B2274\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wwa\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":58.054637908935547,\"y\":79.62127685546875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"E4D422574595392D68BE4A85FD87DE77\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"vbi\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 106,
+				"g": 128,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Cthulhu",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "wdw",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 5.3293462087822263e-07,
+					"y": 6.9241955316101667e-06,
+					"z": -4.3675845518009737e-05,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 57.786788940429688,
+					"y": 87.942535400390625,
+					"z": 86.768203735351562
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.013084411621094},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"C961D0B94EB577B96C0BCC92024C12AA\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"a2n\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.110130310058594},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"637C2CC449F83E478800AB8DED307776\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"z1o\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":5.3263249810697744e-07,\"y\":5.3263192967278883e-07,\"z\":-5.3263249810697744e-07,\"w\":1},\"translation\":{\"x\":57.715187072753906,\"y\":87.826194763183594,\"z\":92.147880554199219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"1A588B41411FA81D2C80F7806EE4CBAF\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"dc6\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 67,
+				"g": 253,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Azathoth",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "aks",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -5.8635350796976127e-07,
+					"y": 1.0652626087903627e-06,
+					"z": 3.1380964173877146e-06,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 57.644481658935547,
+					"y": 96.264297485351562,
+					"z": 86.768203735351562
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DE9401FF484FDAD15F54ABAD79196550\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"spk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"B261271E468AE695C3121FB860E6E442\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"fdb\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":57.572856903076172,\"y\":96.14794921875,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3E47FCC6489A9DE60EA032B6E2A46E33\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"8io\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 79,
+				"r": 178,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Shub-Niggurath",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "rm5",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -6.4262695786965196e-07,
+					"y": 2.6631587957126612e-07,
+					"z": 3.5637970086099813e-07,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 57.069122314453125,
+					"y": 104.27382659912109,
+					"z": 86.768203735351562
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":-0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.013053894042969},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"Ancient Ones\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DD0820BD45F5FA983EA6E4B5AD69B93B\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"l8c\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"9B3FF1674E9A8DE8C2F489B1ED765855\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"9dl\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.147842407226562},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":6,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":7,\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3306B56C4867F2A08D82C79317F77404\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"gm9\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Card\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.997493743896484,\"y\":104.15748596191406,\"z\":92.110099792480469},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"atlasIndex\":0,\"frontTextureOverride\":\"\",\"inHand\":false,\"stackSerialization\":[{\"index\":1,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":2,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":3,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":4,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false},{\"index\":5,\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"frontTextureOverride\":\"\",\"flipped\":false}],\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0,\"density\":0.5,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DA67FE474F6B081FFD2DEF89F64F0330\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"6zk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 254,
+				"g": 94,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Yog-Sothoth",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "yio",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 2.9292266390257282e-06,
+					"y": 1.0659537110768724e-06,
+					"z": 0.0002352809242438525,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 56.261238098144531,
+					"y": -56.614608764648438,
+					"z": 86.768241882324219
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":2.6631630589690758e-07,\"y\":-2.9802302492498711e-07,\"z\":6.4138833977267495e-07,\"w\":1},\"translation\":{\"x\":56.189666748046875,\"y\":-56.731010437011719,\"z\":92.13812255859375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"338DA1244B063E9DFEA276A77EE1AC28\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"kgd\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"MultistateObject\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":56.189666748046875,\"y\":-56.731010437011719,\"z\":92.138114929199219},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"currentState\":0,\"primaryColor\":{\"b\":255,\"g\":255,\"r\":255,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":0,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":1,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType4\",\"objectName\":\"\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"EF397A45470AA8B016B1B197617AB46E\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wwk\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 241,
+				"r": 245,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Rules",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "i88",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
 			"objectType": "Card",
 			"transform":
 			{
 				"rotation":
 				{
-					"x": -2.0838933778577484e-07,
-					"y": -5.9604633406706853e-07,
-					"z": -2.6631622063177929e-07,
+					"x": 0,
+					"y": 0,
+					"z": 0,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 13.31610107421875,
-					"y": -75.056678771972656,
+					"y": -75.056686401367188,
 					"z": 86.922264099121094
 				},
 				"scale3D":
@@ -409,16 +766,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
-					"w": 1
+					"x": -0.99999988079071045,
+					"y": -1.338099053782571e-07,
+					"z": 2.6631605010152271e-07,
+					"w": -1.192093321833454e-07
 				},
 				"translation":
 				{
-					"x": 36.467510223388672,
-					"y": 100.51723480224609,
-					"z": 86.982048034667969
+					"x": 17.320888519287109,
+					"y": 94.20135498046875,
+					"z": 86.9820556640625
 				},
 				"scale3D":
 				{
@@ -521,7 +878,7 @@
 				"rotation":
 				{
 					"x": 0.99999994039535522,
-					"y": 9.5242071878904461e-14,
+					"y": 9.5242085431431617e-14,
 					"z": -2.6631607852323214e-07,
 					"w": 3.5762786865234375e-07
 				},
@@ -1077,9 +1434,9 @@
 				},
 				"translation":
 				{
-					"x": 57.146873474121094,
-					"y": 90.035118103027344,
-					"z": 86.925201416015625
+					"x": 46.612091064453125,
+					"y": 105.25105285644531,
+					"z": 86.925186157226562
 				},
 				"scale3D":
 				{
@@ -1613,15 +1970,15 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999994039535522,
-					"y": 1.0652699984348146e-06,
-					"z": 2.6631585114955669e-06,
-					"w": 2.1457699403981678e-06
+					"x": -1,
+					"y": 1.0652697710611392e-06,
+					"z": 2.6631589662429178e-06,
+					"w": 2.0265606508473866e-06
 				},
 				"translation":
 				{
 					"x": 17.01887321472168,
-					"y": -67.594062805175781,
+					"y": -67.594070434570312,
 					"z": 86.922264099121094
 				},
 				"scale3D":
@@ -1749,93 +2106,6 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999994039535522,
-					"y": 1.8642128907231381e-06,
-					"z": 5.3263147492543794e-07,
-					"w": 3.5762886341217381e-07
-				},
-				"translation":
-				{
-					"x": 52.368095397949219,
-					"y": 100.91024780273438,
-					"z": 86.905937194824219
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"atlasIndex": 0,
-			"frontTextureOverride": "",
-			"inHand": false,
-			"stackSerialization": [
-				{
-					"index": 0,
-					"templateId": "C961D0B94EB577B96C0BCC92024C12AA",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 0,
-					"templateId": "DE9401FF484FDAD15F54ABAD79196550",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 0,
-					"templateId": "DD0820BD45F5FA983EA6E4B5AD69B93B",
-					"frontTextureOverride": "",
-					"flipped": false
-				}
-			],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0,
-			"density": 0.5,
-			"surfaceType": "SurfaceType4",
-			"objectName": "Ancient Ones",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "E4D422574595392D68BE4A85FD87DE77",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "l8c",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Card",
-			"transform":
-			{
-				"rotation":
-				{
 					"x": 0,
 					"y": 0,
 					"z": 0,
@@ -1904,16 +2174,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.0652643140929285e-06,
-					"y": 3.1957933970261365e-06,
-					"z": 2.9801924483763287e-08,
+					"x": 1.118526779464446e-05,
+					"y": -1.1146077667945065e-05,
+					"z": -7.9882369163897238e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 14.134688377380371,
+					"x": 14.134687423706055,
 					"y": -58.948051452636719,
-					"z": 86.922264099121094
+					"z": 86.922325134277344
 				},
 				"scale3D":
 				{
@@ -2264,7 +2534,7 @@
 				{
 					"x": -7.0113131300786335e-08,
 					"y": -5.9604978730476432e-08,
-					"z": 4.7981716306821909e-06,
+					"z": 4.79817117593484e-06,
 					"w": 1
 				},
 				"translation":
@@ -2441,16 +2711,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.3315819842318888e-06,
-					"y": 1.8642117538547609e-06,
-					"z": -7.98950850366964e-07,
+					"x": 5.326325549503963e-07,
+					"y": 2.6631539640220581e-07,
+					"z": -1.3315806199898361e-06,
 					"w": 1
 				},
 				"translation":
 				{
 					"x": 17.611440658569336,
 					"y": -58.964920043945312,
-					"z": 86.922264099121094
+					"z": 86.922203063964844
 				},
 				"scale3D":
 				{
@@ -3090,10 +3360,10 @@
 			{
 				"rotation":
 				{
-					"x": -0.99999988079071045,
-					"y": -2.980232949312267e-08,
-					"z": 2.6631607852323214e-07,
-					"w": -1.1920930376163597e-07
+					"x": 1,
+					"y": 2.9802386336541531e-08,
+					"z": -2.6631610694494157e-07,
+					"w": 3.5762786865234375e-07
 				},
 				"translation":
 				{
@@ -3158,16 +3428,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.0652644277797663e-06,
-					"y": -4.7683701609457785e-07,
-					"z": 1.0816096107646445e-07,
-					"w": 1
+					"x": -0.99999988079071045,
+					"y": -5.5816101962591347e-08,
+					"z": 2.6631607852323214e-07,
+					"w": -1.1920930376163597e-07
 				},
 				"translation":
 				{
-					"x": 42.137020111083984,
-					"y": 100.39390563964844,
-					"z": 86.982017517089844
+					"x": 17.454479217529297,
+					"y": 102.37281799316406,
+					"z": 86.9820556640625
 				},
 				"scale3D":
 				{
@@ -3269,16 +3539,16 @@
 			{
 				"rotation":
 				{
-					"x": -1.6075689757144573e-07,
-					"y": 2.6631590799297555e-07,
-					"z": 1.2187911124783568e-06,
+					"x": -3.4021120339303157e-13,
+					"y": 2.6631610694494157e-07,
+					"z": 1.277471369576233e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 47.074657440185547,
-					"y": 76.197341918945312,
-					"z": 86.925193786621094
+					"x": 36.539878845214844,
+					"y": 91.41326904296875,
+					"z": 86.925186157226562
 				},
 				"scale3D":
 				{
@@ -3369,9 +3639,9 @@
 				},
 				"translation":
 				{
-					"x": 57.107769012451172,
-					"y": 76.218681335449219,
-					"z": 86.925193786621094
+					"x": 46.572990417480469,
+					"y": 91.434616088867188,
+					"z": 86.925216674804688
 				},
 				"scale3D":
 				{
@@ -3462,9 +3732,9 @@
 				},
 				"translation":
 				{
-					"x": 47.005168914794922,
-					"y": 83.191696166992188,
-					"z": 87.05572509765625
+					"x": 36.470390319824219,
+					"y": 98.407623291015625,
+					"z": 87.055740356445312
 				},
 				"scale3D":
 				{
@@ -3590,9 +3860,9 @@
 			{
 				"rotation":
 				{
-					"x": -2.0325421701272717e-07,
-					"y": -5.9604627722364967e-07,
-					"z": -5.3263232757672085e-07,
+					"x": 0,
+					"y": 0,
+					"z": 0,
 					"w": 1
 				},
 				"translation":
@@ -3665,9 +3935,9 @@
 				},
 				"translation":
 				{
-					"x": 57.1485595703125,
-					"y": 83.0655517578125,
-					"z": 86.982040405273438
+					"x": 46.613780975341797,
+					"y": 98.281486511230469,
+					"z": 86.9820556640625
 				},
 				"scale3D":
 				{
@@ -3769,15 +4039,15 @@
 			{
 				"rotation":
 				{
-					"x": 0.99999982118606567,
-					"y": 0.00042355037294328213,
-					"z": -3.4609222439030418e-06,
-					"w": 2.8028844099026173e-06
+					"x": -0.99999982118606567,
+					"y": -0.00044068676652386785,
+					"z": 7.0920846972910567e-10,
+					"w": 1.6093251815618714e-06
 				},
 				"translation":
 				{
-					"x": -12.81599235534668,
-					"y": 51.924491882324219,
+					"x": -12.815597534179688,
+					"y": 51.924392700195312,
 					"z": 87.5360107421875
 				},
 				"scale3D":
@@ -3886,16 +4156,16 @@
 			{
 				"rotation":
 				{
-					"x": -2.4198660653410031e-13,
+					"x": -2.41986579429046e-13,
 					"y": 2.6631610694494157e-07,
-					"z": 9.0864432422677055e-07,
+					"z": 9.0864421053993283e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 46.974712371826172,
-					"y": 89.833419799804688,
-					"z": 86.925193786621094
+					"x": 36.439933776855469,
+					"y": 105.04934692382812,
+					"z": 86.925186157226562
 				},
 				"scale3D":
 				{
@@ -3986,9 +4256,9 @@
 				},
 				"translation":
 				{
-					"x": 37.0977783203125,
-					"y": 76.157867431640625,
-					"z": 86.905937194824219
+					"x": 26.562999725341797,
+					"y": 91.373802185058594,
+					"z": 86.905960083007812
 				},
 				"scale3D":
 				{
@@ -4073,8 +4343,8 @@
 				},
 				"translation":
 				{
-					"x": 37.0504150390625,
-					"y": 89.889389038085938,
+					"x": 26.515636444091797,
+					"y": 105.10531616210938,
 					"z": 86.905937194824219
 				},
 				"scale3D":
@@ -4160,8 +4430,8 @@
 				},
 				"translation":
 				{
-					"x": 36.954338073730469,
-					"y": 82.822738647460938,
+					"x": 26.4195556640625,
+					"y": 98.038665771484375,
 					"z": 86.905937194824219
 				},
 				"scale3D":
@@ -4240,15 +4510,15 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
+					"x": -1.6308740669046529e-06,
+					"y": 2.6631423111211916e-07,
+					"z": 1.1424965578044066e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -25.004201889038086,
-					"y": 45.546855926513672,
+					"x": -25.004219055175781,
+					"y": 45.546867370605469,
 					"z": 87.971244812011719
 				},
 				"scale3D":
@@ -4393,14 +4663,14 @@
 			{
 				"rotation":
 				{
-					"x": -3.9270602769647667e-07,
+					"x": -3.9270597085305781e-07,
 					"y": -8.9406910319667077e-07,
 					"z": -1.3315808473635116e-06,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": -18.617206573486328,
+					"x": -18.617198944091797,
 					"y": 45.529502868652344,
 					"z": 89.340019226074219
 				},
@@ -4672,10 +4942,10 @@
 			{
 				"rotation":
 				{
-					"x": 0.99999994039535522,
-					"y": -2.6631551008904353e-07,
+					"x": 1,
+					"y": -2.6631556693246239e-07,
 					"z": -2.6631664695742074e-07,
-					"w": 2.1457672119140625e-06
+					"w": 2.0265579223632812e-06
 				},
 				"translation":
 				{
@@ -4741,7 +5011,7 @@
 				"rotation":
 				{
 					"x": -1,
-					"y": -1.6713892136976938e-07,
+					"y": -1.6713889294805995e-07,
 					"z": 5.3263238442013972e-07,
 					"w": 8.9406955794402165e-07
 				},
@@ -4924,7 +5194,7 @@
 				"rotation":
 				{
 					"x": -0.99999994039535522,
-					"y": -8.263950235232187e-07,
+					"y": -8.2639473930612439e-07,
 					"z": 5.3263244126355858e-07,
 					"w": 3.5762744232670229e-07
 				},
@@ -5245,136 +5515,6 @@
 			"objectScriptName": "",
 			"persistentData": "",
 			"uniqueId": "27l",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "MultistateObject",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": 55.610008239746094,
-					"y": -29.376052856445312,
-					"z": 86.972251892089844
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"currentState": 0,
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0.30000001192092896,
-			"density": 1,
-			"surfaceType": "SurfaceType4",
-			"objectName": "",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "EF397A45470AA8B016B1B197617AB46E",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "wwk",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "MultistateObject",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": 2.6632130811776733e-07,
-					"y": -2.9801856271660654e-07,
-					"z": 1.740833067742642e-05,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": 54.905895233154297,
-					"y": -53.512477874755859,
-					"z": 86.972221374511719
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"currentState": 0,
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0.30000001192092896,
-			"density": 1,
-			"surfaceType": "SurfaceType4",
-			"objectName": "",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "338DA1244B063E9DFEA276A77EE1AC28",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "kgd",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
