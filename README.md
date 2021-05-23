@@ -14,8 +14,13 @@ An attempt to port [Eldritch Horror](https://steamcommunity.com/sharedfiles/file
 
 ## Development
 
-Symlink the src folder to a suitable subfolder in TTP's package location. The package location is by default in `<Tabletop Playground directory>/PersistentDownloadDir`.
+Symlink the src folder to a suitable subfolder in TTP's package location. The package location is by default in `<Tabletop Playground directory>/TabletopPlayground/PersistentDownloadDir`.
+
+```
+src/01 Core           ->    .../PersistentDownloadDir/Eldritch Horror
+src/Big Ball of Mud   ->    .../PersistentDownloadDir/Eldritch Horror WIP
+```
 
 ### Windows
 
-On Windows [Link Shell Extension](https://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html) can be used to make life easier.
+On Windows [Link Shell Extension](https://schinagl.priv.at/nt/hardlinkshellext/hardlinkshellext.html) can be used to make life easier. Use Junctions links.
