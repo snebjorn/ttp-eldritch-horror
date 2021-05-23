@@ -203,6 +203,139 @@
 			"bCanBeDamaged": false
 		},
 		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -5.3517368314714986e-07,
+					"y": 7.9894891769072274e-07,
+					"z": -1.0652639730324154e-06,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": -25.02125358581543,
+					"y": 51.94110107421875,
+					"z": 87.072265625
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 165,
+				"r": 167,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 0.80000001192092896,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType3",
+			"objectName": "Discarded Gates",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "BD18A8444572DEB3F1677B8751A66578",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "qxy",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -1.976882913368172e-06,
+					"y": -3.5762784023063432e-07,
+					"z": -7.0698834156793233e-13,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": -18.504127502441406,
+					"y": 51.950698852539062,
+					"z": 87.072265625
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [],
+			"primaryColor":
+			{
+				"b": 30,
+				"g": 87,
+				"r": 8,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 0.80000001192092896,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType3",
+			"objectName": "Discarded Clues",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "BD18A8444572DEB3F1677B8751A66578",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "vm0",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
 			"objectType": "Card",
 			"transform":
 			{
