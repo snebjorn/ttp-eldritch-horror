@@ -123,6 +123,86 @@
 			"bCanBeDamaged": false
 		},
 		{
+			"objectType": "Bag",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 1.5978966985130683e-06,
+					"y": -3.4043651144649578e-12,
+					"z": -2.1305288555595325e-06,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 43.590728759765625,
+					"y": -106.20964050292969,
+					"z": 86.768211364746094
+				},
+				"scale3D":
+				{
+					"x": 2,
+					"y": 2,
+					"z": 2
+				}
+			},
+			"simulatingPhysics": true,
+			"bagType": "Stack",
+			"maxItems": 100,
+			"itemsJson": [
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158065795898438},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Akachi Onyele\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"0CCE31B846690E4EF211018BD6E346EC\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"mak\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158065795898438},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Charlie Kane\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"AAE8DA8542E842D1AC4A00766423BD23\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"vkt\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Diana Stanley\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"DF4926A9FC784A51BE77D91D02D7C0D2\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"z33\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Jacqueline Fine\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"B64182E7339B4E958A1A43AC56ABF23D\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"50f\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Jim Culver\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"5C8B50AA423B4AB6B51154D31DE267C9\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"xky\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Leo Anderson\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"0E3FBBD5CF8A4EE3A8B480FFA841FAE9\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"6qz\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158065795898438},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Lily Chen\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"0BE4F413EE62436B9C129DD3FBF92623\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"m44\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Lola Hayes\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"3F17A46DDA1748E09D7B83129124FAFF\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"wjx\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Mark Harrigan\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"32B4C39556FB42B29F458FFA97DEA150\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"s9p\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158065795898438},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Norman Withers\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"14BB226345F44256905820FFD6F4CDE4\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"qhw\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158050537109375},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Silas Marsh\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"4508042DB02341F681463155FF8863FA\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"o5k\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}",
+				"{\"objectType\":\"Figure\",\"transform\":{\"rotation\":{\"x\":0,\"y\":0,\"z\":0,\"w\":1},\"translation\":{\"x\":43.519100189208984,\"y\":-106.32598876953125,\"z\":92.158065795898438},\"scale3D\":{\"x\":1,\"y\":1,\"z\":1}},\"simulatingPhysics\":false,\"primaryColor\":{\"b\":255,\"g\":0,\"r\":0,\"a\":255},\"secondaryColor\":{\"b\":0,\"g\":255,\"r\":0,\"a\":255},\"metallic\":0,\"roughness\":0.30000001192092896,\"friction\":0.69999998807907104,\"restitution\":0.30000001192092896,\"density\":1,\"surfaceType\":\"SurfaceType1\",\"objectName\":\"Trish Scarborough\",\"objectDescription\":\"\",\"collisionType\":\"CB_Regular\",\"templateId\":\"34C4174F5BFF48749036AB8DF2EE85A1\",\"shouldSnap\":true,\"previousPosition\":{\"x\":0,\"y\":0,\"z\":0},\"objectScriptPackage\":\"00000000000000000000000000000000\",\"objectScriptName\":\"\",\"persistentData\":\"\",\"uniqueId\":\"q1e\",\"objectGroupId\":-1,\"ownerIndex\":-1,\"bCanBeDamaged\":false}"
+			],
+			"primaryColor":
+			{
+				"b": 147,
+				"g": 155,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0.30000001192092896,
+			"density": 1,
+			"surfaceType": "SurfaceType5",
+			"objectName": "Pawns",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "7D4457334FE9A8DF3D57A19518F3C775",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "xnu",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
 			"objectType": "Card",
 			"transform":
 			{
