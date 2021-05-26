@@ -51,6 +51,7 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": false,
 	"Model": "chipped tile.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
