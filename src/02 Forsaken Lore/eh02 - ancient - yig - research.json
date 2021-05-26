@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "1A588B41411FA81D2C80F7806EE4CBAF",
-	"Name": "Azathoth Special Cards",
+	"GUID": "060A47CC4476B75FEA03B2BA3A8B9513",
+	"Name": "Yig Research Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -35,13 +35,13 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Azathoth - Research - front.jpg",
-	"BackTexture": "Azathoth - Research - back.jpg",
+	"FrontTexture": "Yig - Research - front.jpg",
+	"BackTexture": "Yig - Research - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 4,
-	"NumVertical": 2,
+	"NumHorizontal": 6,
+	"NumVertical": 4,
 	"Width": 5.7,
 	"Height": 8.89,
 	"Thickness": 0.05,
@@ -52,7 +52,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ],
 	"CardNames":
 	{
 	}
