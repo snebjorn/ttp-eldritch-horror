@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "setup-investigator.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
@@ -67,7 +67,8 @@
 	"CanStack": true,
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
-	"AllowFlippedInStack": true,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Square",
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
 	"CardNames":

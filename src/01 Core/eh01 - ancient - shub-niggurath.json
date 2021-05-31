@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "shub-niggurath.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
@@ -51,9 +51,11 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Square",
 	"Indices": [ 0 ],
 	"CardNames":
 	{
+		"0": "Shub-Niggurath"
 	}
 }

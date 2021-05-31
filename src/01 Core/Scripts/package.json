@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@tabletop-playground/api": "^0.17.0"
+  }
+}

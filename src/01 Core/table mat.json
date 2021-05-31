@@ -296,6 +296,142 @@
 			"Range": 1,
 			"SnapRotation": false,
 			"RotationOffset": 0
+		},
+		{
+			"X": 22.0365,
+			"Y": 46.3443,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 10.36,
+			"Y": 44.2337,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 10.2905,
+			"Y": 50.6922,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 26.1691,
+			"Y": 53.8601,
+			"Z": 0.497513,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 26.2088,
+			"Y": 57.5969,
+			"Z": 0.497513,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 26.2416,
+			"Y": 61.4691,
+			"Z": 0.497513,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 21.6051,
+			"Y": 53.8651,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 21.5732,
+			"Y": 57.7411,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 21.5582,
+			"Y": 61.4935,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 1.34692,
+			"Y": 47.6762,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 1.30109,
+			"Y": 58.1703,
+			"Z": 0.49752,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 30.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 36.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 42.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 48.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 54.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 34,
+			"Y": 60.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
 		}
 	],
 	"ZoomViewDirection":
