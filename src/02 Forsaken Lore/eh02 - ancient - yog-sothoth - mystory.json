@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "D3AAA13B4ABE379B1898ED88BC157857",
-	"Name": "Yig Mystery Cards",
+	"GUID": "C9C74AFE4F327616A3F6F194FF2C0874",
+	"Name": "Yog-Sothoth Mystery Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -9,14 +9,12 @@
 	"SurfaceType": "Cardboard",
 	"Roughness": 1,
 	"Metallic": 0,
-	"PrimaryColor":
-	{
+	"PrimaryColor": {
 		"R": 255,
 		"G": 255,
 		"B": 255
 	},
-	"SecondaryColor":
-	{
+	"SecondaryColor": {
 		"R": 0,
 		"G": 0,
 		"B": 0
@@ -29,19 +27,18 @@
 	"Collision": [],
 	"SnapPointsGlobal": false,
 	"SnapPoints": [],
-	"ZoomViewDirection":
-	{
+	"ZoomViewDirection": {
 		"X": 0,
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Yig - Mystery - front.jpg",
-	"BackTexture": "Yig - Mystery - back.jpg",
+	"FrontTexture": "Yog-Sothoth - Mystery - front.jpg",
+	"BackTexture": "Yog-Sothoth - Mystery - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 3,
-	"NumVertical": 2,
+	"NumHorizontal": 2,
+	"NumVertical": 1,
 	"Width": 5.7,
 	"Height": 8.89,
 	"Thickness": 0.05,
@@ -53,14 +50,9 @@
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2, 3, 4, 5 ],
-	"CardNames":
-	{
-		"0": "Crown of the Serpent",
-		"1": "K'n-yan Unearthed",
-		"2": "Rise of the Serpent People",
-		"3": "Descendants of Yig",
-		"4": "Migration of Serpents",
-		"5": "The Winged Serpent"
+	"Indices": [0, 1],
+	"CardNames": {
+		"0": "The Stone Circles",
+		"1": "Void Between Worlds"
 	}
 }

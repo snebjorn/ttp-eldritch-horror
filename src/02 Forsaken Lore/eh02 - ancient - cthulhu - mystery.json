@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "9B3FF1674E9A8DE8C2F489B1ED765855",
-	"Name": "Yog-Sothoth Mystery Cards",
+	"GUID": "EA2A0D3C47B4DDD67D59188FF2DEBF34",
+	"Name": "Cthulhu Mystery Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -9,12 +9,14 @@
 	"SurfaceType": "Cardboard",
 	"Roughness": 1,
 	"Metallic": 0,
-	"PrimaryColor": {
+	"PrimaryColor":
+	{
 		"R": 255,
 		"G": 255,
 		"B": 255
 	},
-	"SecondaryColor": {
+	"SecondaryColor":
+	{
 		"R": 0,
 		"G": 0,
 		"B": 0
@@ -27,18 +29,19 @@
 	"Collision": [],
 	"SnapPointsGlobal": false,
 	"SnapPoints": [],
-	"ZoomViewDirection": {
+	"ZoomViewDirection":
+	{
 		"X": 0,
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Yog-Sothoth - Mystery - front.jpg",
-	"BackTexture": "Yog-Sothoth - Mystery - back.jpg",
+	"FrontTexture": "Cthulhu - Mystery - front.jpg",
+	"BackTexture": "Cthulhu - Mystery - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 3,
-	"NumVertical": 2,
+	"NumHorizontal": 2,
+	"NumVertical": 1,
 	"Width": 5.7,
 	"Height": 8.89,
 	"Thickness": 0.05,
@@ -48,14 +51,12 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [0, 1, 2, 3, 4, 5],
-	"CardNames": {
-		"0": "Where the Old Ones Broke Through",
-		"1": "Arcane Understanding",
-		"2": "The Beyond One",
-		"3": "Spawn of You-Sothoth",
-		"4": "The Stone Circles",
-		"5": "Void Between Worlds"
+	"Indices": [ 0, 1 ],
+	"CardNames":
+	{
+		"0": "Threatening Seas",
+		"1": "Queen of the Deep Ones"
 	}
 }
