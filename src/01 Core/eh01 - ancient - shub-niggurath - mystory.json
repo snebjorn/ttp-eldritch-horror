@@ -40,7 +40,7 @@
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 3,
+	"NumHorizontal": 2,
 	"NumVertical": 2,
 	"Width": 5.7,
 	"Height": 8.89,
@@ -51,14 +51,15 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2, 3, 4, 5 ],
+	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
 	{
-		"0": "Spawn of the Black Goat",
+		"0": "Hunting the Thousand",
 		"1": "Nature of the All-Mother",
 		"2": "Rituals in the Wild",
-		"3": "Hunting the Thousand",
+		"3": "Spawn of the Black Goat",
 		"4": "Hour of the Moon Lens",
 		"5": "Blasphemy of the Black Goat"
 	}

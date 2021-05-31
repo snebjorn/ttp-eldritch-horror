@@ -40,7 +40,7 @@
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 3,
+	"NumHorizontal": 2,
 	"NumVertical": 2,
 	"Width": 5.7,
 	"Height": 8.89,
@@ -51,14 +51,15 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2, 3, 4, 5 ],
+	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
 	{
-		"0": "The Deep Ones Attack!",
-		"1": "Watching the Stars",
+		"0": "R'lyeh Risen",
+		"1": "The Deep Ones Attack!",
 		"2": "The Stars Are Right!",
-		"3": "R'lyeh Risen",
+		"3": "Watching the Stars",
 		"4": "Threatening Seas",
 		"5": "Queen of the Deep Ones"
 	}
