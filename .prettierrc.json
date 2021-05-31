@@ -3,7 +3,7 @@
   "endOfLine": "auto",
   "overrides": [
     {
-      "files": "src/*.json",
+      "files": "src/**/*.json",
       "options": {
         "useTabs": true
       }
