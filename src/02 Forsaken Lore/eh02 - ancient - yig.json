@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "yig.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
@@ -51,6 +51,7 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Square",
 	"Indices": [ 0 ],
 	"CardNames":
