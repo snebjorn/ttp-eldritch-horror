@@ -39,7 +39,16 @@ Example:
 setupGame("Shub-Niggurath")
 
 To see the available ancient ones type:
-setupGame()`);
+setupGame()
+
+If you wish to play with an expansion simply run the loadExp function.
+
+Example:
+loadExp("eh02")
+
+To setup a game with Yig (Ancient) from Forsaken Lore (eh02) run the following 2 functions - in order:
+loadExp("eh02")
+setupGame("Yig")`);
 
 /**
  * @param {...string} expansions
