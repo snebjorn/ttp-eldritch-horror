@@ -2,15 +2,14 @@ const {
   refObject,
   UIElement,
   Button,
-  Rotator,
   Vector,
 } = require("@tabletop-playground/api");
+const { Util } = require("./util");
 const {
   assetDeck,
   conditionDeck,
   gameBoardLocations,
 } = require("./world-constants");
-const { takeCardNameFromStack } = require("./util");
 
 const gameBoard = refObject;
 drawRestockButtons();
@@ -27,9 +26,8 @@ function drawRestockButtons() {
     let restockButton = new Button().setText("Restock").setFontSize(64);
     restockButton.onClicked.add(() => {
       const drawnAssetCard = assetDeck.takeCards(1);
-      const reservePosition = reserveSnapPoint.getGlobalPosition();
-      drawnAssetCard.setRotation(new Rotator(0, 0, 180), 0); // flip, no animation
-      drawnAssetCard.setPosition(reservePosition, 1);
+      Util.flip(drawnAssetCard);
+      Util.setPositionAtSnapPoint(drawnAssetCard, reserveSnapPoint);
     });
     ui.widget = restockButton;
     gameBoard.addUI(ui);
@@ -45,12 +43,12 @@ function drawDebtButton() {
   ui.scale = 0.1;
   let drawDebtButton = new Button().setText("Draw Debt").setFontSize(64);
   drawDebtButton.onClicked.add(() => {
-    const drawnAssetCard = takeCardNameFromStack(conditionDeck, "Debt");
+    const drawnAssetCard = Util.takeCardNameFromStack(conditionDeck, "Debt");
     if (drawnAssetCard === undefined) {
       return;
     }
-    const reservePosition = gameBoardLocations.bankLoan.getGlobalPosition();
-    drawnAssetCard.setPosition(reservePosition, 1);
+
+    Util.setPositionAtSnapPoint(drawnAssetCard, gameBoardLocations.bankLoan);
   });
   ui.widget = drawDebtButton;
   gameBoard.addUI(ui);

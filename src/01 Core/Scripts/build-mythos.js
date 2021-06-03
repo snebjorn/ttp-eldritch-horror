@@ -1,4 +1,5 @@
-const { Card, world } = require("@tabletop-playground/api");
+const { Card } = require("@tabletop-playground/api");
+const { Util } = require("./util");
 const { mythosSetupDecks, tableLocations } = require("./world-constants");
 
 /**
@@ -60,7 +61,7 @@ function buildMythosDeck(mythosDeckOptions, gameDifficulty) {
   stage3.addCards(stage2, true);
   stage3.addCards(stage1, true);
 
-  stage3.setPosition(tableLocations.mythosDeck.getGlobalPosition(), 1);
+  Util.setPositionAtSnapPoint(stage3, tableLocations.mythosDeck);
   stage3.setName("Mythos Deck");
   stage3.setId("mythos-deck");
 

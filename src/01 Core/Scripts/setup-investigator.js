@@ -16,7 +16,7 @@ const {
   gameBoardLocations,
 } = require("./world-constants");
 const { investigators } = require("./investigators");
-const { takeCardNameFromStack, takeRandomCardFromStack } = require("./util");
+const { Util } = require("./util");
 
 if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
   world.__eldritchHorror.investigators.push(...investigators);
@@ -77,12 +77,12 @@ function getStartingItems(investigatorSheet, startingItems) {
 
   if (startingItems.assets && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
-      var takenAsset = takeCardNameFromStack(assetDeck, asset);
+      var takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
       if (takenAsset === undefined) {
         return;
       }
 
-      takenAsset.setRotation(new Rotator(0, 0, 180), 0); // flip it
+      Util.flip(takenAsset);
       positionItemOnInvestigatorSheet(
         investigatorSheet,
         takenAsset,
@@ -93,7 +93,7 @@ function getStartingItems(investigatorSheet, startingItems) {
 
   if (startingItems.spells && startingItems.spells.length > 0) {
     startingItems.spells.forEach((spell) => {
-      const spellCard = takeCardNameFromStack(spellDeck, spell);
+      const spellCard = Util.takeCardNameFromStack(spellDeck, spell);
       if (spellCard === undefined) {
         return;
       }
@@ -108,7 +108,10 @@ function getStartingItems(investigatorSheet, startingItems) {
 
   if (startingItems.conditions && startingItems.conditions.length > 0) {
     startingItems.conditions.forEach((condition) => {
-      const conditionCard = takeCardNameFromStack(conditionDeck, condition);
+      const conditionCard = Util.takeCardNameFromStack(
+        conditionDeck,
+        condition
+      );
       if (conditionCard === undefined) {
         return;
       }
@@ -122,7 +125,7 @@ function getStartingItems(investigatorSheet, startingItems) {
   }
 
   if (startingItems.clues && startingItems.clues > 0) {
-    const clueToken = takeRandomCardFromStack(cluePool);
+    const clueToken = Util.takeRandomCardFromStack(cluePool);
     if (clueToken === undefined) {
       return;
     }

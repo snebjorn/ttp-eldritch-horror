@@ -1,6 +1,6 @@
 const { world, Rotator, Card, Vector } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
-const { takeCardNameFromStack } = require("./util");
+const { Util } = require("./util");
 const {
   doomToken,
   gameBoardLocations,
@@ -33,7 +33,7 @@ exports.setupAncient = setupAncient;
  */
 function setupDoomToken(num) {
   let doomLocation = gameBoardLocations.doom[num];
-  doomToken.setPosition(doomLocation.getGlobalPosition(), 1);
+  Util.setPositionAtSnapPoint(doomToken, doomLocation);
 }
 
 /**
@@ -41,12 +41,12 @@ function setupDoomToken(num) {
  */
 function setupAncientOneSheet(sheetId) {
   const sheet = world.getObjectById(sheetId);
-  sheet.setRotation(new Rotator(0, 0, 180), 0); // flip it
+  Util.flip(sheet);
   const container = sheet.getContainer();
   if (container) {
     container.take(sheet, tableLocations.ancientOne.getGlobalPosition());
   } else {
-    sheet.setPosition(tableLocations.ancientOne.getGlobalPosition(), 1);
+    Util.setPositionAtSnapPoint(sheet, tableLocations.ancientOne);
   }
 
   // cleanup - return unused ancients to game box
@@ -64,22 +64,18 @@ function setupMonsters(monsters) {
 
   let offset = 0;
   for (const [monsterName, count] of Object.entries(monsters)) {
-    let monsterStack = takeCardNameFromStack(monsterCup, monsterName);
+    const monsterStack = Util.takeCardNameFromStack(
+      monsterCup,
+      monsterName,
+      count
+    );
     if (monsterStack === undefined) {
-      return;
+      continue;
     }
 
-    for (let i = 1; i < count; i++) {
-      let monsterToken = takeCardNameFromStack(monsterCup, monsterName);
-      if (monsterToken === undefined) {
-        continue;
-      }
-
-      monsterStack.addCards(monsterToken, true);
-    }
-    monsterStack.setPosition(
-      tableLocations.ancientOneMonsters[offset++].getGlobalPosition(),
-      1
+    Util.setPositionAtSnapPoint(
+      monsterStack,
+      tableLocations.ancientOneMonsters[offset++]
     );
   }
 }
@@ -102,11 +98,9 @@ function setupMysteryCards(mysteryTemplateIds) {
   mysteryDeck.setId("mystery-deck");
   mysteryDeck.shuffle();
   const topMysteryCard = mysteryDeck.takeCards();
-  topMysteryCard.setRotation(new Rotator(0, -90, 180), 0); // flip, no animation
-  topMysteryCard.setPosition(
-    tableLocations.activeMystery.getGlobalPosition(),
-    1
-  );
+  // flip, no animation - for some reason I also have to turn this sideways even though the deck is turned
+  topMysteryCard.setRotation(new Rotator(0, -90, 180), 0);
+  Util.setPositionAtSnapPoint(topMysteryCard, tableLocations.activeMystery);
 }
 
 /**
