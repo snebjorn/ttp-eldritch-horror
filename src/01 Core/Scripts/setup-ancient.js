@@ -18,7 +18,7 @@ function setupAncient(ancientOne, difficulty) {
   setupDoomToken(ancientOne.doom);
   setupMonsters(ancientOne.monsters);
   buildMythosDeck(ancientOne.mythosDeck, difficulty);
-  setupMysteryCards(ancientOne.mysteryTemplateId);
+  setupMysteryCards(ancientOne.mysteryTemplateIds);
   setupResearchCards(ancientOne.researchTemplateIds);
   setupSpecialCards(ancientOne.specialTemplateIds);
 
@@ -29,7 +29,7 @@ function setupAncient(ancientOne, difficulty) {
 exports.setupAncient = setupAncient;
 
 /**
- * @param {number} num
+ * @param {keyof GameBoardLocations["doom"]} num
  */
 function setupDoomToken(num) {
   let doomLocation = gameBoardLocations.doom[num];

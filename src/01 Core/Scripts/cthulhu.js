@@ -5,7 +5,7 @@ const cthulhu = {
   name: "Cthulhu",
   doom: 12,
   sheetId: refCard.getId(),
-  mysteryTemplateId: ["9F4F121C4296CCE0DDCDA6BD8B00FC72"],
+  mysteryTemplateIds: ["9F4F121C4296CCE0DDCDA6BD8B00FC72"],
   researchTemplateIds: ["46026ADD4F314D2A11EF43B5B00234DB"],
   specialTemplateIds: { "R'lyeh Risen": ["0F7E67F54F4BA6006CCD3E89A33B2274"] },
   mythosDeck: {

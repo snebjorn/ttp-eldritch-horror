@@ -160,7 +160,7 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
 
 /**
  * @param {string} pawnTemplateId
- * @param {string} startingLocation
+ * @param {keyof GameBoardLocations["space"]} startingLocation
  */
 function getPawn(pawnTemplateId, startingLocation) {
   const startingLocationSnapPoint = gameBoardLocations.space[startingLocation];

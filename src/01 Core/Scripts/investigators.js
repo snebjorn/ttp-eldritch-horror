@@ -9,7 +9,7 @@ exports.investigators = [
       clues: 1,
       spells: ["Mists of Releh"],
     },
-    startingLocation: "15",
+    startingLocation: 15,
     personalStory: "Guardian of the Veil",
   },
   {
@@ -32,7 +32,7 @@ exports.investigators = [
       assets: ["Arcane Manuscripts"],
       spells: ["Wither"],
     },
-    startingLocation: "7",
+    startingLocation: 7,
     personalStory: "Bound by the Past",
   },
   {
@@ -44,7 +44,7 @@ exports.investigators = [
       clues: 1,
       spells: ["Flesh Ward"],
     },
-    startingLocation: "5",
+    startingLocation: 5,
     personalStory: "Arbiter of Fate",
   },
   {
@@ -56,7 +56,7 @@ exports.investigators = [
       clues: 1,
       spells: ["Shriveling"],
     },
-    startingLocation: "6",
+    startingLocation: 6,
     personalStory: "Dead Rising",
   },
   {
@@ -100,7 +100,7 @@ exports.investigators = [
     startingItems: {
       assets: [".38 Revolver", "Kerosene"],
     },
-    startingLocation: "14",
+    startingLocation: 14,
     personalStory: "Shadowed Heart",
   },
   {
@@ -133,7 +133,7 @@ exports.investigators = [
     startingItems: {
       assets: [".45 Automatic"],
     },
-    startingLocation: "16",
+    startingLocation: 16,
     personalStory: "Cracking the Code",
   },
 ];

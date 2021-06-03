@@ -1,5 +1,10 @@
 // @ts-nocheck
-const { world, Card, SnapPoint } = require("@tabletop-playground/api");
+const {
+  world,
+  Card,
+  Container,
+  SnapPoint,
+} = require("@tabletop-playground/api");
 
 /** @type Card */
 exports.assetDeck = world.getObjectById("asset-deck");
@@ -9,46 +14,33 @@ exports.conditionDeck = world.getObjectById("condition-deck");
 exports.spellDeck = world.getObjectById("spell-deck");
 /** @type Card */
 exports.artifactDeck = world.getObjectById("artifact-deck");
+/** @type EncounterCards */
 exports.encounterDecks = {
-  /** @type Card */
   otherWorld: world.getObjectById("encounter-other-world-deck"),
-  /** @type Card */
   america: world.getObjectById("encounter-america-deck"),
-  /** @type Card */
   europe: world.getObjectById("encounter-europe-deck"),
-  /** @type Card */
   asia: world.getObjectById("encounter-asia-deck"),
-  /** @type Card */
   general: world.getObjectById("encounter-general-deck"),
-  /** @type Card */
-  exploration: world.getObjectById("encounter-exploration-deck"),
+  expedition: world.getObjectById("encounter-expedition-deck"),
 };
 /** @type Container */
 exports.ancientContainer = world.getObjectById("ancient-container");
 
+/** @type MythosSetupDecks */
 exports.mythosSetupDecks = {
   green: {
-    /** @type Card */
     easy: world.getObjectById("mythos-green-easy-deck"),
-    /** @type Card */
     medium: world.getObjectById("mythos-green-medium-deck"),
-    /** @type Card */
     hard: world.getObjectById("mythos-green-hard-deck"),
   },
   yellow: {
-    /** @type Card */
     easy: world.getObjectById("mythos-yellow-easy-deck"),
-    /** @type Card */
     medium: world.getObjectById("mythos-yellow-medium-deck"),
-    /** @type Card */
     hard: world.getObjectById("mythos-yellow-hard-deck"),
   },
   blue: {
-    /** @type Card */
     easy: world.getObjectById("mythos-blue-easy-deck"),
-    /** @type Card */
     medium: world.getObjectById("mythos-blue-medium-deck"),
-    /** @type Card */
     hard: world.getObjectById("mythos-blue-hard-deck"),
   },
 };
@@ -79,8 +71,8 @@ exports.gateStack = world.getObjectById("gate-stack");
 const gameBoard = world.getObjectById("game-board");
 exports.gameBoard = gameBoard;
 
+/** @type GameBoardLocations */
 exports.gameBoardLocations = {
-  /** @type Record<number | string, SnapPoint> */
   space: {
     Antarctica: gameBoard.getSnapPoint(15),
     Arkham: gameBoard.getSnapPoint(29),
@@ -126,7 +118,6 @@ exports.gameBoardLocations = {
     gameBoard.getSnapPoint(50),
     gameBoard.getSnapPoint(51),
   ],
-  /** @type Record<number, SnapPoint> */
   doom: {
     0: gameBoard.getSnapPoint(56),
     1: gameBoard.getSnapPoint(57),
@@ -177,3 +168,5 @@ exports.tableLocations = {
     1: tableMat.getSnapPoint(45),
   },
 };
+
+exports.expansionSpawn = gameBoard.getPosition().add(new Vector(0, 0, 10));

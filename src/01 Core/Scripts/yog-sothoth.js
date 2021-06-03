@@ -5,7 +5,7 @@ const yogSothoth = {
   name: "Yog Sothoth",
   doom: 14,
   sheetId: refCard.getId(),
-  mysteryTemplateId: ["9B3FF1674E9A8DE8C2F489B1ED765855"],
+  mysteryTemplateIds: ["9B3FF1674E9A8DE8C2F489B1ED765855"],
   researchTemplateIds: ["3306B56C4867F2A08D82C79317F77404"],
   specialTemplateIds: {
     "The Key and the Gate": ["DA67FE474F6B081FFD2DEF89F64F0330"],

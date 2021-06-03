@@ -6,7 +6,7 @@ const azathoth = {
   name: "Azathoth",
   doom: 15,
   sheetId: refCard.getId(),
-  mysteryTemplateId: ["637C2CC449F83E478800AB8DED307776"],
+  mysteryTemplateIds: ["637C2CC449F83E478800AB8DED307776"],
   researchTemplateIds: ["1A588B41411FA81D2C80F7806EE4CBAF"],
   mythosDeck: {
     stage1: { green: 1, yellow: 2, blue: 1 },

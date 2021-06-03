@@ -83,7 +83,7 @@ function cleanupMythosCards() {
 
 /**
  * @param {GameDifficulty} gameDifficulty
- * @param {"green"|"yellow"|"blue"} color
+ * @param {MythosCardColors} color
  */
 function setupDifficulty(gameDifficulty, color) {
   const active = [];
@@ -109,7 +109,7 @@ function setupDifficulty(gameDifficulty, color) {
 }
 
 /**
- * @param {MythosColor} config
+ * @param {MythosColorOptions} config
  * @param {Card} greenDeck
  * @param {Card} yellowDeck
  * @param {Card} blueDeck
