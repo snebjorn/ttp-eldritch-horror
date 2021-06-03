@@ -23,7 +23,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "health-sanity.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
