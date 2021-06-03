@@ -10,6 +10,7 @@ const {
   monsterCup,
 } = require("./world-constants");
 const { setupAncient } = require("./setup-ancient");
+const { loadExpansion } = require("./load-expansion");
 
 // MUST be first thing to happen!
 initGlobalObject();
@@ -39,6 +40,16 @@ setupGame("Shub-Niggurath")
 
 To see the available ancient ones type:
 setupGame()`);
+
+/**
+ * @param {...string} expansions
+ */
+// @ts-ignore - temporary measures until a proper UI is implemented
+loadExp = (...expansions) => {
+  const loadedExpansions = loadExpansion(...expansions);
+
+  return `Loaded expansion(s): ${loadedExpansions.join(", ")}`;
+};
 
 /**
  * @param {string} ancientName

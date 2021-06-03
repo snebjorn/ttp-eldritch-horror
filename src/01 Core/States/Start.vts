@@ -635,6 +635,388 @@
 			{
 				"rotation":
 				{
+					"x": -0.99999994039535522,
+					"y": 2.6631616378836043e-07,
+					"z": 2.6631599325810384e-07,
+					"w": 3.5762792549576261e-07
+				},
+				"translation":
+				{
+					"x": 52.099224090576172,
+					"y": -97.055633544921875,
+					"z": 87.055747985839844
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"atlasIndex": 0,
+			"frontTextureOverride": "",
+			"inHand": false,
+			"stackSerialization": [
+				{
+					"index": 1,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 2,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 3,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 4,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 5,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 6,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 7,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 8,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 9,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 10,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 11,
+					"templateId": "388247464C1163D86DB2AD9586C2A91E",
+					"frontTextureOverride": "",
+					"flipped": false
+				}
+			],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0,
+			"density": 0.5,
+			"surfaceType": "SurfaceType4",
+			"objectName": "Investigators",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "388247464C1163D86DB2AD9586C2A91E",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
+			"objectScriptName": "setup-investigator.js",
+			"persistentData": "",
+			"uniqueId": "investigator-deck",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Card",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 1,
+					"y": 6.2584865645476384e-07,
+					"z": 4.7684545734227868e-07,
+					"w": 1.3291835784912109e-05
+				},
+				"translation":
+				{
+					"x": 50.000484466552734,
+					"y": -62.715801239013672,
+					"z": 87.121261596679688
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"atlasIndex": 1,
+			"frontTextureOverride": "",
+			"inHand": false,
+			"stackSerialization": [],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0,
+			"density": 0.5,
+			"surfaceType": "SurfaceType4",
+			"objectName": "Improve Lore",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "5FDAAD17417304414BE4BBBE113AB13E",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "improve-lore-token",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Card",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0.99999994039535522,
+					"y": 8.9406614733889e-07,
+					"z": -5.3263181598595111e-07,
+					"w": 3.5762835182140407e-07
+				},
+				"translation":
+				{
+					"x": 50.000392913818359,
+					"y": -50.715801239013672,
+					"z": 87.121261596679688
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"atlasIndex": 4,
+			"frontTextureOverride": "",
+			"inHand": false,
+			"stackSerialization": [],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0,
+			"density": 0.5,
+			"surfaceType": "SurfaceType4",
+			"objectName": "Improve Will",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "5FDAAD17417304414BE4BBBE113AB13E",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "improve-will-token",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Card",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0,
+					"y": 0,
+					"z": 0,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 58.000236511230469,
+					"y": -30.215734481811523,
+					"z": 87.181053161621094
+				},
+				"scale3D":
+				{
+					"x": 1,
+					"y": 1,
+					"z": 1
+				}
+			},
+			"simulatingPhysics": true,
+			"atlasIndex": 0,
+			"frontTextureOverride": "",
+			"inHand": false,
+			"stackSerialization": [
+				{
+					"index": 1,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 2,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 3,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 4,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 5,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 6,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 7,
+					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"frontTextureOverride": "",
+					"flipped": false
+				}
+			],
+			"primaryColor":
+			{
+				"b": 255,
+				"g": 255,
+				"r": 255,
+				"a": 255
+			},
+			"secondaryColor":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 255
+			},
+			"metallic": 0,
+			"roughness": 1,
+			"friction": 0.69999998807907104,
+			"restitution": 0,
+			"density": 0.5,
+			"surfaceType": "SurfaceType4",
+			"objectName": "American Encounters",
+			"objectDescription": "",
+			"collisionType": "CB_Regular",
+			"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+			"shouldSnap": true,
+			"previousPosition":
+			{
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"objectScriptPackage": "00000000000000000000000000000000",
+			"objectScriptName": "",
+			"persistentData": "",
+			"uniqueId": "encounter-america-deck",
+			"objectGroupId": -1,
+			"ownerIndex": -1,
+			"bCanBeDamaged": false
+		},
+		{
+			"objectType": "Card",
+			"transform":
+			{
+				"rotation":
+				{
 					"x": 0,
 					"y": 0,
 					"z": 0,
@@ -839,9 +1221,9 @@
 			{
 				"rotation":
 				{
-					"x": 1,
-					"y": 6.1567277498397743e-07,
-					"z": 1.1920950271360198e-07,
+					"x": 0.99999994039535522,
+					"y": 6.1567254761030199e-07,
+					"z": 1.1920948850274726e-07,
 					"w": 3.5762778338721546e-07
 				},
 				"translation":
@@ -1243,9 +1625,9 @@
 			{
 				"rotation":
 				{
-					"x": 0.99997884035110474,
-					"y": -0.0065063233487308025,
-					"z": 1.7648329730945989e-07,
+					"x": 0.99997878074645996,
+					"y": -0.0065063228830695152,
+					"z": 1.7648328309860517e-07,
 					"w": 3.5878372273145942e-07
 				},
 				"translation":
@@ -1360,7 +1742,7 @@
 			{
 				"rotation":
 				{
-					"x": -1.6103419397950347e-07,
+					"x": -1.6103416555779404e-07,
 					"y": -1.0728830375228426e-06,
 					"z": -2.6631612399796722e-06,
 					"w": 1
@@ -1429,7 +1811,7 @@
 				"rotation":
 				{
 					"x": 0.99999994039535522,
-					"y": 5.5815942090475801e-08,
+					"y": 5.5815920774193728e-08,
 					"z": -2.6631605010152271e-07,
 					"w": 3.5762789707405318e-07
 				},
@@ -1949,16 +2331,16 @@
 			{
 				"rotation":
 				{
-					"x": 1.8642089116838179e-06,
-					"y": -7.271767572092358e-06,
-					"z": -5.3261868515619426e-07,
+					"x": 7.9894675764080603e-07,
+					"y": -2.9802324661432067e-06,
+					"z": -5.3262982646629098e-07,
 					"w": 1
 				},
 				"translation":
 				{
-					"x": 57.999946594238281,
-					"y": 17.784317016601562,
-					"z": 87.800651550292969
+					"x": 57.999954223632812,
+					"y": 17.784320831298828,
+					"z": 87.800689697265625
 				},
 				"scale3D":
 				{
@@ -2019,7 +2401,7 @@
 				{
 					"x": -3.7745454051218985e-07,
 					"y": 1.0652644277797663e-06,
-					"z": 1.0774722625228605e-07,
+					"z": 1.0774721204143134e-07,
 					"w": 1
 				},
 				"translation":
@@ -2163,7 +2545,7 @@
 			"restitution": 0,
 			"density": 0.5,
 			"surfaceType": "SurfaceType4",
-			"objectName": "Exploration Encounters",
+			"objectName": "Expedition Encounters",
 			"objectDescription": "",
 			"collisionType": "CB_Regular",
 			"templateId": "363C63E343A7811BDEAA2D9BC78E33CE",
@@ -2177,7 +2559,7 @@
 			"objectScriptPackage": "00000000000000000000000000000000",
 			"objectScriptName": "",
 			"persistentData": "",
-			"uniqueId": "encounter-exploration-deck",
+			"uniqueId": "encounter-expedition-deck",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -2436,7 +2818,7 @@
 				"rotation":
 				{
 					"x": 0.99999994039535522,
-					"y": 1.3380922325723077e-07,
+					"y": 1.3380915220295719e-07,
 					"z": -2.6631602167981328e-07,
 					"w": 3.5762789707405318e-07
 				},
@@ -2546,16 +2928,16 @@
 			{
 				"rotation":
 				{
-					"x": 0.99999994039535522,
-					"y": 2.953588307263999e-07,
-					"z": 1.0562855928472614e-13,
-					"w": 3.5762786865234375e-07
+					"x": -1.5139377183004399e-06,
+					"y": 2.9294731120899087e-06,
+					"z": 2.7284313546260819e-06,
+					"w": 1
 				},
 				"translation":
 				{
-					"x": 7.5003676414489746,
-					"y": -47.71612548828125,
-					"z": 87.650718688964844
+					"x": 6.4464225769042969,
+					"y": 43.382041931152344,
+					"z": 89.539024353027344
 				},
 				"scale3D":
 				{
@@ -2571,211 +2953,211 @@
 			"stackSerialization": [
 				{
 					"index": 1,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 2,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 3,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 4,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 5,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 6,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 7,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 8,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 9,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 10,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 11,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 12,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 13,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 14,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 15,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 16,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 17,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 18,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 19,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 20,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 21,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 22,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 23,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 24,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 25,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 26,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 27,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 28,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 29,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 30,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 31,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 32,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 33,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 34,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 35,
-					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 					"frontTextureOverride": "",
 					"flipped": false
 				}
@@ -2800,10 +3182,10 @@
 			"restitution": 0,
 			"density": 0.5,
 			"surfaceType": "SurfaceType4",
-			"objectName": "",
+			"objectName": "Clue Pool",
 			"objectDescription": "",
 			"collisionType": "CB_Regular",
-			"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+			"templateId": "191204D847CE25F8D89A1E897EA39EC9",
 			"shouldSnap": true,
 			"previousPosition":
 			{
@@ -2814,7 +3196,7 @@
 			"objectScriptPackage": "00000000000000000000000000000000",
 			"objectScriptName": "",
 			"persistentData": "",
-			"uniqueId": "condition-deck",
+			"uniqueId": "clue-pool",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -2894,7 +3276,7 @@
 				"rotation":
 				{
 					"x": 0.99999994039535522,
-					"y": 8.046598622968304e-07,
+					"y": 8.0465952123631723e-07,
 					"z": -5.3263187282936997e-07,
 					"w": 3.5762829497798521e-07
 				},
@@ -3219,16 +3601,16 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
-					"w": 1
+					"x": 0.99999994039535522,
+					"y": 2.9535868861785275e-07,
+					"z": 1.0562850507461752e-13,
+					"w": 3.5762786865234375e-07
 				},
 				"translation":
 				{
-					"x": 58.000236511230469,
-					"y": -30.215734481811523,
-					"z": 87.181053161621094
+					"x": 7.5003676414489746,
+					"y": -47.71612548828125,
+					"z": 87.650718688964844
 				},
 				"scale3D":
 				{
@@ -3244,43 +3626,211 @@
 			"stackSerialization": [
 				{
 					"index": 1,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 2,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 3,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 4,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 5,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 6,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				},
 				{
 					"index": 7,
-					"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 8,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 9,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 10,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 11,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 12,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 13,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 14,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 15,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 16,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 17,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 18,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 19,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 20,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 21,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 22,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 23,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 24,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 25,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 26,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 27,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 28,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 29,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 30,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 31,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 32,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 33,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 34,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
+					"frontTextureOverride": "",
+					"flipped": false
+				},
+				{
+					"index": 35,
+					"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 					"frontTextureOverride": "",
 					"flipped": false
 				}
@@ -3305,10 +3855,10 @@
 			"restitution": 0,
 			"density": 0.5,
 			"surfaceType": "SurfaceType4",
-			"objectName": "American Encounters",
+			"objectName": "",
 			"objectDescription": "",
 			"collisionType": "CB_Regular",
-			"templateId": "9BCAE71F46C4C622D487FF916070E0D6",
+			"templateId": "4A5DD35945149A31C3C5D6812BE17A82",
 			"shouldSnap": true,
 			"previousPosition":
 			{
@@ -3319,143 +3869,7 @@
 			"objectScriptPackage": "00000000000000000000000000000000",
 			"objectScriptName": "",
 			"persistentData": "",
-			"uniqueId": "encounter-america-deck",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Card",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": 0.99999994039535522,
-					"y": 8.9406648839940317e-07,
-					"z": -5.3263181598595111e-07,
-					"w": 3.5762835182140407e-07
-				},
-				"translation":
-				{
-					"x": 50.000392913818359,
-					"y": -50.715801239013672,
-					"z": 87.121261596679688
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"atlasIndex": 4,
-			"frontTextureOverride": "",
-			"inHand": false,
-			"stackSerialization": [],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0,
-			"density": 0.5,
-			"surfaceType": "SurfaceType4",
-			"objectName": "Improve Will",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "5FDAAD17417304414BE4BBBE113AB13E",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "improve-will-token",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Card",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": 1,
-					"y": 6.2584865645476384e-07,
-					"z": 4.7684545734227868e-07,
-					"w": 1.3291835784912109e-05
-				},
-				"translation":
-				{
-					"x": 50.000484466552734,
-					"y": -62.715801239013672,
-					"z": 87.121261596679688
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"atlasIndex": 1,
-			"frontTextureOverride": "",
-			"inHand": false,
-			"stackSerialization": [],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0,
-			"density": 0.5,
-			"surfaceType": "SurfaceType4",
-			"objectName": "Improve Lore",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "5FDAAD17417304414BE4BBBE113AB13E",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "improve-lore-token",
+			"uniqueId": "condition-deck",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -3759,420 +4173,6 @@
 			"objectScriptName": "",
 			"persistentData": "",
 			"uniqueId": "asset-deck",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Card",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": -0.99999994039535522,
-					"y": 2.6631616378836043e-07,
-					"z": 2.6631599325810384e-07,
-					"w": 3.5762792549576261e-07
-				},
-				"translation":
-				{
-					"x": 52.099224090576172,
-					"y": -97.055633544921875,
-					"z": 87.055747985839844
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"atlasIndex": 0,
-			"frontTextureOverride": "",
-			"inHand": false,
-			"stackSerialization": [
-				{
-					"index": 1,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 2,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 3,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 4,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 5,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 6,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 7,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 8,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 9,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 10,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 11,
-					"templateId": "388247464C1163D86DB2AD9586C2A91E",
-					"frontTextureOverride": "",
-					"flipped": false
-				}
-			],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0,
-			"density": 0.5,
-			"surfaceType": "SurfaceType4",
-			"objectName": "Investigators",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "388247464C1163D86DB2AD9586C2A91E",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "setup-investigator.js",
-			"persistentData": "",
-			"uniqueId": "investigator-deck",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Card",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": -1.5139377183004399e-06,
-					"y": 2.9294731120899087e-06,
-					"z": 2.7284318093734328e-06,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": 6.4464225769042969,
-					"y": 43.382041931152344,
-					"z": 89.539024353027344
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"atlasIndex": 0,
-			"frontTextureOverride": "",
-			"inHand": false,
-			"stackSerialization": [
-				{
-					"index": 1,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 2,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 3,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 4,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 5,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 6,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 7,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 8,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 9,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 10,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 11,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 12,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 13,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 14,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 15,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 16,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 17,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 18,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 19,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 20,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 21,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 22,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 23,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 24,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 25,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 26,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 27,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 28,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 29,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 30,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 31,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 32,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 33,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 34,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				},
-				{
-					"index": 35,
-					"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-					"frontTextureOverride": "",
-					"flipped": false
-				}
-			],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 1,
-			"friction": 0.69999998807907104,
-			"restitution": 0,
-			"density": 0.5,
-			"surfaceType": "SurfaceType4",
-			"objectName": "Clue Pool",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "191204D847CE25F8D89A1E897EA39EC9",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "clue-pool",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
