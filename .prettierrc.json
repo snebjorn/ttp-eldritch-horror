@@ -1,12 +1,4 @@
 {
   "trailingComma": "es5",
-  "endOfLine": "auto",
-  "overrides": [
-    {
-      "files": "src/**/*.json",
-      "options": {
-        "useTabs": true
-      }
-    }
-  ]
+  "endOfLine": "auto"
 }
