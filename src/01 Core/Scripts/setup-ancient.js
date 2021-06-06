@@ -11,7 +11,7 @@ const {
 
 /**
  * @param {AncientOne} ancientOne
- * @param {GameDifficulty} difficulty
+ * @param {MythosDifficulty} difficulty
  */
 function setupAncient(ancientOne, difficulty) {
   setupAncientOneSheet(ancientOne.sheetId);

@@ -4,7 +4,7 @@ const { mythosSetupDecks, tableLocations } = require("./world-constants");
 
 /**
  * @param {MythosDeckOptions} mythosDeckOptions
- * @param {GameDifficulty} gameDifficulty
+ * @param {MythosDifficulty} gameDifficulty
  */
 function buildMythosDeck(mythosDeckOptions, gameDifficulty) {
   if (
@@ -83,7 +83,7 @@ function cleanupMythosCards() {
 }
 
 /**
- * @param {GameDifficulty} gameDifficulty
+ * @param {MythosDifficulty} gameDifficulty
  * @param {MythosCardColors} color
  */
 function setupDifficulty(gameDifficulty, color) {

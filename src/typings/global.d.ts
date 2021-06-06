@@ -46,7 +46,7 @@ declare global {
     }
   }
 
-  interface GameDifficulty {
+  interface MythosDifficulty {
     isEasy: boolean;
     isMedium: boolean;
     isHard: boolean;
