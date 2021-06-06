@@ -2,7 +2,7 @@ const { refCard, world } = require("@tabletop-playground/api");
 
 /** @type AncientOne */
 const yogSothoth = {
-  name: "Yog Sothoth",
+  name: "Yog-Sothoth",
   doom: 14,
   sheetId: refCard.getId(),
   mysteryTemplateIds: ["9B3FF1674E9A8DE8C2F489B1ED765855"],
