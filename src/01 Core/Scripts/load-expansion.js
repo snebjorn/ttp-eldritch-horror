@@ -141,7 +141,7 @@ function addMythosCards(mythosExpansions) {
  * @param {Card} cards
  */
 function addExpansionCardsToDeck(deck, cards) {
-  const showAnimation = true;
+  const showAnimation = false;
   const toFront = true;
   deck.addCards(cards, toFront, 0, showAnimation);
 }
