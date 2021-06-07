@@ -42,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 2,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -59,8 +59,6 @@
 		"0": "R'lyeh Risen",
 		"1": "The Deep Ones Attack!",
 		"2": "The Stars Are Right!",
-		"3": "Watching the Stars",
-		"4": "Threatening Seas",
-		"5": "Queen of the Deep Ones"
+		"3": "Watching the Stars"
 	}
 }

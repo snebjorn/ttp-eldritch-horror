@@ -93,14 +93,12 @@ function setupMysteryCards(mysteryTemplateIds) {
     tableLocations.mysteryDeck.getGlobalPosition()
   );
 
-  mysteryDeck.setRotation(new Rotator(0, -90, 0), 0); // mystery cards need to be turned sideways
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
   mysteryDeck.shuffle();
   const topMysteryCard = mysteryDeck.takeCards();
-  // flip, no animation - for some reason I also have to turn this sideways even though the deck is turned
-  topMysteryCard.setRotation(new Rotator(0, -90, 180), 0);
   Util.setPositionAtSnapPoint(topMysteryCard, tableLocations.activeMystery);
+  Util.flip(topMysteryCard);
 }
 
 /**

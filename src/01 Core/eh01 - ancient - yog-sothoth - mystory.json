@@ -42,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 2,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -59,8 +59,6 @@
 		"0": "Arcane Understanding",
 		"1": "Spawn of You-Sothoth",
 		"2": "The Beyond One",
-		"3": "Where the Old Ones Broke Through",
-		"4": "The Stone Circles",
-		"5": "Void Between Worlds"
+		"3": "Where the Old Ones Broke Through"
 	}
 }

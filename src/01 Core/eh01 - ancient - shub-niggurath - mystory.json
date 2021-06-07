@@ -42,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 2,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -59,8 +59,6 @@
 		"0": "Hunting the Thousand",
 		"1": "Nature of the All-Mother",
 		"2": "Rituals in the Wild",
-		"3": "Spawn of the Black Goat",
-		"4": "Hour of the Moon Lens",
-		"5": "Blasphemy of the Black Goat"
+		"3": "Spawn of the Black Goat"
 	}
 }
