@@ -9,12 +9,14 @@
 	"SurfaceType": "Cardboard",
 	"Roughness": 1,
 	"Metallic": 0,
-	"PrimaryColor": {
+	"PrimaryColor":
+	{
 		"R": 255,
 		"G": 255,
 		"B": 255
 	},
-	"SecondaryColor": {
+	"SecondaryColor":
+	{
 		"R": 0,
 		"G": 0,
 		"B": 0
@@ -27,7 +29,8 @@
 	"Collision": [],
 	"SnapPointsGlobal": false,
 	"SnapPoints": [],
-	"ZoomViewDirection": {
+	"ZoomViewDirection":
+	{
 		"X": 0,
 		"Y": 0,
 		"Z": 0
@@ -39,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 1,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -50,8 +53,9 @@
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [0, 1],
-	"CardNames": {
+	"Indices": [ 0, 1 ],
+	"CardNames":
+	{
 		"0": "The Green Flame",
 		"1": "Voice of Azathoth"
 	}

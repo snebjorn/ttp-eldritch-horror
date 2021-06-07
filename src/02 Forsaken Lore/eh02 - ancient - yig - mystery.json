@@ -42,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 3,
 	"NumVertical": 2,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -57,10 +57,10 @@
 	"CardNames":
 	{
 		"0": "Crown of the Serpent",
-		"1": "K'n-yan Unearthed",
-		"2": "Rise of the Serpent People",
-		"3": "Descendants of Yig",
-		"4": "Migration of Serpents",
+		"1": "Descendants of Yig",
+		"2": "K'n-yan Unearthed",
+		"3": "Migration of Serpents",
+		"4": "Rise of the Serpent People",
 		"5": "The Winged Serpent"
 	}
 }

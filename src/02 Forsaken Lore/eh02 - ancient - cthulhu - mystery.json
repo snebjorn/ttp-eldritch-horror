@@ -42,8 +42,8 @@
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 1,
-	"Width": 5.7,
-	"Height": 8.89,
+	"Width": 8.89,
+	"Height": 5.7,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -56,7 +56,7 @@
 	"Indices": [ 0, 1 ],
 	"CardNames":
 	{
-		"0": "Threatening Seas",
-		"1": "Queen of the Deep Ones"
+		"0": "Queen of the Deep Ones",
+		"1": "Threatening Seas"
 	}
 }
