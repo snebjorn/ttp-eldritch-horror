@@ -4773,7 +4773,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "improve-influence-token",
 			"objectGroupId": -1,
@@ -4848,7 +4848,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "improve-will-token",
 			"objectGroupId": -1,
@@ -4923,7 +4923,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "improve-lore-token",
 			"objectGroupId": -1,
@@ -4998,7 +4998,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "improve-strength-token",
 			"objectGroupId": -1,
@@ -5073,7 +5073,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "improve-observation-token",
 			"objectGroupId": -1,
@@ -5148,7 +5148,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "train-ticket",
 			"objectGroupId": -1,
@@ -5223,7 +5223,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "ship-ticket",
 			"objectGroupId": -1,
@@ -5298,7 +5298,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "rumor-token",
 			"objectGroupId": -1,
@@ -5373,7 +5373,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "mystery-token",
 			"objectGroupId": -1,
@@ -5448,7 +5448,7 @@
 				"z": 0
 			},
 			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "infinite-queue.js",
+			"objectScriptName": "infinite-stack.js",
 			"persistentData": "",
 			"uniqueId": "eldritch-token",
 			"objectGroupId": -1,
