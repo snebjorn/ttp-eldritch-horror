@@ -30,16 +30,16 @@
 	"SnapPointsGlobal": false,
 	"SnapPoints": [
 		{
-			"X": -1.08,
-			"Y": -1.20702,
+			"X": -1.01,
+			"Y": -1.18,
 			"Z": -0.0250015,
 			"Range": 2,
 			"SnapRotation": true,
 			"RotationOffset": 0
 		},
 		{
-			"X": -0.963787,
-			"Y": -3.84,
+			"X": -0.87,
+			"Y": -3.795,
 			"Z": -0.0250092,
 			"Range": 2,
 			"SnapRotation": true,
