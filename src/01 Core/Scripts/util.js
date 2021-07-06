@@ -1,9 +1,11 @@
 const {
+  world,
   GameObject,
   SnapPoint,
   Vector,
   Rotator,
   Card,
+  MultistateObject,
 } = require("@tabletop-playground/api");
 
 class Util {
@@ -97,6 +99,46 @@ class Util {
     // calling snap() right after calling setPosition() will take care of moving the object
     // on down onto the table without colliding, and the animation will still work.
     gameObject.snap();
+  }
+
+  /**
+   * @param {string} templateId
+   * @param {Vector} position
+   * @returns {Card}
+   */
+  static createCard(templateId, position) {
+    // @ts-ignore
+    return world.createObjectFromTemplate(templateId, position);
+  }
+
+  /**
+   * @param {string} templateId
+   * @param {Vector} position
+   * @returns {GameObject}
+   */
+  static createGameObject(templateId, position) {
+    // @ts-ignore
+    return world.createObjectFromTemplate(templateId, position);
+  }
+
+  /**
+   * @param {string} templateId
+   * @param {Vector} position
+   * @returns {MultistateObject}
+   */
+  static createMultistateObject(templateId, position) {
+    // @ts-ignore
+    return world.createObjectFromTemplate(templateId, position);
+  }
+
+  /**
+   * @param {Card} card
+   * @param {Vector} position
+   * @returns {Card}
+   */
+  static cloneCard(card, position) {
+    // @ts-ignore
+    return world.createObjectFromJSON(card.toJSONString(), position);
   }
 }
 

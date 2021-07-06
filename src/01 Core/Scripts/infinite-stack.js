@@ -1,15 +1,11 @@
-const { Card, world, refCard } = require("@tabletop-playground/api");
+const { refCard } = require("@tabletop-playground/api");
+const { Util } = require("./util");
 
 refCard.setInheritScript(false);
 
 // on card removed add an identical card to the stack
 refCard.onRemoved.add((stack, card) => {
-  /** @type Card */
-  // @ts-ignore
-  const clone = world.createObjectFromJSON(
-    card.toJSONString(),
-    stack.getPosition()
-  );
+  const clone = Util.cloneCard(card, stack.getPosition());
 
   stack.addCards(clone, true);
 });

@@ -135,12 +135,7 @@ function buildDeck(templateIds, location) {
   const finalDeck = templateIds.reduce(
     /** @param {Card | undefined} deck */
     (deck, templateId) => {
-      /** @type Card */
-      // @ts-ignore
-      const expansionCards = world.createObjectFromTemplate(
-        templateId,
-        location
-      );
+      const expansionCards = Util.createCard(templateId, location);
       if (deck === undefined) {
         deck = expansionCards;
       } else {

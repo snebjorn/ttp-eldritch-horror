@@ -159,9 +159,7 @@ function getPawn(pawnTemplateId, startingLocation) {
 function getHealthToken(investigatorSheet, health) {
   const healthTemplateId = "346911D24251ACB6B7FEF0A14B49B614";
   const healthSnapPoint = investigatorSheet.getSnapPoint(0);
-  /** @type MultistateObject */
-  // @ts-ignore
-  const healthToken = world.createObjectFromTemplate(
+  const healthToken = Util.createMultistateObject(
     healthTemplateId,
     healthSnapPoint.getGlobalPosition()
   );
@@ -175,9 +173,7 @@ function getHealthToken(investigatorSheet, health) {
 function getSanityToken(investigatorSheet, sanity) {
   const sanityTemplateId = "CD0FA9DC41E13E96DC743A8A30C2DD75";
   const sanitySnapPoint = investigatorSheet.getSnapPoint(1);
-  /** @type MultistateObject */
-  // @ts-ignore
-  const sanityToken = world.createObjectFromTemplate(
+  const sanityToken = Util.createMultistateObject(
     sanityTemplateId,
     sanitySnapPoint.getGlobalPosition()
   );
