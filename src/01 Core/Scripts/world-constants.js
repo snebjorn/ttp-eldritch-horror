@@ -2,6 +2,8 @@
 const { world, Card, Container, SnapPoint } = require("@tabletop-playground/api");
 
 /** @type Card */
+exports.investigatorDeck = world.getObjectById("investigator-deck");
+/** @type Card */
 exports.assetDeck = world.getObjectById("asset-deck");
 /** @type Card */
 exports.conditionDeck = world.getObjectById("condition-deck");
@@ -52,6 +54,16 @@ exports.rumorToken = world.getObjectById("rumor-token");
 exports.eldritchToken = world.getObjectById("eldritch-token");
 /** @type Card */
 exports.mysteryToken = world.getObjectById("mystery-token");
+/** @type Card */
+exports.loreToken = world.getObjectById("improve-lore-token");
+/** @type Card */
+exports.influenceToken = world.getObjectById("improve-influence-token");
+/** @type Card */
+exports.observationToken = world.getObjectById("improve-observation-token");
+/** @type Card */
+exports.strengthToken = world.getObjectById("improve-strength-token");
+/** @type Card */
+exports.willToken = world.getObjectById("improve-will-token");
 /** @type Card */
 exports.omenToken = world.getObjectById("omen-token");
 /** @type Card */

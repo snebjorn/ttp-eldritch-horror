@@ -14,6 +14,7 @@ const {
   conditionDeck,
   cluePool,
   gameBoardLocations,
+  willToken,
 } = require("./world-constants");
 const { investigators } = require("./investigators");
 const { Util } = require("./util");
@@ -113,6 +114,24 @@ function getStartingItems(investigatorSheet, startingItems) {
     }
 
     positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
+  }
+
+  if (startingItems.will && startingItems.will > 0) {
+    const improvementTokens = Util.createCard(
+      willToken.getTemplateId(),
+      willToken.getPosition().add(new Vector(0, 0, 2))
+    );
+    const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
+    improvementTokens.destroy();
+    if (takenWillToken === undefined) {
+      return;
+    }
+
+    if (startingItems.will === 1) {
+      Util.flip(takenWillToken);
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, takenWillToken, itemsGiven++);
   }
 }
 
