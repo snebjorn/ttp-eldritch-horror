@@ -17,7 +17,7 @@ class Util {
   static findCardNameInStack(cardStack, cardName) {
     for (let i = 0; i < cardStack.getStackSize(); i++) {
       const cardDetails = cardStack.getCardDetails(i);
-      if (cardDetails.name === cardName) {
+      if (cardDetails && cardDetails.name === cardName) {
         return i;
       }
     }
@@ -39,7 +39,7 @@ class Util {
       const foundCard = cardStack.takeCards(1, true, foundCardIndex);
       if (stack === undefined) {
         stack = foundCard;
-      } else {
+      } else if (foundCard) {
         stack.addCards(foundCard, true);
       }
     }
