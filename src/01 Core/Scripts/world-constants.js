@@ -1,10 +1,5 @@
 // @ts-nocheck
-const {
-  world,
-  Card,
-  Container,
-  SnapPoint,
-} = require("@tabletop-playground/api");
+const { world, Card, Container, SnapPoint } = require("@tabletop-playground/api");
 
 /** @type Card */
 exports.assetDeck = world.getObjectById("asset-deck");

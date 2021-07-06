@@ -42,10 +42,7 @@ function setupInvestigator(investigatorSheet) {
     getStartingItems(investigatorSheet, foundInvestigator.startingItems);
     getHealthToken(investigatorSheet, foundInvestigator.health);
     getSanityToken(investigatorSheet, foundInvestigator.sanity);
-    getPawn(
-      foundInvestigator.pawnTemplateId,
-      foundInvestigator.startingLocation
-    );
+    getPawn(foundInvestigator.pawnTemplateId, foundInvestigator.startingLocation);
   }
 }
 
@@ -83,11 +80,7 @@ function getStartingItems(investigatorSheet, startingItems) {
       }
 
       Util.flip(takenAsset);
-      positionItemOnInvestigatorSheet(
-        investigatorSheet,
-        takenAsset,
-        itemsGiven++
-      );
+      positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
     });
   }
 
@@ -98,29 +91,18 @@ function getStartingItems(investigatorSheet, startingItems) {
         return;
       }
 
-      positionItemOnInvestigatorSheet(
-        investigatorSheet,
-        spellCard,
-        itemsGiven++
-      );
+      positionItemOnInvestigatorSheet(investigatorSheet, spellCard, itemsGiven++);
     });
   }
 
   if (startingItems.conditions && startingItems.conditions.length > 0) {
     startingItems.conditions.forEach((condition) => {
-      const conditionCard = Util.takeCardNameFromStack(
-        conditionDeck,
-        condition
-      );
+      const conditionCard = Util.takeCardNameFromStack(conditionDeck, condition);
       if (conditionCard === undefined) {
         return;
       }
 
-      positionItemOnInvestigatorSheet(
-        investigatorSheet,
-        conditionCard,
-        itemsGiven++
-      );
+      positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
     });
   }
 
@@ -167,10 +149,7 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
  */
 function getPawn(pawnTemplateId, startingLocation) {
   const startingLocationSnapPoint = gameBoardLocations.space[startingLocation];
-  world.createObjectFromTemplate(
-    pawnTemplateId,
-    startingLocationSnapPoint.getGlobalPosition()
-  );
+  world.createObjectFromTemplate(pawnTemplateId, startingLocationSnapPoint.getGlobalPosition());
 }
 
 /**

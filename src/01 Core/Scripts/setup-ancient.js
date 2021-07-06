@@ -1,4 +1,4 @@
-const { world, Rotator, Card, Vector } = require("@tabletop-playground/api");
+const { world, Card, Vector } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
 const { Util } = require("./util");
 const {
@@ -64,19 +64,12 @@ function setupMonsters(monsters) {
 
   let offset = 0;
   for (const [monsterName, count] of Object.entries(monsters)) {
-    const monsterStack = Util.takeCardNameFromStack(
-      monsterCup,
-      monsterName,
-      count
-    );
+    const monsterStack = Util.takeCardNameFromStack(monsterCup, monsterName, count);
     if (monsterStack === undefined) {
       continue;
     }
 
-    Util.setPositionAtSnapPoint(
-      monsterStack,
-      tableLocations.ancientOneMonsters[offset++]
-    );
+    Util.setPositionAtSnapPoint(monsterStack, tableLocations.ancientOneMonsters[offset++]);
   }
 }
 
@@ -88,10 +81,7 @@ function setupMysteryCards(mysteryTemplateIds) {
     return;
   }
 
-  const mysteryDeck = buildDeck(
-    mysteryTemplateIds,
-    tableLocations.mysteryDeck.getGlobalPosition()
-  );
+  const mysteryDeck = buildDeck(mysteryTemplateIds, tableLocations.mysteryDeck.getGlobalPosition());
 
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
@@ -109,10 +99,7 @@ function setupResearchCards(researchTemplateIds) {
     return;
   }
 
-  const researchDeck = buildDeck(
-    researchTemplateIds,
-    tableLocations.research.getGlobalPosition()
-  );
+  const researchDeck = buildDeck(researchTemplateIds, tableLocations.research.getGlobalPosition());
 
   researchDeck.setName("Research Encounters");
   researchDeck.shuffle();

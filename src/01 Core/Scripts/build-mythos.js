@@ -7,11 +7,7 @@ const { mythosSetupDecks, tableLocations } = require("./world-constants");
  * @param {MythosDifficulty} mythosDifficulty
  */
 function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
-  if (
-    !mythosDifficulty.isEasy &&
-    !mythosDifficulty.isMedium &&
-    !mythosDifficulty.isHard
-  ) {
+  if (!mythosDifficulty.isEasy && !mythosDifficulty.isMedium && !mythosDifficulty.isHard) {
     throw new Error("No difficulty set. Cannot build mythos deck!");
   }
 
@@ -21,47 +17,21 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
   const yellowMythos = setupDifficulty(mythosDifficulty, "yellow");
   const blueMythos = setupDifficulty(mythosDifficulty, "blue");
 
-  if (
-    greenMythos === undefined ||
-    yellowMythos === undefined ||
-    blueMythos === undefined
-  ) {
+  if (greenMythos === undefined || yellowMythos === undefined || blueMythos === undefined) {
     world.broadcastChatMessage(
       "Cannot configure Mythos difficulty, something is wrong with the decks."
     );
     return;
   }
 
-  warnIfMissingMythosColors(
-    mythosDeckOptions,
-    greenMythos,
-    yellowMythos,
-    blueMythos
-  );
+  warnIfMissingMythosColors(mythosDeckOptions, greenMythos, yellowMythos, blueMythos);
 
-  const stage1 = setupStage(
-    mythosDeckOptions.stage1,
-    greenMythos,
-    yellowMythos,
-    blueMythos
-  );
-  const stage2 = setupStage(
-    mythosDeckOptions.stage2,
-    greenMythos,
-    yellowMythos,
-    blueMythos
-  );
-  const stage3 = setupStage(
-    mythosDeckOptions.stage3,
-    greenMythos,
-    yellowMythos,
-    blueMythos
-  );
+  const stage1 = setupStage(mythosDeckOptions.stage1, greenMythos, yellowMythos, blueMythos);
+  const stage2 = setupStage(mythosDeckOptions.stage2, greenMythos, yellowMythos, blueMythos);
+  const stage3 = setupStage(mythosDeckOptions.stage3, greenMythos, yellowMythos, blueMythos);
 
   if (stage1 === undefined || stage2 === undefined || stage3 === undefined) {
-    world.broadcastChatMessage(
-      "Cannot build mythos deck, something is wrong with the stages."
-    );
+    world.broadcastChatMessage("Cannot build mythos deck, something is wrong with the stages.");
     return;
   }
 
@@ -84,12 +54,7 @@ exports.buildMythosDeck = buildMythosDeck;
  * @param {Card} yellowMythos
  * @param {Card} blueMythos
  */
-function warnIfMissingMythosColors(
-  mythosDeckOptions,
-  greenMythos,
-  yellowMythos,
-  blueMythos
-) {
+function warnIfMissingMythosColors(mythosDeckOptions, greenMythos, yellowMythos, blueMythos) {
   const greenCardCount =
     mythosDeckOptions.stage1.green +
     mythosDeckOptions.stage2.green +
@@ -111,9 +76,7 @@ function warnIfMissingMythosColors(
   }
 
   const blueCardCount =
-    mythosDeckOptions.stage1.blue +
-    mythosDeckOptions.stage2.blue +
-    mythosDeckOptions.stage3.blue;
+    mythosDeckOptions.stage1.blue + mythosDeckOptions.stage2.blue + mythosDeckOptions.stage3.blue;
   if (blueMythos.getStackSize() < blueCardCount) {
     world.broadcastChatMessage(
       "Not enough blue Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the blue card pool is bigger."
@@ -127,12 +90,7 @@ function warnIfMissingMythosColors(
  * @param {Card} stage2
  * @param {Card} stage3
  */
-function warnIfMythosDeckIsIncomplete(
-  mythosDeckOptions,
-  stage1,
-  stage2,
-  stage3
-) {
+function warnIfMythosDeckIsIncomplete(mythosDeckOptions, stage1, stage2, stage3) {
   const stage1CardCount =
     mythosDeckOptions.stage1.green +
     mythosDeckOptions.stage1.yellow +
@@ -146,8 +104,7 @@ function warnIfMythosDeckIsIncomplete(
     mythosDeckOptions.stage3.yellow +
     mythosDeckOptions.stage3.blue;
   const totalCardCount = stage1CardCount + stage2CardCount + stage3CardCount;
-  const builtDeckCount =
-    stage1.getStackSize() + stage2.getStackSize() + stage3.getStackSize();
+  const builtDeckCount = stage1.getStackSize() + stage2.getStackSize() + stage3.getStackSize();
   if (builtDeckCount !== totalCardCount) {
     world.broadcastChatMessage(
       `Mythos deck was supposed to have ${totalCardCount} cards, however it only contains ${builtDeckCount} cards. Include more difficulties or expansions so the Mythos card pool is bigger.`

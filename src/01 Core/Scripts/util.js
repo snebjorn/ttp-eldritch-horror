@@ -50,10 +50,7 @@ class Util {
    * @returns {Card | undefined}
    */
   static takeRandomCardFromStack(cardStack) {
-    const randomOffset = this.randomIntFromInterval(
-      0,
-      cardStack.getStackSize() - 1
-    );
+    const randomOffset = this.randomIntFromInterval(0, cardStack.getStackSize() - 1);
 
     return cardStack.takeCards(1, true, randomOffset);
   }

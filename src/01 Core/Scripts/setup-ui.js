@@ -119,9 +119,7 @@ exports.drawSetupUi = drawSetupUi;
  * @param {MythosDifficulty} mythosDifficulty
  */
 function setupGame(ancientName, mythosDifficulty) {
-  const foundAncientOne = world.__eldritchHorror.ancientOnes.find(
-    (x) => x.name == ancientName
-  );
+  const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
   if (foundAncientOne) {
     setupAncient(foundAncientOne, mythosDifficulty);
     shuffleDecks();
@@ -134,9 +132,7 @@ function shuffleDecks() {
   conditionDeck.shuffle();
   spellDeck.shuffle();
   artifactDeck.shuffle();
-  Object.values(encounterDecks).forEach((encounterDeck) =>
-    encounterDeck.shuffle()
-  );
+  Object.values(encounterDecks).forEach((encounterDeck) => encounterDeck.shuffle());
 }
 
 function shuffleTokens() {
