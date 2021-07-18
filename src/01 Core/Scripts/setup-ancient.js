@@ -41,12 +41,21 @@ function setupDoomToken(num) {
  */
 function setupAncientOneSheet(sheetId) {
   const sheet = world.getObjectById(sheetId);
+  if (!sheet) {
+    throw new Error("Cannot find Ancient One with id " + sheetId);
+  }
+
   Util.flip(sheet);
+  const ancientOneTableLocation = tableLocations.ancientOne;
+  if (!ancientOneTableLocation) {
+    throw new Error("Cannot find table location for the Ancient One");
+  }
+
   const container = sheet.getContainer();
   if (container) {
-    container.take(sheet, tableLocations.ancientOne.getGlobalPosition());
+    container.take(sheet, ancientOneTableLocation.getGlobalPosition());
   } else {
-    Util.setPositionAtSnapPoint(sheet, tableLocations.ancientOne);
+    Util.setPositionAtSnapPoint(sheet, ancientOneTableLocation);
   }
 
   // cleanup - return unused ancients to game box
@@ -81,13 +90,25 @@ function setupMysteryCards(mysteryTemplateIds) {
     return;
   }
 
-  const mysteryDeck = buildDeck(mysteryTemplateIds, tableLocations.mysteryDeck.getGlobalPosition());
+  const mysteryDeckTableLocation = tableLocations.mysteryDeck;
+  if (!mysteryDeckTableLocation) {
+    throw new Error("Cannot find table location for the mystery deck");
+  }
+
+  const mysteryDeck = buildDeck(mysteryTemplateIds, mysteryDeckTableLocation.getGlobalPosition());
 
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
   mysteryDeck.shuffle();
   const topMysteryCard = mysteryDeck.takeCards();
-  Util.setPositionAtSnapPoint(topMysteryCard, tableLocations.activeMystery);
+  if (!topMysteryCard) {
+    throw new Error("Cannot find the top card of the mystery deck");
+  }
+  const activeMysteryTableLocation = tableLocations.activeMystery;
+  if (!activeMysteryTableLocation) {
+    throw new Error("Cannot find table location for the active mystery deck");
+  }
+  Util.setPositionAtSnapPoint(topMysteryCard, activeMysteryTableLocation);
   Util.flip(topMysteryCard);
 }
 
@@ -98,8 +119,12 @@ function setupResearchCards(researchTemplateIds) {
   if (!Array.isArray(researchTemplateIds)) {
     return;
   }
+  const researchTableLocation = tableLocations.research;
+  if (!researchTableLocation) {
+    throw new Error("Cannot find table location for the research deck");
+  }
 
-  const researchDeck = buildDeck(researchTemplateIds, tableLocations.research.getGlobalPosition());
+  const researchDeck = buildDeck(researchTemplateIds, researchTableLocation.getGlobalPosition());
 
   researchDeck.setName("Research Encounters");
   researchDeck.shuffle();

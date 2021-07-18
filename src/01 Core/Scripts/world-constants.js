@@ -1,5 +1,5 @@
 // @ts-nocheck
-const { world, Card, Container, SnapPoint } = require("@tabletop-playground/api");
+const { world, Card, Container, SnapPoint, Vector } = require("@tabletop-playground/api");
 
 /** @type Card */
 exports.investigatorDeck = world.getObjectById("investigator-deck");
@@ -174,6 +174,10 @@ exports.tableLocations = {
     0: tableMat.getSnapPoint(43),
     1: tableMat.getSnapPoint(45),
   },
+  focus: tableMat.getSnapPoint(49),
+  resource: tableMat.getSnapPoint(50),
+  uniqueAssets: tableMat.getSnapPoint(27),
+  preludes: new Vector(41, -94, 87),
 };
 
 exports.expansionSpawn = gameBoard.getPosition().add(new Vector(0, 0, 10));

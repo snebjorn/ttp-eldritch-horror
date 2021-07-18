@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "elder-things.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],

@@ -1,5 +1,4 @@
-import { SnapPoint } from "@tabletop-playground/api";
-import { Card } from "@tabletop-playground/api";
+import { Card, SnapPoint } from "@tabletop-playground/api";
 
 // augmenting TTP module - https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
 declare module "@tabletop-playground/api" {
@@ -44,6 +43,23 @@ declare global {
       researchTemplateId?: string;
       specialTemplateIds?: Record<string, string>;
     }
+
+    interface Items {
+      ancientOneSheets?: Card[];
+      artifactCards?: Card;
+      assetCards?: Card;
+      conditionCards?: Card;
+      encounterCards?: Partial<EncounterCards>;
+      epicMonsters?: Card;
+      focus?: true;
+      gates?: Card;
+      investigators?: Card;
+      monsters?: Card;
+      mythosCards?: Partial<Expansion.MythosCards>;
+      spellCards?: Card;
+      preludeCards?: Card;
+      uniqueAssetCards?: Card;
+    }
   }
 
   interface MythosDifficulty {
@@ -65,6 +81,7 @@ declare global {
       conditions?: string[];
       focus?: number;
       resources?: number;
+      will?: number;
     };
     startingLocation: keyof GameBoardLocations["space"];
     personalStory: string;

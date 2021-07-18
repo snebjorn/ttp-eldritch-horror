@@ -46,7 +46,7 @@
 	"Height": 2,
 	"Thickness": 0.2,
 	"HiddenInHand": false,
-	"UsedWithCardHolders": false,
+	"UsedWithCardHolders": true,
 	"CanStack": true,
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,

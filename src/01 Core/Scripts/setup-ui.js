@@ -1,6 +1,7 @@
 const {
   world,
   Border,
+  Card,
   Color,
   Text,
   CheckBox,
@@ -36,7 +37,7 @@ function drawSetupUi() {
   vBox.addChild(new Text().setText("Expansions"));
 
   /** @type string[] */
-  let activeExpansions = ["eh02"];
+  let activeExpansions = ["eh02", "eh03"];
   let expansionBox = new HorizontalBox();
   vBox.addChild(expansionBox);
   let eh02 = new CheckBox().setText("Forsaken Lore").setIsChecked(true);
@@ -50,6 +51,20 @@ function drawSetupUi() {
     }
   });
   expansionBox.addChild(eh02);
+
+  let eh03 = new CheckBox().setText("Mountains of Madness").setIsChecked(true);
+  eh03.onCheckStateChanged.add((_button, _player, isChecked) => {
+    if (isChecked) {
+      activeExpansions.push("eh03");
+      ancientBox2.addChild(ancientElderThings);
+      ancientBox2.addChild(ancientIthaqua);
+    } else {
+      activeExpansions = activeExpansions.filter((x) => x !== "eh03");
+      ancientBox2.removeChild(ancientElderThings);
+      ancientBox2.removeChild(ancientIthaqua);
+    }
+  });
+  expansionBox.addChild(eh03);
 
   vBox.addChild(new Text().setText(""));
 
@@ -110,6 +125,14 @@ function drawSetupUi() {
   ancientYig.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientYig);
 
+  let ancientElderThings = new Button().setText("Elder Things");
+  ancientElderThings.onClicked.add(ancientClickFn);
+  ancientBox2.addChild(ancientElderThings);
+
+  let ancientIthaqua = new Button().setText("Ithaqua");
+  ancientIthaqua.onClicked.add(ancientClickFn);
+  ancientBox2.addChild(ancientIthaqua);
+
   world.addUI(ui);
 }
 exports.drawSetupUi = drawSetupUi;
@@ -132,6 +155,12 @@ function shuffleDecks() {
   conditionDeck.shuffle();
   spellDeck.shuffle();
   artifactDeck.shuffle();
+  /** @type Card | undefined */
+  // @ts-ignore
+  const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
+  if (uniqueAssetDeck) {
+    uniqueAssetDeck.shuffle();
+  }
   Object.values(encounterDecks).forEach((encounterDeck) => encounterDeck.shuffle());
 }
 

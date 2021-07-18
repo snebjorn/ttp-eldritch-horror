@@ -38,7 +38,7 @@
 			{
 				"X": 0.694996,
 				"Y": 1.625,
-				"Z": 0.998903
+				"Z": 0.0999968
 			},
 			"Rotation":
 			{
@@ -60,71 +60,103 @@
 		{
 			"X": 0,
 			"Y": -10.76,
-			"Z": 0.5,
-			"Range": 2.06085,
+			"Z": 0.0500533,
+			"Range": 1.44267,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": -9,
 			"Y": 13.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 0,
 			"Y": 13.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 9,
 			"Y": 13.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": -9,
 			"Y": 19.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 0,
 			"Y": 19.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 9,
 			"Y": 19.7,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 10.5608,
 			"Y": 27.3,
-			"Z": 0.5,
-			"Range": 2,
+			"Z": 0.0500533,
+			"Range": 1.40007,
 			"SnapRotation": false,
 			"RotationOffset": 0
 		},
 		{
 			"X": 4.3,
 			"Y": 27.3,
-			"Z": 0.5,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -11.25,
+			"Y": 25.45,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -6.75,
+			"Y": 25.45,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -11.25,
+			"Y": 29.95,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -6.75,
+			"Y": 29.95,
+			"Z": 0.15,
 			"Range": 2,
 			"SnapRotation": false,
 			"RotationOffset": 0

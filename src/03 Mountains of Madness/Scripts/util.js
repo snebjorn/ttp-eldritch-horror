@@ -5,7 +5,6 @@ const {
   Vector,
   Rotator,
   Card,
-  Player,
   MultistateObject,
 } = require("@tabletop-playground/api");
 
@@ -60,7 +59,6 @@ class Util {
 
   /**
    * min and max included
-   *
    * @author [source](https://stackoverflow.com/a/7228322/1220627)
    * @param {number} min
    * @param {number} max
@@ -78,6 +76,7 @@ class Util {
   }
 
   /**
+   *
    * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
    * @param {SnapPoint} snapPoint
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
@@ -144,67 +143,6 @@ class Util {
 
   static getNextGroupId() {
     return world.getObjectGroupIds().sort().slice(-1)[0] + 1;
-  }
-
-  /**
-   * @param {Card} card
-   * @param {string} cardStackId
-   * @param {SnapPoint | Vector} [position]
-   */
-  static addToStack(card, cardStackId, position) {
-    /** @type Card */
-    // @ts-ignore
-    const stack = world.getObjectById(cardStackId);
-    if (!stack) {
-      if (!position) {
-        throw new Error(
-          `No position was given to newly created card stack with id: ${cardStackId}`
-        );
-      }
-      if (position instanceof SnapPoint) {
-        if (position.getSnappedObject() !== undefined) {
-          throw new Error(
-            `Object already present at given SnapPoint for newly created card stack with id: ${cardStackId}`
-          );
-        }
-        Util.setPositionAtSnapPoint(card, position);
-      } else {
-        card.setPosition(position, 1);
-      }
-      card.setId(cardStackId);
-      card.setName("Unique Assets");
-    } else {
-      stack.addCards(card);
-    }
-  }
-
-  /**
-   * @param {Card} stack
-   * @param {Card} removedCard
-   */
-  static addCloneToStack(stack, removedCard) {
-    const clone = Util.cloneCard(removedCard, stack.getPosition());
-
-    stack.addCards(clone, true);
-  }
-
-  /**
-   * @param {Card} stack
-   * @param {Card} _card
-   * @param {number} offset
-   * @param {Player} [player]
-   */
-  static removeInsertedCardFromStack(stack, _card, offset, player) {
-    if (player === undefined) {
-      return; // abort when a script is inserting
-    }
-
-    // card.destroy() doesn't work, so have to take() it from the stack first
-    const insertedCard = stack.takeCards(1, true, offset);
-
-    if (insertedCard) {
-      insertedCard.destroy();
-    }
   }
 }
 

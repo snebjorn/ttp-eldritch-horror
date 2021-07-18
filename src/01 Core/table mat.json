@@ -38,7 +38,7 @@
 			{
 				"X": 1.99998,
 				"Y": 3.25002,
-				"Z": 0.995029
+				"Z": 0.0996865
 			},
 			"Rotation":
 			{
@@ -100,7 +100,7 @@
 		{
 			"X": 23,
 			"Y": -57.5515,
-			"Z": 0.497528,
+			"Z": 0.5,
 			"Range": 1,
 			"SnapRotation": false,
 			"RotationOffset": 0
@@ -108,7 +108,7 @@
 		{
 			"X": 23,
 			"Y": -54.5406,
-			"Z": 0.497528,
+			"Z": 0.5,
 			"Range": 1,
 			"SnapRotation": false,
 			"RotationOffset": 0
@@ -428,6 +428,78 @@
 		{
 			"X": 34,
 			"Y": 60.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 5,
+			"Y": -47,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 5,
+			"Y": -52,
+			"Z": 0.5,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 23,
+			"Y": -60.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 23,
+			"Y": -51.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 29,
+			"Y": -62,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 29,
+			"Y": -59,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 29,
+			"Y": -56,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 29,
+			"Y": -53,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 29,
+			"Y": -50,
 			"Z": 0.5,
 			"Range": 1,
 			"SnapRotation": false,

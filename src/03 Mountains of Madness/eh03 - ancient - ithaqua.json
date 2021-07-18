@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ScriptName": "ithaqua.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
