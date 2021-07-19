@@ -38,9 +38,9 @@
 	"FrontTexture": "Round Overview.jpg",
 	"BackTexture": "",
 	"HiddenTexture": "",
-	"BackIndex": -1,
+	"BackIndex": 0,
 	"HiddenIndex": -1,
-	"NumHorizontal": 1,
+	"NumHorizontal": 2,
 	"NumVertical": 1,
 	"Width": 5.7,
 	"Height": 8.89,
@@ -53,7 +53,7 @@
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0 ],
+	"Indices": [ 1 ],
 	"CardNames":
 	{
 	}
