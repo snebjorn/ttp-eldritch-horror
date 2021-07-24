@@ -1,5 +1,5 @@
 const { Card, Vector, world } = require("@tabletop-playground/api");
-const { Util } = require("./util");
+const { UtilCopy } = require("./util-copy");
 
 const antarctica = {
   sideBoardMat: "0FAFCD8F49500E5B3847E2BD614CD1EA",
@@ -19,7 +19,7 @@ function setupSideBoard(spawnPosition) {
     return; // abort - side board is already loaded
   }
 
-  const sideBoardMat = Util.createGameObject(antarctica.sideBoardMat, spawnPosition);
+  const sideBoardMat = UtilCopy.createGameObject(antarctica.sideBoardMat, spawnPosition);
   const matSnaps = {
     board: sideBoardMat.getSnapPoint(0),
     research: sideBoardMat.getSnapPoint(1),
@@ -35,32 +35,32 @@ function setupSideBoard(spawnPosition) {
   if (!matSnaps.board) {
     throw new Error("Cannot find position for antarctica side board");
   }
-  const sideBoard = Util.createGameObject(antarctica.sideBoard, spawnPosition);
-  Util.setPositionAtSnapPoint(sideBoard, matSnaps.board);
+  const sideBoard = UtilCopy.createGameObject(antarctica.sideBoard, spawnPosition);
+  UtilCopy.setPositionAtSnapPoint(sideBoard, matSnaps.board);
 
-  const groupId = Util.getNextGroupId();
+  const groupId = UtilCopy.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
   if (!matSnaps.research) {
     throw new Error("Cannot find position for antarctica research cards");
   }
-  const researchCards = Util.createCard(antarctica.researchCards, spawnPosition);
-  Util.setPositionAtSnapPoint(researchCards, matSnaps.research);
+  const researchCards = UtilCopy.createCard(antarctica.researchCards, spawnPosition);
+  UtilCopy.setPositionAtSnapPoint(researchCards, matSnaps.research);
   researchCards.shuffle();
 
   if (!matSnaps.mountains) {
     throw new Error("Cannot find position for antarctica mountain cards");
   }
-  const mountainCards = Util.createCard(antarctica.mountainsCards, spawnPosition);
-  Util.setPositionAtSnapPoint(mountainCards, matSnaps.mountains);
+  const mountainCards = UtilCopy.createCard(antarctica.mountainsCards, spawnPosition);
+  UtilCopy.setPositionAtSnapPoint(mountainCards, matSnaps.mountains);
   mountainCards.shuffle();
 
   if (!matSnaps.outposts) {
     throw new Error("Cannot find position for antarctica outpost cards");
   }
-  const outpostCards = Util.createCard(antarctica.outpostCards, spawnPosition);
-  Util.setPositionAtSnapPoint(outpostCards, matSnaps.outposts);
+  const outpostCards = UtilCopy.createCard(antarctica.outpostCards, spawnPosition);
+  UtilCopy.setPositionAtSnapPoint(outpostCards, matSnaps.outposts);
   outpostCards.shuffle();
 
   /** @type Card | undefined */
@@ -69,41 +69,41 @@ function setupSideBoard(spawnPosition) {
   if (!monsterCup) {
     throw new Error("Cannot find monster cup");
   }
-  const elderThing = Util.takeCardNameFromStack(monsterCup, "Elder Thing");
+  const elderThing = UtilCopy.takeCardNameFromStack(monsterCup, "Elder Thing");
   if (!elderThing) {
     throw new Error("Cannot find Elder Thing in the monster cup");
   }
   if (!matSnaps.monster1) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  Util.setPositionAtSnapPoint(elderThing, matSnaps.monster1);
+  UtilCopy.setPositionAtSnapPoint(elderThing, matSnaps.monster1);
 
-  const giantPenguin = Util.takeCardNameFromStack(monsterCup, "Giant Penguin");
+  const giantPenguin = UtilCopy.takeCardNameFromStack(monsterCup, "Giant Penguin");
   if (!giantPenguin) {
     throw new Error("Cannot find Elder Thing in the monster cup");
   }
   if (!matSnaps.monster2) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  Util.setPositionAtSnapPoint(giantPenguin, matSnaps.monster2);
+  UtilCopy.setPositionAtSnapPoint(giantPenguin, matSnaps.monster2);
 
-  const protoShoggoth = Util.takeCardNameFromStack(monsterCup, "Proto-Shoggoth");
+  const protoShoggoth = UtilCopy.takeCardNameFromStack(monsterCup, "Proto-Shoggoth");
   if (!protoShoggoth) {
     throw new Error("Cannot find Proto-Shoggoth in the monster cup");
   }
   if (!matSnaps.monster3) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  Util.setPositionAtSnapPoint(protoShoggoth, matSnaps.monster3);
+  UtilCopy.setPositionAtSnapPoint(protoShoggoth, matSnaps.monster3);
 
-  const shoggoth = Util.takeCardNameFromStack(monsterCup, "Shoggoth");
+  const shoggoth = UtilCopy.takeCardNameFromStack(monsterCup, "Shoggoth");
   if (!shoggoth) {
     throw new Error("Cannot find Shoggoth in the monster cup");
   }
   if (!matSnaps.monster4) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  Util.setPositionAtSnapPoint(shoggoth, matSnaps.monster4);
+  UtilCopy.setPositionAtSnapPoint(shoggoth, matSnaps.monster4);
 
   /** @type Card | undefined */
   // @ts-ignore
@@ -111,7 +111,7 @@ function setupSideBoard(spawnPosition) {
   if (!gateStack) {
     throw new Error("Cannot find gate stack");
   }
-  const gates = Util.createCard(
+  const gates = UtilCopy.createCard(
     "64DDD78441EB50FEA0064EBD2770E1FF",
     spawnPosition.add(new Vector(0, 0, 1))
   );
@@ -123,7 +123,7 @@ function setupSideBoard(spawnPosition) {
   if (!cluePool) {
     throw new Error("Cannot find clue pool");
   }
-  const clues = Util.createCard(
+  const clues = UtilCopy.createCard(
     "8BB70410401011B9B592F39A0112E6BD",
     spawnPosition.add(new Vector(0, 0, 1))
   );
