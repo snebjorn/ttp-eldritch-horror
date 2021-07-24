@@ -103,6 +103,15 @@ declare global {
     ancientOnes: AncientOne[];
     investigators: Investigator[];
     alreadyLoaded: string[];
+    updateSetupUIFn?: () => void;
+    activeIconReference?: IconReference;
+  }
+
+  interface IconReference {
+    numberOfPlayers: number;
+    spawnGates: number;
+    spawnClues: number;
+    monsterSurge: number;
   }
 
   interface EncounterCards {

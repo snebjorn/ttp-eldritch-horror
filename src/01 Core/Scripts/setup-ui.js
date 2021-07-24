@@ -1,18 +1,20 @@
 const {
-  world,
   Border,
-  Card,
-  Color,
-  Text,
-  CheckBox,
   Button,
-  Vector,
-  UIElement,
+  Card,
+  CheckBox,
+  Color,
   HorizontalBox,
+  Player,
+  Text,
+  UIElement,
+  Vector,
   VerticalBox,
+  world,
 } = require("@tabletop-playground/api");
 const { loadExpansion } = require("./load-expansion");
 const { setupAncient } = require("./setup-ancient");
+const { setupReferenceCard } = require("./setup-reference-card");
 const {
   assetDeck,
   conditionDeck,
@@ -25,46 +27,81 @@ const {
 } = require("./world-constants");
 
 function drawSetupUi() {
-  let border = new Border().setColor(new Color(0, 0, 0, 1));
-  let ui = new UIElement();
+  const ui = new UIElement();
+  const border = new Border().setColor(new Color(0, 0, 0, 1));
   ui.widget = border;
-  ui.position = new Vector(0, 0, 100);
+  ui.position = new Vector(10, 0, 100);
 
-  let vBox = new VerticalBox();
+  let step = 1;
+
+  const vBox = new VerticalBox();
   vBox.setChildDistance(6);
   border.setChild(vBox);
   vBox.addChild(new Text().setText("Setup"));
-  vBox.addChild(new Text().setText("Expansions"));
+  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text().setText(`${step++}. Select Icon Reference Card`));
+  const iconRefBox = new HorizontalBox();
+  vBox.addChild(iconRefBox);
+  const noIconRefText =
+    'No Icon Reference card selected\nPlace an Icon Reference card on the "Active Icon Reference" to select one';
+  const iconRefTextBox = new Text().setText(noIconRefText);
+  iconRefBox.addChild(iconRefTextBox);
+
+  /**
+   * @param {IconReference} [iconReference]
+   */
+  function updateIconReference(iconReference) {
+    if (iconReference) {
+      iconRefTextBox.setText(`Number of Players: ${iconReference.numberOfPlayers}`);
+    } else {
+      iconRefTextBox.setText(noIconRefText);
+    }
+  }
+
+  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text().setText(`${step++}. Select Expansions`));
 
   /** @type string[] */
   let activeExpansions = ["eh02", "eh03"];
-  let expansionBox = new HorizontalBox();
+  const expansionBox = new HorizontalBox();
+  expansionBox.setChildDistance(6);
   vBox.addChild(expansionBox);
-  let eh02 = new CheckBox().setText("Forsaken Lore").setIsChecked(true);
+  const eh02 = new CheckBox().setText("Forsaken Lore").setIsChecked(true);
   eh02.onCheckStateChanged.add((_button, _player, isChecked) => {
     if (isChecked) {
       activeExpansions.push("eh02");
-      ancientBox2.addChild(ancientYig);
+      ancientYig.setEnabled(true);
     } else {
       activeExpansions = activeExpansions.filter((x) => x !== "eh02");
-      ancientBox2.removeChild(ancientYig);
+      ancientYig.setEnabled(false);
     }
   });
   expansionBox.addChild(eh02);
 
-  let eh03 = new CheckBox().setText("Mountains of Madness").setIsChecked(true);
+  const eh03 = new CheckBox().setText("Mountains of Madness").setIsChecked(true);
   eh03.onCheckStateChanged.add((_button, _player, isChecked) => {
     if (isChecked) {
       activeExpansions.push("eh03");
-      ancientBox2.addChild(ancientElderThings);
-      ancientBox2.addChild(ancientIthaqua);
+      ancientElderThings.setEnabled(true);
+      ancientIthaqua.setEnabled(true);
     } else {
       activeExpansions = activeExpansions.filter((x) => x !== "eh03");
-      ancientBox2.removeChild(ancientElderThings);
-      ancientBox2.removeChild(ancientIthaqua);
+      ancientElderThings.setEnabled(false);
+      ancientIthaqua.setEnabled(false);
     }
   });
   expansionBox.addChild(eh03);
+
+  const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
+  let isExpansionsLoaded = false;
+  loadExpansionBtn.onClicked.add(() => {
+    loadExpansion(...activeExpansions);
+    eh02.setEnabled(false);
+    eh03.setEnabled(false);
+    loadExpansionBtn.setEnabled(false);
+    isExpansionsLoaded = true;
+  });
+  vBox.addChild(loadExpansionBtn);
 
   vBox.addChild(new Text().setText(""));
 
@@ -89,19 +126,28 @@ function drawSetupUi() {
 
   vBox.addChild(new Text().setText(""));
 
-  vBox.addChild(new Text().setText("Official Ancient Ones"));
-  let ancientBox = new HorizontalBox();
+  vBox.addChild(new Text().setText(`${step++}. Select Ancient One`));
+  const ancientBox = new HorizontalBox();
   ancientBox.setChildDistance(6);
   vBox.addChild(ancientBox);
 
   /**
    * @param {Button} button
+   * @param {Player} player
    */
-  function ancientClickFn(button) {
-    loadExpansion(...activeExpansions);
+  function ancientClickFn(button, player) {
+    if (!isExpansionsLoaded) {
+      player.showMessage("You must load expansions first!");
+      return;
+    }
 
-    setupGame(button.getText(), getMythosDifficulty());
+    setupGame(
+      button.getText(),
+      getMythosDifficulty(),
+      world.__eldritchHorror.activeIconReference,
+    );
     world.removeUIElement(ui);
+    world.__eldritchHorror.updateSetupUIFn = undefined;
   }
 
   const ancientAzathoth = new Button().setText("Azathoth");
@@ -117,21 +163,26 @@ function drawSetupUi() {
   ancientYog.onClicked.add(ancientClickFn);
   ancientBox.addChild(ancientYog);
 
-  let ancientBox2 = new HorizontalBox();
+  const ancientBox2 = new HorizontalBox();
   ancientBox2.setChildDistance(6);
   vBox.addChild(ancientBox2);
 
-  let ancientYig = new Button().setText("Yig");
+  const ancientYig = new Button().setText("Yig");
   ancientYig.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientYig);
 
-  let ancientElderThings = new Button().setText("Elder Things");
+  const ancientElderThings = new Button().setText("Rise of the Elder Things");
   ancientElderThings.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientElderThings);
 
-  let ancientIthaqua = new Button().setText("Ithaqua");
+  const ancientIthaqua = new Button().setText("Ithaqua");
   ancientIthaqua.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientIthaqua);
+
+  world.__eldritchHorror.updateSetupUIFn = () => {
+    updateIconReference(world.__eldritchHorror.activeIconReference);
+    updatePrelude(world.__eldritchHorror.activePrelude);
+  };
 
   world.addUI(ui);
 }
@@ -140,13 +191,17 @@ exports.drawSetupUi = drawSetupUi;
 /**
  * @param {string} ancientName
  * @param {MythosDifficulty} mythosDifficulty
+ * @param {IconReference | undefined} iconReference
  */
-function setupGame(ancientName, mythosDifficulty) {
+function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
   const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
   if (foundAncientOne) {
     setupAncient(foundAncientOne, mythosDifficulty);
-    shuffleDecks();
-    shuffleTokens();
+  }
+  shuffleDecks();
+  shuffleTokens();
+
+  setupReferenceCard(iconReference);
   }
 }
 

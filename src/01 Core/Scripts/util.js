@@ -7,6 +7,7 @@ const {
   Card,
   Player,
   MultistateObject,
+  CardHolder,
 } = require("@tabletop-playground/api");
 
 class Util {
@@ -128,6 +129,16 @@ class Util {
    * @returns {MultistateObject}
    */
   static createMultistateObject(templateId, position) {
+    // @ts-ignore
+    return world.createObjectFromTemplate(templateId, position);
+  }
+
+  /**
+   * @param {string} templateId
+   * @param {Vector} position
+   * @returns {CardHolder}
+   */
+  static createCardHolder(templateId, position) {
     // @ts-ignore
     return world.createObjectFromTemplate(templateId, position);
   }

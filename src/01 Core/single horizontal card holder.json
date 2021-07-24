@@ -1,0 +1,116 @@
+{
+	"Type": "Card Holder",
+	"GUID": "256D88174A01E35195FC3094D7BA9336",
+	"Name": "Single Horizontal Card Holder",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Wood",
+	"Roughness": 0.5,
+	"Metallic": 1,
+	"PrimaryColor":
+	{
+		"R": 200,
+		"G": 200,
+		"B": 200
+	},
+	"SecondaryColor":
+	{
+		"R": 20,
+		"G": 20,
+		"B": 20
+	},
+	"Flippable": false,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [
+		{
+			"Model": "StaticMesh'/Game/Meshes/Cards/CardHolder.CardHolder'",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 0.454545,
+				"Y": 0.284091,
+				"Z": 1
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Texture": "Texture2D'/Game/Textures/Boards/BoardWood_Diffuse.BoardWood_Diffuse'",
+			"NormalMap": "Texture2D'/Game/Textures/Boards/BoardWood_Normal.BoardWood_Normal'",
+			"ExtraMap": "Texture2D'/Game/Textures/Boards/BoardWood_Extra.BoardWood_Extra'",
+			"IsTransparent": false,
+			"UseOverrides": false,
+			"Roughness": 0.7,
+			"Metallic": 0,
+			"PrimaryColor":
+			{
+				"R": 220,
+				"G": 220,
+				"B": 220
+			},
+			"SecondaryColor":
+			{
+				"R": 20,
+				"G": 20,
+				"B": 20
+			},
+			"SurfaceType": "Plastic"
+		},
+		{
+			"Model": "StaticMesh'/Game/Meshes/Cards/CardHolderIdentifier.CardHolderIdentifier'",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 0.454545,
+				"Y": 0.284091,
+				"Z": 1
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Texture": "",
+			"NormalMap": "",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"UseOverrides": true,
+			"SurfaceType": "Plastic"
+		}
+	],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"CardsCenter":
+	{
+		"X": -0.227273,
+		"Y": 0,
+		"Z": 0.2
+	},
+	"CardsWidth": 6.5,
+	"MaxCards": 24,
+	"MaxCardHeight": 4.2
+}

@@ -1,4 +1,4 @@
-const { Card, Vector, world } = require("@tabletop-playground/api");
+const { Card, Vector, world, GameObject, SnapPoint } = require("@tabletop-playground/api");
 const { UtilCopy } = require("./util-copy");
 
 const antarctica = {
@@ -41,6 +41,8 @@ function setupSideBoard(spawnPosition) {
   const groupId = UtilCopy.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
+
+  registerSpaces(sideBoard, matSnaps);
 
   if (!matSnaps.research) {
     throw new Error("Cannot find position for antarctica research cards");
@@ -132,3 +134,22 @@ function setupSideBoard(spawnPosition) {
   world.__eldritchHorror.alreadyLoaded.push("0FAFCD8F49500E5B3847E2BD614CD1EA");
 }
 exports.setupSideBoard = setupSideBoard;
+
+/**
+ * @param {GameObject} sideBoard
+ * @param {Record<string, SnapPoint | undefined>} matSnaps */
+function registerSpaces(sideBoard, matSnaps) {
+  const sideBoardSpaces = {
+    "Miskatonic Outpost": sideBoard.getSnapPoint(0),
+    "Lake Camp": sideBoard.getSnapPoint(1),
+    "Frozen Waste": sideBoard.getSnapPoint(2),
+    "City of the Elder Things": sideBoard.getSnapPoint(3),
+    "Plateau of Leng": sideBoard.getSnapPoint(4),
+    "Snowy Mountains": sideBoard.getSnapPoint(5),
+  };
+
+  // @ts-ignore - don't try this at home kids
+  const { gameBoardLocations } = require("../../Eldritch Horror/Scripts/world-constants");
+  gameBoardLocations.space = { ...gameBoardLocations.space, ...sideBoardSpaces };
+  gameBoardLocations.antarcticaSideBoard = matSnaps;
+}
