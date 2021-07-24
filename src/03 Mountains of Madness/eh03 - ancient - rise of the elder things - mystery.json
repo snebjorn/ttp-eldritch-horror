@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
 	"GUID": "98A592DE4AAC14A176282EBB43D80B71",
-	"Name": "Elder Things Mystery Cards",
+	"Name": "Rise of the Elder Things Mystery Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -35,8 +35,8 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Elder Things - Mystery - front.jpg",
-	"BackTexture": "Elder Things - Mystery - back.jpg",
+	"FrontTexture": "Rise of the Elder Things - Mystery - front.jpg",
+	"BackTexture": "Rise of the Elder Things - Mystery - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,

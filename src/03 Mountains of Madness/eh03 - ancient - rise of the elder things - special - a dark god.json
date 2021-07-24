@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "26A4DD3948976BE61969D283B0F4CA86",
-	"Name": "Elder Things Sheet",
+	"GUID": "8928E7814596E591617B76A5FBB528C7",
+	"Name": "Rise of the Elder Things Special A Dark God Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "elder-things.js",
+	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],
@@ -35,15 +35,15 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Elder Things - front.jpg",
-	"BackTexture": "Elder Things - back.jpg",
+	"FrontTexture": "Rise of the Elder Things - Special - A Dark God - front.jpg",
+	"BackTexture": "Rise of the Elder Things - Special - A Dark God - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 1,
-	"NumVertical": 1,
-	"Width": 10.1,
-	"Height": 12.8,
+	"NumHorizontal": 4,
+	"NumVertical": 2,
+	"Width": 5.7,
+	"Height": 8.89,
 	"Thickness": 0.05,
 	"HiddenInHand": false,
 	"UsedWithCardHolders": true,
@@ -52,10 +52,9 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
-	"Model": "Square",
-	"Indices": [ 0 ],
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
 	"CardNames":
 	{
-		"0": "Elder Things"
 	}
 }

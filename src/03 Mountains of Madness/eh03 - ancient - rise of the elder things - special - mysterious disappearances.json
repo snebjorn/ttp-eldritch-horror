@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "8928E7814596E591617B76A5FBB528C7",
-	"Name": "Elder Things Special A Dark God Cards",
+	"GUID": "4D96394D4927D952954C86BABEF36AE7",
+	"Name": "Rise of the Elder Things Special Mysterious Disappearances Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -35,8 +35,8 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Elder Things - Special - A Dark God - front.jpg",
-	"BackTexture": "Elder Things - Special - A Dark God - back.jpg",
+	"FrontTexture": "Rise of the Elder Things - Special - Mysterious Disappearances - front.jpg",
+	"BackTexture": "Rise of the Elder Things - Special - Mysterious Disappearances - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,

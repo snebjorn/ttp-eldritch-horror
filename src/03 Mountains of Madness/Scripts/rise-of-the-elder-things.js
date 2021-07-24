@@ -2,8 +2,8 @@ const { refCard, world, Vector } = require("@tabletop-playground/api");
 const { setupSideBoard } = require("./setup-side-board");
 
 /** @type AncientOne */
-const elderThings = {
-  name: "Elder Things",
+const riseOfTheElderThings = {
+  name: "Rise of the Elder Things",
   doom: 16,
   sheetId: refCard.getId(),
   mysteryTemplateIds: ["98A592DE4AAC14A176282EBB43D80B71"],
@@ -24,6 +24,6 @@ const elderThings = {
 };
 
 if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.ancientOnes.push(elderThings);
+  world.__eldritchHorror.ancientOnes.push(riseOfTheElderThings);
   world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
 }

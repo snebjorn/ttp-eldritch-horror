@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
-	"GUID": "4D96394D4927D952954C86BABEF36AE7",
-	"Name": "Elder Things Special Mysterious Disappearances Cards",
+	"GUID": "B77B2E3C4B58E3969F62C3AC0E431C16",
+	"Name": "Rise of the Elder Things Research Cards",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -35,13 +35,13 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Elder Things - Special - Mysterious Disappearances - front.jpg",
-	"BackTexture": "Elder Things - Special - Mysterious Disappearances - back.jpg",
+	"FrontTexture": "Rise of the Elder Things - Research - front.jpg",
+	"BackTexture": "Rise of the Elder Things - Research - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 4,
-	"NumVertical": 2,
+	"NumHorizontal": 6,
+	"NumVertical": 4,
 	"Width": 5.7,
 	"Height": 8.89,
 	"Thickness": 0.05,
@@ -53,7 +53,7 @@
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ],
 	"CardNames":
 	{
 	}
