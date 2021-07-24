@@ -118,7 +118,7 @@ declare global {
     space: {
       Antarctica: SnapPoint;
       Arkham: SnapPoint;
-      "Buenos Aries": SnapPoint;
+      "Buenos Aires": SnapPoint;
       Istanbul: SnapPoint;
       London: SnapPoint;
       Rome: SnapPoint;

@@ -83,7 +83,7 @@ exports.gameBoardLocations = {
   space: {
     Antarctica: gameBoard.getSnapPoint(15),
     Arkham: gameBoard.getSnapPoint(29),
-    "Buenos Aries": gameBoard.getSnapPoint(34),
+    "Buenos Aires": gameBoard.getSnapPoint(34),
     Istanbul: gameBoard.getSnapPoint(22),
     London: gameBoard.getSnapPoint(26),
     Rome: gameBoard.getSnapPoint(25),

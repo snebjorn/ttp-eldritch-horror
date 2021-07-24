@@ -67,7 +67,7 @@ exports.investigators = [
     startingItems: {
       assets: ["Hired Muscle"],
     },
-    startingLocation: "Buenos Aries",
+    startingLocation: "Buenos Aires",
     personalStory: "The Expedition",
   },
   {
