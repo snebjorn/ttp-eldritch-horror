@@ -75,7 +75,13 @@ class Util {
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 0.
    */
   static flip(object, animationSpeed = 0) {
-    object.setRotation(new Rotator(0, 0, 180), animationSpeed);
+    // setting yaw rotation, alters roll. Strange...
+    // also can't use exact 180 value when checking as it'll be something like 179.99996948242188
+    if (object.getRotation().roll >= 179 || object.getRotation().roll <= -179) {
+      object.setRotation(new Rotator(0, 0, 0), animationSpeed);
+    } else {
+      object.setRotation(new Rotator(0, 0, 180), animationSpeed);
+    }
   }
 
   /**
