@@ -17,6 +17,7 @@ function initGlobalObject() {
     investigators: [],
     ancientOnes: [],
     alreadyLoaded: [],
+    preludes: new Map(),
   };
 }
 

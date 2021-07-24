@@ -87,6 +87,26 @@ declare global {
     personalStory: string;
   }
 
+  interface Prelude {
+    /** Organize Tokens */
+    step2?: (ancientOne: string) => void;
+    /** Choose and Place Investigators */
+    step3?: (ancientOne: string) => void;
+    /** Receive Starting Possessions, Health, and Sanity */
+    step4?: (ancientOne: string) => void;
+    /** Determine Ancient One */
+    step5?: (ancientOne: string) => void;
+    /** Create Monster Cup */
+    step6?: (ancientOne: string) => void;
+    /** Separate and Place Decks */
+    step7?: (ancientOne: string) => void;
+    /** Build Mythos Deck */
+    step8?: (ancientOne: string) => void;
+    /** Resolve Starting Effects */
+    step9?: (ancientOne: string) => void;
+    afterResolvingSetup?: (ancientOne: string) => void;
+  }
+
   interface AncientOne {
     name: string;
     doom: keyof GameBoardLocations["doom"];
@@ -105,6 +125,8 @@ declare global {
     alreadyLoaded: string[];
     updateSetupUIFn?: () => void;
     activeIconReference?: IconReference;
+    activePrelude?: string;
+    preludes: Map<string, Prelude>;
   }
 
   interface IconReference {

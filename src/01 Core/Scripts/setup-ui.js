@@ -105,8 +105,29 @@ function drawSetupUi() {
 
   vBox.addChild(new Text().setText(""));
 
-  vBox.addChild(new Text().setText("Mythos Difficulty"));
-  let difficultyBox = new HorizontalBox();
+  vBox.addChild(new Text().setText(`${step++}. Select Prelude (optional)`));
+  const preludeBox = new HorizontalBox();
+  vBox.addChild(preludeBox);
+  const noPreludeText =
+    'No prelude selected\nPlace a prelude card on the "Active Prelude" to select one';
+  const preludeTextBox = new Text().setText(noPreludeText);
+  preludeBox.addChild(preludeTextBox);
+
+  /**
+   * @param {string} [preludeName]
+   */
+  function updatePrelude(preludeName) {
+    if (preludeName) {
+      preludeTextBox.setText(preludeName);
+    } else {
+      preludeTextBox.setText(noPreludeText);
+    }
+  }
+
+  vBox.addChild(new Text().setText(""));
+
+  vBox.addChild(new Text().setText(`${step++}. Select Mythos Difficulty`));
+  const difficultyBox = new HorizontalBox();
   difficultyBox.setChildDistance(6);
   vBox.addChild(difficultyBox);
   const difficultyEasy = new CheckBox().setText("Easy").setIsChecked(true);
@@ -145,9 +166,15 @@ function drawSetupUi() {
       button.getText(),
       getMythosDifficulty(),
       world.__eldritchHorror.activeIconReference,
+      getActivePrelude()
     );
     world.removeUIElement(ui);
     world.__eldritchHorror.updateSetupUIFn = undefined;
+
+    const preludeDeck = world.getObjectById("prelude-deck");
+    if (preludeDeck) {
+      preludeDeck.destroy();
+    }
   }
 
   const ancientAzathoth = new Button().setText("Azathoth");
@@ -188,20 +215,52 @@ function drawSetupUi() {
 }
 exports.drawSetupUi = drawSetupUi;
 
+function getActivePrelude() {
+  if (world.__eldritchHorror.activePrelude) {
+    return world.__eldritchHorror.preludes.get(world.__eldritchHorror.activePrelude);
+  }
+}
+
 /**
  * @param {string} ancientName
  * @param {MythosDifficulty} mythosDifficulty
  * @param {IconReference | undefined} iconReference
+ * @param {Prelude | undefined} prelude
  */
 function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
+  if (prelude && !!prelude.step2) {
+    prelude.step2(ancientName);
+  }
+  if (prelude && !!prelude.step3) {
+    prelude.step3(ancientName);
+  }
+  if (prelude && !!prelude.step4) {
+    prelude.step4(ancientName);
+  }
+  if (prelude && !!prelude.step5) {
+    prelude.step5(ancientName);
+  }
   const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
   if (foundAncientOne) {
     setupAncient(foundAncientOne, mythosDifficulty);
   }
+  if (prelude && !!prelude.step6) {
+    prelude.step6(ancientName);
+  }
+  if (prelude && !!prelude.step7) {
+    prelude.step7(ancientName);
+  }
+  if (prelude && !!prelude.step8) {
+    prelude.step8(ancientName);
+  }
+
   shuffleDecks();
   shuffleTokens();
 
   setupReferenceCard(iconReference);
+
+  if (prelude && !!prelude.afterResolvingSetup) {
+    prelude.afterResolvingSetup(ancientName);
   }
 }
 

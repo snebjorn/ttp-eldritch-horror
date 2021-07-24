@@ -160,6 +160,7 @@ const tableMat = world.getObjectById("table-mat");
 exports.tableLocations = {
   ancientOne: tableMat.getSnapPoint(30),
   mythosDeck: tableMat.getSnapPoint(31),
+  activeMythos: tableMat.getSnapPoint(32),
   /** @type Record<number, SnapPoint> */
   ancientOneMonsters: {
     0: tableMat.getSnapPoint(33),
@@ -177,7 +178,8 @@ exports.tableLocations = {
   focus: tableMat.getSnapPoint(49),
   resource: tableMat.getSnapPoint(50),
   uniqueAssets: tableMat.getSnapPoint(27),
-  preludes: new Vector(41, -94, 87),
+  preludes: new Vector(52, -78.5, 88),
+  preludeCardHolder: new Vector(52.5, -86, 88),
 };
 
 exports.expansionSpawn = gameBoard.getPosition().add(new Vector(0, 0, 10));

@@ -1,4 +1,4 @@
-const { SnapPoint, Card, world, Vector } = require("@tabletop-playground/api");
+const { SnapPoint, Card, world, Vector, UIElement, Text } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const {
   encounterDecks,
@@ -98,6 +98,9 @@ function createAssets(expansionItems) {
     expansionItems.preludeCards,
     tableLocations.preludes
   );
+  if (expansionItems.preludeCards) {
+    addPreludeCardHolder();
+  }
   if (expansionItems.focus === true) {
     addFocus();
   }
@@ -249,4 +252,42 @@ function addFocus() {
   Util.setPositionAtSnapPoint(focusStack, tableLocations.focus);
 
   world.__eldritchHorror.alreadyLoaded.push("focus");
+}
+
+function addPreludeCardHolder() {
+  if (world.__eldritchHorror.alreadyLoaded.includes("preludeCardHolder")) {
+    return; // abort - card holder is already loaded
+  }
+
+  const cardHolder = Util.createCardHolder(
+    "1B65237440585C62CF5B7F96F660E75A",
+    tableLocations.preludeCardHolder
+  );
+
+  cardHolder.setName("Active Prelude");
+  cardHolder.setId("prelude-card-holder");
+  cardHolder.snapToGround();
+  cardHolder.toggleLock();
+
+  cardHolder.onInserted.add((_, prelude) => {
+    const cardDetails = prelude.getCardDetails();
+    if (cardDetails && !!world.__eldritchHorror.updateSetupUIFn) {
+      world.__eldritchHorror.activePrelude = cardDetails.name;
+      world.__eldritchHorror.updateSetupUIFn();
+    }
+  });
+  cardHolder.onRemoved.add(() => {
+    if (!!world.__eldritchHorror.updateSetupUIFn) {
+      world.__eldritchHorror.activePrelude = undefined;
+      world.__eldritchHorror.updateSetupUIFn();
+    }
+  });
+
+  const ui = new UIElement();
+  ui.position = new Vector(0, 0, 0.11);
+  ui.widget = new Text().setText(" Active\nPrelude");
+
+  cardHolder.addUI(ui);
+
+  world.__eldritchHorror.alreadyLoaded.push("preludeCardHolder");
 }

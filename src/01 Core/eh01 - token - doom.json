@@ -51,6 +51,7 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Round",
 	"Indices": [ 0 ],
 	"CardNames":

@@ -1,6 +1,17 @@
-const { world } = require("@tabletop-playground/api");
+const { world, Vector } = require("@tabletop-playground/api");
 const { Util } = require("./util");
-const { expansionSpawn } = require("./world-constants");
+const { GameUtil } = require("./game-util");
+const {
+  expansionSpawn,
+  mythosSetupDecks,
+  tableLocations,
+  epicMonsterCup,
+  gameBoardLocations,
+  omenToken,
+  investigatorDeck,
+  artifactDeck,
+} = require("./world-constants");
+const { setupDeadInvestigator, setupInsaneInvestigator } = require("./setup-investigator");
 
 /**
  * @param {string} templateId
@@ -52,6 +63,145 @@ exports.expansionItems = {
     createCard("188CE9E84E7E061A4E26A0AEDE0BCE33"),
   ],
 };
+
+/** @type Record<string, Prelude> */
+const preludes = {
+  "Beginning of the End": {
+    afterResolvingSetup: () => {
+      // place eldritch token on green omen
+      const eldritchToken = GameUtil.takeEldritchTokens(1);
+
+      Util.setPositionAtSnapPoint(eldritchToken, gameBoardLocations.omen.green);
+    },
+  },
+  "Doomsayer From Antarctica": {
+    step5: () => {
+      // setup antarctica side board
+      const sideBoardSpawn = new Vector(-19, 0, 87);
+      // @ts-ignore - don't try this at home kids
+      // prettier-ignore
+      const { setupSideBoard } = require("../../Eldritch Horror - Mountains of Madness/Scripts/setup-side-board");
+      setupSideBoard(sideBoardSpawn);
+    },
+    afterResolvingSetup: (ancientOne) => {
+      // if rise of the elder things spawn rampaging shoggoth epic monster on lake camp
+      // else setup antarctica adventures and draw top
+      if (ancientOne === "Rise of the Elder Things") {
+        const rampagingShoggoth = Util.takeCardNameFromStack(epicMonsterCup, "Rampaging Shoggoth");
+        if (rampagingShoggoth) {
+          // @ts-ignore
+          const lakeCamp = gameBoardLocations.space["Lake Camp"];
+          Util.setPositionAtSnapPoint(rampagingShoggoth, lakeCamp);
+        }
+      } else {
+        const antarcticaAdventuresStage1 = createCard("F7FD62E34F458F4B51C0FAA6EA3A1723");
+        const randomStage1Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage1);
+        const antarcticaAdventuresStage2 = createCard("258610DA4A3A3781ADA2AFAD520DC865");
+        const randomStage2Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage2);
+        const antarcticaAdventuresStage3 = createCard("9601C51C44FE111792B9EF910ADEAE63");
+        const randomStage3Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage3);
+
+        if (randomStage1Card && randomStage2Card && randomStage3Card) {
+          randomStage3Card.addCards(randomStage2Card);
+
+          Util.setPositionAtSnapPoint(
+            randomStage3Card,
+            // @ts-ignore
+            gameBoardLocations.antarcticaSideBoard.adventure
+          );
+          Util.setPositionAtSnapPoint(
+            randomStage1Card,
+            // @ts-ignore
+            gameBoardLocations.antarcticaSideBoard.activeAdventure
+          );
+          Util.flip(randomStage1Card);
+        }
+
+        antarcticaAdventuresStage1.destroy();
+        antarcticaAdventuresStage2.destroy();
+        antarcticaAdventuresStage3.destroy();
+      }
+    },
+  },
+  "Key to Salvation": {},
+  "Rumors From the North": {
+    step4: () => {
+      // activate The Wind-Walker mythos card, before building the mythos deck
+      const windWalkerMythos = Util.takeCardNameFromStack(
+        mythosSetupDecks.blue.medium,
+        "The Wind-Walker"
+      );
+      if (windWalkerMythos && tableLocations.activeMythos) {
+        Util.setPositionAtSnapPoint(windWalkerMythos, tableLocations.activeMythos);
+        Util.flip(windWalkerMythos);
+      }
+    },
+    afterResolvingSetup: (ancientOne) => {
+      // if ithaqua, advance omen by 1 and remove the The Wind-Walker mythos card
+      // else put 6 eldritch tokens on The Wind-Walker mythos card
+      if (ancientOne === "Ithaqua") {
+        Util.setPositionAtSnapPoint(omenToken, gameBoardLocations.omen.blue1);
+        const windWalkerCard =
+          tableLocations.activeMythos && tableLocations.activeMythos.getSnappedObject();
+        if (windWalkerCard) {
+          windWalkerCard.destroy();
+        }
+      } else {
+        if (tableLocations.activeMythos) {
+          const eldritchTokens = GameUtil.takeEldritchTokens(6);
+          Util.setPositionAtSnapPoint(eldritchTokens, tableLocations.activeMythos);
+        }
+        const windWalkerEpic = Util.takeCardNameFromStack(epicMonsterCup, "Wind-Walker");
+        if (windWalkerEpic) {
+          Util.setPositionAtSnapPoint(windWalkerEpic, gameBoardLocations.space[4]);
+        }
+      }
+    },
+  },
+  "Ultimate Sacrifice": {
+    afterResolvingSetup: () => {
+      // draw 2 random investigators, set them up, then defeat them. 1 dead, 1 insane.
+      // add 1 hidden random artifact to sheets
+      // advance doom by 2
+      GameUtil.advanceDoom(2);
+      const investigatorDeckPosition = investigatorDeck.getPosition();
+      const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
+      const separatorBuffer = 2;
+      for (let i = 1; i < 3; i++) {
+        const investigator = Util.takeRandomCardFromStack(investigatorDeck);
+        if (investigator) {
+          const newPos = investigatorDeckPosition.add(
+            new Vector(-(heightOfSheet * i) - separatorBuffer * i, 0, 2)
+          );
+          investigator.setPosition(newPos, 1);
+          Util.flip(investigator);
+          investigator.snapToGround();
+
+          const artifact = Util.takeRandomCardFromStack(artifactDeck);
+          if (!artifact) {
+            throw new Error(
+              "Unable to fetch random artifact for investigator (Ultimate Sacrifice)"
+            );
+          }
+
+          if (i === 1) {
+            setupDeadInvestigator(investigator, artifact);
+          } else {
+            setupInsaneInvestigator(investigator, artifact);
+          }
+        }
+      }
+    },
+  },
+  "Unwilling Sacrifice": {},
+};
+
+if (!world.__eldritchHorror.alreadyLoaded.includes("73F68CE54FC1C3DCE733929C755FEC0E")) {
+  for (const [name, prelude] of Object.entries(preludes)) {
+    world.__eldritchHorror.preludes.set(name, prelude);
+  }
+  world.__eldritchHorror.alreadyLoaded.push("73F68CE54FC1C3DCE733929C755FEC0E");
+}
 
 /** @type Investigator[] */
 const investigators = [

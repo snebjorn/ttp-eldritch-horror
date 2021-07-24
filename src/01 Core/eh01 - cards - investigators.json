@@ -23,7 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
-	"ScriptName": "setup-investigator.js",
+	"ScriptName": "investigator.js",
 	"Blueprint": "",
 	"Models": [],
 	"Collision": [],

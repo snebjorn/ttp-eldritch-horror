@@ -1,13 +1,4 @@
-const {
-  world,
-  Card,
-  UIElement,
-  Button,
-  refCard,
-  Vector,
-  Rotator,
-  MultistateObject,
-} = require("@tabletop-playground/api");
+const { world, Card, Vector, SnapPoint, Rotator } = require("@tabletop-playground/api");
 const {
   assetDeck,
   spellDeck,
@@ -16,66 +7,102 @@ const {
   gameBoardLocations,
   willToken,
 } = require("./world-constants");
-const { investigators } = require("./investigators");
 const { Util } = require("./util");
-
-if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.investigators.push(...investigators);
-  world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
-}
-
-refCard.onRemoved.add((stack, removedInvestigator) => {
-  drawSetupButton(removedInvestigator);
-
-  // if the source stack only have 1 card left we also need to draw the UI on that card
-  if (stack.getStackSize() === 1) {
-    drawSetupButton(stack);
-  }
-});
 
 /** @param {Card} investigatorSheet */
 function setupInvestigator(investigatorSheet) {
-  const investigatorName = investigatorSheet.getCardDetails().name;
-  const foundInvestigator = world.__eldritchHorror.investigators.find(
-    (investigator) => investigator.name === investigatorName
-  );
+  const foundInvestigator = getInvestigatorData(investigatorSheet);
   if (foundInvestigator) {
-    getStartingItems(investigatorSheet, foundInvestigator.startingItems);
-    getHealthToken(investigatorSheet, foundInvestigator.health);
-    getSanityToken(investigatorSheet, foundInvestigator.sanity);
-    getPawn(foundInvestigator.pawnTemplateId, foundInvestigator.startingLocation);
+    setupStartingItems(investigatorSheet, foundInvestigator.startingItems);
+    const healthSnapPoint = investigatorSheet.getSnapPoint(0);
+    if (healthSnapPoint) {
+      setupHealthToken(healthSnapPoint, foundInvestigator.health);
+    } else {
+      console.error(
+        `Unable to find health snap point on investigator (${foundInvestigator.name}])`
+      );
+    }
+    const sanitySnapPoint = investigatorSheet.getSnapPoint(1);
+    if (sanitySnapPoint) {
+      setupSanityToken(sanitySnapPoint, foundInvestigator.sanity);
+    } else {
+      console.error(
+        `Unable to find sanity snap point on investigator (${foundInvestigator.name}])`
+      );
+    }
+    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
   }
 }
+exports.setupInvestigator = setupInvestigator;
 
 /**
  * @param {Card} investigatorSheet
+ * @param {Card} artifact
  */
-function drawSetupButton(investigatorSheet) {
-  const sheetSize = investigatorSheet.getExtent(false);
-  let ui = new UIElement();
-  ui.position = new Vector(sheetSize.x + 0.63, sheetSize.y / 2, 0);
-  ui.rotation = new Rotator(180, 180, 0);
-  ui.scale = 0.1;
-  let setupButton = new Button().setText("Setup").setFontSize(64);
-  setupButton.onClicked.add(() => {
-    setupInvestigator(investigatorSheet);
-    investigatorSheet.removeUIElement(ui);
-  });
-  investigatorSheet.onInserted.add(() => investigatorSheet.removeUIElement(ui));
-  ui.widget = setupButton;
-  investigatorSheet.addUI(ui);
+function setupDeadInvestigator(investigatorSheet, artifact) {
+  const foundInvestigator = getInvestigatorData(investigatorSheet);
+  if (foundInvestigator) {
+    setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
+    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+    if (pawn) {
+      const pawnHeight = pawn.getExtent(false).z;
+      pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
+      pawn.setRotation(new Rotator(-90, 0, 0), 1);
+      pawn.snapToGround();
+    }
+    setupHealthToken(startingLocation, 1);
+  }
+}
+exports.setupDeadInvestigator = setupDeadInvestigator;
+
+/**
+ * @param {Card} investigatorSheet
+ * @param {Card} artifact
+ */
+function setupInsaneInvestigator(investigatorSheet, artifact) {
+  const foundInvestigator = getInvestigatorData(investigatorSheet);
+  if (foundInvestigator) {
+    setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
+    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+    if (pawn) {
+      const pawnHeight = pawn.getExtent(false).z;
+      pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
+      pawn.setRotation(new Rotator(-90, 0, 0), 1);
+      pawn.snapToGround();
+    }
+    setupSanityToken(startingLocation, 1);
+  }
+}
+exports.setupInsaneInvestigator = setupInsaneInvestigator;
+
+/** @param {Card} investigatorSheet */
+function getInvestigatorData(investigatorSheet) {
+  const cardDetails = investigatorSheet.getCardDetails();
+  if (!cardDetails) {
+    throw new Error("Missing investigator card details");
+  }
+  const investigatorName = cardDetails.name;
+  const foundInvestigator = world.__eldritchHorror.investigators.find(
+    (investigator) => investigator.name === investigatorName
+  );
+
+  return foundInvestigator;
 }
 
 /**
  * @param {Card} investigatorSheet
  * @param {Investigator["startingItems"]} startingItems
+ * @param {Card | undefined} [artifact]
  */
-function getStartingItems(investigatorSheet, startingItems) {
+function setupStartingItems(investigatorSheet, startingItems, artifact) {
   let itemsGiven = 0;
 
   if (startingItems.assets && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
-      var takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
+      const takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
       if (takenAsset === undefined) {
         return;
       }
@@ -105,6 +132,10 @@ function getStartingItems(investigatorSheet, startingItems) {
 
       positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
     });
+  }
+
+  if (artifact) {
+    positionItemOnInvestigatorSheet(investigatorSheet, artifact, itemsGiven++);
   }
 
   if (startingItems.clues && startingItems.clues > 0) {
@@ -164,37 +195,41 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
 
 /**
  * @param {string} pawnTemplateId
- * @param {keyof GameBoardLocations["space"]} startingLocation
+ * @param {SnapPoint} startingLocation
  */
-function getPawn(pawnTemplateId, startingLocation) {
-  const startingLocationSnapPoint = gameBoardLocations.space[startingLocation];
-  world.createObjectFromTemplate(pawnTemplateId, startingLocationSnapPoint.getGlobalPosition());
+function setupPawn(pawnTemplateId, startingLocation) {
+  return world.createObjectFromTemplate(pawnTemplateId, startingLocation.getGlobalPosition());
+}
+
+/** @param {keyof GameBoardLocations["space"]} startingLocation */
+function getSnapPointForStartingLocation(startingLocation) {
+  return gameBoardLocations.space[startingLocation];
 }
 
 /**
- * @param {Card} investigatorSheet
- * @param {number} health
+ * @param {SnapPoint} snapPoint
+ * @param {number} health - hit points. Range 1-9
  */
-function getHealthToken(investigatorSheet, health) {
+function setupHealthToken(snapPoint, health) {
   const healthTemplateId = "346911D24251ACB6B7FEF0A14B49B614";
-  const healthSnapPoint = investigatorSheet.getSnapPoint(0);
   const healthToken = Util.createMultistateObject(
     healthTemplateId,
-    healthSnapPoint.getGlobalPosition()
+    snapPoint.getGlobalPosition().add(new Vector(0, 0, 1))
   );
+  healthToken.snap();
   healthToken.setState(health - 1);
 }
 
 /**
- * @param {Card} investigatorSheet
- * @param {number} sanity
+ * @param {SnapPoint} snapPoint
+ * @param {number} sanity - sanity points. Range 1-9
  */
-function getSanityToken(investigatorSheet, sanity) {
+function setupSanityToken(snapPoint, sanity) {
   const sanityTemplateId = "CD0FA9DC41E13E96DC743A8A30C2DD75";
-  const sanitySnapPoint = investigatorSheet.getSnapPoint(1);
   const sanityToken = Util.createMultistateObject(
     sanityTemplateId,
-    sanitySnapPoint.getGlobalPosition()
+    snapPoint.getGlobalPosition().add(new Vector(0, 0, 1))
   );
+  sanityToken.snap();
   sanityToken.setState(sanity - 1);
 }

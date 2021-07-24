@@ -26,6 +26,7 @@ function setupSideBoard(spawnPosition) {
     mountains: sideBoardMat.getSnapPoint(2),
     outposts: sideBoardMat.getSnapPoint(3),
     adventure: sideBoardMat.getSnapPoint(7),
+    activeAdventure: sideBoardMat.getSnapPoint(8),
     monster1: sideBoardMat.getSnapPoint(9),
     monster2: sideBoardMat.getSnapPoint(10),
     monster3: sideBoardMat.getSnapPoint(11),

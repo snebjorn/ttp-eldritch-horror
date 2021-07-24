@@ -9,12 +9,14 @@
 	"SurfaceType": "Cardboard",
 	"Roughness": 1,
 	"Metallic": 0,
-	"PrimaryColor": {
+	"PrimaryColor":
+	{
 		"R": 255,
 		"G": 255,
 		"B": 255
 	},
-	"SecondaryColor": {
+	"SecondaryColor":
+	{
 		"R": 0,
 		"G": 0,
 		"B": 0
@@ -27,7 +29,8 @@
 	"Collision": [],
 	"SnapPointsGlobal": false,
 	"SnapPoints": [],
-	"ZoomViewDirection": {
+	"ZoomViewDirection":
+	{
 		"X": 0,
 		"Y": 0,
 		"Z": 0
@@ -48,7 +51,14 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [0, 1, 2, 3],
-	"CardNames": {}
+	"Indices": [ 0, 1, 2, 3 ],
+	"CardNames":
+	{
+		"3": "The Wind-Walker",
+		"2": "Stars Aligned",
+		"1": "Return of the Ancient Ones",
+		"0": "Faded From Society"
+	}
 }
