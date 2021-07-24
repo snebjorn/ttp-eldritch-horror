@@ -82,12 +82,19 @@ function createAssets(expansionItems) {
   addExpansionCardsToDeck(investigatorDeck, expansionItems.investigators);
   addExpansionCardsToExpansionDeck(
     "unique-asset-deck",
+    "Unique Assets",
+    `Unique Assets are double-sided cards. An investigator cannot look at the back of Unique Assets unless an effect allows him to.
+- Unique Assets are possessions and may be traded using the Trade action. There is no limit to the number of Unique Assets an investigator can have.
+- “Asset” refers to both Assets and Unique Assets. “Non-Unique Asset” refers to Assets but not Unique Assets.
+- When a Unique Asset is discarded, also discard all tokens on it.`,
     expansionItems.uniqueAssetCards,
     tableLocations.uniqueAssets,
     true
   );
   addExpansionCardsToExpansionDeck(
     "prelude-deck",
+    "Preludes",
+    "",
     expansionItems.preludeCards,
     tableLocations.preludes
   );
@@ -195,11 +202,20 @@ function addExpansionCardsToDeck(deck, cards) {
 
 /**
  * @param {string} deckId
+ * @param {string} deckName
+ * @param {string} deckDescription
  * @param {Card | undefined} cards
  * @param {SnapPoint | Vector} [position]
  * @param {boolean} flip
  */
-function addExpansionCardsToExpansionDeck(deckId, cards, position, flip = false) {
+function addExpansionCardsToExpansionDeck(
+  deckId,
+  deckName,
+  deckDescription,
+  cards,
+  position,
+  flip = false
+) {
   if (!cards) {
     return;
   }
@@ -207,7 +223,7 @@ function addExpansionCardsToExpansionDeck(deckId, cards, position, flip = false)
     Util.flip(cards);
   }
 
-  Util.addToStack(cards, deckId, position);
+  Util.addToStack(cards, deckId, deckName, deckDescription, position);
 }
 
 function addFocus() {
@@ -222,6 +238,9 @@ function addFocus() {
   focusStack.onInserted.add(Util.removeInsertedCardFromStack);
   focusStack.setId("focus-token");
   focusStack.setName("Focus Token");
+  focusStack.setDescription(`As an action, an investigator on any space gains one Focus token.
+- An investigator may spend one Focus token to reroll one die when resolving a test. There is no limit to the number of Focus tokens he can spend to reroll dice.
+- An investigator cannot have more than two Focus tokens.`);
 
   if (!tableLocations.focus) {
     throw new Error("Cannot find position for focus token");

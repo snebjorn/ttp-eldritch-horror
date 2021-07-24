@@ -160,9 +160,11 @@ class Util {
   /**
    * @param {Card} card
    * @param {string} cardStackId
+   * @param {string} cardStackName
+   * @param {string} cardDescription
    * @param {SnapPoint | Vector} [position]
    */
-  static addToStack(card, cardStackId, position) {
+  static addToStack(card, cardStackId, cardStackName, cardDescription, position) {
     /** @type Card */
     // @ts-ignore
     const stack = world.getObjectById(cardStackId);
@@ -183,7 +185,8 @@ class Util {
         card.setPosition(position, 1);
       }
       card.setId(cardStackId);
-      card.setName("Unique Assets");
+      card.setName(cardStackName);
+      card.setDescription(cardDescription);
     } else {
       stack.addCards(card);
     }
