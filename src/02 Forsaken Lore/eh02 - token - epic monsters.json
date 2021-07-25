@@ -35,8 +35,8 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "epic monsters - front.jpg",
-	"BackTexture": "epic monsters - back.jpg",
+	"FrontTexture": "epic monsters - front.png",
+	"BackTexture": "epic monsters - back.png",
 	"HiddenTexture": "",
 	"BackIndex": -3,
 	"HiddenIndex": -1,
