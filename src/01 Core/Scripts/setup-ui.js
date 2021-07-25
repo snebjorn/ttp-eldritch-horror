@@ -262,6 +262,13 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
   if (prelude && !!prelude.afterResolvingSetup) {
     prelude.afterResolvingSetup(ancientName);
   }
+
+  if (!prelude) {
+    const preludeCardHolder = world.getObjectById("prelude-card-holder");
+    if (preludeCardHolder) {
+      preludeCardHolder.destroy();
+    }
+  }
 }
 
 function shuffleDecks() {
