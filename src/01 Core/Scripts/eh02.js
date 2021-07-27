@@ -62,7 +62,7 @@ exports.expandedAncientOnes = [
     researchTemplateId: "9EBDF20249D14E7C9BA358BF12E1B8BF",
   },
   {
-    name: "Yog Sothoth",
+    name: "Yog-Sothoth",
     mysteryTemplateId: "C9C74AFE4F327616A3F6F194FF2C0874",
     researchTemplateId: "19531A854536D4146D867FA801142F7E",
     specialTemplateIds: {
