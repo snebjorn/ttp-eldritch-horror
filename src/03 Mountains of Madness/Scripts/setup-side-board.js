@@ -50,6 +50,8 @@ function setupSideBoard(spawnPosition) {
   }
   const researchCards = UtilCopy.createCard(antarctica.researchCards, spawnPosition);
   UtilCopy.setPositionAtSnapPoint(researchCards, matSnaps.research);
+  researchCards.setName("Antarctica Research Encounters");
+  researchCards.setId("encounter-antarctica-research-deck");
   researchCards.shuffle();
 
   if (!matSnaps.mountains) {
@@ -57,6 +59,8 @@ function setupSideBoard(spawnPosition) {
   }
   const mountainCards = UtilCopy.createCard(antarctica.mountainsCards, spawnPosition);
   UtilCopy.setPositionAtSnapPoint(mountainCards, matSnaps.mountains);
+  mountainCards.setName("Mountains Encounters");
+  mountainCards.setId("encounter-mountains-deck");
   mountainCards.shuffle();
 
   if (!matSnaps.outposts) {
@@ -64,6 +68,8 @@ function setupSideBoard(spawnPosition) {
   }
   const outpostCards = UtilCopy.createCard(antarctica.outpostCards, spawnPosition);
   UtilCopy.setPositionAtSnapPoint(outpostCards, matSnaps.outposts);
+  outpostCards.setName("Outpost Encounters");
+  outpostCards.setId("encounter-outpost-deck");
   outpostCards.shuffle();
 
   /** @type Card | undefined */

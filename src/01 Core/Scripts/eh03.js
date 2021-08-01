@@ -104,6 +104,7 @@ const preludes = {
         if (randomStage1Card && randomStage2Card && randomStage3Card) {
           randomStage3Card.addCards(randomStage2Card);
 
+          randomStage3Card.setName("Antarctica Adventures");
           Util.setPositionAtSnapPoint(
             randomStage3Card,
             // @ts-ignore
@@ -115,6 +116,14 @@ const preludes = {
             gameBoardLocations.antarcticaSideBoard.activeAdventure
           );
           Util.flip(randomStage1Card);
+
+          const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
+          adventureToken.setName("Adventure Token: Antarctica");
+          Util.setPositionAtSnapPoint(
+            adventureToken,
+            // @ts-ignore
+            gameBoardLocations.antarcticaSideBoard.activeAdventure
+          );
         }
 
         antarcticaAdventuresStage1.destroy();
