@@ -112,6 +112,25 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     });
   }
 
+  if (startingItems.uniqueAssets && startingItems.uniqueAssets.length > 0) {
+    /** @type Card | undefined */
+    // @ts-ignore
+    const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
+    if (!uniqueAssetDeck) {
+      console.error("Unable to find Unique Asset Deck");
+    } else {
+      startingItems.uniqueAssets.forEach((asset) => {
+        const takenAsset = Util.takeCardNameFromStack(uniqueAssetDeck, asset);
+        if (takenAsset === undefined) {
+          console.error(`Unable to find "${asset}" in Unique Asset Deck`);
+          return;
+        }
+
+        positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
+      });
+    }
+  }
+
   if (startingItems.spells && startingItems.spells.length > 0) {
     startingItems.spells.forEach((spell) => {
       const spellCard = Util.takeCardNameFromStack(spellDeck, spell);
