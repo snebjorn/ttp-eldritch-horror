@@ -14,13 +14,27 @@ class Util {
   /**
    * @param {Card} cardStack
    * @param {string} cardName
-   * @returns {number | undefined} index of the matching card name, if no match returns undefined
+   * @param {boolean} fromFront - If true, searches from the front of the stack instead of the back. Default: `false`.
+   * @returns {number | undefined} Offset of the matching card name, relative to the search direction. If no match returns undefined
    */
-  static findCardNameInStack(cardStack, cardName) {
-    for (let i = 0; i < cardStack.getStackSize(); i++) {
-      const cardDetails = cardStack.getCardDetails(i);
-      if (cardDetails && cardDetails.name === cardName) {
-        return i;
+  static findCardNameInStack(cardStack, cardName, fromFront = false) {
+    const deckSize = cardStack.getStackSize();
+    if (fromFront) {
+      // search from the front
+      for (let i = 0; i < deckSize; i++) {
+        const cardDetails = cardStack.getCardDetails(i);
+        if (cardDetails && cardDetails.name === cardName) {
+          return i;
+        }
+      }
+    } else {
+      // search from the back
+      for (let i = deckSize - 1; i >= 0; i--) {
+        const cardDetails = cardStack.getCardDetails(i);
+        if (cardDetails && cardDetails.name === cardName) {
+          // flip offset
+          return deckSize - 1 - i;
+        }
       }
     }
   }
@@ -28,21 +42,34 @@ class Util {
   /**
    * @param {Card} cardStack
    * @param {string} cardName
-   * @param {number} count - amount of cards with `cardName` to take. Defaults to 1.
+   * @param {number} count - Amount of cards with `cardName` to take. Default: `1`.
+   * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
    * @returns {Card | undefined}
    */
-  static takeCardNameFromStack(cardStack, cardName, count = 1) {
+  static takeCardNameFromStack(cardStack, cardName, count = 1, fromFront = false) {
     let stack;
     for (let i = 0; i < count; i++) {
-      const foundCardIndex = this.findCardNameInStack(cardStack, cardName);
+      const foundCardIndex = this.findCardNameInStack(cardStack, cardName, fromFront);
       if (foundCardIndex === undefined) {
-        break;
+        break; // abort - no cards with this name is left in the deck
       }
-      const foundCard = cardStack.takeCards(1, true, foundCardIndex);
+      const foundCard = cardStack.takeCards(1, fromFront, foundCardIndex);
+      if (foundCard) {
+        const cardDetails = foundCard.getCardDetails();
+        if (cardDetails && cardDetails.name !== cardName) {
+          // put the incorrect card back
+          cardStack.addCards(foundCard, fromFront, foundCardIndex);
+          throw new Error(
+            `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${
+              cardDetails.name
+            }" instead`
+          );
+        }
+      }
       if (stack === undefined) {
         stack = foundCard;
       } else if (foundCard) {
-        stack.addCards(foundCard, true);
+        stack.addCards(foundCard);
       }
     }
 
