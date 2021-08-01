@@ -62,7 +62,7 @@ function drawSetupUi() {
   vBox.addChild(new Text().setText(`${step++}. Select Expansions`));
 
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03"];
+  let activeExpansions = ["eh02", "eh03", "eh04"];
   const expansionBox = new HorizontalBox();
   expansionBox.setChildDistance(6);
   vBox.addChild(expansionBox);
@@ -92,12 +92,25 @@ function drawSetupUi() {
   });
   expansionBox.addChild(eh03);
 
+  const eh04 = new CheckBox().setText("Strange Remnants").setIsChecked(true);
+  eh04.onCheckStateChanged.add((_button, _player, isChecked) => {
+    if (isChecked) {
+      activeExpansions.push("eh04");
+      ancientSyzygy.setEnabled(true);
+    } else {
+      activeExpansions = activeExpansions.filter((x) => x !== "eh04");
+      ancientSyzygy.setEnabled(false);
+    }
+  });
+  expansionBox.addChild(eh04);
+
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
   let isExpansionsLoaded = false;
   loadExpansionBtn.onClicked.add(() => {
     loadExpansion(...activeExpansions);
     eh02.setEnabled(false);
     eh03.setEnabled(false);
+    eh04.setEnabled(false);
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
@@ -205,6 +218,10 @@ function drawSetupUi() {
   const ancientIthaqua = new Button().setText("Ithaqua");
   ancientIthaqua.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientIthaqua);
+
+  const ancientSyzygy = new Button().setText("Syzygy");
+  ancientSyzygy.onClicked.add(ancientClickFn);
+  ancientBox2.addChild(ancientSyzygy);
 
   world.__eldritchHorror.updateSetupUIFn = () => {
     updateIconReference(world.__eldritchHorror.activeIconReference);

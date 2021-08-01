@@ -62,6 +62,12 @@ function loadScript(expansion) {
 
       return expansionItems;
     }
+    case "eh04": {
+      // @ts-ignore
+      const { expansionItems } = require("./eh04");
+
+      return expansionItems;
+    }
   }
 }
 
