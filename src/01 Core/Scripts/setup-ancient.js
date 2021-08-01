@@ -1,4 +1,4 @@
-const { world, Card, Vector } = require("@tabletop-playground/api");
+const { world, Card, SnapPoint } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
 const { Util } = require("./util");
 const {
@@ -95,7 +95,7 @@ function setupMysteryCards(mysteryTemplateIds) {
     throw new Error("Cannot find table location for the mystery deck");
   }
 
-  const mysteryDeck = buildDeck(mysteryTemplateIds, mysteryDeckTableLocation.getGlobalPosition());
+  const mysteryDeck = buildDeck(mysteryTemplateIds, mysteryDeckTableLocation);
 
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
@@ -124,8 +124,9 @@ function setupResearchCards(researchTemplateIds) {
     throw new Error("Cannot find table location for the research deck");
   }
 
-  const researchDeck = buildDeck(researchTemplateIds, researchTableLocation.getGlobalPosition());
+  const researchDeck = buildDeck(researchTemplateIds, researchTableLocation);
 
+  researchDeck.snap();
   researchDeck.setName("Research Encounters");
   researchDeck.shuffle();
 }
@@ -152,15 +153,15 @@ function setupSpecialCards(specialTemplateIds) {
 
 /**
  * @param {string[]} templateIds
- * @param {Vector} location
+ * @param {SnapPoint} snapPoint
  */
-function buildDeck(templateIds, location) {
+function buildDeck(templateIds, snapPoint) {
   /** @type Card */
   // @ts-ignore
   const finalDeck = templateIds.reduce(
     /** @param {Card | undefined} deck */
     (deck, templateId) => {
-      const expansionCards = Util.createCard(templateId, location);
+      const expansionCards = Util.createCard(templateId, snapPoint.getGlobalPosition());
       if (deck === undefined) {
         deck = expansionCards;
       } else {

@@ -127,7 +127,7 @@ class Util {
         // but that happens somewhat randomly and can cause the objects to rotate or move away from their original location.
         //
         // To resolve this issue we need to offset the height (Z-axises) so it doesn't collide with the below surface.
-        .add(new Vector(0, 0, 1)),
+        .add(new Vector(0, 0, gameObject.getExtent(true).z)),
       animationSpeed
     );
 
@@ -142,8 +142,16 @@ class Util {
    * @returns {Card}
    */
   static createCard(templateId, position) {
-    // @ts-ignore
-    return world.createObjectFromTemplate(templateId, position);
+    const card = world.createObjectFromTemplate(templateId, position);
+    if (!card) {
+      throw new Error(`Something went wrong when trying to create ${templateId}`);
+    }
+    if (!(card instanceof Card)) {
+      throw new Error(
+        `Tried to created ${templateId} as a Card but it's a ${card.constructor.name}`
+      );
+    }
+    return card;
   }
 
   /**
@@ -152,8 +160,11 @@ class Util {
    * @returns {GameObject}
    */
   static createGameObject(templateId, position) {
-    // @ts-ignore
-    return world.createObjectFromTemplate(templateId, position);
+    const gameObject = world.createObjectFromTemplate(templateId, position);
+    if (!gameObject) {
+      throw new Error(`Something went wrong when trying to create ${templateId}`);
+    }
+    return gameObject;
   }
 
   /**
@@ -162,8 +173,16 @@ class Util {
    * @returns {MultistateObject}
    */
   static createMultistateObject(templateId, position) {
-    // @ts-ignore
-    return world.createObjectFromTemplate(templateId, position);
+    const multistateObject = world.createObjectFromTemplate(templateId, position);
+    if (!multistateObject) {
+      throw new Error(`Something went wrong when trying to create ${templateId}`);
+    }
+    if (!(multistateObject instanceof MultistateObject)) {
+      throw new Error(
+        `Tried to created ${templateId} as a MultistateObject but it's a ${multistateObject.constructor.name}`
+      );
+    }
+    return multistateObject;
   }
 
   /**
@@ -172,8 +191,16 @@ class Util {
    * @returns {CardHolder}
    */
   static createCardHolder(templateId, position) {
-    // @ts-ignore
-    return world.createObjectFromTemplate(templateId, position);
+    const cardHolder = world.createObjectFromTemplate(templateId, position);
+    if (!cardHolder) {
+      throw new Error(`Something went wrong when trying to create ${templateId}`);
+    }
+    if (!(cardHolder instanceof CardHolder)) {
+      throw new Error(
+        `Tried to created ${templateId} as a CardHolder but it's a ${cardHolder.constructor.name}`
+      );
+    }
+    return cardHolder;
   }
 
   /**
@@ -182,8 +209,17 @@ class Util {
    * @returns {Card}
    */
   static cloneCard(card, position) {
-    // @ts-ignore
-    return world.createObjectFromJSON(card.toJSONString(), position);
+    if (card instanceof Card === false) {
+      throw new Error(`Tried to clone a Card but the given card was a ${card.constructor.name}`);
+    }
+    const clonedCard = world.createObjectFromJSON(card.toJSONString(), position);
+    if (!clonedCard) {
+      throw new Error(`Something went wrong when trying to create object from JSON`);
+    }
+    if (!(clonedCard instanceof Card)) {
+      throw new Error(`Cloned card is not a Card, but a ${clonedCard.constructor.name}`);
+    }
+    return clonedCard;
   }
 
   static getNextGroupId() {

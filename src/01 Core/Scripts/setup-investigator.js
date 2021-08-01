@@ -104,6 +104,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     startingItems.assets.forEach((asset) => {
       const takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
       if (takenAsset === undefined) {
+        console.error(`Unable to find "${asset}" in Asset Deck`);
         return;
       }
 
@@ -135,6 +136,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     startingItems.spells.forEach((spell) => {
       const spellCard = Util.takeCardNameFromStack(spellDeck, spell);
       if (spellCard === undefined) {
+        console.error(`Unable to find "${spell}" in Spell Deck`);
         return;
       }
 
@@ -146,6 +148,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     startingItems.conditions.forEach((condition) => {
       const conditionCard = Util.takeCardNameFromStack(conditionDeck, condition);
       if (conditionCard === undefined) {
+        console.error(`Unable to find "${condition}" in Condition Deck`);
         return;
       }
 
@@ -160,6 +163,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
   if (startingItems.clues && startingItems.clues > 0) {
     const clueToken = Util.takeRandomCardFromStack(cluePool);
     if (clueToken === undefined) {
+      console.error(`Unable to find a clue in Clue Pool`);
       return;
     }
 
@@ -174,6 +178,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
     improvementTokens.destroy();
     if (takenWillToken === undefined) {
+      console.error(`Unable to find Will token`);
       return;
     }
 
@@ -217,7 +222,14 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
  * @param {SnapPoint} startingLocation
  */
 function setupPawn(pawnTemplateId, startingLocation) {
-  return world.createObjectFromTemplate(pawnTemplateId, startingLocation.getGlobalPosition());
+  const pawn = world.createObjectFromTemplate(
+    pawnTemplateId,
+    startingLocation.getGlobalPosition().add(new Vector(0, 0, 2))
+  );
+  if (pawn) {
+    pawn.snap();
+  }
+  return pawn;
 }
 
 /** @param {keyof GameBoardLocations["space"]} startingLocation */
