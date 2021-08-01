@@ -1,4 +1,5 @@
 const { refObject, UIElement, Button, Vector } = require("@tabletop-playground/api");
+const { GameUtil } = require("./game-util");
 const { Util } = require("./util");
 const { assetDeck, conditionDeck, gameBoardLocations } = require("./world-constants");
 
@@ -16,9 +17,7 @@ function drawRestockButtons() {
     ui.scale = 0.12;
     let restockButton = new Button().setText("Restock").setFontSize(64);
     restockButton.onClicked.add(() => {
-      const drawnAssetCard = assetDeck.takeCards(1);
-      Util.flip(drawnAssetCard);
-      Util.setPositionAtSnapPoint(drawnAssetCard, reserveSnapPoint);
+      GameUtil.restockReserve(reserveSnapPoint);
     });
     ui.widget = restockButton;
     gameBoard.addUI(ui);
@@ -34,12 +33,7 @@ function drawDebtButton() {
   ui.scale = 0.1;
   let drawDebtButton = new Button().setText("Draw Debt").setFontSize(64);
   drawDebtButton.onClicked.add(() => {
-    const drawnAssetCard = Util.takeCardNameFromStack(conditionDeck, "Debt");
-    if (drawnAssetCard === undefined) {
-      return;
-    }
-
-    Util.setPositionAtSnapPoint(drawnAssetCard, gameBoardLocations.bankLoan);
+    GameUtil.drawDebtCondition();
   });
   ui.widget = drawDebtButton;
   gameBoard.addUI(ui);
