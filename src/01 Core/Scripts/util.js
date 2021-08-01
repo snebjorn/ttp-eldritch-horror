@@ -289,6 +289,21 @@ class Util {
       insertedCard.destroy();
     }
   }
+
+  /** @param {Array<SnapPoint | undefined>} snapPoints */
+  static getNextAvailableSnapPoint(snapPoints) {
+    for (const snapPoint of snapPoints) {
+      if (!snapPoint) {
+        continue;
+      }
+      const isOccupied = snapPoint.getSnappedObject();
+      if (!isOccupied) {
+        return snapPoint;
+      }
+    }
+
+    throw new Error("Unable to find unoccupied snap point");
+  }
 }
 
 exports.Util = Util;

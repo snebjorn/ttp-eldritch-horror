@@ -1,5 +1,5 @@
 // @ts-nocheck
-const { world, Card, Container, SnapPoint, Vector } = require("@tabletop-playground/api");
+const { world, Card, Container, Vector } = require("@tabletop-playground/api");
 
 /** @type Card */
 exports.investigatorDeck = world.getObjectById("investigator-deck");
@@ -161,25 +161,25 @@ exports.tableLocations = {
   ancientOne: tableMat.getSnapPoint(30),
   mythosDeck: tableMat.getSnapPoint(31),
   activeMythos: tableMat.getSnapPoint(32),
-  /** @type Record<number, SnapPoint> */
-  ancientOneMonsters: {
-    0: tableMat.getSnapPoint(33),
-    1: tableMat.getSnapPoint(34),
-    2: tableMat.getSnapPoint(35),
-  },
+  ancientOneMonsters: [
+    tableMat.getSnapPoint(33),
+    tableMat.getSnapPoint(34),
+    tableMat.getSnapPoint(35),
+    tableMat.getSnapPoint(36),
+    tableMat.getSnapPoint(37),
+    tableMat.getSnapPoint(38),
+  ],
   mysteryDeck: tableMat.getSnapPoint(39),
   activeMystery: tableMat.getSnapPoint(40),
-  research: tableMat.getSnapPoint(41),
-  /** @type Record<number, SnapPoint> */
-  specials: {
-    0: tableMat.getSnapPoint(43),
-    1: tableMat.getSnapPoint(45),
-  },
+  research: tableMat.getSnapPoint(17),
+  specials: [tableMat.getSnapPoint(41), tableMat.getSnapPoint(43), tableMat.getSnapPoint(45)],
   focus: tableMat.getSnapPoint(49),
   resource: tableMat.getSnapPoint(50),
   uniqueAssets: tableMat.getSnapPoint(27),
   preludes: new Vector(52, -78.5, 88),
   preludeCardHolder: new Vector(52.5, -86, 88),
+  adventureDeck: tableMat.getSnapPoint(58),
+  activeAdventure: tableMat.getSnapPoint(59),
 };
 
 exports.expansionSpawn = gameBoard.getPosition().add(new Vector(0, 0, 10));

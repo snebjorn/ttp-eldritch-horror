@@ -63,7 +63,6 @@ function setupAncientOneSheet(sheetId) {
 }
 
 /**
- *
  * @param {Record<string, number>} [monsters]
  */
 function setupMonsters(monsters) {
@@ -71,14 +70,21 @@ function setupMonsters(monsters) {
     return;
   }
 
-  let offset = 0;
   for (const [monsterName, count] of Object.entries(monsters)) {
     const monsterStack = Util.takeCardNameFromStack(monsterCup, monsterName, count);
     if (monsterStack === undefined) {
+      console.error(`Unable to find "${monsterName}" in the monster cup`);
       continue;
     }
 
-    Util.setPositionAtSnapPoint(monsterStack, tableLocations.ancientOneMonsters[offset++]);
+    Util.setPositionAtSnapPoint(
+      monsterStack,
+      Util.getNextAvailableSnapPoint(tableLocations.ancientOneMonsters)
+    );
+
+    if (monsterStack.getStackSize() > 1) {
+      monsterStack.setName(monsterName);
+    }
   }
 }
 
@@ -140,12 +146,12 @@ function setupSpecialCards(specialTemplateIds) {
     return;
   }
 
-  let offset = 0;
   for (const [specialName, templateIds] of Object.entries(specialTemplateIds)) {
     const specialDeck = buildDeck(
       templateIds,
-      tableLocations.specials[offset++].getGlobalPosition()
+      Util.getNextAvailableSnapPoint(tableLocations.specials)
     );
+    specialDeck.snap();
     specialDeck.setName(specialName);
     specialDeck.shuffle();
   }
