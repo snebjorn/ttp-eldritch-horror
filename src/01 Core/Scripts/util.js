@@ -78,6 +78,48 @@ class Util {
 
   /**
    * @param {Card} cardStack
+   * @param {string[]} cardNames
+   * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
+   * @returns {Card | undefined}
+   */
+  static takeCardNamesFromStack(cardStack, cardNames, fromFront = false) {
+    let stack;
+    for (const cardName of cardNames) {
+      const foundCardOffset = this.findCardNameInStack(cardStack, cardName, fromFront);
+      if (foundCardOffset === undefined) {
+        continue; // card not found, try next
+      }
+      let foundCard = cardStack.takeCards(1, fromFront, foundCardOffset);
+      if (!foundCard && cardStack.getStackSize() === 1) {
+        // takeCards returns undefined if there's only 1 card left
+        // that means the card we want is the stack
+        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
+        foundCard = cardStack;
+      }
+      if (foundCard) {
+        const cardDetails = foundCard.getCardDetails();
+        if (cardDetails && cardDetails.name !== cardName) {
+          // put the incorrect card back
+          cardStack.addCards(foundCard, fromFront, foundCardOffset);
+          throw new Error(
+            `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${
+              cardDetails.name
+            }" instead`
+          );
+        }
+      }
+      if (stack === undefined) {
+        stack = foundCard;
+      } else if (foundCard) {
+        stack.addCards(foundCard);
+      }
+    }
+
+    return stack;
+  }
+
+  /**
+   * @param {Card} cardStack
    * @returns {Card | undefined}
    */
   static takeRandomCardFromStack(cardStack) {
@@ -212,7 +254,17 @@ class Util {
     if (card instanceof Card === false) {
       throw new Error(`Tried to clone a Card but the given card was a ${card.constructor.name}`);
     }
-    const clonedCard = world.createObjectFromJSON(card.toJSONString(), position);
+
+    return Util.cloneCardFromJson(card.toJSONString(), position);
+  }
+
+  /**
+   * @param {string} json
+   * @param {Vector} position
+   * @returns {Card}
+   */
+  static cloneCardFromJson(json, position) {
+    const clonedCard = world.createObjectFromJSON(json, position);
     if (!clonedCard) {
       throw new Error(`Something went wrong when trying to create object from JSON`);
     }
@@ -303,6 +355,140 @@ class Util {
     }
 
     throw new Error("Unable to find unoccupied snap point");
+  }
+
+  /**
+   * Returns the closest `SnapPoint` from the `snapPoints` array to the `originSnapPoint` in the 2D plane.
+   * Meaning that all snap points will be treated as if they were at the same Z-axises
+   *
+   * @param {SnapPoint} originSnapPoint
+   * @param {SnapPoint[]} snapPoints
+   */
+  static findClosestSnapPoint2D(originSnapPoint, snapPoints) {
+    if (snapPoints.length === 0) {
+      throw new Error("No snap points to compare distance to was provided");
+    }
+
+    const originGlobal = originSnapPoint.getGlobalPosition();
+    originGlobal.z = 0;
+    const snapPointsGlobal = snapPoints.map((x) => {
+      const globalPos = x.getGlobalPosition();
+      globalPos.z = 0;
+
+      return globalPos;
+    });
+    const foundIndex = this.findIndexOfShortestDistance(originGlobal, snapPointsGlobal);
+    const closetsSnapPoint = snapPoints[foundIndex];
+
+    return closetsSnapPoint;
+  }
+
+  /**
+   * Returns the closest `SnapPoint` from the `snapPoints` array to the `originSnapPoint`
+   *
+   * @param {SnapPoint} originSnapPoint
+   * @param {SnapPoint[]} snapPoints
+   */
+  static findClosestSnapPoint(originSnapPoint, snapPoints) {
+    if (snapPoints.length === 0) {
+      throw new Error("No snap points to compare distance to was provided");
+    }
+
+    const originGlobal = originSnapPoint.getGlobalPosition();
+    const snapPointsGlobal = snapPoints.map((x) => x.getGlobalPosition());
+    const foundIndex = this.findIndexOfShortestDistance(originGlobal, snapPointsGlobal);
+    const closetsSnapPoint = snapPoints[foundIndex];
+
+    return closetsSnapPoint;
+  }
+
+  /**
+   * Returns the index of the point with the shortest distance to `origin`.
+   * If multiple points have the same shortest distance the first is returned.
+   *
+   * @param {Vector} origin
+   * @param {Vector[]} points
+   */
+  static findIndexOfShortestDistance(origin, points) {
+    if (points.length === 0) {
+      throw new Error("No points to compare distance to was provided");
+    }
+
+    let indexOfClosetsPoint;
+    let shortestDistance;
+    for (let index = 0; index < points.length; index++) {
+      const point = points[index];
+      const distance = origin.distance(point);
+      if (shortestDistance === undefined || shortestDistance > distance) {
+        shortestDistance = distance;
+        indexOfClosetsPoint = index;
+      }
+    }
+
+    if (indexOfClosetsPoint === undefined) {
+      throw new Error("No closets points to origin was found - this should never happen");
+    }
+
+    return indexOfClosetsPoint;
+  }
+
+  /**
+   * Returns the top position of an object.
+   *
+   * @param {GameObject} object
+   */
+  static getTopPosition(object) {
+    return object.getPosition().add(new Vector(0, 0, object.getExtent(true).z));
+  }
+
+  /**
+   * @param {GameObject} object
+   * @param {Vector} direction - direction to find objects in. Defaults to `Vector(0, 0, 2)`
+   */
+  static findObjectsOnTop(object, direction = new Vector(0, 0, 2)) {
+    const topPosition = Util.getTopPosition(object);
+    return world.lineTrace(topPosition, topPosition.add(direction));
+  }
+
+  /**
+   * @param {Card} card
+   */
+  static convertToInfiniteStack(card) {
+    if (card.getStackSize() > 1) {
+      throw new Error("Given card/token must be a stack, but a single card/token");
+    }
+    const position = card.getPosition();
+
+    card.addCards(Util.cloneCard(card, position));
+    card.setInheritScript(false);
+    card.onRemoved.add(Util.addCloneToStack);
+    card.onInserted.add(Util.removeInsertedCardFromStack);
+
+    return card;
+  }
+
+  /**
+   * @param {GameObject} object
+   * @param {SnapPoint[]} snapPoints
+   * @param {number} index
+   */
+  static insertObjectAt(object, snapPoints, index) {
+    const snapPoint = snapPoints[index];
+    const occupyingObject = snapPoint.getSnappedObject();
+    if (!occupyingObject) {
+      const objectsFound = Util.findObjectsOnTop(object);
+      Util.moveObject(object, snapPoint);
+
+      for (const objectHit of objectsFound) {
+        Util.moveObject(objectHit.object, snapPoint);
+      }
+
+      return;
+    }
+
+    Util.insertObjectAt(occupyingObject, snapPoints, index + 1);
+
+    Util.insertObjectAt(object, snapPoints, index);
   }
 }
 

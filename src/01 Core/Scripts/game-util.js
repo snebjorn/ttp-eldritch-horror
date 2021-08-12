@@ -44,6 +44,32 @@ class GameUtil {
 
   /**
    * @param {number} number
+   * @throws If unable to take ship token from travel tickets template object
+   */
+  static takeShipTokens(number) {
+    const stackPos = shipTicket.getPosition().add(new Vector(0, 0, 3));
+    const travelTickets = Util.createCard("934AA7324CE46C2AC3DF2999F5F3EFEB", stackPos);
+    const shipTokens = Util.takeCardNameFromStack(travelTickets, "ship");
+    travelTickets.destroy();
+
+    if (!shipTokens) {
+      throw new Error("Unable to take ship token");
+    }
+
+    if (number > 1) {
+      const json = shipTokens.toJSONString();
+      for (let i = 1; i < number; i++) {
+        const copiedToken = Util.cloneCardFromJson(json, stackPos);
+        shipTokens.addCards(copiedToken);
+      }
+    }
+
+    return shipTokens;
+  }
+
+  /**
+   * @param {number} number
+   * @throws If unable to find snap point for spawned gate
    */
   static spawnGates(number) {
     for (let i = 0; i < number; i++) {
@@ -114,6 +140,106 @@ class GameUtil {
     }
 
     Util.setPositionAtSnapPoint(drawnDebtCard, gameBoardLocations.bankLoan);
+
+  static getActivePrelude() {
+    if (world.__eldritchHorror.activePrelude) {
+      return world.__eldritchHorror.preludes.get(world.__eldritchHorror.activePrelude);
+    }
+  }
+
+  static getActiveAncientOne() {
+    return world.__eldritchHorror.activeAncientOne;
+  }
+
+  /**
+   * @param {GameObject} deck
+   */
+  static addEncounterDeck(deck) {
+    Util.insertObjectAt(deck, tableLocations.topDeckRow, 0);
+
+    return tableLocations.topDeckRow[0];
+  }
+
+  /**
+   * Moves the given monster stack near the ancient one sheet, this is considered "set aside"
+   *
+   * @param {string} monsterName
+   * @param {number} [count]
+   * @returns {[monsterStack: Card, snapPoint: SnapPoint]}
+   */
+  static setAsideMonster(monsterName, count = 1) {
+    const monsterStack = Util.takeCardNameFromStack(monsterCup, monsterName, count);
+    if (!monsterStack) {
+      throw new Error(`Unable to find "${monsterName}" in the monster cup`);
+    }
+    const availablePosition = Util.getNextAvailableSnapPoint(tableLocations.ancientOneMonsters);
+    Util.moveObject(monsterStack, availablePosition);
+
+    return [monsterStack, availablePosition];
+  }
+
+  /**
+   * Spawns a monster from the monster cup
+   *
+   * @param {SnapPoint | Vector} position
+   */
+  static spawnMonster(position) {
+    const monster = monsterCup.takeCards(1);
+    if (monster) {
+      Util.moveObject(monster, position);
+    }
+
+    return monster;
+  }
+
+  /**
+   * @param {string} monsterName
+   * @param {SnapPoint} snapPoint
+   * @throws If unable to find `monsterName`
+   */
+  static spawnEpicMonster(monsterName, snapPoint) {
+    const epicMonster = Util.takeCardNameFromStack(epicMonsterCup, monsterName);
+    if (!epicMonster) {
+      throw new Error(`Unable to find "${monsterName}" in the epic monster cup`);
+    }
+
+    Util.moveObject(epicMonster, snapPoint);
+
+    return epicMonster;
+  }
+
+  /**
+   * @param {string} monsterName
+   */
+  static takeMonster(monsterName) {
+    return (
+      // first try the monster cup
+      Util.takeCardNameFromStack(monsterCup, monsterName) ||
+      // next try to find amongst Set Aside monsters
+      GameUtil.takeSetAsideMonster(monsterName)
+    );
+  }
+
+  /**
+   * @param {string} monsterName
+   */
+  static takeSetAsideMonster(monsterName) {
+    for (const snapPoint of tableLocations.ancientOneMonsters) {
+      const snappedObject = snapPoint.getSnappedObject();
+      if (snappedObject instanceof Card) {
+        if (snappedObject.getStackSize() > 1) {
+          const monster = Util.takeCardNameFromStack(snappedObject, monsterName);
+          if (monster) {
+            return monster;
+          }
+        } else {
+          const cardDetails = snappedObject.getCardDetails();
+          if (cardDetails && cardDetails.name === monsterName) {
+            return snappedObject;
+          }
+        }
+      }
+    }
   }
 }
 exports.GameUtil = GameUtil;
