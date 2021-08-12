@@ -255,7 +255,7 @@ function addFocus() {
     throw new Error("Cannot find position for focus token");
   }
 
-  Util.setPositionAtSnapPoint(focusStack, tableLocations.focus);
+  Util.moveObject(focusStack, tableLocations.focus);
 
   world.__eldritchHorror.alreadyLoaded.push("focus");
 }

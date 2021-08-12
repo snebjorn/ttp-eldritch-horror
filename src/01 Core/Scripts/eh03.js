@@ -71,7 +71,7 @@ const preludes = {
       // place eldritch token on green omen
       const eldritchToken = GameUtil.takeEldritchTokens(1);
 
-      Util.setPositionAtSnapPoint(eldritchToken, gameBoardLocations.omen.green);
+      Util.moveObject(eldritchToken, gameBoardLocations.omen.green);
     },
   },
   "Doomsayer From Antarctica": {
@@ -105,12 +105,12 @@ const preludes = {
           randomStage3Card.addCards(randomStage2Card);
 
           randomStage3Card.setName("Antarctica Adventures");
-          Util.setPositionAtSnapPoint(
+          Util.moveObject(
             randomStage3Card,
             // @ts-ignore
             gameBoardLocations.antarcticaSideBoard.adventure
           );
-          Util.setPositionAtSnapPoint(
+          Util.moveObject(
             randomStage1Card,
             // @ts-ignore
             gameBoardLocations.antarcticaSideBoard.activeAdventure
@@ -119,7 +119,7 @@ const preludes = {
 
           const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
           adventureToken.setName("Adventure Token: Antarctica");
-          Util.setPositionAtSnapPoint(
+          Util.moveObject(
             adventureToken,
             // @ts-ignore
             gameBoardLocations.antarcticaSideBoard.activeAdventure
@@ -141,7 +141,7 @@ const preludes = {
         "The Wind-Walker"
       );
       if (windWalkerMythos && tableLocations.activeMythos) {
-        Util.setPositionAtSnapPoint(windWalkerMythos, tableLocations.activeMythos);
+        Util.moveObject(windWalkerMythos, tableLocations.activeMythos);
         Util.flip(windWalkerMythos);
       }
     },
@@ -149,7 +149,7 @@ const preludes = {
       // if ithaqua, advance omen by 1 and remove the The Wind-Walker mythos card
       // else put 6 eldritch tokens on The Wind-Walker mythos card
       if (ancientOne === "Ithaqua") {
-        Util.setPositionAtSnapPoint(omenToken, gameBoardLocations.omen.blue1);
+        Util.moveObject(omenToken, gameBoardLocations.omen.blue1);
         const windWalkerCard =
           tableLocations.activeMythos && tableLocations.activeMythos.getSnappedObject();
         if (windWalkerCard) {
@@ -158,7 +158,7 @@ const preludes = {
       } else {
         if (tableLocations.activeMythos) {
           const eldritchTokens = GameUtil.takeEldritchTokens(6);
-          Util.setPositionAtSnapPoint(eldritchTokens, tableLocations.activeMythos);
+          Util.moveObject(eldritchTokens, tableLocations.activeMythos);
         }
         const windWalkerEpic = Util.takeCardNameFromStack(epicMonsterCup, "Wind-Walker");
         if (windWalkerEpic) {

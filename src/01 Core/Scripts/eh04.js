@@ -68,7 +68,7 @@ const preludes = {
         Util.setPositionAtSnapPoint(mysticRuinsDeck, mysticRuinsSnapPoint);
         const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
         mysticRuinsToken.setName("Mystic Ruins Token");
-        Util.setPositionAtSnapPoint(mysticRuinsToken, mysticRuinsSnapPoint);
+        Util.moveObject(mysticRuinsToken, mysticRuinsSnapPoint);
       }
     },
     afterResolvingSetup: (ancientOne) => {
@@ -76,7 +76,7 @@ const preludes = {
       // else setup cosmic alignment adventures and draw top and spawn 1 gate
       if (ancientOne === "Syzygy") {
         const eldritchToken = GameUtil.takeEldritchTokens(1);
-        Util.setPositionAtSnapPoint(eldritchToken, gameBoardLocations.omen.red);
+        Util.moveObject(eldritchToken, gameBoardLocations.omen.red);
       } else {
         const randomAdventureTemplateId =
           Util.randomIntFromInterval(1, 2) === 1
@@ -86,7 +86,7 @@ const preludes = {
         if (!tableLocations.adventureDeck) {
           throw new Error("Unable to find snap point for adventure deck");
         }
-        Util.setPositionAtSnapPoint(adventureDeck, tableLocations.adventureDeck);
+        Util.moveObject(adventureDeck, tableLocations.adventureDeck);
         adventureDeck.setName("Cosmic Alignment");
         const firstAdventureCard = adventureDeck.takeCards(1);
         if (!firstAdventureCard) {
@@ -95,14 +95,14 @@ const preludes = {
         if (!tableLocations.activeAdventure) {
           throw new Error("Unable to find snap point for active adventure deck");
         }
-        Util.setPositionAtSnapPoint(firstAdventureCard, tableLocations.activeAdventure);
+        Util.moveObject(firstAdventureCard, tableLocations.activeAdventure);
         Util.flip(firstAdventureCard);
 
         GameUtil.spawnGates(1);
 
         const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
         adventureToken.setName("Adventure Token: Cosmic Alignment");
-        Util.setPositionAtSnapPoint(adventureToken, gameBoardLocations.space.Arkham);
+        Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
       }
     },
   },
@@ -136,7 +136,7 @@ const preludes = {
               if (!tableLocations.activeMystery) {
                 throw new Error("Unable to find active mystery snap point");
               }
-              Util.setPositionAtSnapPoint(activeMysteryCard, tableLocations.activeMystery);
+              Util.moveObject(activeMysteryCard, tableLocations.activeMystery);
               Util.flip(activeMysteryCard);
             }
           }

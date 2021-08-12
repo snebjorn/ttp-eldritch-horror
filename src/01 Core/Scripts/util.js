@@ -155,13 +155,13 @@ class Util {
 
   /**
    * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
-   * @param {SnapPoint} snapPoint
+   * @param {SnapPoint | Vector} position
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
    */
-  static setPositionAtSnapPoint(gameObject, snapPoint, animationSpeed = 1) {
+  static moveObject(gameObject, position, animationSpeed = 1) {
+    const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
     gameObject.setPosition(
-      snapPoint
-        .getGlobalPosition()
+      globalPosition
         // Snap points usually don't have any distance to the surface under them,
         // this will move the gameObject partly into the below surface.
         // That is more pronounced for larger objects or stacks.
@@ -175,7 +175,11 @@ class Util {
 
     // calling snap() right after calling setPosition() will take care of moving the object
     // on down onto the table without colliding, and the animation will still work.
-    gameObject.snap();
+    if (position instanceof SnapPoint) {
+      gameObject.snap();
+    } else {
+      gameObject.snapToGround();
+    }
   }
 
   /**
@@ -301,7 +305,7 @@ class Util {
             `Object already present at given SnapPoint for newly created card stack with id: ${cardStackId}`
           );
         }
-        Util.setPositionAtSnapPoint(card, position);
+        Util.moveObject(card, position);
       } else {
         card.setPosition(position, 1);
       }

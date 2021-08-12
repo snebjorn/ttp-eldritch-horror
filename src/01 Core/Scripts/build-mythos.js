@@ -40,7 +40,7 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
   stage3.addCards(stage2, true);
   stage3.addCards(stage1, true);
 
-  Util.setPositionAtSnapPoint(stage3, tableLocations.mythosDeck);
+  Util.moveObject(stage3, tableLocations.mythosDeck);
   stage3.setName("Mythos Deck");
   stage3.setId("mythos-deck");
 

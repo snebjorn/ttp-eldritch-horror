@@ -21,7 +21,7 @@ class GameUtil {
       // @ts-ignore
       const advancedDoomSnapShot = gameBoardLocations.doom[doomCount - number];
       if (advancedDoomSnapShot) {
-        Util.setPositionAtSnapPoint(doomToken, advancedDoomSnapShot);
+        Util.moveObject(doomToken, advancedDoomSnapShot);
       }
     }
   }
@@ -84,7 +84,7 @@ class GameUtil {
           if (!snapPoint) {
             throw new Error(`Cannot find snap point for gate: ${gateName}`);
           }
-          Util.setPositionAtSnapPoint(gateToken, snapPoint);
+          Util.moveObject(gateToken, snapPoint);
 
           const monsterToken = monsterCup.takeCards(1);
           if (monsterToken) {
@@ -110,7 +110,7 @@ class GameUtil {
           if (!snapPoint) {
             throw new Error(`Cannot find snap point for clue: ${clueName}`);
           }
-          Util.setPositionAtSnapPoint(clueToken, snapPoint);
+          Util.moveObject(clueToken, snapPoint);
         }
       }
     }
@@ -130,7 +130,7 @@ class GameUtil {
       throw new Error("Unable to draw card from the asset deck");
     }
     Util.flip(drawnAssetCard);
-    Util.setPositionAtSnapPoint(drawnAssetCard, reserveSnapPoint);
+    Util.moveObject(drawnAssetCard, reserveSnapPoint);
   }
 
   static drawDebtCondition() {
@@ -139,7 +139,8 @@ class GameUtil {
       throw new Error("Unable to draw Debt card from the conditions deck");
     }
 
-    Util.setPositionAtSnapPoint(drawnDebtCard, gameBoardLocations.bankLoan);
+    Util.moveObject(drawnDebtCard, gameBoardLocations.bankLoan);
+  }
 
   static getActivePrelude() {
     if (world.__eldritchHorror.activePrelude) {

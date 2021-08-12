@@ -33,7 +33,7 @@ exports.setupAncient = setupAncient;
  */
 function setupDoomToken(num) {
   let doomLocation = gameBoardLocations.doom[num];
-  Util.setPositionAtSnapPoint(doomToken, doomLocation);
+  Util.moveObject(doomToken, doomLocation);
 }
 
 /**
@@ -55,7 +55,7 @@ function setupAncientOneSheet(sheetId) {
   if (container) {
     container.take(sheet, ancientOneTableLocation.getGlobalPosition());
   } else {
-    Util.setPositionAtSnapPoint(sheet, ancientOneTableLocation);
+    Util.moveObject(sheet, ancientOneTableLocation);
   }
 
   // cleanup - return unused ancients to game box
@@ -114,7 +114,7 @@ function setupMysteryCards(mysteryTemplateIds) {
   if (!activeMysteryTableLocation) {
     throw new Error("Cannot find table location for the active mystery deck");
   }
-  Util.setPositionAtSnapPoint(topMysteryCard, activeMysteryTableLocation);
+  Util.moveObject(topMysteryCard, activeMysteryTableLocation);
   Util.flip(topMysteryCard);
 }
 
