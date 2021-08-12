@@ -57,5 +57,6 @@
     "Y'ha",
     "Zanthu",
     "Zoey"
-  ]
+  ],
+  "javascript.suggest.includeAutomaticOptionalChainCompletions": false
 }

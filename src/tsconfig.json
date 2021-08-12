@@ -1,9 +1,9 @@
 {
-	"compilerOptions": {
-		"checkJs": true,
-		"lib": ["ES2018", "DOM"],
-		"module": "CommonJS",
-		"noEmit": true,
-		"strict": true
-	}
+  "compilerOptions": {
+    "checkJs": true,
+    "lib": ["ES2017", "DOM"],
+    "module": "CommonJS",
+    "noEmit": true,
+    "strict": true
+  }
 }
