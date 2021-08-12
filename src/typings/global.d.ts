@@ -107,6 +107,11 @@ declare global {
     /** Resolve Starting Effects */
     step9?: (ancientOne: string) => void;
     afterResolvingSetup?: (ancientOne: string) => void;
+    investigatorSetup?: (
+      investigator: Investigator,
+      investigatorSheet: Card,
+      ancientOne: string
+    ) => void;
   }
 
   interface AncientOne {
@@ -125,6 +130,7 @@ declare global {
 
   interface EldritchHorrorGameWorld {
     ancientOnes: AncientOne[];
+    activeAncientOne?: AncientOne;
     investigators: Investigator[];
     alreadyLoaded: string[];
     updateSetupUIFn?: () => void;

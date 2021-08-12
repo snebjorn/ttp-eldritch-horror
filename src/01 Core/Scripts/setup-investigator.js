@@ -8,6 +8,7 @@ const {
   willToken,
 } = require("./world-constants");
 const { Util } = require("./util");
+const { GameUtil } = require("./game-util");
 
 /** @param {Card} investigatorSheet */
 function setupInvestigator(investigatorSheet) {
@@ -32,6 +33,12 @@ function setupInvestigator(investigatorSheet) {
     }
     const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
     setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+
+    const activePrelude = GameUtil.getActivePrelude();
+    const activeAncientOne = GameUtil.getActiveAncientOne();
+    if (activeAncientOne && activePrelude && !!activePrelude.investigatorSetup) {
+      activePrelude.investigatorSetup(foundInvestigator, investigatorSheet, activeAncientOne.name);
+    }
   }
 }
 exports.setupInvestigator = setupInvestigator;

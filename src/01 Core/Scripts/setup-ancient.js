@@ -15,6 +15,7 @@ const {
  * @param {Vector | undefined} sideBoardSpawn
  */
 function setupAncient(ancientOne, difficulty, sideBoardSpawn) {
+  world.__eldritchHorror.activeAncientOne = ancientOne;
   setupAncientOneSheet(ancientOne.sheetId);
   setupDoomToken(ancientOne.doom);
   setupMonsters(ancientOne.monsters);
