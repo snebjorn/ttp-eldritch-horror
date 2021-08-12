@@ -15,7 +15,7 @@ const antarctica = {
  * @param {Vector} spawnPosition
  */
 function setupSideBoard(spawnPosition) {
-  if (world.__eldritchHorror.alreadyLoaded.includes("0FAFCD8F49500E5B3847E2BD614CD1EA")) {
+  if (world.__eldritchHorror.alreadyLoaded.includes(antarctica.sideBoardMat)) {
     return; // abort - side board is already loaded
   }
 
@@ -120,10 +120,7 @@ function setupSideBoard(spawnPosition) {
   if (!gateStack) {
     throw new Error("Cannot find gate stack");
   }
-  const gates = UtilCopy.createCard(
-    "64DDD78441EB50FEA0064EBD2770E1FF",
-    spawnPosition.add(new Vector(0, 0, 1))
-  );
+  const gates = UtilCopy.createCard(antarctica.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
 
   /** @type Card | undefined */
@@ -132,13 +129,10 @@ function setupSideBoard(spawnPosition) {
   if (!cluePool) {
     throw new Error("Cannot find clue pool");
   }
-  const clues = UtilCopy.createCard(
-    "8BB70410401011B9B592F39A0112E6BD",
-    spawnPosition.add(new Vector(0, 0, 1))
-  );
+  const clues = UtilCopy.createCard(antarctica.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
 
-  world.__eldritchHorror.alreadyLoaded.push("0FAFCD8F49500E5B3847E2BD614CD1EA");
+  world.__eldritchHorror.alreadyLoaded.push(antarctica.sideBoardMat);
 }
 exports.setupSideBoard = setupSideBoard;
 

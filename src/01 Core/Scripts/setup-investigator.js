@@ -177,6 +177,11 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
   }
 
+  if (startingItems.shipTickets && startingItems.shipTickets > 0) {
+    const shipTokens = GameUtil.takeShipTokens(startingItems.shipTickets);
+    positionItemOnInvestigatorSheet(investigatorSheet, shipTokens, itemsGiven++);
+  }
+
   if (startingItems.will && startingItems.will > 0) {
     const improvementTokens = Util.createCard(
       willToken.getTemplateId(),

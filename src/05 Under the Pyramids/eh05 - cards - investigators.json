@@ -1,0 +1,85 @@
+{
+	"Type": "Card",
+	"GUID": "8DAC8A0A49992180769CC4969AD6AABA",
+	"Name": "Investigators",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [
+		{
+			"X": -1.01,
+			"Y": -1.18,
+			"Z": -0.0250015,
+			"Range": 2,
+			"SnapRotation": true,
+			"RotationOffset": 0
+		},
+		{
+			"X": -0.87,
+			"Y": -3.795,
+			"Z": -0.0250092,
+			"Range": 2,
+			"SnapRotation": true,
+			"RotationOffset": 0
+		}
+	],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "investigators - front.jpg",
+	"BackTexture": "investigators - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 2,
+	"Width": 12.8,
+	"Height": 10.1,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Square",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+	"CardNames":
+	{
+		"0": "Hank Samson",
+		"1": "Harvey Walters",
+		"2": "Joe Diamond",
+		"3": "Mandy Thompson",
+		"4": "Minh Thi Phan",
+		"5": "Monterey Jack",
+		"6": "Rex Murphy",
+		"7": "Sister Mary"
+	}
+}

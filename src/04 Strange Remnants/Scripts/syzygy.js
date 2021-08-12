@@ -1,4 +1,10 @@
 const { refCard, world, Vector } = require("@tabletop-playground/api");
+// @ts-ignore
+const { expansionSpawn } = require("../../Eldritch Horror/Scripts/world-constants");
+// @ts-ignore
+const { GameUtil } = require("../../Eldritch Horror/Scripts/game-util");
+// @ts-ignore
+const { Util } = require("../../Eldritch Horror/Scripts/util");
 
 /** @type AncientOne */
 const syzygy = {
@@ -8,7 +14,6 @@ const syzygy = {
   mysteryTemplateIds: ["B7245ACA4DCD5E87779AC5A9D01D5B34"],
   researchTemplateIds: ["16236B1B4CC9361020A5AE9DFF7C7F4F"],
   specialTemplateIds: {
-    "Mystic Ruins Encounters": ["8477CAF347EE3FEB6BC15E827D79544B"],
     "Fortifying the Barrier": ["A453663741A6C1999DDB90B623576229"],
     "Sealing the Portal": ["BB0CC15A494EBA15BBFAC6B14D16DF4E"],
   },
@@ -18,16 +23,19 @@ const syzygy = {
     stage3: { green: 3, yellow: 5, blue: 0 },
   },
   customSetup: () => {
-    // place mystic ruins token on deck
-    const mysticRuinsDeck = world
-      .getAllObjects()
-      .find((x) => x.getTemplateId() === "8477CAF347EE3FEB6BC15E827D79544B");
+    const mysticRuinsDeck = Util.createCard("8477CAF347EE3FEB6BC15E827D79544B", expansionSpawn);
     if (mysticRuinsDeck) {
+      GameUtil.addEncounterDeck(mysticRuinsDeck);
+      mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
+      mysticRuinsDeck.setName("Mystic Ruins Encounters");
+      mysticRuinsDeck.shuffle();
+
       const mysticRuinsToken = world.createObjectFromTemplate(
         "A9C452A442F9A36AC77CC1B68633FEEE",
         mysticRuinsDeck.getPosition().add(new Vector(0, 0, 2))
       );
       if (mysticRuinsToken) {
+        mysticRuinsToken.setId("mystic-ruins-token");
         mysticRuinsToken.setName("Mystic Ruins Token");
         mysticRuinsToken.snap();
       }

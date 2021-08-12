@@ -51,9 +51,12 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Square",
 	"Indices": [ 0, 1 ],
 	"CardNames":
 	{
+		"0": "ship",
+		"1": "train"
 	}
 }

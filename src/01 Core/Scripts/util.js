@@ -49,16 +49,22 @@ class Util {
   static takeCardNameFromStack(cardStack, cardName, count = 1, fromFront = false) {
     let stack;
     for (let i = 0; i < count; i++) {
-      const foundCardIndex = this.findCardNameInStack(cardStack, cardName, fromFront);
-      if (foundCardIndex === undefined) {
-        break; // abort - no cards with this name is left in the deck
+      const foundCardOffset = this.findCardNameInStack(cardStack, cardName, fromFront);
+      if (foundCardOffset === undefined) {
+        break; // abort - no cards with this name is left in the stack
       }
-      const foundCard = cardStack.takeCards(1, fromFront, foundCardIndex);
+      let foundCard = cardStack.takeCards(1, fromFront, foundCardOffset);
+      if (!foundCard && cardStack.getStackSize() === 1) {
+        // takeCards returns undefined if there's only 1 card left
+        // that means the card we want is the stack
+        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
+        foundCard = cardStack;
+      }
       if (foundCard) {
         const cardDetails = foundCard.getCardDetails();
         if (cardDetails && cardDetails.name !== cardName) {
           // put the incorrect card back
-          cardStack.addCards(foundCard, fromFront, foundCardIndex);
+          cardStack.addCards(foundCard, fromFront, foundCardOffset);
           throw new Error(
             `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${
               cardDetails.name
@@ -329,11 +335,11 @@ class Util {
 
   /**
    * @param {Card} stack
-   * @param {Card} _card
+   * @param {Card} card
    * @param {number} offset
    * @param {Player} [player]
    */
-  static removeInsertedCardFromStack(stack, _card, offset, player) {
+  static removeInsertedCardFromStack(stack, card, offset, player) {
     if (player === undefined) {
       return; // abort when a script is inserting
     }

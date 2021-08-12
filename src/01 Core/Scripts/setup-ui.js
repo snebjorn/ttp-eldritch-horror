@@ -12,9 +12,11 @@ const {
   VerticalBox,
   world,
 } = require("@tabletop-playground/api");
+const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
 const { setupAncient } = require("./setup-ancient");
 const { setupReferenceCard } = require("./setup-reference-card");
+const { Util } = require("./util");
 const {
   assetDeck,
   conditionDeck,
@@ -24,6 +26,7 @@ const {
   cluePool,
   gateStack,
   monsterCup,
+  tableLocations,
 } = require("./world-constants");
 
 function drawSetupUi() {
@@ -62,10 +65,10 @@ function drawSetupUi() {
   vBox.addChild(new Text().setText(`${step++}. Select Expansions`));
 
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04"];
-  const expansionBox = new HorizontalBox();
-  expansionBox.setChildDistance(6);
-  vBox.addChild(expansionBox);
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05"];
+  const expansionBox1 = new HorizontalBox();
+  expansionBox1.setChildDistance(6);
+  vBox.addChild(expansionBox1);
   const eh02 = new CheckBox().setText("Forsaken Lore").setIsChecked(true);
   eh02.onCheckStateChanged.add((_button, _player, isChecked) => {
     if (isChecked) {
@@ -76,7 +79,7 @@ function drawSetupUi() {
       ancientYig.setEnabled(false);
     }
   });
-  expansionBox.addChild(eh02);
+  expansionBox1.addChild(eh02);
 
   const eh03 = new CheckBox().setText("Mountains of Madness").setIsChecked(true);
   eh03.onCheckStateChanged.add((_button, _player, isChecked) => {
@@ -90,7 +93,7 @@ function drawSetupUi() {
       ancientIthaqua.setEnabled(false);
     }
   });
-  expansionBox.addChild(eh03);
+  expansionBox1.addChild(eh03);
 
   const eh04 = new CheckBox().setText("Strange Remnants").setIsChecked(true);
   eh04.onCheckStateChanged.add((_button, _player, isChecked) => {
@@ -102,7 +105,25 @@ function drawSetupUi() {
       ancientSyzygy.setEnabled(false);
     }
   });
-  expansionBox.addChild(eh04);
+  expansionBox1.addChild(eh04);
+
+  const expansionBox2 = new HorizontalBox();
+  expansionBox2.setChildDistance(6);
+  vBox.addChild(expansionBox2);
+
+  const eh05 = new CheckBox().setText("Under the Pyramids").setIsChecked(true);
+  eh05.onCheckStateChanged.add((_button, _player, isChecked) => {
+    if (isChecked) {
+      activeExpansions.push("eh05");
+      ancientAbhoth.setEnabled(true);
+      ancientNephrenKa.setEnabled(true);
+    } else {
+      activeExpansions = activeExpansions.filter((x) => x !== "eh05");
+      ancientAbhoth.setEnabled(false);
+      ancientNephrenKa.setEnabled(false);
+    }
+  });
+  expansionBox2.addChild(eh05);
 
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
   let isExpansionsLoaded = false;
@@ -111,6 +132,7 @@ function drawSetupUi() {
     eh02.setEnabled(false);
     eh03.setEnabled(false);
     eh04.setEnabled(false);
+    eh05.setEnabled(false);
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
@@ -179,7 +201,7 @@ function drawSetupUi() {
       button.getText(),
       getMythosDifficulty(),
       world.__eldritchHorror.activeIconReference,
-      getActivePrelude()
+      GameUtil.getActivePrelude()
     );
     world.removeUIElement(ui);
     world.__eldritchHorror.updateSetupUIFn = undefined;
@@ -223,6 +245,24 @@ function drawSetupUi() {
   ancientSyzygy.onClicked.add(ancientClickFn);
   ancientBox2.addChild(ancientSyzygy);
 
+  const ancientBox3 = new HorizontalBox();
+  ancientBox3.setChildDistance(6);
+  vBox.addChild(ancientBox3);
+
+  const ancientAbhoth = new Button().setText("Abhoth");
+  ancientAbhoth.onClicked.add(ancientClickFn);
+  ancientBox3.addChild(ancientAbhoth);
+
+  const ancientNephrenKa = new Button().setText("Nephren-Ka");
+  ancientNephrenKa.onClicked.add(ancientClickFn);
+  ancientBox3.addChild(ancientNephrenKa);
+
+  vBox.addChild(new Text().setText(""));
+
+  vBox.addChild(new Text().setText(`${step++}. Select Investigators`));
+  vBox.addChild(new Text().setText("Choose and setup investigators from the investigator deck."));
+  vBox.addChild(new Text().setText("Do not do this before previous steps."));
+
   world.__eldritchHorror.updateSetupUIFn = () => {
     updateIconReference(world.__eldritchHorror.activeIconReference);
     updatePrelude(world.__eldritchHorror.activePrelude);
@@ -231,12 +271,6 @@ function drawSetupUi() {
   world.addUI(ui);
 }
 exports.drawSetupUi = drawSetupUi;
-
-function getActivePrelude() {
-  if (world.__eldritchHorror.activePrelude) {
-    return world.__eldritchHorror.preludes.get(world.__eldritchHorror.activePrelude);
-  }
-}
 
 /**
  * @param {string} ancientName
@@ -284,8 +318,6 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
   shuffleDecks();
   shuffleTokens();
 
-  setupReferenceCard(iconReference);
-
   if (prelude && !!prelude.afterResolvingSetup) {
     prelude.afterResolvingSetup(ancientName);
   }
@@ -296,6 +328,8 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
       preludeCardHolder.destroy();
     }
   }
+
+  setupReferenceCard(iconReference);
 }
 
 function shuffleDecks() {

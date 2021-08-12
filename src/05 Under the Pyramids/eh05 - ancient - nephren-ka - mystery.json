@@ -1,0 +1,66 @@
+{
+	"Type": "Card",
+	"GUID": "7A28539C41F028C591A2E9B19207D353",
+	"Name": "Nephren-Ka Mystery Cards",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "Nephren-Ka - Mystery - front.jpg",
+	"BackTexture": "Nephren-Ka - Mystery - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 2,
+	"NumVertical": 3,
+	"Width": 8.89,
+	"Height": 5.7,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5 ],
+	"CardNames":
+	{
+		"0": "Stricken from History",
+		"1": "The Black Wind",
+		"2": "The Beast",
+		"3": "Worshipers of a Forsaken Pharaoh",
+		"4": "Haunter of the Dark",
+		"5": "Exploring Egypt"
+	}
+}

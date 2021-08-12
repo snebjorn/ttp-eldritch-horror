@@ -68,6 +68,12 @@ function loadScript(expansion) {
 
       return expansionItems;
     }
+    case "eh05": {
+      // @ts-ignore
+      const { expansionItems } = require("./eh05");
+
+      return expansionItems;
+    }
   }
 }
 
@@ -108,7 +114,10 @@ function createAssets(expansionItems) {
     addPreludeCardHolder();
   }
   if (expansionItems.focus === true) {
-    addFocus();
+    addFocusTokens();
+  }
+  if (expansionItems.impairment === true) {
+    addImpairmentTokens();
   }
 }
 
@@ -170,7 +179,13 @@ function addEncounterCards(encounterExpansions) {
   // @ts-ignore
   let expansionEntries = Object.entries(encounterExpansions);
   for (const [encounter, cards] of expansionEntries) {
-    addExpansionCardsToDeck(encounterDecks[encounter], cards);
+    const encounterDeck = encounterDecks[encounter];
+    const foundObjects = Util.findObjectsOnTop(encounterDeck);
+    addExpansionCardsToDeck(encounterDeck, cards);
+
+    // adding many cards can send tokens on top of the deck flying,
+    // this fixes that
+    foundObjects.forEach((x) => x.object.snap());
   }
 }
 
@@ -235,16 +250,13 @@ function addExpansionCardsToExpansionDeck(
   Util.addToStack(cards, deckId, deckName, deckDescription, position);
 }
 
-function addFocus() {
+function addFocusTokens() {
   if (world.__eldritchHorror.alreadyLoaded.includes("focus")) {
     return; // abort - focus is already loaded
   }
 
-  const focusStack = Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", expansionSpawn);
-  focusStack.addCards(Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", expansionSpawn));
-  focusStack.setInheritScript(false);
-  focusStack.onRemoved.add(Util.addCloneToStack);
-  focusStack.onInserted.add(Util.removeInsertedCardFromStack);
+  const focusToken = Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", expansionSpawn);
+  const focusStack = Util.convertToInfiniteStack(focusToken);
   focusStack.setId("focus-token");
   focusStack.setName("Focus Token");
   focusStack.setDescription(`As an action, an investigator on any space gains one Focus token.
@@ -258,6 +270,40 @@ function addFocus() {
   Util.moveObject(focusStack, tableLocations.focus);
 
   world.__eldritchHorror.alreadyLoaded.push("focus");
+}
+
+function addImpairmentTokens() {
+  if (world.__eldritchHorror.alreadyLoaded.includes("impairment")) {
+    return; // abort - impairment tokens are already loaded
+  }
+
+  const impairmentStack = Util.createCard("682F0E47464E6B57ECD299908D2C1035", expansionSpawn);
+
+  /**
+   * @param {string} name
+   * @param {SnapPoint} [snapPoint]
+   */
+  function setupImpairmentToken(name, snapPoint) {
+    const impairmentToken = Util.takeCardNameFromStack(impairmentStack, name);
+    if (impairmentToken) {
+      const infiniteStack = Util.convertToInfiniteStack(impairmentToken);
+      infiniteStack.setId(`impair-${name}-token`);
+      const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+      infiniteStack.setName(`Impair ${capitalizedName}`);
+      if (!snapPoint) {
+        throw new Error(`Cannot find snap point for ${name} impairment token`);
+      }
+      Util.moveObject(infiniteStack, snapPoint);
+    }
+  }
+
+  setupImpairmentToken("lore", tableLocations.impairment.lore);
+  setupImpairmentToken("influence", tableLocations.impairment.influence);
+  setupImpairmentToken("observation", tableLocations.impairment.observation);
+  setupImpairmentToken("will", tableLocations.impairment.will);
+  setupImpairmentToken("strength", tableLocations.impairment.strength);
+
+  world.__eldritchHorror.alreadyLoaded.push("impairment");
 }
 
 function addPreludeCardHolder() {

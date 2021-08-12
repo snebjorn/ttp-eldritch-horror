@@ -52,6 +52,7 @@ declare global {
       encounterCards?: Partial<EncounterCards>;
       epicMonsters?: Card;
       focus?: true;
+      impairment?: true;
       gates?: Card;
       investigators?: Card;
       monsters?: Card;
@@ -82,6 +83,7 @@ declare global {
       focus?: number;
       resources?: number;
       will?: number;
+      shipTickets?: number;
     };
     startingLocation: keyof GameBoardLocations["space"];
     personalStory: string;

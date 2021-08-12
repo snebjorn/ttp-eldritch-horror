@@ -1,4 +1,4 @@
-const { Vector, SnapPoint } = require("@tabletop-playground/api");
+const { world, GameObject, Vector, SnapPoint, Card } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const {
   eldritchToken,
@@ -9,6 +9,9 @@ const {
   monsterCup,
   assetDeck,
   conditionDeck,
+  shipTicket,
+  tableLocations,
+  epicMonsterCup,
 } = require("./world-constants");
 
 class GameUtil {
@@ -86,10 +89,7 @@ class GameUtil {
           }
           Util.moveObject(gateToken, snapPoint);
 
-          const monsterToken = monsterCup.takeCards(1);
-          if (monsterToken) {
-            Util.setPositionAtSnapPoint(monsterToken, snapPoint);
-          }
+          GameUtil.spawnMonster(snapPoint);
         }
       }
     }
@@ -97,6 +97,7 @@ class GameUtil {
 
   /**
    * @param {number} number
+   * @throws If unable to find snap point for spawned clue
    */
   static spawnClues(number) {
     for (let i = 0; i < number; i++) {

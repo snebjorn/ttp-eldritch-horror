@@ -1,0 +1,63 @@
+{
+	"Type": "Card",
+	"GUID": "060EEE214B3FA8158DA5A4A9B2B44CF2",
+	"Name": "Gates",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "gates - front.jpg",
+	"BackTexture": "gates - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 3,
+	"NumVertical": 1,
+	"Width": 5.5,
+	"Height": 5.5,
+	"Thickness": 0.2,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": false,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": true,
+	"MirrorBack": true,
+	"Model": "Round",
+	"Indices": [ 0, 1, 2 ],
+	"CardNames":
+	{
+		"0": "Antarctica",
+		"1": "The Heart of Africa",
+		"2": "The Himalayas"
+	}
+}

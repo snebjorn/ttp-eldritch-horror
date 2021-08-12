@@ -1,7 +1,6 @@
 const { refObject, UIElement, Button, Vector } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
-const { Util } = require("./util");
-const { assetDeck, conditionDeck, gameBoardLocations } = require("./world-constants");
+const { gameBoardLocations } = require("./world-constants");
 
 const gameBoard = refObject;
 drawRestockButtons();

@@ -1,5 +1,6 @@
 const { world, Card, SnapPoint, Vector } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
+const { GameUtil } = require("./game-util");
 const { Util } = require("./util");
 const {
   doomToken,
@@ -73,19 +74,16 @@ function setupMonsters(monsters) {
   }
 
   for (const [monsterName, count] of Object.entries(monsters)) {
-    const monsterStack = Util.takeCardNameFromStack(monsterCup, monsterName, count);
-    if (monsterStack === undefined) {
-      console.error(`Unable to find "${monsterName}" in the monster cup`);
+    try {
+      const [monsterStack, _] = GameUtil.setAsideMonster(monsterName, count);
+
+      if (monsterStack.getStackSize() > 1) {
+        monsterStack.setName(monsterName);
+      }
+    } catch (error) {
+      console.error(error.message);
+
       continue;
-    }
-
-    Util.setPositionAtSnapPoint(
-      monsterStack,
-      Util.getNextAvailableSnapPoint(tableLocations.ancientOneMonsters)
-    );
-
-    if (monsterStack.getStackSize() > 1) {
-      monsterStack.setName(monsterName);
     }
   }
 }
@@ -127,15 +125,11 @@ function setupResearchCards(researchTemplateIds) {
   if (!Array.isArray(researchTemplateIds)) {
     return;
   }
-  const researchTableLocation = tableLocations.research;
-  if (!researchTableLocation) {
-    throw new Error("Cannot find table location for the research deck");
-  }
 
-  const researchDeck = buildDeck(researchTemplateIds, researchTableLocation);
+  const researchDeck = buildDeck(researchTemplateIds, tableLocations.research);
 
-  researchDeck.snap();
   researchDeck.setName("Research Encounters");
+  researchDeck.snap();
   researchDeck.shuffle();
 }
 
