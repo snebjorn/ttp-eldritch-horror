@@ -17,8 +17,11 @@ An attempt to port [Eldritch Horror](https://steamcommunity.com/sharedfiles/file
 Symlink the src folder to a suitable subfolder in TTP's package location. The package location is by default in `<Tabletop Playground directory>/TabletopPlayground/PersistentDownloadDir`.
 
 ```
-src/01 Core           ->    .../PersistentDownloadDir/Eldritch Horror
-src/Big Ball of Mud   ->    .../PersistentDownloadDir/Eldritch Horror WIP
+src/01 Core                   <-    .../PersistentDownloadDir/Eldritch Horror
+src/02 Forsaken Lore          <-    .../PersistentDownloadDir/Eldritch Horror - Forsaken Lore
+src/03 Mountains of Madness   <-    .../PersistentDownloadDir/Eldritch Horror - Mountains of Madness
+src/04 Strange Remnants       <-    .../PersistentDownloadDir/Eldritch Horror - Strange Remnants
+src/05 Under the Pyramids     <-    .../PersistentDownloadDir/Eldritch Horror - Under the Pyramids
 ```
 
 ### Windows
