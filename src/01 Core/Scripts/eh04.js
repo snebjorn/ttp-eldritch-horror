@@ -1,12 +1,7 @@
 const { world, Card } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
-const {
-  expansionSpawn,
-  gameBoardLocations,
-  tableLocations,
-  epicMonsterCup,
-} = require("./world-constants");
+const { expansionSpawn, gameBoardLocations, tableLocations } = require("./world-constants");
 
 /**
  * @param {string} templateId
@@ -62,11 +57,13 @@ const preludes = {
       if (ancientOne !== "Syzygy") {
         // setup mystic ruins deck
         const mysticRuinsDeck = createCard("8477CAF347EE3FEB6BC15E827D79544B");
-        mysticRuinsDeck.setName("Mystic Ruins Encounters");
         mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
-        const mysticRuinsSnapPoint = Util.getNextAvailableSnapPoint(tableLocations.specials);
-        Util.setPositionAtSnapPoint(mysticRuinsDeck, mysticRuinsSnapPoint);
+        mysticRuinsDeck.setName("Mystic Ruins Encounters");
+        const mysticRuinsSnapPoint = GameUtil.addEncounterDeck(mysticRuinsDeck);
+        mysticRuinsDeck.shuffle();
+
         const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
+        mysticRuinsToken.setId("mystic-ruins-token");
         mysticRuinsToken.setName("Mystic Ruins Token");
         Util.moveObject(mysticRuinsToken, mysticRuinsSnapPoint);
       }
@@ -87,10 +84,11 @@ const preludes = {
           throw new Error("Unable to find snap point for adventure deck");
         }
         Util.moveObject(adventureDeck, tableLocations.adventureDeck);
-        adventureDeck.setName("Cosmic Alignment");
+        adventureDeck.setId("adventure-cosmic-alignment-deck");
+        adventureDeck.setName("Cosmic Alignment Adventures");
         const firstAdventureCard = adventureDeck.takeCards(1);
         if (!firstAdventureCard) {
-          throw new Error("Unable to take the first card from the adventure deck");
+          throw new Error("Unable to take the first card from the Cosmic Alignment adventure deck");
         }
         if (!tableLocations.activeAdventure) {
           throw new Error("Unable to find snap point for active adventure deck");
@@ -101,8 +99,14 @@ const preludes = {
         GameUtil.spawnGates(1);
 
         const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
+        adventureToken.setId("adventure-cosmic-alignment-token");
         adventureToken.setName("Adventure Token: Cosmic Alignment");
         Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
+      }
+    },
+    investigatorSetup: (investigator, sheet, ancientOne) => {
+      if (ancientOne === "Syzygy") {
+        // TODO lose 1 sanity and gain 1 relic unique asset
       }
     },
   },
@@ -143,9 +147,10 @@ const preludes = {
         }
       }
 
-      const dunwichHorror = Util.takeCardNameFromStack(epicMonsterCup, "Dunwich Horror");
-      if (dunwichHorror) {
-        Util.setPositionAtSnapPoint(dunwichHorror, gameBoardLocations.space.Arkham);
+      try {
+        GameUtil.spawnEpicMonster("Dunwich Horror", gameBoardLocations.space.Arkham);
+      } catch (error) {
+        console.error(error.message);
       }
     },
   },

@@ -1,4 +1,4 @@
-const { world, Card, SnapPoint } = require("@tabletop-playground/api");
+const { world, Card, SnapPoint, Vector } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
 const { Util } = require("./util");
 const {
@@ -12,8 +12,9 @@ const {
 /**
  * @param {AncientOne} ancientOne
  * @param {MythosDifficulty} difficulty
+ * @param {Vector | undefined} sideBoardSpawn
  */
-function setupAncient(ancientOne, difficulty) {
+function setupAncient(ancientOne, difficulty, sideBoardSpawn) {
   setupAncientOneSheet(ancientOne.sheetId);
   setupDoomToken(ancientOne.doom);
   setupMonsters(ancientOne.monsters);
@@ -23,7 +24,7 @@ function setupAncient(ancientOne, difficulty) {
   setupSpecialCards(ancientOne.specialTemplateIds);
 
   if (!!ancientOne.customSetup) {
-    ancientOne.customSetup();
+    ancientOne.customSetup(sideBoardSpawn);
   }
 }
 exports.setupAncient = setupAncient;

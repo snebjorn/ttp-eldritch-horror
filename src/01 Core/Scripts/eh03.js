@@ -75,23 +75,32 @@ const preludes = {
     },
   },
   "Doomsayer From Antarctica": {
-    step5: () => {
+    spawnsSideBoard: (ancientOne) => {
+      if (ancientOne !== "Rise of the Elder Things") {
+        return "landscape";
+      }
+
+      return;
+    },
+    step5: (ancientOne, sideBoardSpawn) => {
       // setup antarctica side board
-      const sideBoardSpawn = new Vector(-19, 0, 87);
-      // @ts-ignore - don't try this at home kids
-      // prettier-ignore
-      const { setupSideBoard } = require("../../Eldritch Horror - Mountains of Madness/Scripts/setup-side-board");
-      setupSideBoard(sideBoardSpawn);
+      if (ancientOne !== "Rise of the Elder Things") {
+        // @ts-ignore - don't try this at home kids
+        // prettier-ignore
+        const { setupSideBoard } = require("../../Eldritch Horror - Mountains of Madness/Scripts/setup-side-board");
+        setupSideBoard(sideBoardSpawn);
+      }
     },
     afterResolvingSetup: (ancientOne) => {
       // if rise of the elder things spawn rampaging shoggoth epic monster on lake camp
       // else setup antarctica adventures and draw top
       if (ancientOne === "Rise of the Elder Things") {
-        const rampagingShoggoth = Util.takeCardNameFromStack(epicMonsterCup, "Rampaging Shoggoth");
-        if (rampagingShoggoth) {
-          // @ts-ignore
+        try {
+          // @ts-ignore - dynamically added space on side board
           const lakeCamp = gameBoardLocations.space["Lake Camp"];
-          Util.setPositionAtSnapPoint(rampagingShoggoth, lakeCamp);
+          GameUtil.spawnEpicMonster("Rampaging Shoggoth", lakeCamp);
+        } catch (error) {
+          console.error(error.message);
         }
       } else {
         const antarcticaAdventuresStage1 = createCard("F7FD62E34F458F4B51C0FAA6EA3A1723");
@@ -104,6 +113,7 @@ const preludes = {
         if (randomStage1Card && randomStage2Card && randomStage3Card) {
           randomStage3Card.addCards(randomStage2Card);
 
+          randomStage3Card.setId("adventure-antarctica-deck");
           randomStage3Card.setName("Antarctica Adventures");
           Util.moveObject(
             randomStage3Card,
@@ -118,10 +128,11 @@ const preludes = {
           Util.flip(randomStage1Card);
 
           const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
+          adventureToken.setId("adventure-antarctica-token");
           adventureToken.setName("Adventure Token: Antarctica");
           Util.moveObject(
             adventureToken,
-            // @ts-ignore
+            // @ts-ignore - dynamically added snap point on side board
             gameBoardLocations.antarcticaSideBoard.activeAdventure
           );
         }
@@ -160,9 +171,10 @@ const preludes = {
           const eldritchTokens = GameUtil.takeEldritchTokens(6);
           Util.moveObject(eldritchTokens, tableLocations.activeMythos);
         }
-        const windWalkerEpic = Util.takeCardNameFromStack(epicMonsterCup, "Wind-Walker");
-        if (windWalkerEpic) {
-          Util.setPositionAtSnapPoint(windWalkerEpic, gameBoardLocations.space[4]);
+        try {
+          GameUtil.spawnEpicMonster("Wind-Walker", gameBoardLocations.space[4]);
+        } catch (error) {
+          console.error(error.message);
         }
       }
     },

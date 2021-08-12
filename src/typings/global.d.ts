@@ -1,4 +1,4 @@
-import { Card, SnapPoint } from "@tabletop-playground/api";
+import { Card, SnapPoint, Vector } from "@tabletop-playground/api";
 
 // augmenting TTP module - https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
 declare module "@tabletop-playground/api" {
@@ -88,6 +88,8 @@ declare global {
   }
 
   interface Prelude {
+    /** Indicates if this prelude spawns a side board and in what orientation */
+    spawnsSideBoard?: (ancientOne: string) => "landscape" | "portrait" | undefined;
     /** Organize Tokens */
     step2?: (ancientOne: string) => void;
     /** Choose and Place Investigators */
@@ -95,7 +97,7 @@ declare global {
     /** Receive Starting Possessions, Health, and Sanity */
     step4?: (ancientOne: string) => void;
     /** Determine Ancient One */
-    step5?: (ancientOne: string) => void;
+    step5?: (ancientOne: string, sideBoardSpawn?: Vector) => void;
     /** Create Monster Cup */
     step6?: (ancientOne: string) => void;
     /** Separate and Place Decks */
@@ -116,7 +118,9 @@ declare global {
     researchTemplateIds: string[];
     specialTemplateIds?: Record<string, string[]>;
     monsters?: Record<string, number>;
-    customSetup?: () => void;
+    /** Indicates if this Ancient One spawns a side board and in what orientation */
+    sideBoard?: "landscape" | "portrait";
+    customSetup?: (sideBoardSpawn?: Vector) => void;
   }
 
   interface EldritchHorrorGameWorld {

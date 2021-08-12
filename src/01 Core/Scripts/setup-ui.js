@@ -245,6 +245,13 @@ function getActivePrelude() {
  * @param {Prelude | undefined} prelude
  */
 function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
+  const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
+  if (!foundAncientOne) {
+    throw new Error(`Unable to find data for ${ancientName}`);
+  }
+
+  const sideBoardSpawns = calcSideBoardSpawns(prelude, foundAncientOne);
+
   if (prelude && !!prelude.step2) {
     prelude.step2(ancientName);
   }
@@ -255,12 +262,15 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
     prelude.step4(ancientName);
   }
   if (prelude && !!prelude.step5) {
-    prelude.step5(ancientName);
+    if (!!prelude.spawnsSideBoard && prelude.spawnsSideBoard(foundAncientOne.name)) {
+      prelude.step5(ancientName, sideBoardSpawns.shift());
+    } else {
+      prelude.step5(ancientName);
+    }
   }
-  const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
-  if (foundAncientOne) {
-    setupAncient(foundAncientOne, mythosDifficulty);
-  }
+
+  setupAncient(foundAncientOne, mythosDifficulty, sideBoardSpawns.shift());
+
   if (prelude && !!prelude.step6) {
     prelude.step6(ancientName);
   }
@@ -306,4 +316,46 @@ function shuffleTokens() {
   monsterCup.shuffle();
   cluePool.shuffle();
   gateStack.shuffle();
+}
+
+/**
+ * @param {Prelude | undefined} prelude
+ * @param {AncientOne} ancientOne
+ */
+function calcSideBoardSpawns(prelude, ancientOne) {
+  /** @type {("landscape" | "portrait")[]} */
+  const sideBoards = [];
+  if (prelude && !!prelude.spawnsSideBoard) {
+    const preludeSideBoard = prelude.spawnsSideBoard(ancientOne.name);
+    if (preludeSideBoard) {
+      sideBoards.push(preludeSideBoard);
+    }
+  }
+  if (ancientOne.sideBoard) {
+    sideBoards.push(ancientOne.sideBoard);
+  }
+
+  const startSpawn = new Vector(-19, 0, 87);
+  const padding = 2;
+  const totalPadding = sideBoards.length * padding;
+  const sideBoardsWidth = sideBoards.reduce((prev, next) => (prev += convertToWidth(next)), 0);
+  const totalWidth = totalPadding + sideBoardsWidth;
+
+  let leftStart = startSpawn.subtract(new Vector(0, totalWidth / 2, 0));
+  const positions = sideBoards.map((orientation) => {
+    const sideBoardWidth = convertToWidth(orientation);
+    const spawnPoint = leftStart.add(new Vector(0, sideBoardWidth / 2, 0));
+    leftStart = leftStart.add(new Vector(0, sideBoardWidth + padding, 0));
+
+    return spawnPoint;
+  });
+
+  return positions;
+}
+
+/**
+ * @param {"landscape" | "portrait"} orientation
+ */
+function convertToWidth(orientation) {
+  return orientation === "landscape" ? 65 : 32;
 }
