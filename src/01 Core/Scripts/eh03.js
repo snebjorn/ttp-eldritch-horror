@@ -5,7 +5,6 @@ const {
   expansionSpawn,
   mythosSetupDecks,
   tableLocations,
-  epicMonsterCup,
   gameBoardLocations,
   omenToken,
   investigatorDeck,

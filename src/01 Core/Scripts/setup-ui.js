@@ -16,7 +16,6 @@ const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
 const { setupAncient } = require("./setup-ancient");
 const { setupReferenceCard } = require("./setup-reference-card");
-const { Util } = require("./util");
 const {
   assetDeck,
   conditionDeck,
@@ -26,7 +25,6 @@ const {
   cluePool,
   gateStack,
   monsterCup,
-  tableLocations,
 } = require("./world-constants");
 
 function drawSetupUi() {

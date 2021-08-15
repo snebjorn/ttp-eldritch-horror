@@ -1,5 +1,4 @@
 const { refCard, world } = require("@tabletop-playground/api");
-const { setupSideBoard } = require("./setup-side-board");
 
 /** @type AncientOne */
 const abhoth = {

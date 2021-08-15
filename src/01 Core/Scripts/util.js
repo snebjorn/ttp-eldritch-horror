@@ -352,7 +352,10 @@ class Util {
     }
   }
 
-  /** @param {Array<SnapPoint | undefined>} snapPoints */
+  /**
+   * @param {Array<SnapPoint | undefined>} snapPoints
+   * @throws If unable to find available snap point
+   */
   static getNextAvailableSnapPoint(snapPoints) {
     for (const snapPoint of snapPoints) {
       if (!snapPoint) {

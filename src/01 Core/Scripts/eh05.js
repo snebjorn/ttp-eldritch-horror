@@ -1,4 +1,4 @@
-const { world } = require("@tabletop-playground/api");
+const { world, Vector } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
 const {
@@ -8,7 +8,6 @@ const {
   activeExpeditionToken,
   gateStack,
 } = require("./world-constants");
-const { Vector } = require("@tabletop-playground/api");
 
 /**
  * @param {string} templateId
