@@ -63,7 +63,7 @@ function drawSetupUi() {
   vBox.addChild(new Text().setText(`${step++}. Select Expansions`));
 
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05"];
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06"];
   const expansionBox1 = new HorizontalBox();
   expansionBox1.setChildDistance(6);
   vBox.addChild(expansionBox1);
@@ -123,6 +123,18 @@ function drawSetupUi() {
   });
   expansionBox2.addChild(eh05);
 
+  const eh06 = new CheckBox().setText("Signs of Carcosa").setIsChecked(true);
+  eh06.onCheckStateChanged.add((_button, _player, isChecked) => {
+    if (isChecked) {
+      activeExpansions.push("eh06");
+      ancientHastur.setEnabled(true);
+    } else {
+      activeExpansions = activeExpansions.filter((x) => x !== "eh06");
+      ancientHastur.setEnabled(false);
+    }
+  });
+  expansionBox2.addChild(eh06);
+
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
   let isExpansionsLoaded = false;
   loadExpansionBtn.onClicked.add(() => {
@@ -131,6 +143,7 @@ function drawSetupUi() {
     eh03.setEnabled(false);
     eh04.setEnabled(false);
     eh05.setEnabled(false);
+    eh06.setEnabled(false);
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
@@ -254,6 +267,10 @@ function drawSetupUi() {
   const ancientNephrenKa = new Button().setText("Nephren-Ka");
   ancientNephrenKa.onClicked.add(ancientClickFn);
   ancientBox3.addChild(ancientNephrenKa);
+
+  const ancientHastur = new Button().setText("Hastur");
+  ancientHastur.onClicked.add(ancientClickFn);
+  ancientBox3.addChild(ancientHastur);
 
   vBox.addChild(new Text().setText(""));
 

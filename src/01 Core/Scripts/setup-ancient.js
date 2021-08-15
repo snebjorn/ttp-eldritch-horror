@@ -8,6 +8,8 @@ const {
   monsterCup,
   tableLocations,
   ancientContainer,
+  expansionSpawn,
+  encounterDecks,
 } = require("./world-constants");
 
 /**
@@ -143,10 +145,16 @@ function setupSpecialCards(specialTemplateIds) {
   }
 
   for (const [specialName, templateIds] of Object.entries(specialTemplateIds)) {
-    const specialDeck = buildDeck(
-      templateIds,
-      Util.getNextAvailableSnapPoint(tableLocations.specials)
-    );
+    let specialDeck;
+    try {
+      const snapPoint = Util.getNextAvailableSnapPoint(tableLocations.specials);
+      specialDeck = buildDeck(templateIds, snapPoint);
+    } catch {
+      // some ancient ones have more than 2 special decks,
+      // in that event we need to shift the entire top row to make room
+      specialDeck = buildDeck(templateIds, expansionSpawn);
+      Util.insertObjectAt(specialDeck, [tableLocations.research, ...tableLocations.topDeckRow], 0);
+    }
     specialDeck.snap();
     specialDeck.setName(specialName);
     specialDeck.shuffle();
@@ -155,15 +163,18 @@ function setupSpecialCards(specialTemplateIds) {
 
 /**
  * @param {string[]} templateIds
- * @param {SnapPoint} snapPoint
+ * @param {SnapPoint | Vector} position
  */
-function buildDeck(templateIds, snapPoint) {
+function buildDeck(templateIds, position) {
   /** @type Card */
   // @ts-ignore
   const finalDeck = templateIds.reduce(
     /** @param {Card | undefined} deck */
     (deck, templateId) => {
-      const expansionCards = Util.createCard(templateId, snapPoint.getGlobalPosition());
+      const expansionCards = Util.createCard(
+        templateId,
+        position instanceof SnapPoint ? position.getGlobalPosition() : position
+      );
       if (deck === undefined) {
         deck = expansionCards;
       } else {

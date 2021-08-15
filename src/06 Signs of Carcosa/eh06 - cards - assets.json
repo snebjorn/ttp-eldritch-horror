@@ -1,0 +1,76 @@
+{
+	"Type": "Card",
+	"GUID": "E493B2CB44337AFB7D67018783A2A2AE",
+	"Name": "Assets",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "assets - front.jpg",
+	"BackTexture": "Asset - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 4,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+	"CardNames":
+	{
+		"0": ".25 Automatic",
+		"1": "Arcane Assistant",
+		"2": "Assassination",
+		"3": "Chief Inspector",
+		"4": "Enchanted Cane",
+		"5": "Esteemed Author",
+		"6": "Fine Jewelry",
+		"7": "Flamethrower",
+		"8": "Lodge Disciple",
+		"9": "Lodge Physician",
+		"10": "Occult Text",
+		"11": "Rumor Mill",
+		"12": "Security Squad",
+		"13": "Specialist",
+		"14": "Three-card Monte",
+		"15": "Tommy Gun"
+	}
+}
