@@ -8,6 +8,7 @@ const {
   Player,
   MultistateObject,
   CardHolder,
+  Color,
 } = require("@tabletop-playground/api");
 
 class Util {
@@ -503,6 +504,11 @@ class Util {
 
     Util.insertObjectAt(object, snapPoints, index);
   }
+
+  static Colors = Object.freeze({
+    BLACK: new Color(0, 0, 0),
+    WHITE: new Color(255, 255, 255),
+  });
 
   /**
    * @param {object} data

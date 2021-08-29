@@ -1,4 +1,5 @@
 const { UIElement, Vector, world, refHolder, Text } = require("@tabletop-playground/api");
+const { Util } = require("./util");
 
 refHolder.onInserted.add((_, iconReference) => {
   const cardDetails = iconReference.getCardDetails();
@@ -23,6 +24,10 @@ ui.position = new Vector(0, 0, 0.11);
 ui.widget = new Text().setFontSize(64).setText("        Active\nIcon Reference");
 ui.scale = 0.1;
 refHolder.addUI(ui);
+
+if (refHolder.getCards().length === 0) {
+  world.showPing(refHolder.getPosition(), Util.Colors.WHITE, false);
+}
 
 /**
  * @param {string} name

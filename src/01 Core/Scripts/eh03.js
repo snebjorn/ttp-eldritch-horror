@@ -134,6 +134,8 @@ const preludes = {
             // @ts-ignore - dynamically added snap point on side board
             gameBoardLocations.antarcticaSideBoard.activeAdventure
           );
+
+          world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
         }
 
         antarcticaAdventuresStage1.destroy();

@@ -320,6 +320,7 @@ function addPreludeCardHolder() {
   cardHolder.setId("prelude-card-holder");
   cardHolder.snapToGround();
   cardHolder.toggleLock();
+  world.showPing(tableLocations.preludeCardHolder, Util.Colors.WHITE, true);
 
   cardHolder.onInserted.add((_, prelude) => {
     const cardDetails = prelude.getCardDetails();
