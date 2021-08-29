@@ -5,6 +5,7 @@ An attempt to port [Eldritch Horror](https://steamcommunity.com/sharedfiles/file
 ## Useful tools
 
 - [Image Grid](http://www.rw-designer.com/image-grid)
+- [InkScape](https://inkscape.org/)
 - Gimp plugins:
   - [Export Layers](https://khalim19.github.io/gimp-plugin-export-layers/)
   - [Ofnuts' Gimp Tools](https://sourceforge.net/projects/gimp-tools/files/scripts/)
