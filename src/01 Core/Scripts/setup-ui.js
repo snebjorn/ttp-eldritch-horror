@@ -11,6 +11,7 @@ const {
   Vector,
   VerticalBox,
   world,
+  ImageButton,
 } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
@@ -225,16 +226,23 @@ function drawSetupUi() {
     GameUtil.updateSavedData({ sets: ["eh01", ...activeExpansions] });
   }
 
-  const ancientAzathoth = new Button().setText("Azathoth");
+  const ancientAzathoth = new ImageButton()
+    .setImage("Azathoth - button.jpg")
+    .setImageSize(157, 100);
   ancientAzathoth.onClicked.add((_, player) => ancientClickFn("Azathoth", player));
   ancientBox.addChild(ancientAzathoth);
-  const ancientCthulhu = new Button().setText("Cthulhu");
+
+  const ancientCthulhu = new ImageButton().setImage("Cthulhu - button.jpg").setImageSize(157, 100);
   ancientCthulhu.onClicked.add((_, player) => ancientClickFn("Cthulhu", player));
   ancientBox.addChild(ancientCthulhu);
-  const ancientShub = new Button().setText("Shub-Niggurath");
+
+  const ancientShub = new ImageButton()
+    .setImage("Shub-Niggurath - button.jpg")
+    .setImageSize(157, 100);
   ancientShub.onClicked.add((_, player) => ancientClickFn("Shub-Niggurath", player));
   ancientBox.addChild(ancientShub);
-  const ancientYog = new Button().setText("Yog-Sothoth");
+
+  const ancientYog = new ImageButton().setImage("Yog-Sothoth - button.jpg").setImageSize(157, 100);
   ancientYog.onClicked.add((_, player) => ancientClickFn("Yog-Sothoth", player));
   ancientBox.addChild(ancientYog);
 
@@ -242,21 +250,29 @@ function drawSetupUi() {
   ancientBox2.setChildDistance(6);
   vBox.addChild(ancientBox2);
 
-  const ancientYig = new Button().setText("Yig");
+  const ancientYig = new ImageButton()
+    .setImage("Yig - button.jpg", "130B328D4406AF72FC49A084D6233047")
+    .setImageSize(157, 100);
   ancientYig.onClicked.add((_, player) => ancientClickFn("Yig", player));
   ancientBox2.addChild(ancientYig);
 
-  const ancientElderThings = new Button().setText("Rise of the Elder Things");
+  const ancientElderThings = new ImageButton()
+    .setImage("Rise of the Elder Things - button.jpg", "A74E87E147F5306BED0009A00769FD3D")
+    .setImageSize(157, 100);
   ancientElderThings.onClicked.add((_, player) =>
     ancientClickFn("Rise of the Elder Things", player)
   );
   ancientBox2.addChild(ancientElderThings);
 
-  const ancientIthaqua = new Button().setText("Ithaqua");
+  const ancientIthaqua = new ImageButton()
+    .setImage("Ithaqua - button.jpg", "A74E87E147F5306BED0009A00769FD3D")
+    .setImageSize(157, 100);
   ancientIthaqua.onClicked.add((_, player) => ancientClickFn("Ithaqua", player));
   ancientBox2.addChild(ancientIthaqua);
 
-  const ancientSyzygy = new Button().setText("Syzygy");
+  const ancientSyzygy = new ImageButton()
+    .setImage("Syzygy - button.jpg", "6D4D7DA94E7F5895D4B50E811371CF4E")
+    .setImageSize(157, 100);
   ancientSyzygy.onClicked.add((_, player) => ancientClickFn("Syzygy", player));
   ancientBox2.addChild(ancientSyzygy);
 
@@ -264,15 +280,21 @@ function drawSetupUi() {
   ancientBox3.setChildDistance(6);
   vBox.addChild(ancientBox3);
 
-  const ancientAbhoth = new Button().setText("Abhoth");
+  const ancientAbhoth = new ImageButton()
+    .setImage("Abhoth - button.jpg", "2A8B01234A81FD4420D94E830E798C43")
+    .setImageSize(157, 100);
   ancientAbhoth.onClicked.add((_, player) => ancientClickFn("Abhoth", player));
   ancientBox3.addChild(ancientAbhoth);
 
-  const ancientNephrenKa = new Button().setText("Nephren-Ka");
+  const ancientNephrenKa = new ImageButton()
+    .setImage("Nephren-Ka - button.jpg", "2A8B01234A81FD4420D94E830E798C43")
+    .setImageSize(157, 100);
   ancientNephrenKa.onClicked.add((_, player) => ancientClickFn("Nephren-Ka", player));
   ancientBox3.addChild(ancientNephrenKa);
 
-  const ancientHastur = new Button().setText("Hastur");
+  const ancientHastur = new ImageButton()
+    .setImage("Hastur - button.jpg", "5D3D0A334942E73C34962BB193CEE87B")
+    .setImageSize(157, 100);
   ancientHastur.onClicked.add((_, player) => ancientClickFn("Hastur", player));
   ancientBox3.addChild(ancientHastur);
 
