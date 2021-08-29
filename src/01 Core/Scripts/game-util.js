@@ -243,6 +243,32 @@ class GameUtil {
       }
     }
   }
+
+  /**
+   * @param {SavedData} data
+   */
+  static setSavedData(data) {
+    Util.setSavedData(data);
+  }
+
+  /**
+   * @param {Partial<SavedData>} data
+   */
+  static updateSavedData(data) {
+    Util.setSavedData(Object.assign(GameUtil.getSavedData(), data));
+  }
+
+  /**
+   * @returns {SavedData}
+   */
+  static getSavedData() {
+    const data = Util.getSavedData();
+    if (!data || !data.sets === undefined) {
+      return { sets: [] };
+    }
+
+    return data;
+  }
 }
 exports.GameUtil = GameUtil;
 

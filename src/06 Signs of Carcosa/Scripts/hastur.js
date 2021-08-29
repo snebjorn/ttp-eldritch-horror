@@ -22,7 +22,4 @@ const hastur = {
   },
 };
 
-if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.ancientOnes.push(hastur);
-  world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
-}
+world.__eldritchHorror.ancientOnes.set(hastur.name, hastur);

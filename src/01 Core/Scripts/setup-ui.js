@@ -199,17 +199,17 @@ function drawSetupUi() {
   vBox.addChild(ancientBox);
 
   /**
-   * @param {Button} button
+   * @param {AncientOneName} ancientOne
    * @param {Player} player
    */
-  function ancientClickFn(button, player) {
+  function ancientClickFn(ancientOne, player) {
     if (!isExpansionsLoaded) {
       player.showMessage("You must load expansions first!");
       return;
     }
 
     setupGame(
-      button.getText(),
+      ancientOne,
       getMythosDifficulty(),
       world.__eldritchHorror.activeIconReference,
       GameUtil.getActivePrelude()
@@ -221,19 +221,21 @@ function drawSetupUi() {
     if (preludeDeck) {
       preludeDeck.destroy();
     }
+
+    GameUtil.updateSavedData({ sets: ["eh01", ...activeExpansions] });
   }
 
   const ancientAzathoth = new Button().setText("Azathoth");
-  ancientAzathoth.onClicked.add(ancientClickFn);
+  ancientAzathoth.onClicked.add((_, player) => ancientClickFn("Azathoth", player));
   ancientBox.addChild(ancientAzathoth);
   const ancientCthulhu = new Button().setText("Cthulhu");
-  ancientCthulhu.onClicked.add(ancientClickFn);
+  ancientCthulhu.onClicked.add((_, player) => ancientClickFn("Cthulhu", player));
   ancientBox.addChild(ancientCthulhu);
   const ancientShub = new Button().setText("Shub-Niggurath");
-  ancientShub.onClicked.add(ancientClickFn);
+  ancientShub.onClicked.add((_, player) => ancientClickFn("Shub-Niggurath", player));
   ancientBox.addChild(ancientShub);
   const ancientYog = new Button().setText("Yog-Sothoth");
-  ancientYog.onClicked.add(ancientClickFn);
+  ancientYog.onClicked.add((_, player) => ancientClickFn("Yog-Sothoth", player));
   ancientBox.addChild(ancientYog);
 
   const ancientBox2 = new HorizontalBox();
@@ -241,19 +243,21 @@ function drawSetupUi() {
   vBox.addChild(ancientBox2);
 
   const ancientYig = new Button().setText("Yig");
-  ancientYig.onClicked.add(ancientClickFn);
+  ancientYig.onClicked.add((_, player) => ancientClickFn("Yig", player));
   ancientBox2.addChild(ancientYig);
 
   const ancientElderThings = new Button().setText("Rise of the Elder Things");
-  ancientElderThings.onClicked.add(ancientClickFn);
+  ancientElderThings.onClicked.add((_, player) =>
+    ancientClickFn("Rise of the Elder Things", player)
+  );
   ancientBox2.addChild(ancientElderThings);
 
   const ancientIthaqua = new Button().setText("Ithaqua");
-  ancientIthaqua.onClicked.add(ancientClickFn);
+  ancientIthaqua.onClicked.add((_, player) => ancientClickFn("Ithaqua", player));
   ancientBox2.addChild(ancientIthaqua);
 
   const ancientSyzygy = new Button().setText("Syzygy");
-  ancientSyzygy.onClicked.add(ancientClickFn);
+  ancientSyzygy.onClicked.add((_, player) => ancientClickFn("Syzygy", player));
   ancientBox2.addChild(ancientSyzygy);
 
   const ancientBox3 = new HorizontalBox();
@@ -261,15 +265,15 @@ function drawSetupUi() {
   vBox.addChild(ancientBox3);
 
   const ancientAbhoth = new Button().setText("Abhoth");
-  ancientAbhoth.onClicked.add(ancientClickFn);
+  ancientAbhoth.onClicked.add((_, player) => ancientClickFn("Abhoth", player));
   ancientBox3.addChild(ancientAbhoth);
 
   const ancientNephrenKa = new Button().setText("Nephren-Ka");
-  ancientNephrenKa.onClicked.add(ancientClickFn);
+  ancientNephrenKa.onClicked.add((_, player) => ancientClickFn("Nephren-Ka", player));
   ancientBox3.addChild(ancientNephrenKa);
 
   const ancientHastur = new Button().setText("Hastur");
-  ancientHastur.onClicked.add(ancientClickFn);
+  ancientHastur.onClicked.add((_, player) => ancientClickFn("Hastur", player));
   ancientBox3.addChild(ancientHastur);
 
   vBox.addChild(new Text().setText(""));
@@ -288,15 +292,15 @@ function drawSetupUi() {
 exports.drawSetupUi = drawSetupUi;
 
 /**
- * @param {string} ancientName
+ * @param {AncientOneName} ancientName
  * @param {MythosDifficulty} mythosDifficulty
  * @param {IconReference | undefined} iconReference
  * @param {Prelude | undefined} prelude
  */
 function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
-  const foundAncientOne = world.__eldritchHorror.ancientOnes.find((x) => x.name == ancientName);
+  const foundAncientOne = world.__eldritchHorror.ancientOnes.get(ancientName);
   if (!foundAncientOne) {
-    throw new Error(`Unable to find data for ${ancientName}`);
+    throw new Error(`Unable to find ancient one data for ${ancientName}`);
   }
 
   const sideBoardSpawns = calcSideBoardSpawns(prelude, foundAncientOne);

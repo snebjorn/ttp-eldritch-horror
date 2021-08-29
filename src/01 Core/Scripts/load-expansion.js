@@ -147,9 +147,7 @@ function expandAncientOnes(expandedAncientOnes) {
   }
 
   for (const ancientOne of expandedAncientOnes) {
-    const ancientOneToExpand = world.__eldritchHorror.ancientOnes.find((x) => {
-      return x.name === ancientOne.name;
-    });
+    const ancientOneToExpand = world.__eldritchHorror.ancientOnes.get(ancientOne.name);
     if (ancientOneToExpand) {
       if (ancientOne.mysteryTemplateId) {
         ancientOneToExpand.mysteryTemplateIds.push(ancientOne.mysteryTemplateId);
@@ -257,7 +255,7 @@ function addExpansionCardsToExpansionDeck(
 }
 
 function addFocusTokens() {
-  if (world.__eldritchHorror.alreadyLoaded.includes("focus")) {
+  if (world.getObjectById("focus-token")) {
     return; // abort - focus is already loaded
   }
 
@@ -274,12 +272,10 @@ function addFocusTokens() {
   }
 
   Util.moveObject(focusStack, tableLocations.focus);
-
-  world.__eldritchHorror.alreadyLoaded.push("focus");
 }
 
 function addImpairmentTokens() {
-  if (world.__eldritchHorror.alreadyLoaded.includes("impairment")) {
+  if (world.getObjectsByTemplateId("682F0E47464E6B57ECD299908D2C1035").length > 0) {
     return; // abort - impairment tokens are already loaded
   }
 
@@ -308,12 +304,10 @@ function addImpairmentTokens() {
   setupImpairmentToken("observation", tableLocations.impairment.observation);
   setupImpairmentToken("will", tableLocations.impairment.will);
   setupImpairmentToken("strength", tableLocations.impairment.strength);
-
-  world.__eldritchHorror.alreadyLoaded.push("impairment");
 }
 
 function addPreludeCardHolder() {
-  if (world.__eldritchHorror.alreadyLoaded.includes("preludeCardHolder")) {
+  if (world.getObjectById("prelude-card-holder")) {
     return; // abort - card holder is already loaded
   }
 
@@ -346,6 +340,4 @@ function addPreludeCardHolder() {
   ui.widget = new Text().setText(" Active\nPrelude");
 
   cardHolder.addUI(ui);
-
-  world.__eldritchHorror.alreadyLoaded.push("preludeCardHolder");
 }

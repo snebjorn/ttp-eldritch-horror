@@ -21,7 +21,4 @@ const abhoth = {
   },
 };
 
-if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.ancientOnes.push(abhoth);
-  world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
-}
+world.__eldritchHorror.ancientOnes.set(abhoth.name, abhoth);

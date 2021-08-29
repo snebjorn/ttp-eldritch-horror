@@ -7,14 +7,40 @@ const {
   Vector,
   Rotator,
 } = require("@tabletop-playground/api");
+const { GameUtil } = require("./game-util");
 const { investigators } = require("./investigators");
 const { setupInvestigator } = require("./setup-investigator");
 
 if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
   world.__eldritchHorror.investigators.push(...investigators);
   world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
+
+  for (const expansion of GameUtil.getSavedData().sets) {
+    if (expansion === "eh03") {
+      // @ts-ignore
+      const { investigators } = require("../../1055283/Scripts/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
+    if (expansion === "eh04") {
+      // @ts-ignore
+      const { investigators } = require("../../1080813/Scripts/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
+    if (expansion === "eh05") {
+      // @ts-ignore
+      const { investigators } = require("../../1102079/Scripts/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
+    if (expansion === "eh06") {
+      // @ts-ignore
+      const { investigators } = require("../../1106973/Scripts/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
+  }
 }
 
+// calling clear fixes issue with multiple callback added when reloading scripts
+refCard.onRemoved.clear();
 refCard.onRemoved.add((stack, removedInvestigator) => {
   drawSetupButton(removedInvestigator);
 

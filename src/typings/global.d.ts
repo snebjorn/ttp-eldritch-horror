@@ -38,7 +38,7 @@ declare global {
     type MythosCards = Record<MythosCardColors, Partial<MythosCardDifficult>>;
 
     interface AncientOne {
-      name: string;
+      name: AncientOneName;
       mysteryTemplateId?: string;
       researchTemplateId?: string;
       specialTemplateIds?: Record<string, string>;
@@ -116,8 +116,26 @@ declare global {
     ) => void;
   }
 
+  type AncientOneName =
+    | "Azathoth"
+    | "Cthulhu"
+    | "Shub-Niggurath"
+    | "Yog-Sothoth"
+    | "Yig"
+    | "Rise of the Elder Things"
+    | "Ithaqua"
+    | "Syzygy"
+    | "Abhoth"
+    | "Nephren-Ka"
+    | "Hastur"
+    | "Atlach-Nacha"
+    | "Hypnos"
+    | "Shudde M'ell"
+    | "Antediluvium"
+    | "Nyarlathotep";
+
   interface AncientOne {
-    name: string;
+    name: AncientOneName;
     doom: keyof GameBoardLocations["doom"];
     sheetId: string;
     mythosDeck: MythosDeckOptions;
@@ -131,7 +149,7 @@ declare global {
   }
 
   interface EldritchHorrorGameWorld {
-    ancientOnes: AncientOne[];
+    ancientOnes: Map<AncientOneName, AncientOne>;
     activeAncientOne?: AncientOne;
     investigators: Investigator[];
     alreadyLoaded: string[];
@@ -227,5 +245,9 @@ declare global {
       red: SnapPoint;
       blue2: SnapPoint;
     };
+  }
+
+  interface SavedData {
+    sets: string[];
   }
 }

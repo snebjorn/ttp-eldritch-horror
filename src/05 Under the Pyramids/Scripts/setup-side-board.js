@@ -1,4 +1,4 @@
-const { Card, Vector, world, GameObject, SnapPoint } = require("@tabletop-playground/api");
+const { Card, Vector, world } = require("@tabletop-playground/api");
 // @ts-ignore
 const { Util } = require("../../940067/Scripts/util");
 
@@ -15,7 +15,7 @@ const egypt = {
  * @param {Vector} spawnPosition
  */
 function setupSideBoard(spawnPosition) {
-  if (world.__eldritchHorror.alreadyLoaded.includes(egypt.sideBoardMat)) {
+  if (world.getObjectsByTemplateId(egypt.sideBoardMat).length > 0) {
     return; // abort - side board is already loaded
   }
 
@@ -36,13 +36,12 @@ function setupSideBoard(spawnPosition) {
     throw new Error("Cannot find position for egypt side board");
   }
   const sideBoard = Util.createGameObject(egypt.sideBoard, spawnPosition);
+  sideBoard.setId("side-board-egypt");
   Util.moveObject(sideBoard, matSnaps.board);
 
   const groupId = Util.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
-
-  registerSpaces(sideBoard, matSnaps);
 
   if (!matSnaps.africa) {
     throw new Error("Cannot find position for egypt mountain cards");
@@ -112,26 +111,5 @@ function setupSideBoard(spawnPosition) {
   }
   const clues = Util.createCard(egypt.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
-
-  world.__eldritchHorror.alreadyLoaded.push(egypt.sideBoardMat);
 }
 exports.setupSideBoard = setupSideBoard;
-
-/**
- * @param {GameObject} sideBoard
- * @param {Record<string, SnapPoint | undefined>} matSnaps */
-function registerSpaces(sideBoard, matSnaps) {
-  const sideBoardSpaces = {
-    "The Sahara Desert": sideBoard.getSnapPoint(0),
-    Alexandria: sideBoard.getSnapPoint(1),
-    "The Bent Pyramid": sideBoard.getSnapPoint(2),
-    Cairo: sideBoard.getSnapPoint(3),
-    "Tel el-Amarna": sideBoard.getSnapPoint(4),
-    "The Nile River": sideBoard.getSnapPoint(5),
-  };
-
-  // @ts-ignore - don't try this at home kids
-  const { gameBoardLocations } = require("../../Eldritch Horror/Scripts/world-constants");
-  gameBoardLocations.space = { ...gameBoardLocations.space, ...sideBoardSpaces };
-  gameBoardLocations.egyptSideBoard = matSnaps;
-}

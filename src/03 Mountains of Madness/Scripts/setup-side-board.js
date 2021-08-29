@@ -1,5 +1,6 @@
-const { Card, Vector, world, GameObject, SnapPoint } = require("@tabletop-playground/api");
-const { UtilCopy } = require("./util-copy");
+const { Card, Vector, world } = require("@tabletop-playground/api");
+// @ts-ignore
+const { Util } = require("../../940067/Scripts/util");
 
 const antarctica = {
   sideBoardMat: "0FAFCD8F49500E5B3847E2BD614CD1EA",
@@ -15,11 +16,11 @@ const antarctica = {
  * @param {Vector} spawnPosition
  */
 function setupSideBoard(spawnPosition) {
-  if (world.__eldritchHorror.alreadyLoaded.includes(antarctica.sideBoardMat)) {
+  if (world.getObjectsByTemplateId(antarctica.sideBoardMat).length > 0) {
     return; // abort - side board is already loaded
   }
 
-  const sideBoardMat = UtilCopy.createGameObject(antarctica.sideBoardMat, spawnPosition);
+  const sideBoardMat = Util.createGameObject(antarctica.sideBoardMat, spawnPosition);
   const matSnaps = {
     board: sideBoardMat.getSnapPoint(0),
     research: sideBoardMat.getSnapPoint(1),
@@ -36,20 +37,19 @@ function setupSideBoard(spawnPosition) {
   if (!matSnaps.board) {
     throw new Error("Cannot find position for antarctica side board");
   }
-  const sideBoard = UtilCopy.createGameObject(antarctica.sideBoard, spawnPosition);
-  UtilCopy.setPositionAtSnapPoint(sideBoard, matSnaps.board);
+  const sideBoard = Util.createGameObject(antarctica.sideBoard, spawnPosition);
+  sideBoard.setId("side-board-antarctica");
+  Util.moveObject(sideBoard, matSnaps.board);
 
-  const groupId = UtilCopy.getNextGroupId();
+  const groupId = Util.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
-
-  registerSpaces(sideBoard, matSnaps);
 
   if (!matSnaps.research) {
     throw new Error("Cannot find position for antarctica research cards");
   }
-  const researchCards = UtilCopy.createCard(antarctica.researchCards, spawnPosition);
-  UtilCopy.setPositionAtSnapPoint(researchCards, matSnaps.research);
+  const researchCards = Util.createCard(antarctica.researchCards, spawnPosition);
+  Util.moveObject(researchCards, matSnaps.research);
   researchCards.setName("Antarctica Research Encounters");
   researchCards.setId("encounter-antarctica-research-deck");
   researchCards.shuffle();
@@ -57,8 +57,8 @@ function setupSideBoard(spawnPosition) {
   if (!matSnaps.mountains) {
     throw new Error("Cannot find position for antarctica mountain cards");
   }
-  const mountainCards = UtilCopy.createCard(antarctica.mountainsCards, spawnPosition);
-  UtilCopy.setPositionAtSnapPoint(mountainCards, matSnaps.mountains);
+  const mountainCards = Util.createCard(antarctica.mountainsCards, spawnPosition);
+  Util.moveObject(mountainCards, matSnaps.mountains);
   mountainCards.setName("Mountains Encounters");
   mountainCards.setId("encounter-mountains-deck");
   mountainCards.shuffle();
@@ -66,8 +66,8 @@ function setupSideBoard(spawnPosition) {
   if (!matSnaps.outposts) {
     throw new Error("Cannot find position for antarctica outpost cards");
   }
-  const outpostCards = UtilCopy.createCard(antarctica.outpostCards, spawnPosition);
-  UtilCopy.setPositionAtSnapPoint(outpostCards, matSnaps.outposts);
+  const outpostCards = Util.createCard(antarctica.outpostCards, spawnPosition);
+  Util.moveObject(outpostCards, matSnaps.outposts);
   outpostCards.setName("Outpost Encounters");
   outpostCards.setId("encounter-outpost-deck");
   outpostCards.shuffle();
@@ -78,41 +78,41 @@ function setupSideBoard(spawnPosition) {
   if (!monsterCup) {
     throw new Error("Cannot find monster cup");
   }
-  const elderThing = UtilCopy.takeCardNameFromStack(monsterCup, "Elder Thing");
+  const elderThing = Util.takeCardNameFromStack(monsterCup, "Elder Thing");
   if (!elderThing) {
     throw new Error("Cannot find Elder Thing in the monster cup");
   }
   if (!matSnaps.monster1) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  UtilCopy.setPositionAtSnapPoint(elderThing, matSnaps.monster1);
+  Util.moveObject(elderThing, matSnaps.monster1);
 
-  const giantPenguin = UtilCopy.takeCardNameFromStack(monsterCup, "Giant Penguin");
+  const giantPenguin = Util.takeCardNameFromStack(monsterCup, "Giant Penguin");
   if (!giantPenguin) {
     throw new Error("Cannot find Elder Thing in the monster cup");
   }
   if (!matSnaps.monster2) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  UtilCopy.setPositionAtSnapPoint(giantPenguin, matSnaps.monster2);
+  Util.moveObject(giantPenguin, matSnaps.monster2);
 
-  const protoShoggoth = UtilCopy.takeCardNameFromStack(monsterCup, "Proto-Shoggoth");
+  const protoShoggoth = Util.takeCardNameFromStack(monsterCup, "Proto-Shoggoth");
   if (!protoShoggoth) {
     throw new Error("Cannot find Proto-Shoggoth in the monster cup");
   }
   if (!matSnaps.monster3) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  UtilCopy.setPositionAtSnapPoint(protoShoggoth, matSnaps.monster3);
+  Util.moveObject(protoShoggoth, matSnaps.monster3);
 
-  const shoggoth = UtilCopy.takeCardNameFromStack(monsterCup, "Shoggoth");
+  const shoggoth = Util.takeCardNameFromStack(monsterCup, "Shoggoth");
   if (!shoggoth) {
     throw new Error("Cannot find Shoggoth in the monster cup");
   }
   if (!matSnaps.monster4) {
     throw new Error("Cannot find position for monster on antarctica");
   }
-  UtilCopy.setPositionAtSnapPoint(shoggoth, matSnaps.monster4);
+  Util.moveObject(shoggoth, matSnaps.monster4);
 
   /** @type Card | undefined */
   // @ts-ignore
@@ -120,7 +120,7 @@ function setupSideBoard(spawnPosition) {
   if (!gateStack) {
     throw new Error("Cannot find gate stack");
   }
-  const gates = UtilCopy.createCard(antarctica.gates, spawnPosition.add(new Vector(0, 0, 1)));
+  const gates = Util.createCard(antarctica.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
 
   /** @type Card | undefined */
@@ -129,28 +129,7 @@ function setupSideBoard(spawnPosition) {
   if (!cluePool) {
     throw new Error("Cannot find clue pool");
   }
-  const clues = UtilCopy.createCard(antarctica.clues, spawnPosition.add(new Vector(0, 0, 1)));
+  const clues = Util.createCard(antarctica.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
-
-  world.__eldritchHorror.alreadyLoaded.push(antarctica.sideBoardMat);
 }
 exports.setupSideBoard = setupSideBoard;
-
-/**
- * @param {GameObject} sideBoard
- * @param {Record<string, SnapPoint | undefined>} matSnaps */
-function registerSpaces(sideBoard, matSnaps) {
-  const sideBoardSpaces = {
-    "Miskatonic Outpost": sideBoard.getSnapPoint(0),
-    "Lake Camp": sideBoard.getSnapPoint(1),
-    "Frozen Waste": sideBoard.getSnapPoint(2),
-    "City of the Elder Things": sideBoard.getSnapPoint(3),
-    "Plateau of Leng": sideBoard.getSnapPoint(4),
-    "Snowy Mountains": sideBoard.getSnapPoint(5),
-  };
-
-  // @ts-ignore - don't try this at home kids
-  const { gameBoardLocations } = require("../../Eldritch Horror/Scripts/world-constants");
-  gameBoardLocations.space = { ...gameBoardLocations.space, ...sideBoardSpaces };
-  gameBoardLocations.antarcticaSideBoard = matSnaps;
-}

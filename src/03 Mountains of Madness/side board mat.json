@@ -23,7 +23,8 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": false,
-	"ScriptName": "",
+	"ShouldSnap": true,
+	"ScriptName": "side-board-mat.js",
 	"Blueprint": "Blueprints/Board.json",
 	"Models": [
 		{
@@ -50,6 +51,7 @@
 			"NormalMap": "",
 			"ExtraMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Wood"
 		}

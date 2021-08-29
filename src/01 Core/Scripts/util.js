@@ -503,6 +503,31 @@ class Util {
 
     Util.insertObjectAt(object, snapPoints, index);
   }
+
+  /**
+   * @param {object} data
+   */
+  static setSavedData(data) {
+    const dataStr = JSON.stringify(data);
+    if (dataStr.length > 1023) {
+      throw new Error(
+        `Provided data object is stringified to ${dataStr.length} chars which exceeds the allowed size of 1023`
+      );
+    }
+    world.setSavedData(dataStr);
+  }
+
+  /**
+   * @returns {any | undefined}
+   */
+  static getSavedData() {
+    const dataStr = world.getSavedData();
+    try {
+      return JSON.parse(dataStr);
+    } catch {
+      return undefined;
+    }
+  }
 }
 
 exports.Util = Util;

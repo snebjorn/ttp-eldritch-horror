@@ -17,7 +17,4 @@ const yogSothoth = {
   },
 };
 
-if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.ancientOnes.push(yogSothoth);
-  world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
-}
+world.__eldritchHorror.ancientOnes.set(yogSothoth.name, yogSothoth);

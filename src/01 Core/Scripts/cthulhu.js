@@ -16,7 +16,4 @@ const cthulhu = {
   monsters: { "Deep One": 1, "Star Spawn": 1 },
 };
 
-if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
-  world.__eldritchHorror.ancientOnes.push(cthulhu);
-  world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
-}
+world.__eldritchHorror.ancientOnes.set(cthulhu.name, cthulhu);
