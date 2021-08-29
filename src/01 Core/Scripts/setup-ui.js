@@ -12,6 +12,8 @@ const {
   VerticalBox,
   world,
   ImageButton,
+  Widget,
+  ImageWidget,
 } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
@@ -62,81 +64,13 @@ function drawSetupUi() {
 
   vBox.addChild(new Text().setText(""));
   vBox.addChild(new Text().setText(`${step++}. Select Expansions`));
-
-  /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06"];
-  const expansionBox1 = new HorizontalBox();
-  expansionBox1.setChildDistance(6);
+  const expansionBox1 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox1);
-  const eh02 = new CheckBox().setText("Forsaken Lore").setIsChecked(true);
-  eh02.onCheckStateChanged.add((_button, _player, isChecked) => {
-    if (isChecked) {
-      activeExpansions.push("eh02");
-      ancientYig.setEnabled(true);
-    } else {
-      activeExpansions = activeExpansions.filter((x) => x !== "eh02");
-      ancientYig.setEnabled(false);
-    }
-  });
-  expansionBox1.addChild(eh02);
-
-  const eh03 = new CheckBox().setText("Mountains of Madness").setIsChecked(true);
-  eh03.onCheckStateChanged.add((_button, _player, isChecked) => {
-    if (isChecked) {
-      activeExpansions.push("eh03");
-      ancientElderThings.setEnabled(true);
-      ancientIthaqua.setEnabled(true);
-    } else {
-      activeExpansions = activeExpansions.filter((x) => x !== "eh03");
-      ancientElderThings.setEnabled(false);
-      ancientIthaqua.setEnabled(false);
-    }
-  });
-  expansionBox1.addChild(eh03);
-
-  const eh04 = new CheckBox().setText("Strange Remnants").setIsChecked(true);
-  eh04.onCheckStateChanged.add((_button, _player, isChecked) => {
-    if (isChecked) {
-      activeExpansions.push("eh04");
-      ancientSyzygy.setEnabled(true);
-    } else {
-      activeExpansions = activeExpansions.filter((x) => x !== "eh04");
-      ancientSyzygy.setEnabled(false);
-    }
-  });
-  expansionBox1.addChild(eh04);
-
-  const expansionBox2 = new HorizontalBox();
-  expansionBox2.setChildDistance(6);
+  const expansionBox2 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox2);
 
-  const eh05 = new CheckBox().setText("Under the Pyramids").setIsChecked(true);
-  eh05.onCheckStateChanged.add((_button, _player, isChecked) => {
-    if (isChecked) {
-      activeExpansions.push("eh05");
-      ancientAbhoth.setEnabled(true);
-      ancientNephrenKa.setEnabled(true);
-    } else {
-      activeExpansions = activeExpansions.filter((x) => x !== "eh05");
-      ancientAbhoth.setEnabled(false);
-      ancientNephrenKa.setEnabled(false);
-    }
-  });
-  expansionBox2.addChild(eh05);
-
-  const eh06 = new CheckBox().setText("Signs of Carcosa").setIsChecked(true);
-  eh06.onCheckStateChanged.add((_button, _player, isChecked) => {
-    if (isChecked) {
-      activeExpansions.push("eh06");
-      ancientHastur.setEnabled(true);
-    } else {
-      activeExpansions = activeExpansions.filter((x) => x !== "eh06");
-      ancientHastur.setEnabled(false);
-    }
-  });
-  expansionBox2.addChild(eh06);
-
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
+  vBox.addChild(loadExpansionBtn);
   let isExpansionsLoaded = false;
   loadExpansionBtn.onClicked.add(() => {
     loadExpansion(...activeExpansions);
@@ -148,10 +82,8 @@ function drawSetupUi() {
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
-  vBox.addChild(loadExpansionBtn);
 
   vBox.addChild(new Text().setText(""));
-
   vBox.addChild(new Text().setText(`${step++}. Select Prelude (optional)`));
   const preludeBox = new HorizontalBox();
   vBox.addChild(preludeBox);
@@ -172,7 +104,6 @@ function drawSetupUi() {
   }
 
   vBox.addChild(new Text().setText(""));
-
   vBox.addChild(new Text().setText(`${step++}. Select Mythos Difficulty`));
   const difficultyBox = new HorizontalBox();
   difficultyBox.setChildDistance(6);
@@ -192,8 +123,8 @@ function drawSetupUi() {
     };
   }
 
+  //#region ancient one selection
   vBox.addChild(new Text().setText(""));
-
   vBox.addChild(new Text().setText(`${step++}. Select Ancient One`));
   const ancientBox = new HorizontalBox();
   ancientBox.setChildDistance(6);
@@ -297,9 +228,81 @@ function drawSetupUi() {
     .setImageSize(157, 100);
   ancientHastur.onClicked.add((_, player) => ancientClickFn("Hastur", player));
   ancientBox3.addChild(ancientHastur);
+  //#endregion ancient one selection
+
+  //#region expansion selection
+  /** @type string[] */
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06"];
+
+  /**
+   * @param {string} expansion
+   * @param {string} title
+   * @param {ImageButton[]} ancientOnes
+   * @param {string} packageId
+   * @returns {Widget}
+   */
+  function expansionWidget(expansion, title, ancientOnes, packageId) {
+    const expBox = new HorizontalBox();
+    const expIcon = new ImageWidget().setImage(`${expansion} - symbol.png`, packageId);
+    const expCheckBox = new CheckBox().setText(title).setIsChecked(true);
+
+    expBox.addChild(expIcon).addChild(expCheckBox);
+
+    expCheckBox.onCheckStateChanged.add((_button, _player, isChecked) => {
+      if (isChecked) {
+        activeExpansions.push(expansion);
+      } else {
+        activeExpansions = activeExpansions.filter((x) => x !== expansion);
+      }
+      expIcon.setEnabled(isChecked);
+      ancientOnes.forEach((x) => x.setEnabled(isChecked));
+    });
+
+    return expBox;
+  }
+
+  const eh02 = expansionWidget(
+    "eh02",
+    "Forsaken Lore",
+    [ancientYig],
+    "130B328D4406AF72FC49A084D6233047"
+  );
+  expansionBox1.addChild(eh02);
+
+  const eh03 = expansionWidget(
+    "eh03",
+    "Mountains of Madness",
+    [ancientElderThings, ancientIthaqua],
+    "A74E87E147F5306BED0009A00769FD3D"
+  );
+  expansionBox1.addChild(eh03);
+
+  const eh04 = expansionWidget(
+    "eh04",
+    "Strange Remnants",
+    [ancientSyzygy],
+    "6D4D7DA94E7F5895D4B50E811371CF4E"
+  );
+  expansionBox1.addChild(eh04);
+
+  const eh05 = expansionWidget(
+    "eh05",
+    "Under the Pyramids",
+    [ancientAbhoth, ancientNephrenKa],
+    "2A8B01234A81FD4420D94E830E798C43"
+  );
+  expansionBox2.addChild(eh05);
+
+  const eh06 = expansionWidget(
+    "eh06",
+    "Signs of Carcosa",
+    [ancientHastur],
+    "5D3D0A334942E73C34962BB193CEE87B"
+  );
+  expansionBox2.addChild(eh06);
+  //#endregion expansion selection
 
   vBox.addChild(new Text().setText(""));
-
   vBox.addChild(new Text().setText(`${step++}. Select Investigators`));
   vBox.addChild(new Text().setText("Choose and setup investigators from the investigator deck."));
   vBox.addChild(new Text().setText("Do not do this before previous steps."));
