@@ -1,6 +1,6 @@
 const { Card, Vector, world, GameObject, SnapPoint } = require("@tabletop-playground/api");
 // @ts-ignore
-const { Util } = require("../../Eldritch Horror/Scripts/util");
+const { Util } = require("../../940067/Scripts/util");
 
 const egypt = {
   sideBoardMat: "6B6A6368464FC1EBD8FAA09411D3CD08",

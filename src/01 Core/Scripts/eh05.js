@@ -155,7 +155,7 @@ const preludes = {
       if (ancientOne !== "Nephren-Ka") {
         // @ts-ignore - don't try this at home kids
         // prettier-ignore
-        const { setupSideBoard } = require("../../Eldritch Horror - Under the Pyramids/Scripts/setup-side-board");
+        const { setupSideBoard } = require("../../1102079/Scripts/setup-side-board");
         setupSideBoard(sideBoardSpawn);
       }
     },

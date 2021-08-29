@@ -1,10 +1,10 @@
 const { refCard, world, Vector } = require("@tabletop-playground/api");
 // @ts-ignore
-const { expansionSpawn } = require("../../Eldritch Horror/Scripts/world-constants");
+const { expansionSpawn } = require("../../940067/Scripts/world-constants");
 // @ts-ignore
-const { GameUtil } = require("../../Eldritch Horror/Scripts/game-util");
+const { GameUtil } = require("../../940067/Scripts/game-util");
 // @ts-ignore
-const { Util } = require("../../Eldritch Horror/Scripts/util");
+const { Util } = require("../../940067/Scripts/util");
 
 /** @type AncientOne */
 const syzygy = {

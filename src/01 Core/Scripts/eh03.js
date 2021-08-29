@@ -86,7 +86,7 @@ const preludes = {
       if (ancientOne !== "Rise of the Elder Things") {
         // @ts-ignore - don't try this at home kids
         // prettier-ignore
-        const { setupSideBoard } = require("../../Eldritch Horror - Mountains of Madness/Scripts/setup-side-board");
+        const { setupSideBoard } = require("../../1055283/Scripts/setup-side-board");
         setupSideBoard(sideBoardSpawn);
       }
     },
