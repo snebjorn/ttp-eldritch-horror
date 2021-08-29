@@ -5,11 +5,9 @@ const { Util } = require("./util");
 const {
   doomToken,
   gameBoardLocations,
-  monsterCup,
   tableLocations,
   ancientContainer,
   expansionSpawn,
-  encounterDecks,
 } = require("./world-constants");
 
 /**
