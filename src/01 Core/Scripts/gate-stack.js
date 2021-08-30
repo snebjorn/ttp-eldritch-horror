@@ -5,8 +5,6 @@ const { GameUtil } = require("./game-util");
 refCard.setInheritScript(false);
 const spawnGateAction = "Spawn Gate";
 
-// calling clear fixes issue with multiple callback added when reloading scripts
-refCard.onCustomAction.clear();
 refCard.onCustomAction.add((stack, player, actionName) => {
   if (actionName === spawnGateAction) {
     GameUtil.spawnGates(1);

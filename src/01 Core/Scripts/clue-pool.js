@@ -5,8 +5,6 @@ const { GameUtil } = require("./game-util");
 refCard.setInheritScript(false);
 const spawnClueAction = "Spawn Clue";
 
-// calling clear fixes issue with multiple callback added when reloading scripts
-refCard.onCustomAction.clear();
 refCard.onCustomAction.add((stack, player, actionName) => {
   if (actionName === spawnClueAction) {
     GameUtil.spawnClues(1);
