@@ -31,7 +31,10 @@ function setupInvestigator(investigatorSheet) {
         `Unable to find sanity snap point on investigator (${foundInvestigator.name}])`
       );
     }
-    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    const startingLocation =
+      foundInvestigator.startingLocation !== undefined
+        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
+        : investigatorSheet.getPosition();
     setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
 
     const activePrelude = GameUtil.getActivePrelude();
@@ -51,7 +54,10 @@ function setupDeadInvestigator(investigatorSheet, artifact) {
   const foundInvestigator = getInvestigatorData(investigatorSheet);
   if (foundInvestigator) {
     setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
-    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    const startingLocation =
+      foundInvestigator.startingLocation !== undefined
+        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
+        : investigatorSheet.getPosition();
     const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
     if (pawn) {
       const pawnHeight = pawn.getExtent(false).z;
@@ -72,7 +78,10 @@ function setupInsaneInvestigator(investigatorSheet, artifact) {
   const foundInvestigator = getInvestigatorData(investigatorSheet);
   if (foundInvestigator) {
     setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
-    const startingLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+    const startingLocation =
+      foundInvestigator.startingLocation !== undefined
+        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
+        : investigatorSheet.getPosition();
     const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
     if (pawn) {
       const pawnHeight = pawn.getExtent(false).z;
@@ -177,6 +186,11 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
   }
 
+  if (startingItems.focus && startingItems.focus > 0) {
+    const focusTokens = GameUtil.takeFocusTokens(startingItems.focus);
+    positionItemOnInvestigatorSheet(investigatorSheet, focusTokens, itemsGiven++);
+  }
+
   if (startingItems.shipTickets && startingItems.shipTickets > 0) {
     const shipTokens = GameUtil.takeShipTokens(startingItems.shipTickets);
     positionItemOnInvestigatorSheet(investigatorSheet, shipTokens, itemsGiven++);
@@ -231,15 +245,21 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
 
 /**
  * @param {string} pawnTemplateId
- * @param {SnapPoint} startingLocation
+ * @param {SnapPoint | Vector} startingLocation
  */
 function setupPawn(pawnTemplateId, startingLocation) {
+  const globalPosition =
+    startingLocation instanceof SnapPoint ? startingLocation.getGlobalPosition() : startingLocation;
   const pawn = world.createObjectFromTemplate(
     pawnTemplateId,
-    startingLocation.getGlobalPosition().add(new Vector(0, 0, 2))
+    globalPosition.add(new Vector(0, 0, 2))
   );
   if (pawn) {
-    pawn.snap();
+    if (startingLocation instanceof SnapPoint) {
+      pawn.snap();
+    } else {
+      pawn.snapToGround();
+    }
   }
   return pawn;
 }
@@ -250,29 +270,40 @@ function getSnapPointForStartingLocation(startingLocation) {
 }
 
 /**
- * @param {SnapPoint} snapPoint
+ * @param {SnapPoint | Vector} position
  * @param {number} health - hit points. Range 1-9
  */
-function setupHealthToken(snapPoint, health) {
+function setupHealthToken(position, health) {
   const healthTemplateId = "346911D24251ACB6B7FEF0A14B49B614";
+  const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
   const healthToken = Util.createMultistateObject(
     healthTemplateId,
-    snapPoint.getGlobalPosition().add(new Vector(0, 0, 1))
+    globalPosition.add(new Vector(0, 0, 1))
   );
-  healthToken.snap();
+
+  if (position instanceof SnapPoint) {
+    healthToken.snap();
+  } else {
+    healthToken.snapToGround();
+  }
   healthToken.setState(health - 1);
 }
 
 /**
- * @param {SnapPoint} snapPoint
+ * @param {SnapPoint | Vector} position
  * @param {number} sanity - sanity points. Range 1-9
  */
-function setupSanityToken(snapPoint, sanity) {
+function setupSanityToken(position, sanity) {
   const sanityTemplateId = "CD0FA9DC41E13E96DC743A8A30C2DD75";
+  const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
   const sanityToken = Util.createMultistateObject(
     sanityTemplateId,
-    snapPoint.getGlobalPosition().add(new Vector(0, 0, 1))
+    globalPosition.add(new Vector(0, 0, 1))
   );
-  sanityToken.snap();
+  if (position instanceof SnapPoint) {
+    sanityToken.snap();
+  } else {
+    sanityToken.snapToGround();
+  }
   sanityToken.setState(sanity - 1);
 }

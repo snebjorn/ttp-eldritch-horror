@@ -71,6 +71,11 @@ function drawSetupUi() {
   const expansionBox2 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox2);
 
+  /**
+   * GOTO below to see the code for Select Expansions
+   * @see activeExpansions
+   */
+
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
   vBox.addChild(loadExpansionBtn);
   let isExpansionsLoaded = false;
@@ -81,6 +86,7 @@ function drawSetupUi() {
     eh04.setEnabled(false);
     eh05.setEnabled(false);
     eh06.setEnabled(false);
+    eh07.setEnabled(false);
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
@@ -230,11 +236,27 @@ function drawSetupUi() {
     .setImageSize(157, 100);
   ancientHastur.onClicked.add((_, player) => ancientClickFn("Hastur", player));
   ancientBox3.addChild(ancientHastur);
+
+  const ancientAtlachNacha = new ImageButton()
+    .setImage("Atlach-Nacha - button.jpg", "6D2E6A2B46804C2CA23E47BB78299639")
+    .setImageSize(157, 100);
+  ancientAtlachNacha.onClicked.add((_, player) => ancientClickFn("Atlach-Nacha", player));
+  ancientBox3.addChild(ancientAtlachNacha);
+
+  const ancientBox4 = new HorizontalBox();
+  ancientBox4.setChildDistance(6);
+  vBox.addChild(ancientBox4);
+
+  const ancientHypnos = new ImageButton()
+    .setImage("Hypnos - button.jpg", "6D2E6A2B46804C2CA23E47BB78299639")
+    .setImageSize(157, 100);
+  ancientHypnos.onClicked.add((_, player) => ancientClickFn("Hypnos", player));
+  ancientBox4.addChild(ancientHypnos);
   //#endregion ancient one selection
 
   //#region expansion selection
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06"];
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07"];
 
   /**
    * @param {string} expansion
@@ -302,6 +324,14 @@ function drawSetupUi() {
     "5D3D0A334942E73C34962BB193CEE87B"
   );
   expansionBox2.addChild(eh06);
+
+  const eh07 = expansionWidget(
+    "eh07",
+    "The Dreamlands",
+    [ancientAtlachNacha, ancientHypnos],
+    "6D2E6A2B46804C2CA23E47BB78299639"
+  );
+  expansionBox2.addChild(eh07);
   //#endregion expansion selection
 
   vBox.addChild(new Text().setText(""));
@@ -417,7 +447,7 @@ function calcSideBoardSpawns(prelude, ancientOne) {
     sideBoards.push(ancientOne.sideBoard);
   }
 
-  const startSpawn = new Vector(-19, 0, 87);
+  const startSpawn = new Vector(0, 0, 87);
   const padding = 2;
   const totalPadding = sideBoards.length * padding;
   const sideBoardsWidth = sideBoards.reduce((prev, next) => (prev += convertToWidth(next)), 0);
@@ -426,8 +456,15 @@ function calcSideBoardSpawns(prelude, ancientOne) {
   let leftStart = startSpawn.subtract(new Vector(0, totalWidth / 2, 0));
   const positions = sideBoards.map((orientation) => {
     const sideBoardWidth = convertToWidth(orientation);
-    const spawnPoint = leftStart.add(new Vector(0, sideBoardWidth / 2, 0));
+    let spawnPoint = leftStart.add(new Vector(0, sideBoardWidth / 2, 0));
     leftStart = leftStart.add(new Vector(0, sideBoardWidth + padding, 0));
+
+    // adjust for the height of the side board
+    if (orientation === "landscape") {
+      spawnPoint = spawnPoint.subtract(new Vector(19, 0, 0));
+    } else {
+      spawnPoint = spawnPoint.subtract(new Vector(26.6, 0, 0));
+    }
 
     return spawnPoint;
   });
@@ -439,5 +476,5 @@ function calcSideBoardSpawns(prelude, ancientOne) {
  * @param {"landscape" | "portrait"} orientation
  */
 function convertToWidth(orientation) {
-  return orientation === "landscape" ? 65 : 32;
+  return orientation === "landscape" ? 65 : 40;
 }

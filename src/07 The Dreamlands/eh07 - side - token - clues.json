@@ -1,0 +1,68 @@
+{
+	"Type": "Card",
+	"GUID": "8A7F1BD24B044410A1D8B6896DA9F9B8",
+	"Name": "Clues - The Dreamlands",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "the dreamlands clues - front.jpg",
+	"BackTexture": "Clues - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 2,
+	"Width": 2,
+	"Height": 2,
+	"Thickness": 0.2,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Round",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6 ],
+	"CardNames":
+	{
+		"0": "Celephais",
+		"1": "Dylath-Leen",
+		"2": "The Enchanted Wood",
+		"3": "The Moon",
+		"4": "The Underworld",
+		"5": "Ulthar",
+		"6": "Unknown Kadath"
+	}
+}

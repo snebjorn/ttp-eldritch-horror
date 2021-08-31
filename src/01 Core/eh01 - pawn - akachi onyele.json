@@ -23,6 +23,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": true,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "Blueprints/Figure.json",
 	"Models": [
@@ -50,6 +51,7 @@
 			"NormalMap": "",
 			"ExtraMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": false,
 			"Roughness": 0.3,
 			"Metallic": 0,

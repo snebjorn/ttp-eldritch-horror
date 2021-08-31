@@ -36,6 +36,11 @@ if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
       const { investigators } = require("../../1106973/Scripts/investigators");
       world.__eldritchHorror.investigators.push(...investigators);
     }
+    if (expansion === "eh07") {
+      // @ts-ignore
+      const { investigators } = require("../../1137339/Scripts/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
   }
 }
 

@@ -85,7 +85,7 @@ declare global {
       will?: number;
       shipTickets?: number;
     };
-    startingLocation: keyof GameBoardLocations["space"];
+    startingLocation: keyof GameBoardLocations["space"] | undefined;
     personalStory: string;
   }
 

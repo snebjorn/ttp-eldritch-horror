@@ -47,6 +47,26 @@ class GameUtil {
 
   /**
    * @param {number} number
+   */
+  static takeFocusTokens(number) {
+    const focusStack = world.getObjectById("focus-token");
+    if (!focusStack) {
+      throw new Error("Unable to find focus token");
+    }
+    const stackPos = focusStack.getPosition().add(new Vector(0, 0, 3));
+    const focusToken = Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", stackPos);
+
+    if (number > 1) {
+      for (let i = 1; i < number; i++) {
+        focusToken.addCards(Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", stackPos));
+      }
+    }
+
+    return focusToken;
+  }
+
+  /**
+   * @param {number} number
    * @throws If unable to take ship token from travel tickets template object
    */
   static takeShipTokens(number) {
@@ -80,7 +100,9 @@ class GameUtil {
       if (gateToken) {
         const cardDetails = gateToken.getCardDetails();
         if (cardDetails) {
-          Util.flip(gateToken);
+          if (!gateToken.isFaceUp()) {
+            Util.flip(gateToken);
+          }
           const gateName = cardDetails.name;
           // @ts-ignore
           const snapPoint = gameBoardLocations.space[gateName];
