@@ -534,6 +534,19 @@ class Util {
       return undefined;
     }
   }
+
+  /**
+   * @param {Card} stack
+   * @param {number} count
+   * @param {boolean} fromFront
+   * @param {number} offset
+   */
+  static flipInStack(stack, count = 1, fromFront = false, offset = 0) {
+    const card = stack.takeCards(count, fromFront, offset);
+    if (card) {
+      stack.addCards(card, fromFront, offset, false, true);
+    }
+  }
 }
 
 exports.Util = Util;
