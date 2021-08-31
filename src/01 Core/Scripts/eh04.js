@@ -66,6 +66,7 @@ const preludes = {
         mysticRuinsToken.setId("mystic-ruins-token");
         mysticRuinsToken.setName("Mystic Ruins Token");
         Util.moveObject(mysticRuinsToken, mysticRuinsSnapPoint);
+        world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
       }
     },
     afterResolvingSetup: (ancientOne) => {

@@ -139,6 +139,7 @@ const preludes = {
       activeExpeditionToken.setId("active-expedition-token2");
       activeExpeditionToken.setName("Active Expedition Token");
       Util.moveObject(activeExpeditionToken, deckSnapPoint);
+      world.showPing(activeExpeditionToken.getPosition(), Util.Colors.WHITE, true);
       secondDeck.shuffle();
     },
   },
