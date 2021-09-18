@@ -102,6 +102,7 @@ function setupSideBoard(spawnPosition) {
   }
   const gates = Util.createCard(egypt.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
+  gateStack.shuffle();
 
   /** @type Card | undefined */
   // @ts-ignore
@@ -111,5 +112,6 @@ function setupSideBoard(spawnPosition) {
   }
   const clues = Util.createCard(egypt.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
+  cluePool.shuffle();
 }
 exports.setupSideBoard = setupSideBoard;

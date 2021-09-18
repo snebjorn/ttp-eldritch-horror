@@ -21,20 +21,12 @@ const hypnos = {
   sideBoard: "portrait",
   customSetup: (sideBoardSpawn) => {
     if (!sideBoardSpawn) {
-      throw new Error("No spawn location for the Egypt side board was found");
+      throw new Error("No spawn location for the Dreamlands side board was found");
     }
-    setupSideBoard(sideBoardSpawn);
-
-    // TODO
-    /**
-      Spawn Dream Portals
-
-      Reveal Gates from the top of the Gate stack until three Gates
-      are revealed that each correspond to a space that is not on the
-      Dreamlands side board. Place the three Dream Portal tokens on
-      those spaces. Leave each revealed Gate in the Gate stack and do
-      not randomize the Gate stack after spawning a Dream Portal.
-     */
+    const spawnDreamPortalsFn = setupSideBoard(sideBoardSpawn);
+    if (!!spawnDreamPortalsFn) {
+      spawnDreamPortalsFn();
+    }
   },
 };
 

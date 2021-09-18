@@ -1,6 +1,8 @@
-const { Card, Vector, world } = require("@tabletop-playground/api");
+const { Card, CardDetails, Vector, world } = require("@tabletop-playground/api");
 // @ts-ignore
 const { Util } = require("../../940067/Scripts/util");
+// @ts-ignore
+const { gameBoardLocations } = require("../../940067/Scripts/world-constants");
 
 const dreamlands = {
   sideBoardMat: "33A380AD46E9529BD848B29ECFF1B395",
@@ -113,6 +115,7 @@ function setupSideBoard(spawnPosition) {
   }
   const gates = Util.createCard(dreamlands.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
+  gateStack.shuffle();
 
   /** @type Card | undefined */
   // @ts-ignore
@@ -122,5 +125,59 @@ function setupSideBoard(spawnPosition) {
   }
   const clues = Util.createCard(dreamlands.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
+  cluePool.shuffle();
+
+  return () => {
+    const dreamPortals = Util.createCard(dreamlands.dreamPortals, spawnPosition);
+    dreamPortals.shuffle();
+    spawnDreamPortals(gateStack, dreamPortals);
+  };
 }
 exports.setupSideBoard = setupSideBoard;
+
+const dreamlandGates = ["Celephais", "Dylath-Leen", "Ulthar"];
+
+/**
+ * Spawn Dream Portals
+ *
+ * Reveal Gates from the top of the Gate stack until three Gates are revealed that each
+ * correspond to a space that is not on the Dreamlands side board.
+ * Place the three Dream Portal tokens on those spaces. Leave each revealed Gate in
+ * the Gate stack and do not randomize the Gate stack after spawning a Dream Portal.
+ *
+ * @param {Card} gateStack
+ * @param {Card} dreamPortals
+ */
+function spawnDreamPortals(gateStack, dreamPortals) {
+  let spawnedDreamPortals = 0;
+  const portalsRevealed = [];
+  for (let i = 0; i < gateStack.getStackSize(); i++) {
+    /** @type {CardDetails | undefined} */
+    const revealedGateDetails = Util.flipInStack(gateStack, 1, false, i);
+    const revealedGateName = revealedGateDetails && revealedGateDetails.name;
+    if (revealedGateName && !dreamlandGates.includes(revealedGateName)) {
+      spawnedDreamPortals++;
+      const dreamPortal = spawnedDreamPortals === 3 ? dreamPortals : dreamPortals.takeCards();
+      if (dreamPortal) {
+        Util.flip(dreamPortal);
+        Util.moveObject(dreamPortal, gameBoardLocations.space[revealedGateName]);
+
+        const dreamPortalDetails = dreamPortal.getCardDetails();
+        const dreamPortalName = dreamPortalDetails && dreamPortalDetails.name;
+        portalsRevealed.push(`spawned "${dreamPortalName}" (Dream Portal) on ${revealedGateName}`);
+      }
+    } else {
+      portalsRevealed.push(`revealed ${revealedGateName} (Gate)`);
+    }
+
+    if (spawnedDreamPortals === 3) {
+      break;
+    }
+  }
+
+  Util.logScriptAction(
+    `SETUP (Side board: Dreamlands) revealed gates from the top of the Gate stack and spawned Dream Portals: ${portalsRevealed.join(
+      "; "
+    )}.`
+  );
+}
