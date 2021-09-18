@@ -1,4 +1,11 @@
-import { Card, SnapPoint, Vector } from "@tabletop-playground/api";
+import {
+  Card,
+  GameObject,
+  MultistateObject,
+  Player,
+  SnapPoint,
+  Vector,
+} from "@tabletop-playground/api";
 
 // augmenting TTP module - https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation
 declare module "@tabletop-playground/api" {
@@ -9,6 +16,14 @@ declare module "@tabletop-playground/api" {
     // it's assumed initGlobalObject() is executed as the very first thing,
     // as without ?. support I cannot be bothered to define this as optional :-/
     __eldritchHorror: EldritchHorrorGameWorld;
+  }
+
+  interface Card {
+    forEach(
+      callbackfn: (value: CardDetails, index: number, stack: Card) => void,
+      thisArg?: any
+    ): void;
+    map<U>(callbackfn: (value: CardDetails, index: number, stack: Card) => U, thisArg?: any): U[];
   }
 }
 

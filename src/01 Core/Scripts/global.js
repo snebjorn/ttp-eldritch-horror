@@ -1,8 +1,10 @@
 const { world } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
+const { monkeyPatch } = require("./monkey-patch");
 const { drawSetupUi } = require("./setup-ui");
 
 // MUST be first thing to happen!
+monkeyPatch();
 initGlobalObject();
 
 world.broadcastChatMessage(`
