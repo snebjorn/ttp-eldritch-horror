@@ -1,4 +1,4 @@
-const { world, Card, Vector, SnapPoint, Rotator } = require("@tabletop-playground/api");
+const { world, Card, Vector, SnapPoint, Rotator, Player } = require("@tabletop-playground/api");
 const {
   assetDeck,
   spellDeck,
@@ -6,116 +6,150 @@ const {
   cluePool,
   gameBoardLocations,
   willToken,
+  artifactDeck,
+  strengthToken,
 } = require("./world-constants");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
 
-/** @param {Card} investigatorSheet */
-function setupInvestigator(investigatorSheet) {
+/**
+ * @param {Card} investigatorSheet
+ * @param {Player} player
+ */
+function setupInvestigator(investigatorSheet, player) {
   const foundInvestigator = getInvestigatorData(investigatorSheet);
-  if (foundInvestigator) {
-    setupStartingItems(investigatorSheet, foundInvestigator.startingItems);
-    const healthSnapPoint = investigatorSheet.getSnapPoint(0);
-    if (healthSnapPoint) {
-      setupHealthToken(healthSnapPoint, foundInvestigator.health);
-    } else {
-      console.error(
-        `Unable to find health snap point on investigator (${foundInvestigator.name}])`
-      );
-    }
-    const sanitySnapPoint = investigatorSheet.getSnapPoint(1);
-    if (sanitySnapPoint) {
-      setupSanityToken(sanitySnapPoint, foundInvestigator.sanity);
-    } else {
-      console.error(
-        `Unable to find sanity snap point on investigator (${foundInvestigator.name}])`
-      );
-    }
-    const startingLocation =
-      foundInvestigator.startingLocation !== undefined
-        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
-        : investigatorSheet.getPosition();
-    setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+  let healthToken;
+  const healthSnapPoint = investigatorSheet.getSnapPoint(0);
+  if (healthSnapPoint) {
+    healthToken = setupHealthToken(healthSnapPoint, foundInvestigator.health);
+  } else {
+    console.error(`Unable to find health snap point on Investigator (${foundInvestigator.name}])`);
+  }
 
-    const activePrelude = GameUtil.getActivePrelude();
-    const activeAncientOne = GameUtil.getActiveAncientOne();
-    if (activeAncientOne && activePrelude && !!activePrelude.investigatorSetup) {
-      activePrelude.investigatorSetup(foundInvestigator, investigatorSheet, activeAncientOne.name);
+  let sanityToken;
+  const sanitySnapPoint = investigatorSheet.getSnapPoint(1);
+  if (sanitySnapPoint) {
+    sanityToken = setupSanityToken(sanitySnapPoint, foundInvestigator.sanity);
+  } else {
+    console.error(`Unable to find sanity snap point on Investigator (${foundInvestigator.name}])`);
+  }
+  const startingLocation =
+    foundInvestigator.startingLocation !== undefined
+      ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
+      : investigatorSheet.getPosition();
+  const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+
+  let extraItems;
+  const activePrelude = GameUtil.getActivePrelude();
+  const activeAncientOne = GameUtil.getActiveAncientOne();
+  if (
+    activeAncientOne &&
+    activePrelude &&
+    !!activePrelude.investigatorSetup &&
+    healthToken &&
+    sanityToken &&
+    pawn
+  ) {
+    const preludeItems = activePrelude.investigatorSetup(
+      foundInvestigator,
+      investigatorSheet,
+      healthToken,
+      sanityToken,
+      pawn,
+      activeAncientOne.name,
+      player
+    );
+    if (preludeItems) {
+      extraItems = preludeItems;
     }
   }
+
+  setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extraItems);
+  Util.logScriptAction(`${player.getName()} setup Investigator ${foundInvestigator.name}.`);
 }
 exports.setupInvestigator = setupInvestigator;
 
 /**
  * @param {Card} investigatorSheet
- * @param {Card} artifact
+ * @param {ExtraItems} extras
  */
-function setupDeadInvestigator(investigatorSheet, artifact) {
-  const foundInvestigator = getInvestigatorData(investigatorSheet);
-  if (foundInvestigator) {
-    setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
-    const startingLocation =
-      foundInvestigator.startingLocation !== undefined
-        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
-        : investigatorSheet.getPosition();
-    const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
-    if (pawn) {
-      const pawnHeight = pawn.getExtent(false).z;
-      pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
-      pawn.setRotation(new Rotator(-90, 0, 0), 1);
-      pawn.snapToGround();
-    }
+function setupCrippledInvestigator(investigatorSheet, extras) {
+  const startingLocation = setupDefeatedInvestigator(investigatorSheet, extras);
+  if (startingLocation) {
     setupHealthToken(startingLocation, 1);
   }
 }
-exports.setupDeadInvestigator = setupDeadInvestigator;
+exports.setupCrippledInvestigator = setupCrippledInvestigator;
 
 /**
  * @param {Card} investigatorSheet
- * @param {Card} artifact
+ * @param {ExtraItems} extras
  */
-function setupInsaneInvestigator(investigatorSheet, artifact) {
-  const foundInvestigator = getInvestigatorData(investigatorSheet);
-  if (foundInvestigator) {
-    setupStartingItems(investigatorSheet, foundInvestigator.startingItems, artifact);
-    const startingLocation =
-      foundInvestigator.startingLocation !== undefined
-        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
-        : investigatorSheet.getPosition();
-    const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
-    if (pawn) {
-      const pawnHeight = pawn.getExtent(false).z;
-      pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
-      pawn.setRotation(new Rotator(-90, 0, 0), 1);
-      pawn.snapToGround();
-    }
+function setupInsaneInvestigator(investigatorSheet, extras) {
+  const startingLocation = setupDefeatedInvestigator(investigatorSheet, extras);
+  if (startingLocation) {
     setupSanityToken(startingLocation, 1);
   }
 }
 exports.setupInsaneInvestigator = setupInsaneInvestigator;
 
+/**
+ * @param {Card} investigatorSheet
+ * @param {ExtraItems} extras
+ */
+function setupDefeatedInvestigator(investigatorSheet, extras) {
+  const foundInvestigator = getInvestigatorData(investigatorSheet);
+  if (foundInvestigator) {
+    setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extras);
+    const startingLocation =
+      foundInvestigator.startingLocation !== undefined
+        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
+        : investigatorSheet.getPosition();
+    const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
+    if (pawn) {
+      const pawnHeight = pawn.getExtent(false).z;
+      pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
+      pawn.setRotation(new Rotator(-90, 0, 0), 1);
+      pawn.snapToGround();
+    }
+
+    return startingLocation;
+  }
+}
+
 /** @param {Card} investigatorSheet */
 function getInvestigatorData(investigatorSheet) {
   const cardDetails = investigatorSheet.getCardDetails();
   if (!cardDetails) {
-    throw new Error("Missing investigator card details");
+    throw new Error("Missing Investigator card details");
   }
   const investigatorName = cardDetails.name;
   const foundInvestigator = world.__eldritchHorror.investigators.find(
     (investigator) => investigator.name === investigatorName
   );
+  if (!foundInvestigator) {
+    throw new Error(`Missing Investigator data for ${investigatorName}`);
+  }
 
   return foundInvestigator;
 }
+exports.getInvestigatorData = getInvestigatorData;
 
 /**
  * @param {Card} investigatorSheet
  * @param {Investigator["startingItems"]} startingItems
- * @param {Card | undefined} [artifact]
+ * @param {ExtraItems} [extras]
  */
-function setupStartingItems(investigatorSheet, startingItems, artifact) {
+function setupStartingItems(investigatorSheet, startingItems, extras) {
   let itemsGiven = 0;
 
+  if (extras && extras.asset) {
+    if (startingItems.assets) {
+      startingItems.assets.push(extras.asset);
+    } else {
+      startingItems.assets = [extras.asset];
+    }
+  }
   if (startingItems.assets && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
       const takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
@@ -127,6 +161,17 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
       Util.flip(takenAsset);
       positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
     });
+  }
+
+  if (extras && extras.randomAssets !== undefined && extras.randomAssets > 0) {
+    for (let i = 0; i < extras.randomAssets; i++) {
+      const randomAsset = Util.takeRandomCardFromStack(assetDeck);
+      if (randomAsset === undefined) {
+        console.error(`Unable to take a random asset from the Asset Deck`);
+        return;
+      }
+      positionItemOnInvestigatorSheet(investigatorSheet, randomAsset, itemsGiven++);
+    }
   }
 
   if (startingItems.uniqueAssets && startingItems.uniqueAssets.length > 0) {
@@ -160,6 +205,13 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     });
   }
 
+  if (extras && extras.condition) {
+    if (startingItems.conditions) {
+      startingItems.conditions.push(extras.condition);
+    } else {
+      startingItems.conditions = [extras.condition];
+    }
+  }
   if (startingItems.conditions && startingItems.conditions.length > 0) {
     startingItems.conditions.forEach((condition) => {
       const conditionCard = Util.takeCardNameFromStack(conditionDeck, condition);
@@ -172,22 +224,52 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     });
   }
 
-  if (artifact) {
-    positionItemOnInvestigatorSheet(investigatorSheet, artifact, itemsGiven++);
+  if (extras && extras.randomArtifacts !== undefined && extras.randomArtifacts > 0) {
+    for (let i = 0; i < extras.randomArtifacts; i++) {
+      const randomArtifact = Util.takeRandomCardFromStack(artifactDeck);
+      if (randomArtifact === undefined) {
+        console.error(`Unable to take a random artifact from the Artifact Deck`);
+        return;
+      }
+      positionItemOnInvestigatorSheet(investigatorSheet, randomArtifact, itemsGiven++);
+    }
   }
 
-  if (startingItems.clues && startingItems.clues > 0) {
+  if (
+    (startingItems.clues && startingItems.clues > 0) ||
+    (extras && extras.clues && extras.clues > 0)
+  ) {
+    const startingClues = startingItems.clues !== undefined ? startingItems.clues : 0;
+    const extraClues = extras && extras.clues !== undefined ? extras.clues : 0;
+    const clueCount = startingClues + extraClues;
     const clueToken = Util.takeRandomCardFromStack(cluePool);
     if (clueToken === undefined) {
       console.error(`Unable to find a clue in Clue Pool`);
       return;
+    } else {
+      if (clueCount > 1) {
+        for (let i = 1; i < clueCount; i++) {
+          const extraClue = Util.takeRandomCardFromStack(cluePool);
+          if (extraClue === undefined) {
+            console.error(`Unable to find a clue in Clue Pool`);
+            return;
+          }
+          clueToken.addCards(extraClue);
+        }
+      }
     }
 
     positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
   }
 
-  if (startingItems.focus && startingItems.focus > 0) {
-    const focusTokens = GameUtil.takeFocusTokens(startingItems.focus);
+  if (
+    (startingItems.focus && startingItems.focus > 0) ||
+    (extras && extras.focus && extras.focus > 0)
+  ) {
+    const startingFocus = startingItems.focus !== undefined ? startingItems.focus : 0;
+    const extraFocus = extras && extras.focus !== undefined ? extras.focus : 0;
+    const focusCount = startingFocus + extraFocus;
+    const focusTokens = GameUtil.takeFocusTokens(focusCount);
     positionItemOnInvestigatorSheet(investigatorSheet, focusTokens, itemsGiven++);
   }
 
@@ -196,7 +278,32 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
     positionItemOnInvestigatorSheet(investigatorSheet, shipTokens, itemsGiven++);
   }
 
-  if (startingItems.will && startingItems.will > 0) {
+  if (extras && extras.strength && extras.strength > 0) {
+    const improvementTokens = Util.createCard(
+      strengthToken.getTemplateId(),
+      strengthToken.getPosition().add(new Vector(0, 0, 2))
+    );
+    const takenStrengthToken = Util.takeCardNameFromStack(improvementTokens, "strength");
+    improvementTokens.destroy();
+    if (takenStrengthToken === undefined) {
+      console.error(`Unable to find Strength token`);
+      return;
+    }
+
+    if (extras.strength === 1) {
+      Util.flip(takenStrengthToken);
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, takenStrengthToken, itemsGiven++);
+  }
+
+  if (
+    (startingItems.will && startingItems.will > 0) ||
+    (extras && extras.will && extras.will > 0)
+  ) {
+    const startingWill = startingItems.will !== undefined ? startingItems.will : 0;
+    const extraWill = extras && extras.will !== undefined ? extras.will : 0;
+    const willCount = startingWill + extraWill;
     const improvementTokens = Util.createCard(
       willToken.getTemplateId(),
       willToken.getPosition().add(new Vector(0, 0, 2))
@@ -208,7 +315,7 @@ function setupStartingItems(investigatorSheet, startingItems, artifact) {
       return;
     }
 
-    if (startingItems.will === 1) {
+    if (willCount === 1) {
       Util.flip(takenWillToken);
     }
 
@@ -287,6 +394,8 @@ function setupHealthToken(position, health) {
     healthToken.snapToGround();
   }
   healthToken.setState(health - 1);
+
+  return healthToken;
 }
 
 /**
@@ -306,4 +415,6 @@ function setupSanityToken(position, sanity) {
     sanityToken.snapToGround();
   }
   sanityToken.setState(sanity - 1);
+
+  return sanityToken;
 }

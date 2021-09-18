@@ -12,6 +12,7 @@ const {
   shipTicket,
   tableLocations,
   epicMonsterCup,
+  omenToken,
 } = require("./world-constants");
 
 class GameUtil {
@@ -254,16 +255,16 @@ class GameUtil {
 
   /**
    * @param {string} monsterName
-   * @param {SnapPoint} snapPoint
+   * @param {SnapPoint | Vector} position
    * @throws If unable to find `monsterName`
    */
-  static spawnEpicMonster(monsterName, snapPoint) {
+  static spawnEpicMonster(monsterName, position) {
     const epicMonster = Util.takeCardNameFromStack(epicMonsterCup, monsterName);
     if (!epicMonster) {
       throw new Error(`Unable to find "${monsterName}" in the epic monster cup`);
     }
 
-    Util.moveObject(epicMonster, snapPoint);
+    Util.moveObject(epicMonster, position);
 
     return epicMonster;
   }
@@ -326,6 +327,41 @@ class GameUtil {
     }
 
     return data;
+  }
+
+  static getCurrentOmenColor() {
+    if (gameBoardLocations.omen.green.getSnappedObject() === omenToken) {
+      return "green";
+    }
+    if (gameBoardLocations.omen.blue1.getSnappedObject() === omenToken) {
+      return "blue";
+    }
+    if (gameBoardLocations.omen.red.getSnappedObject() === omenToken) {
+      return "red";
+    }
+    if (gameBoardLocations.omen.blue2.getSnappedObject() === omenToken) {
+      return "blue";
+    }
+
+    throw new Error("Unable to find omen token");
+  }
+
+  /**
+   * @param {number} number
+   */
+  static advanceOmen(number = 1) {
+    const omenTrack = [
+      gameBoardLocations.omen.green,
+      gameBoardLocations.omen.blue1,
+      gameBoardLocations.omen.red,
+      gameBoardLocations.omen.blue2,
+    ];
+
+    const omenIndex = omenTrack.findIndex((x) => x.getSnappedObject() === omenToken);
+    const advancedOmenSnapShot = omenTrack[(omenIndex + 1) % 4];
+    Util.moveObject(omenToken, advancedOmenSnapShot);
+
+    // TODO advance doom for each matching gates
   }
 
   static getActiveIconReference() {

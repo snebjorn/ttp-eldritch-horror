@@ -363,39 +363,47 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
   const sideBoardSpawns = calcSideBoardSpawns(prelude, foundAncientOne);
 
   if (prelude && !!prelude.step2) {
-    prelude.step2(ancientName);
+    prelude.step2(ancientName, iconReference);
   }
   if (prelude && !!prelude.step3) {
-    prelude.step3(ancientName);
+    prelude.step3(ancientName, iconReference);
   }
   if (prelude && !!prelude.step4) {
-    prelude.step4(ancientName);
+    prelude.step4(ancientName, iconReference);
   }
+
+  shuffleTokens();
+
+  let sideBoardFn;
   if (prelude && !!prelude.step5) {
     if (!!prelude.spawnsSideBoard && prelude.spawnsSideBoard(foundAncientOne.name)) {
-      prelude.step5(ancientName, sideBoardSpawns.shift());
+      sideBoardFn = prelude.step5(ancientName, sideBoardSpawns.shift(), iconReference);
     } else {
-      prelude.step5(ancientName);
+      prelude.step5(ancientName, undefined, iconReference);
     }
   }
 
   setupAncient(foundAncientOne, mythosDifficulty, sideBoardSpawns.shift());
 
+  if (!!sideBoardFn) {
+    sideBoardFn();
+  }
+
   if (prelude && !!prelude.step6) {
-    prelude.step6(ancientName);
+    prelude.step6(ancientName, iconReference);
   }
   if (prelude && !!prelude.step7) {
-    prelude.step7(ancientName);
+    prelude.step7(ancientName, iconReference);
   }
   if (prelude && !!prelude.step8) {
-    prelude.step8(ancientName);
+    prelude.step8(ancientName, iconReference);
   }
 
   shuffleDecks();
-  shuffleTokens();
+  setupReferenceCard(iconReference);
 
   if (prelude && !!prelude.afterResolvingSetup) {
-    prelude.afterResolvingSetup(ancientName);
+    prelude.afterResolvingSetup(ancientName, iconReference);
   }
 
   if (!prelude) {
@@ -404,8 +412,6 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
       preludeCardHolder.destroy();
     }
   }
-
-  setupReferenceCard(iconReference);
 
   world.showPing(activeExpeditionToken.getPosition(), Util.Colors.WHITE, true);
 }

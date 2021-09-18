@@ -23,6 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [],
@@ -51,9 +52,11 @@
 	"UsePrimaryColorForSide": false,
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
+	"MirrorBack": true,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
 	{
+		"3": "Web Between Worlds"
 	}
 }

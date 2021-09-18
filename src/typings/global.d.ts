@@ -104,31 +104,50 @@ declare global {
     personalStory: string;
   }
 
+  interface ExtraItems {
+    randomArtifacts?: number;
+    randomAssets?: number;
+    clues?: number;
+    focus?: number;
+    asset?: string;
+    condition?: string;
+    strength?: number;
+    will?: number;
+  }
+
   interface Prelude {
     /** Indicates if this prelude spawns a side board and in what orientation */
     spawnsSideBoard?: (ancientOne: string) => "landscape" | "portrait" | undefined;
     /** Organize Tokens */
-    step2?: (ancientOne: string) => void;
+    step2?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Choose and Place Investigators */
-    step3?: (ancientOne: string) => void;
+    step3?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Receive Starting Possessions, Health, and Sanity */
-    step4?: (ancientOne: string) => void;
+    step4?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Determine Ancient One */
-    step5?: (ancientOne: string, sideBoardSpawn?: Vector) => void;
+    step5?: (
+      ancientOne: string,
+      sideBoardSpawn?: Vector,
+      iconReference?: IconReference
+    ) => (() => void) | undefined | void;
     /** Create Monster Cup */
-    step6?: (ancientOne: string) => void;
+    step6?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Separate and Place Decks */
-    step7?: (ancientOne: string) => void;
+    step7?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Build Mythos Deck */
-    step8?: (ancientOne: string) => void;
+    step8?: (ancientOne: string, iconReference?: IconReference) => void;
     /** Resolve Starting Effects */
-    step9?: (ancientOne: string) => void;
-    afterResolvingSetup?: (ancientOne: string) => void;
+    step9?: (ancientOne: string, iconReference?: IconReference) => void;
+    afterResolvingSetup?: (ancientOne: string, iconReference?: IconReference) => void;
     investigatorSetup?: (
       investigator: Investigator,
       investigatorSheet: Card,
-      ancientOne: string
-    ) => void;
+      healthToken: MultistateObject,
+      sanityToken: MultistateObject,
+      pawn: GameObject,
+      ancientOne: string,
+      player: Player
+    ) => ExtraItems | void;
   }
 
   type AncientOneName =

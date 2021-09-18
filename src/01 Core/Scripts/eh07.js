@@ -1,7 +1,15 @@
-const { world } = require("@tabletop-playground/api");
+const { world, Vector, Card } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
-const { expansionSpawn, mythosSetupDecks, tableLocations } = require("./world-constants");
+const {
+  expansionSpawn,
+  tableLocations,
+  investigatorDeck,
+  gameBoardLocations,
+  mythosSetupDecks,
+  gateStack,
+} = require("./world-constants");
+const { setupCrippledInvestigator, getInvestigatorData } = require("./setup-investigator");
 
 /**
  * @param {string} templateId
@@ -55,11 +63,250 @@ exports.expansionItems = {
 /** @type Record<string, Prelude> */
 const preludes = {
   "Focused Training": {},
-  "Lurker Among Us": {},
-  "Otherworldly Dreams": {},
-  "Twin Blasphemies of the Black Goat": {},
-  "Web Between Worlds": {},
-  "Written In the Stars": {},
+  "Lurker Among Us": {
+    afterResolvingSetup: () => {
+      GameUtil.advanceDoom(1);
+      const investigatorDeckPosition = investigatorDeck.getPosition();
+      const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
+      const separatorBuffer = 2;
+      const investigator = Util.takeRandomCardFromStack(investigatorDeck);
+      if (investigator) {
+        const newPos = investigatorDeckPosition.add(
+          new Vector(-heightOfSheet - separatorBuffer, 0, 2)
+        );
+        investigator.setPosition(newPos, 1);
+        Util.flip(investigator);
+        investigator.snapToGround();
+
+        const investigatorData = getInvestigatorData(investigator);
+        const startingPosition =
+          investigatorData.startingLocation !== undefined
+            ? gameBoardLocations.space[investigatorData.startingLocation]
+            : investigator.getPosition();
+        GameUtil.spawnEpicMonster("Doppelganger", startingPosition);
+
+        setupCrippledInvestigator(investigator, { randomAssets: 1, clues: 1 });
+
+        Util.logScriptAction(
+          `SETUP (Prelude: Lurker Among Us) drew 1 random Investigator (${investigatorData.name}) and crippled it. Placed starting possessions, 1 random facedown Asset, and 1 Clue on his Investigator sheet. Spawned the Doppelganger Epic Monster on the same space as the defeated Investigator and advanced doom by 1.`
+        );
+      }
+    },
+  },
+  "Otherworldly Dreams": {
+    spawnsSideBoard: (ancientOne) => {
+      if (ancientOne !== "Hypnos") {
+        return "portrait";
+      }
+
+      return;
+    },
+    step5: (ancientOne, sideBoardSpawn) => {
+      // setup dreamlands side board
+      if (ancientOne !== "Hypnos") {
+        // @ts-ignore - don't try this at home kids
+        // prettier-ignore
+        const { setupSideBoard } = require("../../1137339/Scripts/setup-side-board");
+        return setupSideBoard(sideBoardSpawn);
+      }
+    },
+    afterResolvingSetup: (ancientOne) => {
+      if (ancientOne !== "Hypnos") {
+        // TODO fix the stages
+        const stage1Card = createCard("8B79029944625A6941ACE6B0AC534469");
+        const otherworldlyDreamsAdventuresStage2 = createCard("465C147D4AECB3996A8006A2D00C0A76");
+        const randomStage2Card = Util.takeRandomCardFromStack(otherworldlyDreamsAdventuresStage2);
+        const otherworldlyDreamsAdventuresStage3 = createCard("BFA0FDE74C6318E8B058628433AA072D");
+        const randomStage3Card = Util.takeRandomCardFromStack(otherworldlyDreamsAdventuresStage3);
+        const stage4Card = createCard("F9798D8B4C3156015B4371A937728D47");
+
+        if (stage1Card && randomStage2Card && randomStage3Card && stage4Card) {
+          stage4Card.addCards(randomStage3Card);
+          stage4Card.addCards(randomStage2Card);
+
+          stage4Card.setId("adventure-otherworldly-dreams-deck");
+          stage4Card.setName("Otherworldly Dreams Adventures");
+          Util.moveObject(
+            stage4Card,
+            // @ts-ignore
+            gameBoardLocations.dreamlandsSideBoard.adventure
+          );
+          Util.moveObject(
+            stage1Card,
+            // @ts-ignore
+            gameBoardLocations.dreamlandsSideBoard.activeAdventure
+          );
+          Util.flip(stage1Card);
+
+          const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
+          adventureToken.setId("adventure-otherworldly-dreams-token");
+          adventureToken.setName("Adventure Token: Otherworldly Dreams");
+          Util.moveObject(
+            adventureToken,
+            // @ts-ignore - dynamically added snap point on side board
+            gameBoardLocations.dreamlandsSideBoard.activeAdventure
+          );
+
+          world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
+
+          Util.logScriptAction(
+            'SETUP (Prelude: Otherworldly Dreams) set aside Otherworldly Dreams Adventures; then drew the "A Chance Encounter" Adventure.'
+          );
+        }
+
+        otherworldlyDreamsAdventuresStage2.destroy();
+        otherworldlyDreamsAdventuresStage3.destroy();
+      }
+    },
+    investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
+      if (ancientOne === "Hypnos") {
+        healthToken.setState(healthToken.getState() - 1);
+        sanityToken.setState(sanityToken.getState() - 1);
+
+        Util.logScriptAction(
+          `SETUP (Prelude: Otherworldly Dreams, Investigator: ${investigator.name}) lost 1 Health and 1 Sanity and gained 1 Focus.`
+        );
+
+        return { focus: 1 };
+      }
+    },
+  },
+  "Twin Blasphemies of the Black Goat": {
+    afterResolvingSetup: (ancientOne) => {
+      let message =
+        "SETUP (Prelude: Twin Blasphemies of the Black Goat) set aside 2 Ghoul Monsters.";
+
+      if (ancientOne === "Shub-Niggurath") {
+        const mysteryDeck = world.getObjectById("mystery-deck");
+        if (!mysteryDeck || !(mysteryDeck instanceof Card)) {
+          throw new Error("Unable to find mystery deck");
+        }
+
+        const activeMysterySnapPoint = tableLocations.activeMystery;
+        if (activeMysterySnapPoint) {
+          const activeMystery = activeMysterySnapPoint.getSnappedObject(2);
+          if (activeMystery instanceof Card) {
+            const cardDetails = activeMystery.getCardDetails();
+            // Spawn of the Black Goat is correct, it was corrected in the Errata
+            if (cardDetails && cardDetails.name !== "Spawn of the Black Goat") {
+              mysteryDeck.addCards(activeMystery);
+
+              const activeMysteryCard = Util.takeCardNameFromStack(
+                mysteryDeck,
+                "Spawn of the Black Goat"
+              );
+              if (!activeMysteryCard) {
+                throw new Error('Unable to find "Spawn of the Black Goat" in mystery deck');
+              }
+
+              if (!tableLocations.activeMystery) {
+                throw new Error("Unable to find active mystery snap point");
+              }
+              Util.moveObject(activeMysteryCard, tableLocations.activeMystery);
+              Util.flip(activeMysteryCard);
+
+              message +=
+                ' Drew the "Spawn of the Black Goat" (Errata) Mystery instead of a random Mystery then resolved the "when this card enters play" effect.';
+            }
+          }
+        }
+      } else {
+        GameUtil.setAsideMonster("Ghoul", 2);
+
+        message += " Spawned the Nug Epic Monster on The Amazon.";
+      }
+
+      try {
+        GameUtil.spawnEpicMonster("Nug", gameBoardLocations.space["The Amazon"]);
+      } catch (error) {
+        console.error(error.message);
+      }
+
+      // TODO if playing with forsaken lore
+      try {
+        GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
+        // Yeb spawn effect: spawn 2 monsters on this space
+        const monster1 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
+        const monster2 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
+        const spawnedMonsters = [monster1, monster2].map((card) => {
+          if (card) {
+            const details = card.getCardDetails();
+            if (details) {
+              return details.name;
+            }
+          }
+          return "";
+        });
+
+        message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
+          ", "
+        )})`;
+      } catch (error) {
+        console.error(error.message);
+      }
+
+      Util.logScriptAction(message);
+    },
+    investigatorSetup: (
+      investigator,
+      sheet,
+      healthToken,
+      sanityToken,
+      pawn,
+      ancientOne,
+      player
+    ) => {
+      Util.logScriptAction(
+        `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`
+      );
+
+      return { strength: 1, will: 1 };
+    },
+  },
+  "Web Between Worlds": {
+    step4: (ancientOne) => {
+      if (ancientOne !== "Atlach-Nacha") {
+        // activate Web Between Worlds mythos card, before building the mythos deck
+        const rumorMythos = Util.takeCardNameFromStack(
+          mythosSetupDecks.blue.hard,
+          "Web Between Worlds"
+        );
+        if (rumorMythos && tableLocations.activeMythos) {
+          Util.moveObject(rumorMythos, tableLocations.activeMythos);
+          Util.flip(rumorMythos);
+          const eldritchTokens = GameUtil.takeEldritchTokens(4);
+          Util.moveObject(eldritchTokens, tableLocations.activeMythos);
+        }
+
+        Util.logScriptAction(
+          'SETUP (Prelude: Web Between Worlds) placed the "Web Between Worlds" Rumor Mythos card in play with 4 Eldritch tokens on it.'
+        );
+      }
+    },
+    afterResolvingSetup: (ancientOne, iconReference) => {
+      if (ancientOne === "Atlach-Nacha" && iconReference) {
+        const spawnedGates = GameUtil.spawnGates(iconReference.spawnGates);
+        const spawnedGatesText = spawnedGates
+          .map(([gateName, monsterName]) => `"${gateName}" with 1 monster (${monsterName})`)
+          .join("; ");
+
+        Util.logScriptAction(
+          `SETUP (Prelude: Web Between Worlds) spawned ${iconReference.spawnGates} additional Gates (${spawnedGatesText}) as indicated by the Reference card.`
+        );
+      }
+    },
+  },
+  "Written In the Stars": {
+    afterResolvingSetup: () => {
+      GameUtil.retreatDoom(3);
+      // reveal top gate
+      Util.flipInStack(gateStack);
+
+      Util.logScriptAction(
+        "SETUP (Prelude: Written In the Stars) retreated Doom by 3. Revealed the top Gate of the Gate stack."
+      );
+    },
+  },
 };
 
 if (!world.__eldritchHorror.alreadyLoaded.includes("AD26C4DD4F31C1BD8140CCACD734D29A")) {
