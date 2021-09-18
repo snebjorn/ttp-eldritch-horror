@@ -151,7 +151,7 @@ function drawSetupUi() {
     setupGame(
       ancientOne,
       getMythosDifficulty(),
-      world.__eldritchHorror.activeIconReference,
+      GameUtil.getActiveIconReference(),
       GameUtil.getActivePrelude()
     );
     world.removeUIElement(ui);

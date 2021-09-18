@@ -18,6 +18,15 @@ refHolder.onRemoved.add(() => {
     world.__eldritchHorror.updateSetupUIFn();
   }
 });
+// on script reload or game loads we need to repopulate the activeIconReference
+const cardsInHolder = refHolder.getCards();
+if (cardsInHolder.length > 0) {
+  const iconReference = cardsInHolder[0];
+  const cardDetails = iconReference.getCardDetails();
+  if (cardDetails) {
+    world.__eldritchHorror.activeIconReference = ToIconReference(cardDetails.name);
+  }
+}
 
 const ui = new UIElement();
 ui.position = new Vector(0, 0, 0.11);

@@ -327,6 +327,10 @@ class GameUtil {
 
     return data;
   }
+
+  static getActiveIconReference() {
+    return world.__eldritchHorror.activeIconReference;
+  }
 }
 exports.GameUtil = GameUtil;
 
