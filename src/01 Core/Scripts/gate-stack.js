@@ -9,10 +9,23 @@ const revealGateAction = "Reveal Gate";
 
 refCard.onCustomAction.add((stack, player, actionName) => {
   if (actionName === spawnGateAction) {
-    GameUtil.spawnGates(1);
+    const result = GameUtil.spawnGates(1);
+    if (result.length > 0) {
+      const [gateName, monsterName] = result[0];
+      Util.logScriptAction(
+        `${player.getName()} spawned Gate on "${gateName}" with a "${monsterName}" Monster.`,
+        player
+      );
+    }
   }
   if (actionName === revealGateAction) {
-    Util.flipInStack(stack);
+    const revealedGate = Util.flipInStack(stack);
+    if (revealedGate) {
+      Util.logScriptAction(
+        `${player.getName()} revealed the top Gate to be "${revealedGate.name}".`,
+        player
+      );
+    }
   }
 });
 

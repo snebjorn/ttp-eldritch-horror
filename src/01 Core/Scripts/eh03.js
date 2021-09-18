@@ -6,11 +6,9 @@ const {
   mythosSetupDecks,
   tableLocations,
   gameBoardLocations,
-  omenToken,
   investigatorDeck,
-  artifactDeck,
 } = require("./world-constants");
-const { setupDeadInvestigator, setupInsaneInvestigator } = require("./setup-investigator");
+const { setupCrippledInvestigator, setupInsaneInvestigator } = require("./setup-investigator");
 
 /**
  * @param {string} templateId
@@ -71,6 +69,10 @@ const preludes = {
       const eldritchToken = GameUtil.takeEldritchTokens(1);
 
       Util.moveObject(eldritchToken, gameBoardLocations.omen.green);
+
+      Util.logScriptAction(
+        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on teh green space of the Omen track."
+      );
     },
   },
   "Doomsayer From Antarctica": {
@@ -98,6 +100,9 @@ const preludes = {
           // @ts-ignore - dynamically added space on side board
           const lakeCamp = gameBoardLocations.space["Lake Camp"];
           GameUtil.spawnEpicMonster("Rampaging Shoggoth", lakeCamp);
+          Util.logScriptAction(
+            "SETUP (Prelude: Doomsayer From Antarctica) spawned the Rampaging Shoggoth Epic Monster on Lake Camp."
+          );
         } catch (error) {
           console.error(error.message);
         }
@@ -136,6 +141,9 @@ const preludes = {
           );
 
           world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
+          Util.logScriptAction(
+            "SETUP (Prelude: Doomsayer From Antarctica) set aside Antarctica Adventures and draw a random Antarctica I Adventure."
+          );
         }
 
         antarcticaAdventuresStage1.destroy();
@@ -161,12 +169,13 @@ const preludes = {
       // if ithaqua, advance omen by 1 and remove the The Wind-Walker mythos card
       // else put 6 eldritch tokens on The Wind-Walker mythos card
       if (ancientOne === "Ithaqua") {
-        Util.moveObject(omenToken, gameBoardLocations.omen.blue1);
+        GameUtil.advanceOmen();
         const windWalkerCard =
           tableLocations.activeMythos && tableLocations.activeMythos.getSnappedObject();
         if (windWalkerCard) {
           windWalkerCard.destroy();
         }
+        Util.logScriptAction("SETUP (Prelude: Rumors From the North) advanced Omen by 1.");
       } else {
         if (tableLocations.activeMythos) {
           const eldritchTokens = GameUtil.takeEldritchTokens(6);
@@ -174,6 +183,9 @@ const preludes = {
         }
         try {
           GameUtil.spawnEpicMonster("Wind-Walker", gameBoardLocations.space[4]);
+          Util.logScriptAction(
+            "SETUP (Prelude: Rumors From the North) placed The Wind-Walker Rumor Mythos car in play with 6 Eldritch tokens on it."
+          );
         } catch (error) {
           console.error(error.message);
         }
@@ -189,6 +201,7 @@ const preludes = {
       const investigatorDeckPosition = investigatorDeck.getPosition();
       const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
       const separatorBuffer = 2;
+      const sacrificedNames = [];
       for (let i = 1; i < 3; i++) {
         const investigator = Util.takeRandomCardFromStack(investigatorDeck);
         if (investigator) {
@@ -199,20 +212,20 @@ const preludes = {
           Util.flip(investigator);
           investigator.snapToGround();
 
-          const artifact = Util.takeRandomCardFromStack(artifactDeck);
-          if (!artifact) {
-            throw new Error(
-              "Unable to fetch random artifact for investigator (Ultimate Sacrifice)"
-            );
-          }
+          const investigatorDetails = investigator.getCardDetails();
+          if (investigatorDetails) sacrificedNames.push(investigatorDetails.name);
 
           if (i === 1) {
-            setupDeadInvestigator(investigator, artifact);
+            setupCrippledInvestigator(investigator, { randomArtifacts: 1 });
           } else {
-            setupInsaneInvestigator(investigator, artifact);
+            setupInsaneInvestigator(investigator, { randomArtifacts: 1 });
           }
         }
       }
+
+      Util.logScriptAction(
+        `SETUP (Prelude: Ultimate Sacrifice) sacrificed 2 random investigators. ${sacrificedNames[0]} (Crippled), ${sacrificedNames[1]} (Insane). Placed starting possessions and 1 random facedown Artifact on each Investigator sheet. Advanced doom by 2.`
+      );
     },
   },
   "Unwilling Sacrifice": {},

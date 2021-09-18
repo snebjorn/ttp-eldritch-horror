@@ -39,8 +39,6 @@ function loadExpansion(...expansions) {
       alreadyLoaded.push(expansion);
     }
   }
-
-  return alreadyLoaded;
 }
 exports.loadExpansion = loadExpansion;
 

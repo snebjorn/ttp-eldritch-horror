@@ -67,6 +67,10 @@ const preludes = {
         mysticRuinsToken.setName("Mystic Ruins Token");
         Util.moveObject(mysticRuinsToken, mysticRuinsSnapPoint);
         world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
+
+        Util.logScriptAction(
+          "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck."
+        );
       }
     },
     afterResolvingSetup: (ancientOne) => {
@@ -75,6 +79,9 @@ const preludes = {
       if (ancientOne === "Syzygy") {
         const eldritchToken = GameUtil.takeEldritchTokens(1);
         Util.moveObject(eldritchToken, gameBoardLocations.omen.red);
+        Util.logScriptAction(
+          "SETUP (Prelude: In Cosmic Alignment) placed 1 Eldritch token on the red space of the Omen track."
+        );
       } else {
         const randomAdventureTemplateId =
           Util.randomIntFromInterval(1, 2) === 1
@@ -97,21 +104,35 @@ const preludes = {
         Util.moveObject(firstAdventureCard, tableLocations.activeAdventure);
         Util.flip(firstAdventureCard);
 
-        GameUtil.spawnGates(1);
+        const spawnedGates = GameUtil.spawnGates(1);
+        const [spawnedGate, spawnedMonster] = spawnedGates[0];
 
         const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
         adventureToken.setId("adventure-cosmic-alignment-token");
         adventureToken.setName("Adventure Token: Cosmic Alignment");
         Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
+        Util.logScriptAction(
+          `SETUP (Prelude: In Cosmic Alignment) set aside Cosmic Alignment Adventures; then drew the "Discovery of a Cosmic Syzygy" Adventure and spawned 1 Gate on "${spawnedGate}" with a "${spawnedMonster}" Monster.`
+        );
       }
     },
-    investigatorSetup: (investigator, sheet, ancientOne) => {
+    investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       if (ancientOne === "Syzygy") {
         // TODO lose 1 sanity and gain 1 relic unique asset
       }
     },
   },
-  "The Coming Storm": {},
+  "The Coming Storm": {
+    afterResolvingSetup: () => {
+      // TODO resolve mythos effects: advance the omen, spawn gates, monster surge
+      // TODO need to find a way to advance doom for each matching gate and do a monster surge
+      // const activeIconReference = GameUtil.getActiveIconReference();
+      // if (activeIconReference) {
+      //   GameUtil.spawnGates(activeIconReference.spawnGates);
+      // }
+      // Util.logScriptAction(`SETUP (Prelude: The Coming Storm) spawned Gates on `)
+    },
+  },
   "The Dunwich Horror": {
     afterResolvingSetup: (ancientOne) => {
       // if Yog-Sothoth make "Spawn of Yog-Sothoth" the active mystery
@@ -146,6 +167,14 @@ const preludes = {
             }
           }
         }
+
+        Util.logScriptAction(
+          'SETUP (Prelude: The Dunwich Horror) drew the "Spawn of Yog-Sothoth" Mystery instead of a random Mystery then resolved the "when this card enters play" effect.'
+        );
+      } else {
+        Util.logScriptAction(
+          'SETUP (Prelude: The Dunwich Horror) spawned the "Dunwich Horror" Epic Monster on Arkham.'
+        );
       }
 
       try {
@@ -153,6 +182,9 @@ const preludes = {
       } catch (error) {
         console.error(error.message);
       }
+    },
+    investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
+      // TODO gain 1 Glamour Spell - need tagging support to tag cards with Glamour
     },
   },
 };

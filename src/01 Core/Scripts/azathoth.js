@@ -1,4 +1,5 @@
 const { refCard, world } = require("@tabletop-playground/api");
+const { Util } = require("./util");
 const { eldritchToken, gameBoardLocations } = require("./world-constants");
 
 /** @type AncientOne */
@@ -17,6 +18,10 @@ const azathoth = {
     world.createObjectFromTemplate(
       eldritchToken.getTemplateId(),
       gameBoardLocations.omen.green.getGlobalPosition()
+    );
+
+    Util.logScriptAction(
+      "SETUP (Azathoth) placed 1 Eldritch token on the green space of the Omen track."
     );
   },
 };

@@ -8,10 +8,10 @@ const {
   Rotator,
 } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
-const { investigators } = require("./investigators");
 const { setupInvestigator } = require("./setup-investigator");
 
 if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
+  const { investigators } = require("./investigators");
   world.__eldritchHorror.investigators.push(...investigators);
   world.__eldritchHorror.alreadyLoaded.push(refCard.getTemplateId());
 
@@ -44,8 +44,6 @@ if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
   }
 }
 
-// calling clear fixes issue with multiple callback added when reloading scripts
-refCard.onRemoved.clear();
 refCard.onRemoved.add((stack, removedInvestigator) => {
   drawSetupButton(removedInvestigator);
 
@@ -65,8 +63,8 @@ function drawSetupButton(investigatorSheet) {
   ui.rotation = new Rotator(180, 180, 0);
   ui.scale = 0.1;
   const setupButton = new Button().setText("Setup").setFontSize(64);
-  setupButton.onClicked.add(() => {
-    setupInvestigator(investigatorSheet);
+  setupButton.onClicked.add((_btn, player) => {
+    setupInvestigator(investigatorSheet, player);
     investigatorSheet.removeUIElement(ui);
   });
   investigatorSheet.onInserted.add(() => investigatorSheet.removeUIElement(ui));

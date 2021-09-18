@@ -57,7 +57,7 @@ const preludes = {
   "The King In Yellow": {
     step4: (ancientOne) => {
       if (ancientOne !== "Hastur") {
-        // activate The The King In Yellow mythos card, before building the mythos deck
+        // activate The King In Yellow mythos card, before building the mythos deck
         const kingInYellowMythos = Util.takeCardNameFromStack(
           mythosSetupDecks.blue.medium,
           "The King In Yellow"
@@ -68,6 +68,10 @@ const preludes = {
           const eldritchTokens = GameUtil.takeEldritchTokens(2);
           Util.moveObject(eldritchTokens, tableLocations.activeMythos);
         }
+
+        Util.logScriptAction(
+          'SETUP (Prelude: The King In Yellow) placed "The King In Yellow" Rumor Mythos card in play with 2 Eldritch tokens on it.'
+        );
       }
     },
   },
