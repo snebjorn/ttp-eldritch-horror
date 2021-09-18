@@ -22,8 +22,9 @@
 		"B": 0
 	},
 	"Flippable": false,
-	"AutoStraighten": true,
-	"ScriptName": "",
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "../../940067/Scripts/pawn.js",
 	"Blueprint": "Blueprints/Figure.json",
 	"Models": [
 		{
