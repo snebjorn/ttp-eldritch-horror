@@ -112,50 +112,44 @@ const preludes = {
     },
     afterResolvingSetup: (ancientOne) => {
       if (ancientOne !== "Hypnos") {
-        // TODO fix the stages
-        const stage1Card = createCard("8B79029944625A6941ACE6B0AC534469");
-        const otherworldlyDreamsAdventuresStage2 = createCard("465C147D4AECB3996A8006A2D00C0A76");
-        const randomStage2Card = Util.takeRandomCardFromStack(otherworldlyDreamsAdventuresStage2);
-        const otherworldlyDreamsAdventuresStage3 = createCard("BFA0FDE74C6318E8B058628433AA072D");
-        const randomStage3Card = Util.takeRandomCardFromStack(otherworldlyDreamsAdventuresStage3);
-        const stage4Card = createCard("F9798D8B4C3156015B4371A937728D47");
+        const randNum = Util.randomIntFromInterval(1, 3);
+        const randomAdventureTemplateId =
+          randNum === 1
+            ? "8B79029944625A6941ACE6B0AC534469"
+            : randNum === 2
+            ? "465C147D4AECB3996A8006A2D00C0A76"
+            : "BFA0FDE74C6318E8B058628433AA072D";
+        const adventureDeck = createCard(randomAdventureTemplateId);
 
-        if (stage1Card && randomStage2Card && randomStage3Card && stage4Card) {
-          stage4Card.addCards(randomStage3Card);
-          stage4Card.addCards(randomStage2Card);
+        adventureDeck.setId("adventure-otherworldly-dreams-deck");
+        adventureDeck.setName("Otherworldly Dreams Adventures");
+        Util.moveObject(
+          adventureDeck,
+          // @ts-ignore - dynamically added snap point on side board
+          gameBoardLocations.dreamlandsSideBoard.adventure
+        );
 
-          stage4Card.setId("adventure-otherworldly-dreams-deck");
-          stage4Card.setName("Otherworldly Dreams Adventures");
-          Util.moveObject(
-            stage4Card,
-            // @ts-ignore
-            gameBoardLocations.dreamlandsSideBoard.adventure
-          );
-          Util.moveObject(
-            stage1Card,
-            // @ts-ignore
-            gameBoardLocations.dreamlandsSideBoard.activeAdventure
-          );
-          Util.flip(stage1Card);
-
-          const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
-          adventureToken.setId("adventure-otherworldly-dreams-token");
-          adventureToken.setName("Adventure Token: Otherworldly Dreams");
-          Util.moveObject(
-            adventureToken,
-            // @ts-ignore - dynamically added snap point on side board
-            gameBoardLocations.dreamlandsSideBoard.activeAdventure
-          );
-
-          world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
-
-          Util.logScriptAction(
-            'SETUP (Prelude: Otherworldly Dreams) set aside Otherworldly Dreams Adventures; then drew the "A Chance Encounter" Adventure.'
-          );
+        const firstAdventureCard = adventureDeck.takeCards(1);
+        if (!firstAdventureCard) {
+          throw new Error("Unable to take the first card from the Museum Heist adventure deck");
         }
+        const dreamlandsActiveAdventureSnapPoint =
+          // @ts-ignore - dynamically added snap point on side board
+          gameBoardLocations.dreamlandsSideBoard.activeAdventure;
+        if (!dreamlandsActiveAdventureSnapPoint) {
+          throw new Error("Unable to find snap point for active adventure on Egypt side board");
+        }
+        Util.moveObject(firstAdventureCard, dreamlandsActiveAdventureSnapPoint);
+        Util.flip(firstAdventureCard);
 
-        otherworldlyDreamsAdventuresStage2.destroy();
-        otherworldlyDreamsAdventuresStage3.destroy();
+        const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
+        adventureToken.setId("adventure-otherworldly-dreams-token");
+        adventureToken.setName("Adventure Token: Otherworldly Dreams");
+        Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
+
+        Util.logScriptAction(
+          'SETUP (Prelude: Otherworldly Dreams) set aside Otherworldly Dreams Adventures; then drew the "A Chance Encounter" Adventure.'
+        );
       }
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {

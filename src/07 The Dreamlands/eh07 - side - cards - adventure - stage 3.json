@@ -1,7 +1,7 @@
 {
 	"Type": "Card",
 	"GUID": "BFA0FDE74C6318E8B058628433AA072D",
-	"Name": "Otherworldly Dream Adventures - Stage 3",
+	"Name": "Otherworldly Dream Adventures - C",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -36,13 +36,13 @@
 		"Y": 0,
 		"Z": 0
 	},
-	"FrontTexture": "Stage 3 - front.jpg",
+	"FrontTexture": "Adventure - Otherworldly Dreams - front.jpg",
 	"BackTexture": "Adventure - Otherworldly Dreams - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
-	"NumHorizontal": 3,
-	"NumVertical": 1,
+	"NumHorizontal": 2,
+	"NumVertical": 4,
 	"Width": 8.89,
 	"Height": 5.7,
 	"Thickness": 0.05,
@@ -54,7 +54,7 @@
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
 	"Model": "Rounded",
-	"Indices": [ 0, 1, 2 ],
+	"Indices": [ 7, 4, 3, 0 ],
 	"CardNames":
 	{
 	}
