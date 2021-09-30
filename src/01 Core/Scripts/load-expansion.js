@@ -84,6 +84,12 @@ function loadScript(expansion) {
 
       return expansionItems;
     }
+    case "eh08": {
+      // @ts-ignore
+      const { expansionItems } = require("./eh08");
+
+      return expansionItems;
+    }
   }
 }
 
@@ -108,7 +114,8 @@ function createAssets(expansionItems) {
     `Unique Assets are double-sided cards. An investigator cannot look at the back of Unique Assets unless an effect allows him to.
 - Unique Assets are possessions and may be traded using the Trade action. There is no limit to the number of Unique Assets an investigator can have.
 - “Asset” refers to both Assets and Unique Assets. “Non-Unique Asset” refers to Assets but not Unique Assets.
-- When a Unique Asset is discarded, also discard all tokens on it.`,
+- When a Unique Asset is discarded, also discard all tokens on it.
+- If an effect says, “gain 1 random Asset from the deck,” the investigator gains the Asset from the Asset deck, not the Unique Asset deck. An investigator gains a Unique Asset only if the effect specifically calls for a Unique Asset.`,
     expansionItems.uniqueAssetCards,
     tableLocations.uniqueAssets,
     true

@@ -1,0 +1,77 @@
+{
+	"Type": "Card",
+	"GUID": "1D6A59FC4E5EF0922E252FB142195525",
+	"Name": "Assets",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "assets - front.jpg",
+	"BackTexture": "../../940067/Textures/Asset - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 4,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+	"CardNames":
+	{
+		"0": "Agency Stakeout",
+		"1": "Arcane Sutra",
+		"2": "Forbidden Secrets",
+		"3": "Gatling Gun",
+		"4": "Grisly Totem",
+		"5": "Lodge Hunter",
+		"6": "Mauser C96",
+		"7": "Mission Briefing",
+		"8": "Mystic Scroll",
+		"9": "News Report",
+		"10": "Occult Scripture",
+		"11": "Painkillers",
+		"12": "Private Flight",
+		"13": "Silver Twilight Host",
+		"14": "Training Regimen",
+		"15": "Winchester Rifle"
+	}
+}

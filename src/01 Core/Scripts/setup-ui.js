@@ -70,6 +70,8 @@ function drawSetupUi() {
   vBox.addChild(expansionBox1);
   const expansionBox2 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox2);
+  const expansionBox3 = new HorizontalBox().setChildDistance(10);
+  vBox.addChild(expansionBox3);
 
   /**
    * GOTO below to see the code for Select Expansions
@@ -87,6 +89,7 @@ function drawSetupUi() {
     eh05.setEnabled(false);
     eh06.setEnabled(false);
     eh07.setEnabled(false);
+    eh08.setEnabled(false);
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
@@ -252,11 +255,17 @@ function drawSetupUi() {
     .setImageSize(157, 100);
   ancientHypnos.onClicked.add((_, player) => ancientClickFn("Hypnos", player));
   ancientBox4.addChild(ancientHypnos);
+
+  const ancientShuddeMell = new ImageButton()
+    .setImage("Shudde M'ell - button.jpg", "0E773D8D4C05F13DF83A2AAEC8D0A4C8")
+    .setImageSize(157, 100);
+  ancientShuddeMell.onClicked.add((_, player) => ancientClickFn("Shudde M'ell", player));
+  ancientBox4.addChild(ancientShuddeMell);
   //#endregion ancient one selection
 
   //#region expansion selection
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07"];
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07", "eh08"];
 
   /**
    * @param {string} expansion
@@ -332,6 +341,14 @@ function drawSetupUi() {
     "6D2E6A2B46804C2CA23E47BB78299639"
   );
   expansionBox2.addChild(eh07);
+
+  const eh08 = expansionWidget(
+    "eh08",
+    "Cities in Ruin",
+    [ancientShuddeMell],
+    "0E773D8D4C05F13DF83A2AAEC8D0A4C8"
+  );
+  expansionBox3.addChild(eh08);
   //#endregion expansion selection
 
   vBox.addChild(new Text().setText(""));
@@ -421,10 +438,8 @@ function shuffleDecks() {
   conditionDeck.shuffle();
   spellDeck.shuffle();
   artifactDeck.shuffle();
-  /** @type Card | undefined */
-  // @ts-ignore
   const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
-  if (uniqueAssetDeck) {
+  if (uniqueAssetDeck instanceof Card) {
     uniqueAssetDeck.shuffle();
   }
   Object.values(encounterDecks).forEach((encounterDeck) => encounterDeck.shuffle());

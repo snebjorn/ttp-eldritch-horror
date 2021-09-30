@@ -516,7 +516,7 @@ class Util {
    */
   static convertToInfiniteStack(card) {
     if (card.getStackSize() > 1) {
-      throw new Error("Given card/token must be a stack, but a single card/token");
+      throw new Error("Given card/token must not be a stack, but a single card/token");
     }
     const position = card.getPosition();
 

@@ -316,7 +316,7 @@
 			"RotationOffset": 0
 		},
 		{
-			"X": 10.2905,
+			"X": 10.29,
 			"Y": 50.6922,
 			"Z": 0.49752,
 			"Range": 1,
@@ -566,6 +566,30 @@
 		{
 			"X": 34,
 			"Y": 69,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 14.8,
+			"Y": -46.5,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 10.29,
+			"Y": 57,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 10.29,
+			"Y": 63.4,
 			"Z": 0.5,
 			"Range": 1,
 			"SnapRotation": false,

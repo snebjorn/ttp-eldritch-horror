@@ -82,6 +82,26 @@ class GameUtil {
 
   /**
    * @param {number} number
+   */
+  static takeDevastationTokens(number = 1) {
+    const devastationStack = world.getObjectById("devastation-token");
+    if (!devastationStack) {
+      throw new Error("Unable to find devastation token");
+    }
+    const stackPos = devastationStack.getPosition().add(new Vector(0, 0, 3));
+    const devastationToken = Util.createCard("41A12F664413E91443499C984A9A80F9", stackPos);
+
+    if (number > 1) {
+      for (let i = 1; i < number; i++) {
+        devastationToken.addCards(Util.createCard("41A12F664413E91443499C984A9A80F9", stackPos));
+      }
+    }
+
+    return devastationToken;
+  }
+
+  /**
+   * @param {number} number
    * @throws If unable to take ship token from travel tickets template object
    */
   static takeShipTokens(number = 1) {
