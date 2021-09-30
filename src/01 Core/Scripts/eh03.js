@@ -68,7 +68,7 @@ const preludes = {
       // place eldritch token on green omen
       const eldritchToken = GameUtil.takeEldritchTokens(1);
 
-      Util.moveObject(eldritchToken, gameBoardLocations.omen.green);
+      Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.green);
 
       Util.logScriptAction(
         "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on teh green space of the Omen track."
@@ -179,7 +179,7 @@ const preludes = {
       } else {
         if (tableLocations.activeMythos) {
           const eldritchTokens = GameUtil.takeEldritchTokens(6);
-          Util.moveObject(eldritchTokens, tableLocations.activeMythos);
+          Util.moveOrAddObject(eldritchTokens, tableLocations.activeMythos);
         }
         try {
           GameUtil.spawnEpicMonster("Wind-Walker", gameBoardLocations.space[4]);

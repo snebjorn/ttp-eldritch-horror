@@ -160,6 +160,8 @@ class Util {
   }
 
   /**
+   * Moves a GameObject to a given position.
+   *
    * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
    * @param {SnapPoint | Vector} position
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
@@ -186,6 +188,52 @@ class Util {
     } else {
       gameObject.snapToGround();
     }
+  }
+
+  /**
+   * Moves a GameObject to a given position.
+   * If there are already GameObjects at the position it'll try to add it to the already present GameObjects.
+   * Else it'll just move the GameObject to the target position.
+   *
+   * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
+   * @param {SnapPoint | Vector} position
+   * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
+   */
+  static moveOrAddObject(gameObject, position, animationSpeed = 1) {
+    const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
+
+    let isAddedToStack = false;
+    const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
+    const objectsAtPosition = world.lineTrace(globalPosition, positionAboveGameObject); //.reverse(); // the first element is the furthest object - so reverse
+    for (const traceHit of objectsAtPosition) {
+      const foundObject = traceHit.object;
+
+      console.log(foundObject.getTemplateName());
+
+      if (!isAddedToStack) {
+        if (foundObject instanceof Card && gameObject instanceof Card) {
+          const showAnimation = animationSpeed > 0;
+          isAddedToStack = foundObject.addCards(gameObject, false, 0, showAnimation, false);
+          if (isAddedToStack) {
+            console.log("Added to stack", foundObject.getTemplateName(), foundObject.getName());
+            continue;
+          }
+        }
+      } else {
+        // if the object was added to a stack we need to snap the objects on top of the stack so they're not sent flying
+        if (position instanceof SnapPoint) {
+          foundObject.snap();
+        } else {
+          foundObject.snapToGround();
+        }
+      }
+    }
+
+    if (isAddedToStack) {
+      return; // the gameObject was added to a stack already on position
+    }
+
+    Util.moveObject(gameObject, position, animationSpeed);
   }
 
   /**
@@ -296,7 +344,7 @@ class Util {
    * @param {SnapPoint | Vector} [position]
    */
   static addToStack(card, cardStackId, cardStackName, cardDescription, position) {
-    /** @type Card */
+    /** @type Card | undefined */
     // @ts-ignore
     const stack = world.getObjectById(cardStackId);
     if (!stack) {

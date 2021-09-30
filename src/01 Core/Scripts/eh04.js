@@ -78,7 +78,7 @@ const preludes = {
       // else setup cosmic alignment adventures and draw top and spawn 1 gate
       if (ancientOne === "Syzygy") {
         const eldritchToken = GameUtil.takeEldritchTokens(1);
-        Util.moveObject(eldritchToken, gameBoardLocations.omen.red);
+        Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.red);
         Util.logScriptAction(
           "SETUP (Prelude: In Cosmic Alignment) placed 1 Eldritch token on the red space of the Omen track."
         );

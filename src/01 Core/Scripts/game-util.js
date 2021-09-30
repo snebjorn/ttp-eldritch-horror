@@ -166,7 +166,7 @@ class GameUtil {
           if (!snapPoint) {
             throw new Error(`Cannot find snap point for clue: ${clueName}`);
           }
-          Util.moveObject(clueToken, snapPoint);
+          Util.moveOrAddObject(clueToken, snapPoint);
 
           output.push(clueName);
         }
@@ -199,7 +199,7 @@ class GameUtil {
       throw new Error("Unable to draw Debt card from the conditions deck");
     }
 
-    Util.moveObject(drawnDebtCard, gameBoardLocations.bankLoan);
+    Util.moveOrAddObject(drawnDebtCard, gameBoardLocations.bankLoan);
   }
 
   static getActivePrelude() {
@@ -247,7 +247,7 @@ class GameUtil {
   static spawnMonster(position) {
     const monster = monsterCup.takeCards(1);
     if (monster) {
-      Util.moveObject(monster, position);
+      Util.moveOrAddObject(monster, position);
     }
 
     return monster;
@@ -264,7 +264,7 @@ class GameUtil {
       throw new Error(`Unable to find "${monsterName}" in the epic monster cup`);
     }
 
-    Util.moveObject(epicMonster, position);
+    Util.moveOrAddObject(epicMonster, position);
 
     return epicMonster;
   }
