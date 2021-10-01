@@ -23,6 +23,7 @@
 	},
 	"Flippable": true,
 	"AutoStraighten": false,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [],
