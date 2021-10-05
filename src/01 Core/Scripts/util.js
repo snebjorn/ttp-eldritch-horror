@@ -201,21 +201,17 @@ class Util {
    */
   static moveOrAddObject(gameObject, position, animationSpeed = 1) {
     const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
-
     let isAddedToStack = false;
     const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
-    const objectsAtPosition = world.lineTrace(globalPosition, positionAboveGameObject); //.reverse(); // the first element is the furthest object - so reverse
+    const objectsAtPosition = world.lineTrace(globalPosition, positionAboveGameObject);
     for (const traceHit of objectsAtPosition) {
       const foundObject = traceHit.object;
-
-      console.log(foundObject.getTemplateName());
 
       if (!isAddedToStack) {
         if (foundObject instanceof Card && gameObject instanceof Card) {
           const showAnimation = animationSpeed > 0;
           isAddedToStack = foundObject.addCards(gameObject, false, 0, showAnimation, false);
           if (isAddedToStack) {
-            console.log("Added to stack", foundObject.getTemplateName(), foundObject.getName());
             continue;
           }
         }
@@ -232,7 +228,6 @@ class Util {
     if (isAddedToStack) {
       return; // the gameObject was added to a stack already on position
     }
-
     Util.moveObject(gameObject, position, animationSpeed);
   }
 

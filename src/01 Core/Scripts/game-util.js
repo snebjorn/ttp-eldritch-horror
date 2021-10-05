@@ -377,8 +377,8 @@ class GameUtil {
       gameBoardLocations.omen.blue2,
     ];
 
-    const omenIndex = omenTrack.findIndex((x) => x.getSnappedObject() === omenToken);
-    const advancedOmenSnapShot = omenTrack[(omenIndex + 1) % 4];
+    const currentOmenIndex = omenTrack.findIndex((x) => x.getSnappedObject() === omenToken);
+    const advancedOmenSnapShot = omenTrack[(currentOmenIndex + number) % 4];
     Util.moveObject(omenToken, advancedOmenSnapShot);
 
     // TODO advance doom for each matching gates
