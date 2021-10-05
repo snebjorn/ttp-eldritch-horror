@@ -594,6 +594,54 @@
 			"Range": 1,
 			"SnapRotation": false,
 			"RotationOffset": 0
+		},
+		{
+			"X": -12,
+			"Y": 44,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -12,
+			"Y": 50,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -18,
+			"Y": 44,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -18,
+			"Y": 50,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -24,
+			"Y": 44,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -24,
+			"Y": 50,
+			"Z": 0.5,
+			"Range": 1,
+			"SnapRotation": false,
+			"RotationOffset": 0
 		}
 	],
 	"ZoomViewDirection":

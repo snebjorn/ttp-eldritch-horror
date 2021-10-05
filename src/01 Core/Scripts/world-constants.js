@@ -217,6 +217,12 @@ exports.tableLocations = {
     tableMat.getSnapPoint(57),
     tableMat.getSnapPoint(61),
   ],
+  monsterCup: tableMat.getSnapPoint(67),
+  epicMonsterCup: tableMat.getSnapPoint(68),
+  cluePool: tableMat.getSnapPoint(69),
+  clueDiscardPile: tableMat.getSnapPoint(70),
+  gateStack: tableMat.getSnapPoint(71),
+  gateDiscardPile: tableMat.getSnapPoint(72),
 };
 
 exports.expansionSpawn = gameBoard.getPosition().add(new Vector(0, 0, 10));
