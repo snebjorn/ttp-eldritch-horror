@@ -142,12 +142,21 @@ class GameUtil {
           if (!gateToken.isFaceUp()) {
             Util.flip(gateToken);
           }
+
           const gateName = gateDetails.name;
           // @ts-ignore
-          const snapPoint = gameBoardLocations.space[gateName];
+          let snapPoint = gameBoardLocations.space[gateName];
           if (!snapPoint) {
-            throw new Error(`Cannot find snap point for gate: ${gateName}`);
+            throw new Error(`Cannot find snap point for gate location: ${gateName}`);
           }
+
+          const locationName = findGateSpawnLocation(gateName, snapPoint);
+          // @ts-ignore
+          snapPoint = gameBoardLocations.space[locationName];
+          if (!snapPoint) {
+            throw new Error(`Cannot find snap point for gate location: ${locationName}`);
+          }
+
           Util.moveObject(gateToken, snapPoint);
 
           const monster = GameUtil.spawnMonster(snapPoint);
@@ -399,4 +408,65 @@ function findDoomCount() {
       }
     }
   }
+}
+
+/**
+ * Some effects cause a gate to spawn in a different location then normally,
+ * this tries to find out where it's supposed to go instead.
+ *
+ * @param {string} gateName
+ * @param {SnapPoint} snapPoint
+ */
+function findGateSpawnLocation(gateName, snapPoint) {
+  const start = snapPoint.getGlobalPosition();
+  const end = start.add(new Vector(0, 0, 20));
+  const extend = new Vector(2, 2, 1);
+  const foundObjects = world.boxTrace(start, end, extend);
+
+  let kateWinthropFound = false;
+  let dreamPortalLocation;
+
+  for (const { object } of foundObjects) {
+    // Kate Winthrop
+    if (object.getTemplateId() === "3EF51A3C93174BCF804135ED733F84EE") {
+      kateWinthropFound = true;
+    }
+    // Dream Portal
+    if (object.getTemplateId() === "B03C56724E726EF0ECDFB2BCFF70742C" && object instanceof Card) {
+      const cardDetails = object.getCardDetails();
+      if (cardDetails) {
+        switch (cardDetails.name) {
+          case "To The Moon":
+            dreamPortalLocation = "The Moon";
+            break;
+          case "To The Underworld":
+            dreamPortalLocation = "The Underworld";
+            break;
+          case "To Unknown Kadath":
+            dreamPortalLocation = "Unknown Kadath";
+            break;
+        }
+      }
+    }
+  }
+
+  // Q. What happens if Kate Winthrop is on a space containing a Dream Portal and a Gate would spawn on that space?
+  // A. Both the Dream Portal effect and Kate Winthrop’s passive ability will attempt to replace the Gate spawn.
+  // The active investigator decides which effect takes priority.
+  // As such, he could have Kate’s passive ability cause the Gate to be discarded instead of spawning.
+  if (dreamPortalLocation && !kateWinthropFound) {
+    Util.logScriptAction(
+      `Dream Portal found on "${gateName}"! Gate moved to "${dreamPortalLocation}".`
+    );
+
+    return dreamPortalLocation;
+  } else if (dreamPortalLocation && kateWinthropFound) {
+    Util.logScriptAction(
+      `Dream Portal and Kate Winthrop found on "${gateName}"! The active investigator decides whether the Gate is discarded or moved to "${dreamPortalLocation}".`
+    );
+
+    return gateName;
+  }
+
+  return gateName;
 }

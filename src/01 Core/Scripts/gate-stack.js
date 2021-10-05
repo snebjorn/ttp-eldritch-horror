@@ -13,7 +13,7 @@ refCard.onCustomAction.add((stack, player, actionName) => {
     if (result.length > 0) {
       const [gateName, monsterName] = result[0];
       Util.logScriptAction(
-        `${player.getName()} spawned Gate on "${gateName}" with a "${monsterName}" Monster.`,
+        `${player.getName()} spawned "${gateName}" Gate with a "${monsterName}" Monster.`,
         player
       );
     }
