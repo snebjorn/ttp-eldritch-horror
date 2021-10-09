@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@tabletop-playground/api@^0.20.1":
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/@tabletop-playground/api/-/api-0.20.1.tgz#a63cbf839477d492c46c3ee4d21f0d25a43ef10b"
-  integrity sha512-CiOrDb2zrOpeRBxTEWyrJ6BJmfP7IOA4HLujmANyLCB2y78OCjXFWQoJOrcT696YwbLlPw1ohTglWJPjs8egrQ==
+"@tabletop-playground/api@latest":
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/@tabletop-playground/api/-/api-0.21.0.tgz#248bfc730880d5773cc1e1652ee3b45cd8d71e40"
+  integrity sha512-334fP5Uo4QiCmkhRe8d3+8wVYx7UXdqkofYjLNtvqSpjj5WfDupzQ6O5dw1XVCSMITH5U74U6WDl2Qc7G4TpIA==
