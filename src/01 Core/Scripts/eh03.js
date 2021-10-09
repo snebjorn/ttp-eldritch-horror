@@ -212,8 +212,8 @@ const preludes = {
           Util.flip(investigator);
           investigator.snapToGround();
 
-          const investigatorDetails = investigator.getCardDetails();
-          if (investigatorDetails) sacrificedNames.push(investigatorDetails.name);
+          const investigatorName = investigator.getCardDetails().name;
+          sacrificedNames.push(investigatorName);
 
           if (i === 1) {
             setupCrippledInvestigator(investigator, { randomArtifacts: 1 });

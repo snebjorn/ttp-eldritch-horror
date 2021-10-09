@@ -136,40 +136,32 @@ class GameUtil {
 
     for (let i = 0; i < number; i++) {
       const gateToken = gateStack.takeCards(1);
+
       if (gateToken) {
-        const gateDetails = gateToken.getCardDetails();
-        if (gateDetails) {
-          if (!gateToken.isFaceUp()) {
-            Util.flip(gateToken);
-          }
-
-          const gateName = gateDetails.name;
-          // @ts-ignore
-          let snapPoint = gameBoardLocations.space[gateName];
-          if (!snapPoint) {
-            throw new Error(`Cannot find snap point for gate location: ${gateName}`);
-          }
-
-          const locationName = findGateSpawnLocation(gateName, snapPoint);
-          // @ts-ignore
-          snapPoint = gameBoardLocations.space[locationName];
-          if (!snapPoint) {
-            throw new Error(`Cannot find snap point for gate location: ${locationName}`);
-          }
-
-          Util.moveObject(gateToken, snapPoint);
-
-          const monster = GameUtil.spawnMonster(snapPoint);
-          let monsterName;
-          if (monster) {
-            const monsterDetails = monster.getCardDetails();
-            if (monsterDetails) {
-              monsterName = monsterDetails.name;
-            }
-          }
-
-          output.push([gateName, monsterName]);
+        if (!gateToken.isFaceUp()) {
+          Util.flip(gateToken);
         }
+
+        const gateName = gateToken.getCardDetails().name;
+        // @ts-ignore
+        let snapPoint = gameBoardLocations.space[gateName];
+        if (!snapPoint) {
+          throw new Error(`Cannot find snap point for gate location: ${gateName}`);
+        }
+
+        const locationName = findGateSpawnLocation(gateName, snapPoint);
+        // @ts-ignore
+        snapPoint = gameBoardLocations.space[locationName];
+        if (!snapPoint) {
+          throw new Error(`Cannot find snap point for gate location: ${locationName}`);
+        }
+
+        Util.moveObject(gateToken, snapPoint);
+
+        const monster = GameUtil.spawnMonster(snapPoint);
+        const monsterName = monster && monster.getCardDetails().name;
+
+        output.push([gateName, monsterName]);
       }
     }
 
@@ -187,18 +179,15 @@ class GameUtil {
     for (let i = 0; i < number; i++) {
       const clueToken = cluePool.takeCards(1);
       if (clueToken) {
-        const cardDetails = clueToken.getCardDetails();
-        if (cardDetails) {
-          const clueName = cardDetails.name;
-          // @ts-ignore
-          const snapPoint = gameBoardLocations.space[clueName];
-          if (!snapPoint) {
-            throw new Error(`Cannot find snap point for clue: ${clueName}`);
-          }
-          Util.moveOrAddObject(clueToken, snapPoint);
-
-          output.push(clueName);
+        const clueName = clueToken.getCardDetails().name;
+        // @ts-ignore
+        const snapPoint = gameBoardLocations.space[clueName];
+        if (!snapPoint) {
+          throw new Error(`Cannot find snap point for clue: ${clueName}`);
         }
+        Util.moveOrAddObject(clueToken, snapPoint);
+
+        output.push(clueName);
       }
     }
 
@@ -323,8 +312,8 @@ class GameUtil {
             return monster;
           }
         } else {
-          const cardDetails = snappedObject.getCardDetails();
-          if (cardDetails && cardDetails.name === monsterName) {
+          const snappedObjectName = snappedObject.getCardDetails().name;
+          if (snappedObjectName === monsterName) {
             return snappedObject;
           }
         }
@@ -433,19 +422,17 @@ function findGateSpawnLocation(gateName, snapPoint) {
     }
     // Dream Portal
     if (object.getTemplateId() === "B03C56724E726EF0ECDFB2BCFF70742C" && object instanceof Card) {
-      const cardDetails = object.getCardDetails();
-      if (cardDetails) {
-        switch (cardDetails.name) {
-          case "To The Moon":
-            dreamPortalLocation = "The Moon";
-            break;
-          case "To The Underworld":
-            dreamPortalLocation = "The Underworld";
-            break;
-          case "To Unknown Kadath":
-            dreamPortalLocation = "Unknown Kadath";
-            break;
-        }
+      const cardName = object.getCardDetails().name;
+      switch (cardName) {
+        case "To The Moon":
+          dreamPortalLocation = "The Moon";
+          break;
+        case "To The Underworld":
+          dreamPortalLocation = "The Underworld";
+          break;
+        case "To Unknown Kadath":
+          dreamPortalLocation = "Unknown Kadath";
+          break;
       }
     }
   }

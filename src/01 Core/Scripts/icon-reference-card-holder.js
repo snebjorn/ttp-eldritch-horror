@@ -2,13 +2,11 @@ const { UIElement, Vector, world, refHolder, Text } = require("@tabletop-playgro
 const { Util } = require("./util");
 
 refHolder.onInserted.add((_, iconReference) => {
-  const cardDetails = iconReference.getCardDetails();
-  if (cardDetails) {
-    world.__eldritchHorror.activeIconReference = ToIconReference(cardDetails.name);
+  const cardName = iconReference.getCardDetails().name;
+  world.__eldritchHorror.activeIconReference = ToIconReference(cardName);
 
-    if (!!world.__eldritchHorror.updateSetupUIFn) {
-      world.__eldritchHorror.updateSetupUIFn();
-    }
+  if (!!world.__eldritchHorror.updateSetupUIFn) {
+    world.__eldritchHorror.updateSetupUIFn();
   }
 });
 refHolder.onRemoved.add(() => {
@@ -22,10 +20,8 @@ refHolder.onRemoved.add(() => {
 const cardsInHolder = refHolder.getCards();
 if (cardsInHolder.length > 0) {
   const iconReference = cardsInHolder[0];
-  const cardDetails = iconReference.getCardDetails();
-  if (cardDetails) {
-    world.__eldritchHorror.activeIconReference = ToIconReference(cardDetails.name);
-  }
+  const cardName = iconReference.getCardDetails().name;
+  world.__eldritchHorror.activeIconReference = ToIconReference(cardName);
 }
 
 const ui = new UIElement();

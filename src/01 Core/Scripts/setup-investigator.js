@@ -119,11 +119,7 @@ function setupDefeatedInvestigator(investigatorSheet, extras) {
 
 /** @param {Card} investigatorSheet */
 function getInvestigatorData(investigatorSheet) {
-  const cardDetails = investigatorSheet.getCardDetails();
-  if (!cardDetails) {
-    throw new Error("Missing Investigator card details");
-  }
-  const investigatorName = cardDetails.name;
+  const investigatorName = investigatorSheet.getCardDetails().name;
   const foundInvestigator = world.__eldritchHorror.investigators.find(
     (investigator) => investigator.name === investigatorName
   );

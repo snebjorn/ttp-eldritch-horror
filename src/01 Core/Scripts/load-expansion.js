@@ -334,9 +334,9 @@ function addPreludeCardHolder() {
   world.showPing(tableLocations.preludeCardHolder, Util.Colors.WHITE, true);
 
   cardHolder.onInserted.add((_, prelude) => {
-    const cardDetails = prelude.getCardDetails();
-    if (cardDetails && !!world.__eldritchHorror.updateSetupUIFn) {
-      world.__eldritchHorror.activePrelude = cardDetails.name;
+    const preludeName = prelude.getCardDetails().name;
+    if (!!world.__eldritchHorror.updateSetupUIFn) {
+      world.__eldritchHorror.activePrelude = preludeName;
       world.__eldritchHorror.updateSetupUIFn();
     }
   });

@@ -62,14 +62,12 @@ class Util {
         foundCard = cardStack;
       }
       if (foundCard) {
-        const cardDetails = foundCard.getCardDetails();
-        if (cardDetails && cardDetails.name !== cardName) {
+        const foundCardName = foundCard.getCardDetails().name;
+        if (foundCardName !== cardName) {
           // put the incorrect card back
           cardStack.addCards(foundCard, fromFront, foundCardOffset);
           throw new Error(
-            `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${
-              cardDetails.name
-            }" instead`
+            `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${foundCardName}" instead`
           );
         }
       }
@@ -104,14 +102,12 @@ class Util {
         foundCard = cardStack;
       }
       if (foundCard) {
-        const cardDetails = foundCard.getCardDetails();
-        if (cardDetails && cardDetails.name !== cardName) {
+        const foundCardName = foundCard.getCardDetails().name;
+        if (foundCardName !== cardName) {
           // put the incorrect card back
           cardStack.addCards(foundCard, fromFront, foundCardOffset);
           throw new Error(
-            `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${
-              cardDetails.name
-            }" instead`
+            `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${foundCardName}" instead`
           );
         }
       }

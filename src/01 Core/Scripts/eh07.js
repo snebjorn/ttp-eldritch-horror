@@ -180,9 +180,9 @@ const preludes = {
         if (activeMysterySnapPoint) {
           const activeMystery = activeMysterySnapPoint.getSnappedObject(2);
           if (activeMystery instanceof Card) {
-            const cardDetails = activeMystery.getCardDetails();
+            const activeMysteryName = activeMystery.getCardDetails().name;
             // Spawn of the Black Goat is correct, it was corrected in the Errata
-            if (cardDetails && cardDetails.name !== "Spawn of the Black Goat") {
+            if (activeMysteryName !== "Spawn of the Black Goat") {
               mysteryDeck.addCards(activeMystery);
 
               const activeMysteryCard = Util.takeCardNameFromStack(
@@ -222,12 +222,11 @@ const preludes = {
         // Yeb spawn effect: spawn 2 monsters on this space
         const monster1 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
         const monster2 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
-        const spawnedMonsters = [monster1, monster2].map((card) => {
-          if (card) {
-            const details = card.getCardDetails();
-            if (details) {
-              return details.name;
-            }
+        const spawnedMonsters = [monster1, monster2].map((monster) => {
+          if (monster) {
+            const monsterName = monster.getCardDetails().name;
+
+            return monsterName;
           }
           return "";
         });

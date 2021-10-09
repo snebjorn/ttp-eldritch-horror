@@ -216,25 +216,15 @@ const preludes = {
 
         // spawn 1 monster on active expedition
         const activeExpeditionMonster = GameUtil.spawnMonster(activeExpeditionToken.getPosition());
-        let activeExpeditionMonsterName;
-        if (activeExpeditionMonster) {
-          const activeExpeditionMonsterDetails = activeExpeditionMonster.getCardDetails();
-          if (activeExpeditionMonsterDetails) {
-            activeExpeditionMonsterName = activeExpeditionMonsterDetails.name;
-          }
-        }
+        const activeExpeditionMonsterName =
+          activeExpeditionMonster && activeExpeditionMonster.getCardDetails().name;
 
         // spawn 1 monster on The Bent Pyramid
         // @ts-ignore - dynamically added space on side board
         const bentPyramid = gameBoardLocations.space["The Bent Pyramid"];
         const bentPyramidMonster = GameUtil.spawnMonster(bentPyramid);
-        let bentPyramidMonsterName;
-        if (bentPyramidMonster) {
-          const bentPyramidMonsterDetails = bentPyramidMonster.getCardDetails();
-          if (bentPyramidMonsterDetails) {
-            bentPyramidMonsterName = bentPyramidMonsterDetails.name;
-          }
-        }
+        const bentPyramidMonsterName =
+          bentPyramidMonster && bentPyramidMonster.getCardDetails().name;
 
         Util.logScriptAction(
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order. Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`

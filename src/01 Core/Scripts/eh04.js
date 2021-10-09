@@ -147,8 +147,8 @@ const preludes = {
         if (activeMysterySnapPoint) {
           const activeMystery = activeMysterySnapPoint.getSnappedObject(2);
           if (activeMystery instanceof Card) {
-            const cardDetails = activeMystery.getCardDetails();
-            if (cardDetails && cardDetails.name !== "Spawn of Yog-Sothoth") {
+            const activeMysteryName = activeMystery.getCardDetails().name;
+            if (activeMysteryName !== "Spawn of Yog-Sothoth") {
               mysteryDeck.addCards(activeMystery);
 
               const activeMysteryCard = Util.takeCardNameFromStack(

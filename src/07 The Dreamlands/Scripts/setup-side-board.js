@@ -162,8 +162,7 @@ function spawnDreamPortals(gateStack, dreamPortals) {
         Util.flip(dreamPortal);
         Util.moveObject(dreamPortal, gameBoardLocations.space[revealedGateName]);
 
-        const dreamPortalDetails = dreamPortal.getCardDetails();
-        const dreamPortalName = dreamPortalDetails && dreamPortalDetails.name;
+        const dreamPortalName = dreamPortal.getCardDetails().name;
         portalsRevealed.push(`spawned "${dreamPortalName}" (Dream Portal) on ${revealedGateName}`);
       }
     } else {
