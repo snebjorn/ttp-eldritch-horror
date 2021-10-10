@@ -29,7 +29,7 @@ refContainer.onCustomAction.add((container, player, actionName) => {
     if (newCluePool) {
       newCluePool.setId("clue-pool");
       newCluePool.setName("Clue Pool");
-      // TODO set script "clue-pool.js"
+      newCluePool.setScript("clue-pool.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 
       Util.moveOrAddObject(newCluePool, cluePoolPosition);
     }

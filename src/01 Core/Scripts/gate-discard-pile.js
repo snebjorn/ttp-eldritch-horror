@@ -29,7 +29,7 @@ refContainer.onCustomAction.add((container, player, actionName) => {
     if (newGateStack) {
       newGateStack.setId("gate-stack");
       newGateStack.setName("Gate Stack");
-      // TODO set script "gate-stack.js"
+      newGateStack.setScript("gate-stack.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 
       Util.moveOrAddObject(newGateStack, gateStackPosition);
     }
@@ -45,5 +45,3 @@ refContainer.addCustomAction(
   rebuildGateAction,
   "Place the Gate tokens from the discard pile facedown in the Gate stack and randomize them"
 );
-
-// Place all discarded Clue tokens facedown in the Clue pool and randomize them
