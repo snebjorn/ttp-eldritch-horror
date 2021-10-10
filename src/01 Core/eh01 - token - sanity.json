@@ -23,6 +23,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": true,
+	"ShouldSnap": true,
 	"ScriptName": "health-sanity.js",
 	"Blueprint": "",
 	"Models": [],
@@ -47,20 +48,21 @@
 			},
 			"Scale":
 			{
-				"X": 1.5,
-				"Y": 1.9,
-				"Z": 0.085
+				"X": 1.716,
+				"Y": 1.61,
+				"Z": 0.1
 			},
 			"Rotation":
 			{
-				"X": 180,
+				"X": -180,
 				"Y": 0,
-				"Z": -45
+				"Z": 0
 			},
 			"Texture": "Sanity.png",
 			"NormalMap": "",
 			"ExtraMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Cardboard",
 			"UseCardModel": true,
