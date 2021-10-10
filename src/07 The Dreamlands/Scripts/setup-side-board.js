@@ -56,8 +56,13 @@ function setupSideBoard(spawnPosition) {
   dreamQuestCards.setId("encounter-dream-quest-deck");
   dreamQuestCards.shuffle();
 
+  const dreamQuestToken = Util.createCard(dreamlands.dreamQuestToken, spawnPosition);
+  Util.moveObject(dreamQuestToken, matSnaps.dreamQuest);
+  dreamQuestToken.setName("Dream-Quest Token");
+  dreamQuestToken.setId("dream-quest-token");
+
   if (!matSnaps.dreamlands) {
-    throw new Error("Cannot find position for egypt outpost cards");
+    throw new Error("Cannot find position for dreamlands encounter cards");
   }
   const dreamlandsCards = Util.createCard(dreamlands.dreamlandsCards, spawnPosition);
   Util.moveObject(dreamlandsCards, matSnaps.dreamlands);
