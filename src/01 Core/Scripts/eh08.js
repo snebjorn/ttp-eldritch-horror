@@ -1,15 +1,7 @@
-const { world, Vector, Card } = require("@tabletop-playground/api");
+const { world } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
-const {
-  expansionSpawn,
-  tableLocations,
-  investigatorDeck,
-  gameBoardLocations,
-  mythosSetupDecks,
-  gateStack,
-  eldritchToken,
-} = require("./world-constants");
+const { expansionSpawn, tableLocations, gameBoardLocations } = require("./world-constants");
 
 /**
  * @param {string} templateId
