@@ -37,9 +37,9 @@
 		"Z": 0
 	},
 	"FrontTexture": "artifacts - front.jpg",
-	"BackTexture": "",
+	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
-	"BackIndex": 0,
+	"BackIndex": -2,
 	"HiddenIndex": -1,
 	"NumHorizontal": 2,
 	"NumVertical": 2,
