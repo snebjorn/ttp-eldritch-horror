@@ -3,8 +3,8 @@ const { world, Card, Container, Vector, SnapPoint } = require("@tabletop-playgro
 
 /** @type {Card} */
 exports.investigatorDeck = world.getObjectById("investigator-deck");
-/** @type {Card} */
-exports.assetDeck = world.getObjectById("asset-deck");
+/** @type {() => Card} */
+exports.getAssetDeck = () => world.getObjectById("asset-deck");
 /** @type {Card} */
 exports.conditionDeck = world.getObjectById("condition-deck");
 /** @type {Card} */
@@ -70,10 +70,10 @@ exports.omenToken = world.getObjectById("omen-token");
 exports.monsterCup = world.getObjectById("monster-cup");
 /** @type {Card} */
 exports.epicMonsterCup = world.getObjectById("epic-monster-cup");
-/** @type {Card} */
-exports.cluePool = world.getObjectById("clue-pool");
-/** @type {Card} */
-exports.gateStack = world.getObjectById("gate-stack");
+/** @type {() => Card} */
+exports.getCluePool = () => world.getObjectById("clue-pool");
+/** @type {() => Card} */
+exports.getGateStack = () => world.getObjectById("gate-stack");
 /** @type {Card} */
 exports.activeExpeditionToken = world.getObjectById("active-expedition-token");
 

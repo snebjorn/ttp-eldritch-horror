@@ -21,13 +21,13 @@ const { setupAncient } = require("./setup-ancient");
 const { setupReferenceCard } = require("./setup-reference-card");
 const { Util } = require("./util");
 const {
-  assetDeck,
+  getAssetDeck,
   conditionDeck,
   spellDeck,
   artifactDeck,
   encounterDecks,
-  cluePool,
-  gateStack,
+  getCluePool,
+  getGateStack,
   monsterCup,
   activeExpeditionToken,
 } = require("./world-constants");
@@ -434,7 +434,7 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
 }
 
 function shuffleDecks() {
-  assetDeck.shuffle();
+  getAssetDeck().shuffle();
   conditionDeck.shuffle();
   spellDeck.shuffle();
   artifactDeck.shuffle();
@@ -447,8 +447,8 @@ function shuffleDecks() {
 
 function shuffleTokens() {
   monsterCup.shuffle();
-  cluePool.shuffle();
-  gateStack.shuffle();
+  getCluePool().shuffle();
+  getGateStack().shuffle();
 }
 
 /**

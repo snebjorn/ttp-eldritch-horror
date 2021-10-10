@@ -7,7 +7,7 @@ const {
   investigatorDeck,
   gameBoardLocations,
   mythosSetupDecks,
-  gateStack,
+  getGateStack,
 } = require("./world-constants");
 const { setupCrippledInvestigator, getInvestigatorData } = require("./setup-investigator");
 
@@ -293,7 +293,7 @@ const preludes = {
     afterResolvingSetup: () => {
       GameUtil.retreatDoom(3);
       // reveal top gate
-      Util.flipInStack(gateStack);
+      Util.flipInStack(getGateStack());
 
       Util.logScriptAction(
         "SETUP (Prelude: Written In the Stars) retreated Doom by 3. Revealed the top Gate of the Gate stack."

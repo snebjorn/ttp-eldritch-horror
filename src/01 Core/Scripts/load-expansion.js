@@ -5,13 +5,13 @@ const {
   monsterCup,
   epicMonsterCup,
   artifactDeck,
-  assetDeck,
+  getAssetDeck,
   conditionDeck,
   spellDeck,
   mythosSetupDecks,
   ancientContainer,
   investigatorDeck,
-  gateStack,
+  getGateStack,
   expansionSpawn,
   tableLocations,
 } = require("./world-constants");
@@ -100,11 +100,11 @@ function createAssets(expansionItems) {
   addAncientOneSheets(expansionItems.ancientOneSheets);
   addEncounterCards(expansionItems.encounterCards);
   addMythosCards(expansionItems.mythosCards);
-  addExpansionCardsToDeck(gateStack, expansionItems.gates);
+  addExpansionCardsToDeck(getGateStack(), expansionItems.gates);
   addExpansionCardsToDeck(monsterCup, expansionItems.monsters);
   addExpansionCardsToDeck(epicMonsterCup, expansionItems.epicMonsters);
   addExpansionCardsToDeck(artifactDeck, expansionItems.artifactCards);
-  addExpansionCardsToDeck(assetDeck, expansionItems.assetCards);
+  addExpansionCardsToDeck(getAssetDeck(), expansionItems.assetCards);
   addExpansionCardsToDeck(conditionDeck, expansionItems.conditionCards);
   addExpansionCardsToDeck(spellDeck, expansionItems.spellCards);
   addExpansionCardsToDeck(investigatorDeck, expansionItems.investigators);

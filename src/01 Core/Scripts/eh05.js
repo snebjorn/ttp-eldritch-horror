@@ -6,7 +6,7 @@ const {
   encounterDecks,
   gameBoardLocations,
   activeExpeditionToken,
-  gateStack,
+  getGateStack,
 } = require("./world-constants");
 
 /**
@@ -204,14 +204,14 @@ const preludes = {
     afterResolvingSetup: (ancientOne) => {
       if (ancientOne === "Nephren-Ka") {
         // put egypt gates on top
-        const egyptGates = Util.takeCardNamesFromStack(gateStack, [
+        const egyptGates = Util.takeCardNamesFromStack(getGateStack(), [
           "The Sahara Desert",
           "Cairo",
           "The Nile River",
         ]);
         if (egyptGates) {
           egyptGates.shuffle();
-          gateStack.addCards(egyptGates);
+          getGateStack().addCards(egyptGates);
         }
 
         // spawn 1 monster on active expedition

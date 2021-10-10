@@ -4,10 +4,10 @@ const {
   eldritchToken,
   gameBoardLocations,
   doomToken,
-  gateStack,
-  cluePool,
+  getGateStack,
+  getCluePool,
   monsterCup,
-  assetDeck,
+  getAssetDeck,
   conditionDeck,
   shipTicket,
   tableLocations,
@@ -135,7 +135,7 @@ class GameUtil {
     const output = [];
 
     for (let i = 0; i < number; i++) {
-      const gateToken = gateStack.takeCards(1);
+      const gateToken = getGateStack().takeCards(1);
 
       if (gateToken) {
         if (!gateToken.isFaceUp()) {
@@ -177,7 +177,7 @@ class GameUtil {
     const output = [];
 
     for (let i = 0; i < number; i++) {
-      const clueToken = cluePool.takeCards(1);
+      const clueToken = getCluePool().takeCards(1);
       if (clueToken) {
         const clueName = clueToken.getCardDetails().name;
         // @ts-ignore
@@ -203,7 +203,7 @@ class GameUtil {
     if (isOccupied) {
       return; // abort - already a card here
     }
-    const drawnAssetCard = assetDeck.takeCards(1);
+    const drawnAssetCard = getAssetDeck().takeCards(1);
     if (!drawnAssetCard) {
       throw new Error("Unable to draw card from the asset deck");
     }

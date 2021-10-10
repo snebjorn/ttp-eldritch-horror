@@ -1,9 +1,9 @@
 const { world, Card, Vector, SnapPoint, Rotator, Player } = require("@tabletop-playground/api");
 const {
-  assetDeck,
+  getAssetDeck,
   spellDeck,
   conditionDeck,
-  cluePool,
+  getCluePool,
   gameBoardLocations,
   willToken,
   artifactDeck,
@@ -148,7 +148,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
   }
   if (startingItems.assets && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
-      const takenAsset = Util.takeCardNameFromStack(assetDeck, asset);
+      const takenAsset = Util.takeCardNameFromStack(getAssetDeck(), asset);
       if (takenAsset === undefined) {
         console.error(`Unable to find "${asset}" in Asset Deck`);
         return;
@@ -161,7 +161,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
 
   if (extras && extras.randomAssets !== undefined && extras.randomAssets > 0) {
     for (let i = 0; i < extras.randomAssets; i++) {
-      const randomAsset = Util.takeRandomCardFromStack(assetDeck);
+      const randomAsset = Util.takeRandomCardFromStack(getAssetDeck());
       if (randomAsset === undefined) {
         console.error(`Unable to take a random asset from the Asset Deck`);
         return;
@@ -238,14 +238,14 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
     const startingClues = startingItems.clues !== undefined ? startingItems.clues : 0;
     const extraClues = extras && extras.clues !== undefined ? extras.clues : 0;
     const clueCount = startingClues + extraClues;
-    const clueToken = Util.takeRandomCardFromStack(cluePool);
+    const clueToken = Util.takeRandomCardFromStack(getCluePool());
     if (clueToken === undefined) {
       console.error(`Unable to find a clue in Clue Pool`);
       return;
     } else {
       if (clueCount > 1) {
         for (let i = 1; i < clueCount; i++) {
-          const extraClue = Util.takeRandomCardFromStack(cluePool);
+          const extraClue = Util.takeRandomCardFromStack(getCluePool());
           if (extraClue === undefined) {
             console.error(`Unable to find a clue in Clue Pool`);
             return;
