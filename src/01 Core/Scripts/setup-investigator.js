@@ -358,6 +358,10 @@ function setupPawn(pawnTemplateId, startingLocation) {
     globalPosition.add(new Vector(0, 0, 2))
   );
   if (pawn) {
+    const name = pawn.getTemplateName();
+    pawn.setId(`${name}-pawn`);
+    pawn.setName(name);
+
     if (startingLocation instanceof SnapPoint) {
       pawn.snap();
     } else {
