@@ -1,1 +1,1 @@
-src/*/*.json
+src/**/Templates/**/*.json

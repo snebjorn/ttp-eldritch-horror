@@ -1,0 +1,118 @@
+{
+	"Type": "Generic",
+	"GUID": "00124F9744267FEFFBCF4EA4EE9F4D50",
+	"Name": "Egypt Side Board",
+	"Metadata": "",
+	"CollisionType": "Ground",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Wood",
+	"Roughness": 0.6,
+	"Metallic": 0.3,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": false,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "05 Under the Pyramids/side-board-egypt.js",
+	"Blueprint": "Blueprints/Board.json",
+	"Models": [
+		{
+			"Model": "StaticMesh'/Game/Meshes/Generic/BoardSurface.BoardSurface'",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 0.695,
+				"Y": 1.0775,
+				"Z": 1
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Texture": "05 Under the Pyramids/Egypt Side Board.jpg",
+			"NormalMap": "",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"CastShadow": true,
+			"UseOverrides": true,
+			"SurfaceType": "Plastic"
+		}
+	],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [
+		{
+			"X": 5.9725,
+			"Y": -16.261,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 9.7052,
+			"Y": -5.36598,
+			"Z": 0.5,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 9.95911,
+			"Y": 6.53343,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 3.77077,
+			"Y": 12.9724,
+			"Z": 0.5,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -2.80925,
+			"Y": -0.213636,
+			"Z": 0.5,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -7.14827,
+			"Y": 9.22567,
+			"Z": 0.500005,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		}
+	],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	}
+}

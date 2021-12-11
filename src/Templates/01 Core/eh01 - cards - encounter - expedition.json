@@ -1,0 +1,83 @@
+{
+	"Type": "Card",
+	"GUID": "363C63E343A7811BDEAA2D9BC78E33CE",
+	"Name": "Encounter Expedition Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/Encounter - Expedition - front.jpg",
+	"BackTexture": "01 Core/Encounter - Expedition - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 6,
+	"NumVertical": 3,
+	"Width": 5.7,
+	"Height": 8.89,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ],
+	"CardNames":
+	{
+		"0": "Antarctica",
+		"1": "Antarctica",
+		"2": "Antarctica",
+		"3": "The Amazon",
+		"4": "The Amazon",
+		"5": "The Amazon",
+		"6": "The Heart of Africa",
+		"7": "The Heart of Africa",
+		"8": "The Heart of Africa",
+		"9": "The Himalayas",
+		"10": "The Himalayas",
+		"11": "The Himalayas",
+		"12": "The Pyramids",
+		"13": "The Pyramids",
+		"14": "The Pyramids",
+		"15": "Tunguska",
+		"16": "Tunguska",
+		"17": "Tunguska"
+	},
+	"CardMetadata":
+	{
+	}
+}

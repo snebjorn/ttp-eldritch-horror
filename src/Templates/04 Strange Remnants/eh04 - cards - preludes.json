@@ -1,0 +1,69 @@
+{
+	"Type": "Card",
+	"GUID": "49664EDA4BD3C0E79AC8238645999EE2",
+	"Name": "Prelude Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "04 Strange Remnants/preludes - front.jpg",
+	"BackTexture": "preludes - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 2,
+	"NumVertical": 2,
+	"Width": 5.7,
+	"Height": 8.89,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3 ],
+	"CardNames":
+	{
+		"0": "Dark Blessings",
+		"1": "In Cosmic Alignment",
+		"2": "The Coming Storm",
+		"3": "The Dunwich Horror"
+	},
+	"CardMetadata":
+	{
+	}
+}

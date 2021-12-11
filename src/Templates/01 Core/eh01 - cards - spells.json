@@ -1,0 +1,85 @@
+{
+	"Type": "Card",
+	"GUID": "D98BE2E14E11DFD3CD2EABB2C0182161",
+	"Name": "Spells",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/spells - front.jpg",
+	"BackTexture": "01 Core/spells - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 5,
+	"NumVertical": 4,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": true,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
+	"CardNames":
+	{
+		"0": "Blessing of Isis",
+		"1": "Blessing of Isis",
+		"2": "Clairvoyance",
+		"3": "Clairvoyance",
+		"4": "Conjuration",
+		"5": "Conjuration",
+		"6": "Feed the Mind",
+		"7": "Feed the Mind",
+		"8": "Flesh Ward",
+		"9": "Flesh Ward",
+		"10": "Instill Bravery",
+		"11": "Instill Bravery",
+		"12": "Mists of Releh",
+		"13": "Mists of Releh",
+		"14": "Plumb the Void",
+		"15": "Plumb the Void",
+		"16": "Shriveling",
+		"17": "Shriveling",
+		"18": "Wither",
+		"19": "Wither"
+	},
+	"CardMetadata":
+	{
+	}
+}

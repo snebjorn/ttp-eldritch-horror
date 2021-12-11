@@ -1,0 +1,74 @@
+{
+	"Type": "Card",
+	"GUID": "8B784C4E41C499438972A081A17EA538",
+	"Name": "Epic Monsters",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "02 Forsaken Lore/epic monsters - front.png",
+	"BackTexture": "02 Forsaken Lore/epic monsters - back.png",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 7,
+	"NumVertical": 1,
+	"Width": 3.5,
+	"Height": 3.5,
+	"Thickness": 0.2,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": false,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": false,
+	"Model": "chipped tile.png",
+	"ShapeAccuracy": 10,
+	"ConvexCollision": true,
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6 ],
+	"CardNames":
+	{
+		"0": "Children of Yig",
+		"1": "Doppelganger",
+		"2": "Hydra",
+		"3": "Tulzscha",
+		"4": "Winged Serpent",
+		"5": "Yeb",
+		"6": "Yig"
+	},
+	"CardMetadata":
+	{
+	}
+}

@@ -1,0 +1,69 @@
+{
+	"Type": "Card",
+	"GUID": "D499DDE44BFFA4C07681E7B069F29E22",
+	"Name": "Monsters",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "04 Strange Remnants/monsters - front.jpg",
+	"BackTexture": "04 Strange Remnants/monsters - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 2,
+	"NumVertical": 2,
+	"Width": 3.5,
+	"Height": 3.5,
+	"Thickness": 0.2,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": false,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": true,
+	"MirrorBack": true,
+	"Model": "Square",
+	"Indices": [ 0, 1, 2, 3 ],
+	"CardNames":
+	{
+		"0": "Cultist",
+		"1": "Servitor of the Outer Gods",
+		"2": "Star Vampire",
+		"3": "Werewolf"
+	},
+	"CardMetadata":
+	{
+	}
+}

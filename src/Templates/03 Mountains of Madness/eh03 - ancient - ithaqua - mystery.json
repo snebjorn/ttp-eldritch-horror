@@ -1,0 +1,71 @@
+{
+	"Type": "Card",
+	"GUID": "55D3B3FD435B4E63C8AEDEA12DDB6D2B",
+	"Name": "Ithaqua Mystery Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "03 Mountains of Madness/Ithaqua - Mystery - front.jpg",
+	"BackTexture": "03 Mountains of Madness/Ithaqua - Mystery - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 2,
+	"NumVertical": 3,
+	"Width": 8.89,
+	"Height": 5.7,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5 ],
+	"CardNames":
+	{
+		"0": "A Spreading Storm",
+		"1": "The Gnoph-Keh Attack!",
+		"2": "Supplying the North",
+		"3": "Hyperborean Aurora",
+		"4": "Growing Hunger",
+		"5": "Exploring Hyperborea"
+	},
+	"CardMetadata":
+	{
+	}
+}

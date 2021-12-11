@@ -1,0 +1,81 @@
+{
+	"Type": "Card",
+	"GUID": "9BD24E764AE9CCE84A31B1BD246CA1F5",
+	"Name": "Conditions",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "05 Under the Pyramids/conditions - front.jpg",
+	"BackTexture": "05 Under the Pyramids/conditions - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 4,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+	"CardNames":
+	{
+		"0": "Amnesia",
+		"1": "Back Injury",
+		"2": "Blessed",
+		"3": "Cursed",
+		"4": "Despair",
+		"5": "Despair",
+		"6": "Despair",
+		"7": "Despair",
+		"8": "Diseased",
+		"9": "Diseased",
+		"10": "Diseased",
+		"11": "Diseased",
+		"12": "Haunted",
+		"13": "Haunted",
+		"14": "Haunted",
+		"15": "Haunted"
+	},
+	"CardMetadata":
+	{
+	}
+}

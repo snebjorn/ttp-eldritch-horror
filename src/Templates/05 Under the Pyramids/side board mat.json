@@ -1,0 +1,174 @@
+{
+	"Type": "Generic",
+	"GUID": "6B6A6368464FC1EBD8FAA09411D3CD08",
+	"Name": "Side Board Mat",
+	"Metadata": "",
+	"CollisionType": "Ground",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Wood",
+	"Roughness": 0.6,
+	"Metallic": 0.3,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": false,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "05 Under the Pyramids/side-board-mat.js",
+	"Blueprint": "Blueprints/Board.json",
+	"Models": [
+		{
+			"Model": "StaticMesh'/Game/Meshes/Generic/BoardSurface.BoardSurface'",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Scale":
+			{
+				"X": 0.694996,
+				"Y": 1.625,
+				"Z": 0.0999968
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 0
+			},
+			"Texture": "Table mat.jpg",
+			"NormalMap": "",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"CastShadow": true,
+			"UseOverrides": true,
+			"SurfaceType": "Wood"
+		}
+	],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [
+		{
+			"X": 0,
+			"Y": -10.76,
+			"Z": 0.0500533,
+			"Range": 1.44267,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -9,
+			"Y": 13.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 0,
+			"Y": 13.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 9,
+			"Y": 13.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -9,
+			"Y": 19.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 0,
+			"Y": 19.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 9,
+			"Y": 19.7,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 10.5608,
+			"Y": 27.3,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": 4.3,
+			"Y": 27.3,
+			"Z": 0.0500533,
+			"Range": 1.40007,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -11.25,
+			"Y": 25.45,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -6.75,
+			"Y": 25.45,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -11.25,
+			"Y": 29.95,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		},
+		{
+			"X": -6.75,
+			"Y": 29.95,
+			"Z": 0.15,
+			"Range": 2,
+			"SnapRotation": false,
+			"RotationOffset": 0
+		}
+	],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	}
+}
