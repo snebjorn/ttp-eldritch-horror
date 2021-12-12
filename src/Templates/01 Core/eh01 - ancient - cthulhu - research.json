@@ -1,54 +1,65 @@
 {
-  "Type": "Card",
-  "GUID": "46026ADD4F314D2A11EF43B5B00234DB",
-  "Name": "Cthulhu Research Cards",
-  "CollisionType": "Regular",
-  "Friction": 0.7,
-  "Restitution": 0,
-  "Density": 0.5,
-  "SurfaceType": "Cardboard",
-  "Roughness": 1,
-  "Metallic": 0,
-  "PrimaryColor": {
-    "R": 255,
-    "G": 255,
-    "B": 255
-  },
-  "SecondaryColor": {
-    "R": 0,
-    "G": 0,
-    "B": 0
-  },
-  "Flippable": true,
-  "AutoStraighten": false,
-  "ScriptName": "",
-  "Blueprint": "",
-  "Models": [],
-  "Collision": [],
-  "SnapPointsGlobal": false,
-  "SnapPoints": [],
-  "ZoomViewDirection": {
-    "X": 0,
-    "Y": 0,
-    "Z": 0
-  },
-  "FrontTexture": "01 Core/Cthulhu - Research - front.jpg",
-  "BackTexture": "01 Core/Cthulhu - Research - back.jpg",
-  "HiddenTexture": "",
-  "BackIndex": -2,
-  "HiddenIndex": -1,
-  "NumHorizontal": 4,
-  "NumVertical": 2,
-  "Width": 5.7,
-  "Height": 8.89,
-  "Thickness": 0.05,
-  "HiddenInHand": false,
-  "UsedWithCardHolders": true,
-  "CanStack": true,
-  "UsePrimaryColorForSide": false,
-  "FrontTextureOverrideExposed": false,
-  "AllowFlippedInStack": false,
-  "Model": "Rounded",
-  "Indices": [0, 1, 2, 3, 4, 5, 6, 7],
-  "CardNames": {}
+	"Type": "Card",
+	"GUID": "46026ADD4F314D2A11EF43B5B00234DB",
+	"Name": "Cthulhu Research Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/Cthulhu - Research - front.jpg",
+	"BackTexture": "01 Core/Cthulhu - Research - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 2,
+	"Width": 5.7,
+	"Height": 8.89,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
+	"CardNames":
+	{
+	},
+	"CardMetadata":
+	{
+	}
 }

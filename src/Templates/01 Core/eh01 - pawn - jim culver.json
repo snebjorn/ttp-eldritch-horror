@@ -1,83 +1,93 @@
 {
-  "Type": "Cardboard Figure",
-  "GUID": "5C8B50AA423B4AB6B51154D31DE267C9",
-  "Name": "Jim Culver",
-  "CollisionType": "Regular",
-  "Friction": 0.7,
-  "Restitution": 0.3,
-  "Density": 1,
-  "SurfaceType": "Plastic",
-  "Roughness": 0.3,
-  "Metallic": 0,
-  "PrimaryColor": {
-    "R": 0,
-    "G": 0,
-    "B": 255
-  },
-  "SecondaryColor": {
-    "R": 0,
-    "G": 255,
-    "B": 0
-  },
-  "Flippable": false,
-  "AutoStraighten": false,
-  "ShouldSnap": true,
-  "ScriptName": "pawn.js",
-  "Blueprint": "Blueprints/Figure.json",
-  "Models": [
-    {
-      "Model": "stand.obj",
-      "Offset": {
-        "X": 0,
-        "Y": 0,
-        "Z": -0.17
-      },
-      "Scale": {
-        "X": 3.1,
-        "Y": 4.5,
-        "Z": 2.9
-      },
-      "Rotation": {
-        "X": 0,
-        "Y": 0,
-        "Z": 90
-      },
-      "Texture": "",
-      "NormalMap": "",
-      "ExtraMap": "",
-      "IsTransparent": false,
-      "UseOverrides": false,
-      "Roughness": 0.3,
-      "Metallic": 0,
-      "PrimaryColor": {
-        "R": 32,
-        "G": 32,
-        "B": 32
-      },
-      "SecondaryColor": {
-        "R": 0,
-        "G": 0,
-        "B": 0
-      },
-      "SurfaceType": "Plastic"
-    }
-  ],
-  "Collision": [],
-  "SnapPointsGlobal": false,
-  "SnapPoints": [],
-  "ZoomViewDirection": {
-    "X": 0,
-    "Y": 0,
-    "Z": 0
-  },
-  "FrontTexture": "01 Core/Jim Culver.png",
-  "BackTexture": "",
-  "FrontExtraMap": "",
-  "BackExtraMap": "",
-  "FigureWidth": 3.2,
-  "FigureHeight": 4.4,
-  "FigureZOffset": 0.107,
-  "UseAlpha": true,
-  "Collide": true,
-  "ShapeAccuracy": 10
+	"Type": "Cardboard Figure",
+	"GUID": "5C8B50AA423B4AB6B51154D31DE267C9",
+	"Name": "Jim Culver",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0.3,
+	"Density": 1,
+	"SurfaceType": "Plastic",
+	"Roughness": 0.3,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 255,
+		"B": 0
+	},
+	"Flippable": false,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "pawn.js",
+	"Blueprint": "Blueprints/Figure.json",
+	"Models": [
+		{
+			"Model": "stand.obj",
+			"Offset":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": -0.17
+			},
+			"Scale":
+			{
+				"X": 3.1,
+				"Y": 4.5,
+				"Z": 2.9
+			},
+			"Rotation":
+			{
+				"X": 0,
+				"Y": 0,
+				"Z": 90
+			},
+			"Texture": "",
+			"NormalMap": "",
+			"ExtraMap": "",
+			"IsTransparent": false,
+			"CastShadow": true,
+			"UseOverrides": false,
+			"Roughness": 0.3,
+			"Metallic": 0,
+			"PrimaryColor":
+			{
+				"R": 32,
+				"G": 32,
+				"B": 32
+			},
+			"SecondaryColor":
+			{
+				"R": 0,
+				"G": 0,
+				"B": 0
+			},
+			"SurfaceType": "Plastic"
+		}
+	],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/Jim Culver.png",
+	"BackTexture": "",
+	"FrontExtraMap": "",
+	"BackExtraMap": "",
+	"FigureWidth": 3.2,
+	"FigureHeight": 4.4,
+	"FigureZOffset": 0.107,
+	"UseAlpha": true,
+	"Collide": true,
+	"ShapeAccuracy": 10
 }

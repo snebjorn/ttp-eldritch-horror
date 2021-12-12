@@ -1,86 +1,94 @@
 {
-  "Type": "Card",
-  "GUID": "388247464C1163D86DB2AD9586C2A91E",
-  "Name": "Investigators",
-  "CollisionType": "Regular",
-  "Friction": 0.7,
-  "Restitution": 0,
-  "Density": 0.5,
-  "SurfaceType": "Cardboard",
-  "Roughness": 1,
-  "Metallic": 0,
-  "PrimaryColor": {
-    "R": 255,
-    "G": 255,
-    "B": 255
-  },
-  "SecondaryColor": {
-    "R": 0,
-    "G": 0,
-    "B": 0
-  },
-  "Flippable": true,
-  "AutoStraighten": false,
-  "ShouldSnap": true,
-  "ScriptName": "investigator-deck.js",
-  "Blueprint": "",
-  "Models": [],
-  "Collision": [],
-  "SnapPointsGlobal": false,
-  "SnapPoints": [
-    {
-      "X": -1.01,
-      "Y": -1.18,
-      "Z": -0.0250015,
-      "Range": 2,
-      "SnapRotation": true,
-      "RotationOffset": 0
-    },
-    {
-      "X": -0.87,
-      "Y": -3.795,
-      "Z": -0.0250092,
-      "Range": 2,
-      "SnapRotation": true,
-      "RotationOffset": 0
-    }
-  ],
-  "ZoomViewDirection": {
-    "X": 0,
-    "Y": 0,
-    "Z": 0
-  },
-  "FrontTexture": "01 Core/Investigators - front.jpg",
-  "BackTexture": "01 Core/Investigators - back.jpg",
-  "HiddenTexture": "",
-  "BackIndex": -3,
-  "HiddenIndex": -1,
-  "NumHorizontal": 4,
-  "NumVertical": 3,
-  "Width": 12.8,
-  "Height": 10.1,
-  "Thickness": 0.05,
-  "HiddenInHand": false,
-  "UsedWithCardHolders": true,
-  "CanStack": true,
-  "UsePrimaryColorForSide": false,
-  "FrontTextureOverrideExposed": false,
-  "AllowFlippedInStack": false,
-  "MirrorBack": true,
-  "Model": "Square",
-  "Indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  "CardNames": {
-    "0": "Akachi Onyele",
-    "1": "Charlie Kane",
-    "2": "Diana Stanley",
-    "3": "Jacqueline Fine",
-    "4": "Jim Culver",
-    "5": "Leo Anderson",
-    "6": "Lily Chen",
-    "7": "Lola Hayes",
-    "8": "Mark Harrigan",
-    "9": "Norman Withers",
-    "10": "Silas Marsh",
-    "11": "Trish Scarborough"
-  }
+	"Type": "Card",
+	"GUID": "388247464C1163D86DB2AD9586C2A91E",
+	"Name": "Investigators",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "investigator-deck.js",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [
+		{
+			"X": -1.01,
+			"Y": -1.18,
+			"Z": -0.0250015,
+			"Range": 2,
+			"SnapRotation": true,
+			"RotationOffset": 0
+		},
+		{
+			"X": -0.87,
+			"Y": -3.795,
+			"Z": -0.0250092,
+			"Range": 2,
+			"SnapRotation": true,
+			"RotationOffset": 0
+		}
+	],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/Investigators - front.jpg",
+	"BackTexture": "01 Core/Investigators - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 3,
+	"Width": 12.8,
+	"Height": 10.1,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Square",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
+	"CardNames":
+	{
+		"0": "Akachi Onyele",
+		"1": "Charlie Kane",
+		"2": "Diana Stanley",
+		"3": "Jacqueline Fine",
+		"4": "Jim Culver",
+		"5": "Leo Anderson",
+		"6": "Lily Chen",
+		"7": "Lola Hayes",
+		"8": "Mark Harrigan",
+		"9": "Norman Withers",
+		"10": "Silas Marsh",
+		"11": "Trish Scarborough"
+	},
+	"CardMetadata":
+	{
+	}
 }
