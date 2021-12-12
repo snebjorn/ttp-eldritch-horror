@@ -121,20 +121,20 @@ const preludes = {
           randomStage1Card &&
           randomStage2Card &&
           randomStage3Card &&
-          gameBoardLocations.antarcticaSideBoard
+          gameBoardLocations.antarcticaMat
         ) {
           randomStage3Card.addCards(randomStage2Card);
 
           randomStage3Card.setId("adventure-antarctica-deck");
           randomStage3Card.setName("Antarctica Adventures");
-          Util.moveObject(randomStage3Card, gameBoardLocations.antarcticaSideBoard.adventure);
-          Util.moveObject(randomStage1Card, gameBoardLocations.antarcticaSideBoard.activeAdventure);
+          Util.moveObject(randomStage3Card, gameBoardLocations.antarcticaMat.adventure);
+          Util.moveObject(randomStage1Card, gameBoardLocations.antarcticaMat.activeAdventure);
           Util.flip(randomStage1Card);
 
           const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
           adventureToken.setId("adventure-antarctica-token");
           adventureToken.setName("Adventure Token: Antarctica");
-          Util.moveObject(adventureToken, gameBoardLocations.antarcticaSideBoard.activeAdventure);
+          Util.moveObject(adventureToken, gameBoardLocations.antarcticaMat.activeAdventure);
 
           world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
           Util.logScriptAction(

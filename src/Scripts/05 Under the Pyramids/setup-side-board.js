@@ -1,5 +1,6 @@
-const { Card, Vector, world } = require("@tabletop-playground/api");
+const { Vector, world } = require("@tabletop-playground/api");
 const { Util } = require("../util");
+const { gameBoardLocations } = require("../world-constants");
 
 const egypt = {
   sideBoardMat: "6B6A6368464FC1EBD8FAA09411D3CD08",
@@ -19,43 +20,26 @@ function setupSideBoard(spawnPosition) {
   }
 
   const sideBoardMat = Util.createGameObject(egypt.sideBoardMat, spawnPosition);
-  const matSnaps = {
-    board: sideBoardMat.getSnapPoint(0),
-    africa: sideBoardMat.getSnapPoint(2),
-    egypt: sideBoardMat.getSnapPoint(3),
-    adventure: sideBoardMat.getSnapPoint(7),
-    activeAdventure: sideBoardMat.getSnapPoint(8),
-    monster1: sideBoardMat.getSnapPoint(9),
-    monster2: sideBoardMat.getSnapPoint(10),
-    monster3: sideBoardMat.getSnapPoint(11),
-    monster4: sideBoardMat.getSnapPoint(12),
-  };
-
-  if (!matSnaps.board) {
-    throw new Error("Cannot find position for egypt side board");
+  if (!gameBoardLocations.egyptMat) {
+    throw new Error("Unable to find snap points for Egypt side board mat");
   }
+
   const sideBoard = Util.createGameObject(egypt.sideBoard, spawnPosition);
   sideBoard.setId("side-board-egypt");
-  Util.moveObject(sideBoard, matSnaps.board);
+  Util.moveObject(sideBoard, gameBoardLocations.egyptMat.board);
 
   const groupId = Util.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
-  if (!matSnaps.africa) {
-    throw new Error("Cannot find position for egypt mountain cards");
-  }
   const africaCards = Util.createCard(egypt.africaCards, spawnPosition);
-  Util.moveObject(africaCards, matSnaps.africa);
+  Util.moveObject(africaCards, gameBoardLocations.egyptMat.africa);
   africaCards.setName("Africa Encounters");
   africaCards.setId("encounter-africa-deck");
   africaCards.shuffle();
 
-  if (!matSnaps.egypt) {
-    throw new Error("Cannot find position for egypt outpost cards");
-  }
   const egyptCards = Util.createCard(egypt.egyptCards, spawnPosition);
-  Util.moveObject(egyptCards, matSnaps.egypt);
+  Util.moveObject(egyptCards, gameBoardLocations.egyptMat.egypt);
   egyptCards.setName("Egypt Encounters");
   egyptCards.setId("encounter-egypt-deck");
   egyptCards.shuffle();
@@ -65,28 +49,19 @@ function setupSideBoard(spawnPosition) {
   if (!mummy) {
     throw new Error("Cannot find Mummy in the monster cup");
   }
-  if (!matSnaps.monster1) {
-    throw new Error("Cannot find position for monster on egypt");
-  }
-  Util.moveObject(mummy, matSnaps.monster1);
+  Util.moveObject(mummy, gameBoardLocations.egyptMat.monster1);
 
   const sandDweller = Util.takeCardNameFromStack(monsterCup, "Sand Dweller");
   if (!sandDweller) {
     throw new Error("Cannot find Sand Dweller in the monster cup");
   }
-  if (!matSnaps.monster2) {
-    throw new Error("Cannot find position for monster on egypt");
-  }
-  Util.moveObject(sandDweller, matSnaps.monster2);
+  Util.moveObject(sandDweller, gameBoardLocations.egyptMat.monster2);
 
   const spawnOfSebak = Util.takeCardNameFromStack(monsterCup, "Spawn of Sebak");
   if (!spawnOfSebak) {
     throw new Error("Cannot find Spawn of Sebak in the monster cup");
   }
-  if (!matSnaps.monster3) {
-    throw new Error("Cannot find position for monster on egypt");
-  }
-  Util.moveObject(spawnOfSebak, matSnaps.monster3);
+  Util.moveObject(spawnOfSebak, gameBoardLocations.egyptMat.monster3);
 
   const gateStack = Util.getCardObjectById("gate-stack");
   const gates = Util.createCard(egypt.gates, spawnPosition.add(new Vector(0, 0, 1)));

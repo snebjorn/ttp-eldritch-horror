@@ -22,48 +22,31 @@ function setupSideBoard(spawnPosition) {
   }
 
   const sideBoardMat = Util.createGameObject(dreamlands.sideBoardMat, spawnPosition);
-  const matSnaps = {
-    board: sideBoardMat.getSnapPoint(0),
-    dreamQuest: sideBoardMat.getSnapPoint(1),
-    dreamlands: sideBoardMat.getSnapPoint(2),
-    adventure: sideBoardMat.getSnapPoint(9),
-    activeAdventure: sideBoardMat.getSnapPoint(10),
-    monster1: sideBoardMat.getSnapPoint(5),
-    monster2: sideBoardMat.getSnapPoint(6),
-    monster3: sideBoardMat.getSnapPoint(7),
-    monster4: sideBoardMat.getSnapPoint(8),
-  };
-
-  if (!matSnaps.board) {
-    throw new Error("Cannot find position for dreamlands side board");
+  if (!gameBoardLocations.dreamlandsMat) {
+    throw new Error("Unable to find snap points for The Dreamlands side board mat");
   }
+
   const sideBoard = Util.createGameObject(dreamlands.sideBoard, spawnPosition);
   sideBoard.setId("side-board-dreamlands");
-  Util.moveObject(sideBoard, matSnaps.board);
+  Util.moveObject(sideBoard, gameBoardLocations.dreamlandsMat.board);
 
   const groupId = Util.getNextGroupId();
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
-  if (!matSnaps.dreamQuest) {
-    throw new Error("Cannot find position for dreamlands dream quest cards");
-  }
   const dreamQuestCards = Util.createCard(dreamlands.dreamQuestCards, spawnPosition);
-  Util.moveObject(dreamQuestCards, matSnaps.dreamQuest);
+  Util.moveObject(dreamQuestCards, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestCards.setName("Dream-Quest Encounters");
   dreamQuestCards.setId("encounter-dream-quest-deck");
   dreamQuestCards.shuffle();
 
   const dreamQuestToken = Util.createCard(dreamlands.dreamQuestToken, spawnPosition);
-  Util.moveObject(dreamQuestToken, matSnaps.dreamQuest);
+  Util.moveObject(dreamQuestToken, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestToken.setName("Dream-Quest Token");
   dreamQuestToken.setId("dream-quest-token");
 
-  if (!matSnaps.dreamlands) {
-    throw new Error("Cannot find position for dreamlands encounter cards");
-  }
   const dreamlandsCards = Util.createCard(dreamlands.dreamlandsCards, spawnPosition);
-  Util.moveObject(dreamlandsCards, matSnaps.dreamlands);
+  Util.moveObject(dreamlandsCards, gameBoardLocations.dreamlandsMat.dreamlands);
   dreamlandsCards.setName("Dreamlands Encounters");
   dreamlandsCards.setId("encounter-dreamlands-deck");
   dreamlandsCards.shuffle();
@@ -73,37 +56,25 @@ function setupSideBoard(spawnPosition) {
   if (!ghoul) {
     throw new Error("Cannot find Ghoul in the monster cup");
   }
-  if (!matSnaps.monster1) {
-    throw new Error("Cannot find position for monster on dreamlands");
-  }
-  Util.moveObject(ghoul, matSnaps.monster1);
+  Util.moveObject(ghoul, gameBoardLocations.dreamlandsMat.monster1);
 
   const moonBeast = Util.takeCardNameFromStack(monsterCup, "Moon-beast");
   if (!moonBeast) {
     throw new Error("Cannot find Moon-beast in the monster cup");
   }
-  if (!matSnaps.monster2) {
-    throw new Error("Cannot find position for monster on dreamlands");
-  }
-  Util.moveObject(moonBeast, matSnaps.monster2);
+  Util.moveObject(moonBeast, gameBoardLocations.dreamlandsMat.monster2);
 
   const nightgaunt = Util.takeCardNameFromStack(monsterCup, "Nightgaunt");
   if (!nightgaunt) {
     throw new Error("Cannot find Nightgaunt in the monster cup");
   }
-  if (!matSnaps.monster3) {
-    throw new Error("Cannot find position for monster on dreamlands");
-  }
-  Util.moveObject(nightgaunt, matSnaps.monster3);
+  Util.moveObject(nightgaunt, gameBoardLocations.dreamlandsMat.monster3);
 
   const zoog = Util.takeCardNameFromStack(monsterCup, "Zoog");
   if (!zoog) {
     throw new Error("Cannot find Zoog in the monster cup");
   }
-  if (!matSnaps.monster4) {
-    throw new Error("Cannot find position for monster on dreamlands");
-  }
-  Util.moveObject(zoog, matSnaps.monster4);
+  Util.moveObject(zoog, gameBoardLocations.dreamlandsMat.monster4);
 
   const gateStack = Util.getCardObjectById("gate-stack");
   const gates = Util.createCard(dreamlands.gates, spawnPosition.add(new Vector(0, 0, 1)));

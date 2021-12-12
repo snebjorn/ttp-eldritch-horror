@@ -51,4 +51,4 @@ const matSnaps = {
   monster4: monster4Snap,
 };
 
-gameBoardLocations.dreamlandsSideBoard = matSnaps;
+gameBoardLocations.dreamlandsMat = matSnaps;

@@ -281,9 +281,9 @@ declare global {
       red: SnapPoint;
       blue2: SnapPoint;
     };
-    antarcticaSideBoard?: SideBoard.AntarcticaMat;
-    egyptSideBoard?: SideBoard.EgyptMat;
-    dreamlandsSideBoard?: SideBoard.DreamlandsMat;
+    antarcticaMat?: SideBoard.AntarcticaMat;
+    egyptMat?: SideBoard.EgyptMat;
+    dreamlandsMat?: SideBoard.DreamlandsMat;
   }
 
   namespace SideBoard {

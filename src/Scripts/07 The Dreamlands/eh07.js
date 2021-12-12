@@ -118,7 +118,7 @@ const preludes = {
     },
     afterResolvingSetup: (ancientOne) => {
       if (ancientOne !== "Hypnos") {
-        if (!gameBoardLocations.dreamlandsSideBoard) {
+        if (!gameBoardLocations.dreamlandsMat) {
           throw new Error("The Dreamlands side board mat is missing snap points");
         }
 
@@ -133,14 +133,13 @@ const preludes = {
 
         adventureDeck.setId("adventure-otherworldly-dreams-deck");
         adventureDeck.setName("Otherworldly Dreams Adventures");
-        Util.moveObject(adventureDeck, gameBoardLocations.dreamlandsSideBoard.adventure);
+        Util.moveObject(adventureDeck, gameBoardLocations.dreamlandsMat.adventure);
 
         const firstAdventureCard = adventureDeck.takeCards(1);
         if (!firstAdventureCard) {
           throw new Error("Unable to take the first card from the Museum Heist adventure deck");
         }
-        const dreamlandsActiveAdventureSnapPoint =
-          gameBoardLocations.dreamlandsSideBoard.activeAdventure;
+        const dreamlandsActiveAdventureSnapPoint = gameBoardLocations.dreamlandsMat.activeAdventure;
         if (!dreamlandsActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");
         }

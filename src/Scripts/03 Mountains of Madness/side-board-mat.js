@@ -56,4 +56,4 @@ const matSnaps = {
   monster4: monster4Snap,
 };
 
-gameBoardLocations.antarcticaSideBoard = matSnaps;
+gameBoardLocations.antarcticaMat = matSnaps;

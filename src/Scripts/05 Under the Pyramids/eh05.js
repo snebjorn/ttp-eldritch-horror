@@ -233,7 +233,7 @@ const preludes = {
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order. Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
         );
       } else {
-        if (!gameBoardLocations.egyptSideBoard) {
+        if (!gameBoardLocations.egyptMat) {
           throw new Error("The Egypt side board mat is missing snap points");
         }
 
@@ -243,7 +243,7 @@ const preludes = {
             ? "179EBAE14902BB741B04EA9F55CC88D1"
             : "F53E28644CF8AAB3E5EA0489CD399D67";
         const adventureDeck = createCard(randomAdventureTemplateId);
-        const egyptAdventureSnapPoint = gameBoardLocations.egyptSideBoard.adventure;
+        const egyptAdventureSnapPoint = gameBoardLocations.egyptMat.adventure;
         if (!egyptAdventureSnapPoint) {
           throw new Error(
             "Unable to find snap point for Museum Heist adventure deck on Egypt side board"
@@ -256,7 +256,7 @@ const preludes = {
         if (!firstAdventureCard) {
           throw new Error("Unable to take the first card from the Museum Heist adventure deck");
         }
-        const egyptActiveAdventureSnapPoint = gameBoardLocations.egyptSideBoard.activeAdventure;
+        const egyptActiveAdventureSnapPoint = gameBoardLocations.egyptMat.activeAdventure;
         if (!egyptActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");
         }
