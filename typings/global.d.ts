@@ -210,44 +210,46 @@ declare global {
   }
 
   interface GameBoardLocations {
-    space: {
-      Antarctica: SnapPoint;
-      Arkham: SnapPoint;
-      "Buenos Aires": SnapPoint;
-      Istanbul: SnapPoint;
-      London: SnapPoint;
-      Rome: SnapPoint;
-      "San Francisco": SnapPoint;
-      Shanghai: SnapPoint;
-      Sydney: SnapPoint;
-      "The Amazon": SnapPoint;
-      "The Heart of Africa": SnapPoint;
-      "The Himalayas": SnapPoint;
-      "The Pyramids": SnapPoint;
-      Tokyo: SnapPoint;
-      Tunguska: SnapPoint;
-      1: SnapPoint;
-      2: SnapPoint;
-      3: SnapPoint;
-      4: SnapPoint;
-      5: SnapPoint;
-      6: SnapPoint;
-      7: SnapPoint;
-      8: SnapPoint;
-      9: SnapPoint;
-      10: SnapPoint;
-      11: SnapPoint;
-      12: SnapPoint;
-      13: SnapPoint;
-      14: SnapPoint;
-      15: SnapPoint;
-      16: SnapPoint;
-      17: SnapPoint;
-      18: SnapPoint;
-      19: SnapPoint;
-      20: SnapPoint;
-      21: SnapPoint;
-    };
+    space: Partial<SideBoard.Antarctica> &
+      Partial<SideBoard.Egypt> &
+      Partial<SideBoard.Dreamlands> & {
+        Antarctica: SnapPoint;
+        Arkham: SnapPoint;
+        "Buenos Aires": SnapPoint;
+        Istanbul: SnapPoint;
+        London: SnapPoint;
+        Rome: SnapPoint;
+        "San Francisco": SnapPoint;
+        Shanghai: SnapPoint;
+        Sydney: SnapPoint;
+        "The Amazon": SnapPoint;
+        "The Heart of Africa": SnapPoint;
+        "The Himalayas": SnapPoint;
+        "The Pyramids": SnapPoint;
+        Tokyo: SnapPoint;
+        Tunguska: SnapPoint;
+        1: SnapPoint;
+        2: SnapPoint;
+        3: SnapPoint;
+        4: SnapPoint;
+        5: SnapPoint;
+        6: SnapPoint;
+        7: SnapPoint;
+        8: SnapPoint;
+        9: SnapPoint;
+        10: SnapPoint;
+        11: SnapPoint;
+        12: SnapPoint;
+        13: SnapPoint;
+        14: SnapPoint;
+        15: SnapPoint;
+        16: SnapPoint;
+        17: SnapPoint;
+        18: SnapPoint;
+        19: SnapPoint;
+        20: SnapPoint;
+        21: SnapPoint;
+      };
     bankLoan: SnapPoint;
     reserve: SnapPoint[];
     doom: {
@@ -279,6 +281,76 @@ declare global {
       red: SnapPoint;
       blue2: SnapPoint;
     };
+    antarcticaSideBoard?: SideBoard.AntarcticaMat;
+    egyptSideBoard?: SideBoard.EgyptMat;
+    dreamlandsSideBoard?: SideBoard.DreamlandsMat;
+  }
+
+  namespace SideBoard {
+    interface AntarcticaMat {
+      board: SnapPoint;
+      research: SnapPoint;
+      mountains: SnapPoint;
+      outposts: SnapPoint;
+      adventure: SnapPoint;
+      activeAdventure: SnapPoint;
+      monster1: SnapPoint;
+      monster2: SnapPoint;
+      monster3: SnapPoint;
+      monster4: SnapPoint;
+    }
+
+    interface Antarctica {
+      "Miskatonic Outpost": SnapPoint;
+      "Lake Camp": SnapPoint;
+      "Frozen Waste": SnapPoint;
+      "City of the Elder Things": SnapPoint;
+      "Plateau of Leng": SnapPoint;
+      "Snowy Mountains": SnapPoint;
+    }
+
+    interface EgyptMat {
+      board: SnapPoint;
+      africa: SnapPoint;
+      egypt: SnapPoint;
+      adventure: SnapPoint;
+      activeAdventure: SnapPoint;
+      monster1: SnapPoint;
+      monster2: SnapPoint;
+      monster3: SnapPoint;
+      monster4: SnapPoint;
+    }
+
+    interface Egypt {
+      "The Sahara Desert": SnapPoint;
+      Alexandria: SnapPoint;
+      "The Bent Pyramid": SnapPoint;
+      Cairo: SnapPoint;
+      "Tel el-Amarna": SnapPoint;
+      "The Nile River": SnapPoint;
+    }
+
+    interface DreamlandsMat {
+      board: SnapPoint;
+      dreamQuest: SnapPoint;
+      dreamlands: SnapPoint;
+      adventure: SnapPoint;
+      activeAdventure: SnapPoint;
+      monster1: SnapPoint;
+      monster2: SnapPoint;
+      monster3: SnapPoint;
+      monster4: SnapPoint;
+    }
+
+    interface Dreamlands {
+      "Unknown Kadath": SnapPoint;
+      "The Enchanted Wood": SnapPoint;
+      Celephais: SnapPoint;
+      Ulthar: SnapPoint;
+      "Dylath-Leen": SnapPoint;
+      "The Underworld": SnapPoint;
+      "The Moon": SnapPoint;
+    }
   }
 
   interface SavedData {

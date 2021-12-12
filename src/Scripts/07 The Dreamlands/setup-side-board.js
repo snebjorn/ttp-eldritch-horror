@@ -68,12 +68,7 @@ function setupSideBoard(spawnPosition) {
   dreamlandsCards.setId("encounter-dreamlands-deck");
   dreamlandsCards.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const monsterCup = world.getObjectById("monster-cup");
-  if (!monsterCup) {
-    throw new Error("Cannot find monster cup");
-  }
+  const monsterCup = Util.getCardObjectById("monster-cup");
   const ghoul = Util.takeCardNameFromStack(monsterCup, "Ghoul");
   if (!ghoul) {
     throw new Error("Cannot find Ghoul in the monster cup");
@@ -110,22 +105,12 @@ function setupSideBoard(spawnPosition) {
   }
   Util.moveObject(zoog, matSnaps.monster4);
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const gateStack = world.getObjectById("gate-stack");
-  if (!gateStack) {
-    throw new Error("Cannot find gate stack");
-  }
+  const gateStack = Util.getCardObjectById("gate-stack");
   const gates = Util.createCard(dreamlands.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
   gateStack.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const cluePool = world.getObjectById("clue-pool");
-  if (!cluePool) {
-    throw new Error("Cannot find clue pool");
-  }
+  const cluePool = Util.getCardObjectById("clue-pool");
   const clues = Util.createCard(dreamlands.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
   cluePool.shuffle();

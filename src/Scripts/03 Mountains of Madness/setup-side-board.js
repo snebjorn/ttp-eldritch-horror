@@ -1,4 +1,4 @@
-const { Card, Vector, world } = require("@tabletop-playground/api");
+const { Vector, world } = require("@tabletop-playground/api");
 const { Util } = require("../util");
 
 const antarctica = {
@@ -71,12 +71,7 @@ function setupSideBoard(spawnPosition) {
   outpostCards.setId("encounter-outpost-deck");
   outpostCards.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const monsterCup = world.getObjectById("monster-cup");
-  if (!monsterCup) {
-    throw new Error("Cannot find monster cup");
-  }
+  const monsterCup = Util.getCardObjectById("monster-cup");
   const elderThing = Util.takeCardNameFromStack(monsterCup, "Elder Thing");
   if (!elderThing) {
     throw new Error("Cannot find Elder Thing in the monster cup");
@@ -113,19 +108,12 @@ function setupSideBoard(spawnPosition) {
   }
   Util.moveObject(shoggoth, matSnaps.monster4);
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const gateStack = world.getObjectById("gate-stack");
-  if (!gateStack) {
-    throw new Error("Cannot find gate stack");
-  }
+  const gateStack = Util.getCardObjectById("gate-stack");
   const gates = Util.createCard(antarctica.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
   gateStack.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const cluePool = world.getObjectById("clue-pool");
+  const cluePool = Util.getCardObjectById("clue-pool");
   if (!cluePool) {
     throw new Error("Cannot find clue pool");
   }

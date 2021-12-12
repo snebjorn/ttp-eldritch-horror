@@ -196,6 +196,9 @@ const preludes = {
       // setup egypt side board
       if (ancientOne !== "Nephren-Ka") {
         const { setupSideBoard } = require("./setup-side-board");
+        if (!sideBoardSpawn) {
+          throw new Error("Missing sideBoardSpawn argument");
+        }
         setupSideBoard(sideBoardSpawn);
       }
     },
@@ -218,8 +221,10 @@ const preludes = {
           activeExpeditionMonster && activeExpeditionMonster.getCardDetails().name;
 
         // spawn 1 monster on The Bent Pyramid
-        // @ts-ignore - dynamically added space on side board
         const bentPyramid = gameBoardLocations.space["The Bent Pyramid"];
+        if (!bentPyramid) {
+          throw new Error("Unable to find The Bent Pyramid space");
+        }
         const bentPyramidMonster = GameUtil.spawnMonster(bentPyramid);
         const bentPyramidMonsterName =
           bentPyramidMonster && bentPyramidMonster.getCardDetails().name;
@@ -228,13 +233,16 @@ const preludes = {
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order. Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
         );
       } else {
+        if (!gameBoardLocations.egyptSideBoard) {
+          throw new Error("The Egypt side board mat is missing snap points");
+        }
+
         // setup museum heist adventure
         const randomAdventureTemplateId =
           Util.randomIntFromInterval(1, 2) === 1
             ? "179EBAE14902BB741B04EA9F55CC88D1"
             : "F53E28644CF8AAB3E5EA0489CD399D67";
         const adventureDeck = createCard(randomAdventureTemplateId);
-        // @ts-ignore - dynamically added snap point on side board
         const egyptAdventureSnapPoint = gameBoardLocations.egyptSideBoard.adventure;
         if (!egyptAdventureSnapPoint) {
           throw new Error(
@@ -248,7 +256,6 @@ const preludes = {
         if (!firstAdventureCard) {
           throw new Error("Unable to take the first card from the Museum Heist adventure deck");
         }
-        // @ts-ignore - dynamically added snap point on side board
         const egyptActiveAdventureSnapPoint = gameBoardLocations.egyptSideBoard.activeAdventure;
         if (!egyptActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");
@@ -260,8 +267,12 @@ const preludes = {
         adventureToken.setId("adventure-museum-heist-token");
         adventureToken.setName("Adventure Token: Museum Heist");
 
-        // @ts-ignore - dynamically added snap point on side board
-        Util.moveObject(adventureToken, gameBoardLocations.space.Cairo);
+        const cairoSnapPoint = gameBoardLocations.space.Cairo;
+        if (!cairoSnapPoint) {
+          throw new Error("Unable to find snap point for Cairo (space)");
+        }
+
+        Util.moveObject(adventureToken, cairoSnapPoint);
 
         Util.logScriptAction(
           'SETUP (Prelude: Under the Pyramids) set aside Museum Heist Adventures; then drew the "Framed for Theft" Adventure.'

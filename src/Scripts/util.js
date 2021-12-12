@@ -596,6 +596,26 @@ class Util {
   static logScriptAction(message, player) {
     world.broadcastChatMessage(message);
   }
+
+  /**
+   * Return the {@link Card} with the specified {@link objectId}.
+   *
+   * @param {string} objectId
+   * @returns {Card} The {@link Card} with the specified {@link objectId}.
+   * @throws If unable to find {@link objectId}.
+   * @throws If {@link objectId} isn't a {@link Card}.
+   */
+  static getCardObjectById(objectId) {
+    const card = world.getObjectById(objectId);
+
+    if (!card) {
+      throw new Error(`Unable to find "${objectId}" on the table`);
+    }
+    if (!(card instanceof Card)) {
+      throw new Error(`Found "${objectId}" but it isn't a Card it's a ${card.constructor.name}`);
+    }
+    return card;
+  }
 }
 
 exports.Util = Util;

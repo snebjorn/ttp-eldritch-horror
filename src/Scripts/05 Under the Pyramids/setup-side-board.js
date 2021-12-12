@@ -60,12 +60,7 @@ function setupSideBoard(spawnPosition) {
   egyptCards.setId("encounter-egypt-deck");
   egyptCards.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const monsterCup = world.getObjectById("monster-cup");
-  if (!monsterCup) {
-    throw new Error("Cannot find monster cup");
-  }
+  const monsterCup = Util.getCardObjectById("monster-cup");
   const mummy = Util.takeCardNameFromStack(monsterCup, "Mummy");
   if (!mummy) {
     throw new Error("Cannot find Mummy in the monster cup");
@@ -93,22 +88,12 @@ function setupSideBoard(spawnPosition) {
   }
   Util.moveObject(spawnOfSebak, matSnaps.monster3);
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const gateStack = world.getObjectById("gate-stack");
-  if (!gateStack) {
-    throw new Error("Cannot find gate stack");
-  }
+  const gateStack = Util.getCardObjectById("gate-stack");
   const gates = Util.createCard(egypt.gates, spawnPosition.add(new Vector(0, 0, 1)));
   gateStack.addCards(gates);
   gateStack.shuffle();
 
-  /** @type Card | undefined */
-  // @ts-ignore
-  const cluePool = world.getObjectById("clue-pool");
-  if (!cluePool) {
-    throw new Error("Cannot find clue pool");
-  }
+  const cluePool = Util.getCardObjectById("clue-pool");
   const clues = Util.createCard(egypt.clues, spawnPosition.add(new Vector(0, 0, 1)));
   cluePool.addCards(clues);
   cluePool.shuffle();

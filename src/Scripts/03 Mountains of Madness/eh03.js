@@ -87,6 +87,9 @@ const preludes = {
       // setup antarctica side board
       if (ancientOne !== "Rise of the Elder Things") {
         const { setupSideBoard } = require("./setup-side-board");
+        if (!sideBoardSpawn) {
+          throw new Error("Missing sideBoardSpawn argument");
+        }
         setupSideBoard(sideBoardSpawn);
       }
     },
@@ -95,8 +98,10 @@ const preludes = {
       // else setup antarctica adventures and draw top
       if (ancientOne === "Rise of the Elder Things") {
         try {
-          // @ts-ignore - dynamically added space on side board
           const lakeCamp = gameBoardLocations.space["Lake Camp"];
+          if (!lakeCamp) {
+            throw new Error('Unable to find snap point for "Lake Camp" (space)');
+          }
           GameUtil.spawnEpicMonster("Rampaging Shoggoth", lakeCamp);
           Util.logScriptAction(
             "SETUP (Prelude: Doomsayer From Antarctica) spawned the Rampaging Shoggoth Epic Monster on Lake Camp."
@@ -112,31 +117,24 @@ const preludes = {
         const antarcticaAdventuresStage3 = createCard("9601C51C44FE111792B9EF910ADEAE63");
         const randomStage3Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage3);
 
-        if (randomStage1Card && randomStage2Card && randomStage3Card) {
+        if (
+          randomStage1Card &&
+          randomStage2Card &&
+          randomStage3Card &&
+          gameBoardLocations.antarcticaSideBoard
+        ) {
           randomStage3Card.addCards(randomStage2Card);
 
           randomStage3Card.setId("adventure-antarctica-deck");
           randomStage3Card.setName("Antarctica Adventures");
-          Util.moveObject(
-            randomStage3Card,
-            // @ts-ignore
-            gameBoardLocations.antarcticaSideBoard.adventure
-          );
-          Util.moveObject(
-            randomStage1Card,
-            // @ts-ignore
-            gameBoardLocations.antarcticaSideBoard.activeAdventure
-          );
+          Util.moveObject(randomStage3Card, gameBoardLocations.antarcticaSideBoard.adventure);
+          Util.moveObject(randomStage1Card, gameBoardLocations.antarcticaSideBoard.activeAdventure);
           Util.flip(randomStage1Card);
 
           const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
           adventureToken.setId("adventure-antarctica-token");
           adventureToken.setName("Adventure Token: Antarctica");
-          Util.moveObject(
-            adventureToken,
-            // @ts-ignore - dynamically added snap point on side board
-            gameBoardLocations.antarcticaSideBoard.activeAdventure
-          );
+          Util.moveObject(adventureToken, gameBoardLocations.antarcticaSideBoard.activeAdventure);
 
           world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
           Util.logScriptAction(

@@ -83,6 +83,11 @@ const preludes = {
           investigatorData.startingLocation !== undefined
             ? gameBoardLocations.space[investigatorData.startingLocation]
             : investigator.getPosition();
+        if (!startingPosition) {
+          throw new Error(
+            `Unable to find "${investigatorData.startingLocation}" (space) on the game board`
+          );
+        }
         GameUtil.spawnEpicMonster("Doppelganger", startingPosition);
 
         setupCrippledInvestigator(investigator, { randomAssets: 1, clues: 1 });
@@ -105,11 +110,18 @@ const preludes = {
       // setup dreamlands side board
       if (ancientOne !== "Hypnos") {
         const { setupSideBoard } = require("./setup-side-board");
+        if (!sideBoardSpawn) {
+          throw new Error("Missing sideBoardSpawn argument");
+        }
         return setupSideBoard(sideBoardSpawn);
       }
     },
     afterResolvingSetup: (ancientOne) => {
       if (ancientOne !== "Hypnos") {
+        if (!gameBoardLocations.dreamlandsSideBoard) {
+          throw new Error("The Dreamlands side board mat is missing snap points");
+        }
+
         const randNum = Util.randomIntFromInterval(1, 3);
         const randomAdventureTemplateId =
           randNum === 1
@@ -121,18 +133,13 @@ const preludes = {
 
         adventureDeck.setId("adventure-otherworldly-dreams-deck");
         adventureDeck.setName("Otherworldly Dreams Adventures");
-        Util.moveObject(
-          adventureDeck,
-          // @ts-ignore - dynamically added snap point on side board
-          gameBoardLocations.dreamlandsSideBoard.adventure
-        );
+        Util.moveObject(adventureDeck, gameBoardLocations.dreamlandsSideBoard.adventure);
 
         const firstAdventureCard = adventureDeck.takeCards(1);
         if (!firstAdventureCard) {
           throw new Error("Unable to take the first card from the Museum Heist adventure deck");
         }
         const dreamlandsActiveAdventureSnapPoint =
-          // @ts-ignore - dynamically added snap point on side board
           gameBoardLocations.dreamlandsSideBoard.activeAdventure;
         if (!dreamlandsActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");
