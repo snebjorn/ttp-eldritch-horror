@@ -14,14 +14,16 @@ function setupReferenceCard(iconReference) {
     const spawnedGatesText = spawnedGates
       .map(([gateName, monsterName]) => `"${gateName}" with 1 monster (${monsterName})`)
       .join("; ");
-    Util.logScriptAction(`SETUP spawned ${spawnedGates.length} gates; ${spawnedGatesText}.`);
+    Util.logScriptAction(
+      `SETUP (Step 9E) spawned ${spawnedGates.length} gates; ${spawnedGatesText}.`
+    );
   }
 
   const spawnedClues = GameUtil.spawnClues(iconReference.spawnClues);
   if (spawnedClues.length > 0) {
     const spawnedCluesText = spawnedClues.join('", "');
     Util.logScriptAction(
-      `SETUP spawned ${spawnedClues.length} clues on spaces "${spawnedCluesText}".`
+      `SETUP (Step 9G) spawned ${spawnedClues.length} Clues on spaces "${spawnedCluesText}".`
     );
   }
 }
