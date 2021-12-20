@@ -225,8 +225,8 @@ const preludes = {
         console.error(error.message);
       }
 
-      // TODO if playing with forsaken lore
-      try {
+      // if playing with forsaken lore
+      if (GameUtil.getSavedData().sets.includes("eh02")) {
         GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
         // Yeb spawn effect: spawn 2 monsters on this space
         const monster1 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
@@ -243,8 +243,6 @@ const preludes = {
         message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
           ", "
         )})`;
-      } catch (error) {
-        console.error(error.message);
       }
 
       Util.logScriptAction(message);

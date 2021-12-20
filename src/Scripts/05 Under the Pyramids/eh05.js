@@ -102,10 +102,7 @@ const preludes = {
       // TODO move to nearest sea space and lose 1 sanity
       if (ancientOne === "Cthulhu") {
         // TODO place 1 eldritch token on nearest sea space that does not contain an eldritch token
-
         // for now just put it on the investigator sheet
-        const eldritchToken = GameUtil.takeEldritchTokens(1);
-        eldritchToken.setPosition(sheet.getPosition().add(new Vector(0, -3, 1)), 1);
 
         Util.logScriptAction(
           `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) placed 1 Eldritch token on Investigator sheet.`
@@ -114,6 +111,10 @@ const preludes = {
           `You received an Eldritch token. Place it on the nearest sea space that does not contain an Eldritch token. Also move your Investigator to the nearest sea space and lose 1 sanity.`,
           player.getPlayerColor()
         );
+
+        return {
+          eldritchTokens: 1,
+        };
       }
     },
   },
@@ -131,11 +132,6 @@ const preludes = {
       if (ancientOne === "Abhoth") {
         // each investigator spawns 1 cultist on a wilderness that does not contain a cultist
         // for now put a cultist monster with the starting items
-        const cultist = GameUtil.takeSetAsideMonster("Cultist");
-        if (cultist) {
-          cultist.setPosition(sheet.getPosition().add(new Vector(0, -3, 1)), 1);
-        }
-
         Util.logScriptAction(
           `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) placed 1 Cultist Monster on Investigator sheet.`
         );
@@ -143,6 +139,10 @@ const preludes = {
           `You received a Cultist Monster. Place it on a Wilderness space that does not contain a Cultist Monster.`,
           player.getPlayerColor()
         );
+
+        return {
+          monster: "Cultist",
+        };
       } else {
         // TODO need to figure out how to find lead investigator
         // lead investigator spawns Child of Abhoth epic monster on nearest wilderness
@@ -174,15 +174,14 @@ const preludes = {
       secondDeck.setPosition(expansionSpawn, 0);
       secondDeck.setId("encounter-expedition-deck2");
       secondDeck.setName("Expedition Encounters");
-
-      const deckSnapPoint = GameUtil.addEncounterDeck(secondDeck);
+      GameUtil.addEncounterDeck(secondDeck);
+      secondDeck.shuffle();
 
       const activeExpeditionToken = createCard("BD2E757C40F92C8EC8429193D862F47C");
       activeExpeditionToken.setId("active-expedition-token2");
       activeExpeditionToken.setName("Active Expedition Token");
-      Util.moveObject(activeExpeditionToken, deckSnapPoint);
+      Util.moveOnTopOfObject(activeExpeditionToken, secondDeck);
       world.showPing(activeExpeditionToken.getPosition(), Util.Colors.WHITE, true);
-      secondDeck.shuffle();
 
       Util.logScriptAction(
         "SETUP (Prelude: Litany of Secrets) shuffled the Expedition Encounter deck then split it into two decks."
@@ -235,7 +234,8 @@ const preludes = {
           bentPyramidMonster && bentPyramidMonster.getCardDetails().name;
 
         Util.logScriptAction(
-          `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order. Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
+          `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order.` +
+            `Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
         );
       } else {
         if (!gameBoardLocations.egyptMat) {
