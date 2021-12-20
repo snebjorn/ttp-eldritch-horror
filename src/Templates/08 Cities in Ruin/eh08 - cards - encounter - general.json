@@ -38,7 +38,7 @@
 		"Z": 0
 	},
 	"FrontTexture": "08 Cities in Ruin/Encounter - General - front.jpg",
-	"BackTexture": "../../940067/Textures/Encounter - General - back.jpg",
+	"BackTexture": "Encounter - General - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,

@@ -38,7 +38,7 @@
 		"Z": 0
 	},
 	"FrontTexture": "08 Cities in Ruin/yellow - hard - mythos.jpg",
-	"BackTexture": "../../940067/Textures/mythos - back.jpg",
+	"BackTexture": "mythos - back.jpg",
 	"HiddenTexture": "",
 	"BackIndex": -2,
 	"HiddenIndex": -1,
