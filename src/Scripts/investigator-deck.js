@@ -9,6 +9,7 @@ const {
 } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
 const { setupInvestigator } = require("./setup-investigator");
+const { tableLocations } = require("./world-constants");
 
 if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
   const { investigators } = require("./01 Core/investigators");
@@ -66,6 +67,22 @@ function drawSetupButton(investigatorSheet) {
     setupInvestigator(investigatorSheet, player);
     investigatorSheet.removeUIElement(ui);
   });
+
+  const ancientOneSnap = tableLocations.ancientOne;
+  if (ancientOneSnap) {
+    if (ancientOneSnap.getSnappedObject(2) === undefined) {
+      setupButton.setEnabled(false);
+
+      investigatorSheet.onTick.add(() => {
+        const isOccupied = ancientOneSnap.getSnappedObject(2) !== undefined;
+        if (isOccupied) {
+          setupButton.setEnabled(true);
+          investigatorSheet.onTick.clear();
+        }
+      });
+    }
+  }
+
   investigatorSheet.onInserted.add(() => investigatorSheet.removeUIElement(ui));
   ui.widget = setupButton;
   investigatorSheet.addUI(ui);
