@@ -47,6 +47,11 @@ exports.expansionItems = {
   },
   investigators: createCard("591BEA1C441F19F1B9B321B8290E3FE3"),
   ancientOneSheets: [createCard("3C9D40C143F59A69AEF3E6BDBE72E815")],
+  personalStories: {
+    missions: "1E077AE54010C168543F139E7120FB43",
+    rewards: "EFF0510C4419F83864EDBB89B3DE9A02",
+    consequences: "65BF393B4874CB6DC6F85CB28618FAE2",
+  },
 };
 
 world.__eldritchHorror.mysticRuins.add("8477CAF347EE3FEB6BC15E827D79544B");

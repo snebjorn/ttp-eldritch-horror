@@ -1,0 +1,77 @@
+{
+	"Type": "Card",
+	"GUID": "DA9D39E94D7179ACB513869A4730D3E5",
+	"Name": "Personal Stories Consequences",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "01 Core/Personal Story - front.jpg",
+	"BackTexture": "01 Core/Personal Story - consequence.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 3,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ],
+	"CardNames":
+	{
+		"0": "The Earth's Anger",
+		"1": "Dark Times",
+		"2": "One of Us",
+		"3": "Dark Future",
+		"4": "Out of Tune",
+		"5": "All Your Fault",
+		"6": "Doomed to Failure",
+		"7": "Denouement",
+		"8": "Total Abandon",
+		"9": "Discredited",
+		"10": "Dark Depths",
+		"11": "Shadows"
+	},
+	"CardMetadata":
+	{
+	}
+}

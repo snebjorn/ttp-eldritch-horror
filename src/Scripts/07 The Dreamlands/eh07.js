@@ -58,6 +58,11 @@ exports.expansionItems = {
     createCard("3899F85F40A3A59434D2108736680B04"),
     createCard("4A64269E4F10081FBF0DBD91D03F1C64"),
   ],
+  personalStories: {
+    missions: "899F5B26473EDE7E182380A0A65E7495",
+    rewards: "029449164E5AAA51F883EC9658EEBF2E",
+    consequences: "C96FA84549A6A6DDD727EDBDEA6B0F44",
+  },
 };
 
 /** @type Record<string, Prelude> */

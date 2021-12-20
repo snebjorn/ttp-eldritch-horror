@@ -47,6 +47,11 @@ exports.expansionItems = {
   },
   investigators: createCard("76FF24AE4DC7280C6323AF8C1E6537EB"),
   ancientOneSheets: [createCard("41A0780D434575F41CBBDAA1E0472C59")],
+  personalStories: {
+    missions: "5310DE9546AE94A83474B5B8F6C66E99",
+    rewards: "18AF2EC946759D934043A7A48968A21A",
+    consequences: "4ECCB24545908FEFAB035688280091B3",
+  },
 };
 
 /** @type Record<string, Prelude> */
