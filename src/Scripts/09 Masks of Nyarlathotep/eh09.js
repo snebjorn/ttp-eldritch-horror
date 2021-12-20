@@ -131,7 +131,7 @@ const preludes = {
 
       Util.moveObject(GameUtil.takeFocusTokens(1), ultharSpace);
 
-      const celephaisSpace = gameBoardLocations.space.Celephais;
+      const celephaisSpace = gameBoardLocations.space.Celephaïs;
       if (!celephaisSpace) {
         throw new Error("Unable to find Celephaïs (space) on The Dreamlands side board");
       }

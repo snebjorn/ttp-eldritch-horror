@@ -364,7 +364,7 @@ declare global {
     interface Dreamlands {
       "Unknown Kadath": SnapPoint;
       "The Enchanted Wood": SnapPoint;
-      Celephais: SnapPoint;
+      Celephaïs: SnapPoint;
       Ulthar: SnapPoint;
       "Dylath-Leen": SnapPoint;
       "The Underworld": SnapPoint;

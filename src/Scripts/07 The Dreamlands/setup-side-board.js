@@ -94,7 +94,7 @@ function setupSideBoard(spawnPosition) {
 }
 exports.setupSideBoard = setupSideBoard;
 
-const dreamlandGates = ["Celephais", "Dylath-Leen", "Ulthar"];
+const dreamlandGates = ["Celephaïs", "Dylath-Leen", "Ulthar"];
 
 /**
  * Spawn Dream Portals

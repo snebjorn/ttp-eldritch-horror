@@ -34,7 +34,7 @@ if (!theMoonSnap) {
 const sideBoardSpaces = {
   "Unknown Kadath": unknownKadathSnap,
   "The Enchanted Wood": theEnchantedWoodSnap,
-  Celephais: celephaisSnap,
+  Celephaïs: celephaisSnap,
   Ulthar: ultharSnap,
   "Dylath-Leen": dylathLeenSnap,
   "The Underworld": theUnderworldSnap,
