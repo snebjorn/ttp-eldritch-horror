@@ -58,6 +58,26 @@
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
 	"CardNames":
 	{
+		"0": "Moai Statues",
+		"2": "Moai Statues",
+		"1": "Moai Statues",
+		"3": "Moai Statues",
+		"4": "Moai Statues",
+		"5": "Chichen Itza",
+		"6": "Chichen Itza",
+		"7": "Chichen Itza",
+		"8": "Chichen Itza",
+		"9": "Chichen Itza",
+		"10": "Stonehenge",
+		"11": "Stonehenge",
+		"12": "Stonehenge",
+		"13": "Stonehenge",
+		"14": "Stonehenge",
+		"15": "Great Wall of China",
+		"16": "Great Wall of China",
+		"17": "Great Wall of China",
+		"18": "Great Wall of China",
+		"19": "Great Wall of China"
 	},
 	"CardMetadata":
 	{
