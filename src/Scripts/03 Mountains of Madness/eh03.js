@@ -76,7 +76,7 @@ const preludes = {
       Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.green);
 
       Util.logScriptAction(
-        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on teh green space of the Omen track."
+        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on the green space of the Omen track."
       );
     },
   },
