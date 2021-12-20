@@ -49,6 +49,8 @@ exports.expansionItems = {
   ancientOneSheets: [createCard("3C9D40C143F59A69AEF3E6BDBE72E815")],
 };
 
+world.__eldritchHorror.mysticRuins.add("8477CAF347EE3FEB6BC15E827D79544B");
+
 /** @type Record<string, Prelude> */
 const preludes = {
   "Dark Blessings": {},
@@ -59,13 +61,20 @@ const preludes = {
         const mysticRuinsDeck = createCard("8477CAF347EE3FEB6BC15E827D79544B");
         mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
         mysticRuinsDeck.setName("Mystic Ruins Encounters");
-        const mysticRuinsSnapPoint = GameUtil.addEncounterDeck(mysticRuinsDeck);
+
+        Array.from(world.__eldritchHorror.mysticRuins)
+          .filter((x) => x !== "8477CAF347EE3FEB6BC15E827D79544B")
+          .forEach((id) => {
+            mysticRuinsDeck.addCards(createCard(id));
+          });
+
+        GameUtil.addEncounterDeck(mysticRuinsDeck);
         mysticRuinsDeck.shuffle();
 
         const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
         mysticRuinsToken.setId("mystic-ruins-token");
         mysticRuinsToken.setName("Mystic Ruins Token");
-        Util.moveObject(mysticRuinsToken, mysticRuinsSnapPoint);
+        Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
         world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
 
         Util.logScriptAction(

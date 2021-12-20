@@ -1,0 +1,72 @@
+{
+	"Type": "Card",
+	"GUID": "9C404CF745F98007393C8DAA8707A95B",
+	"Name": "Personal Stories Rewards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "09 Masks of Nyarlathotep/Personal Story - front.jpg",
+	"BackTexture": "09 Masks of Nyarlathotep/Personal Story - reward.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 4,
+	"NumVertical": 2,
+	"Width": 4,
+	"Height": 6.3,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6 ],
+	"CardNames":
+	{
+		"0": "Rational Explanation",
+		"1": "Calvin's Will",
+		"2": "Loyal Friend",
+		"3": "Resourceful",
+		"4": "Charitable Father",
+		"5": "Philanthropy",
+		"6": "The Painted World"
+	},
+	"CardMetadata":
+	{
+	}
+}

@@ -13,6 +13,7 @@ const {
   tableLocations,
   epicMonsterCup,
   omenToken,
+  clueDiscardPile,
 } = require("./world-constants");
 
 class GameUtil {
@@ -78,6 +79,67 @@ class GameUtil {
     }
 
     return focusToken;
+  }
+
+  /**
+   * @param {number} number
+   */
+  static takeResourceTokens(number = 1) {
+    const resourceStack = world.getObjectById("resource-token");
+    if (!resourceStack) {
+      throw new Error("Unable to find resource token");
+    }
+    const stackPos = resourceStack.getPosition().add(new Vector(0, 0, 3));
+    const resourceToken = Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", stackPos);
+
+    if (number > 1) {
+      for (let i = 1; i < number; i++) {
+        resourceToken.addCards(Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", stackPos));
+      }
+    }
+
+    return resourceToken;
+  }
+
+  /**
+   * @param {number} count
+   */
+  static takeRandomClueTokens(count = 1) {
+    const cluePool = getCluePool();
+    if (!cluePool) {
+      throw new Error("Unable to find Clue pool");
+    }
+
+    const randomClues = Util.takeRandomCardsFromStack(cluePool, count);
+
+    return randomClues;
+  }
+
+  /**
+   * How do you determine a random Space?
+   *
+   * Whenever an effect refers to a random space, that space is determined by
+   * drawing one Clue token from the Clue pool and using the space indicated
+   * by the back of the token.
+   * The drawn Clue token is then discarded.
+   */
+  static determineRandomSpace() {
+    const randomClue = GameUtil.takeRandomClueTokens(1);
+    if (!randomClue) {
+      throw new Error("Unable to take a clue from the Clue Pile");
+    }
+
+    /** @type {keyof GameBoardLocations["space"]} */
+    // @ts-ignore
+    const spaceName = randomClue.getCardDetails().name;
+    clueDiscardPile.addObjects([randomClue], 0);
+
+    const snapPoint = gameBoardLocations.space[spaceName];
+    if (!snapPoint) {
+      throw new Error(`Unable to find a snap point for "${spaceName}" (space)`);
+    }
+
+    return { snapPoint, spaceName };
   }
 
   /**
@@ -227,7 +289,7 @@ class GameUtil {
   }
 
   static getActiveAncientOne() {
-    return world.__eldritchHorror.activeAncientOne;
+    return GameUtil.getSavedData().ancientOne;
   }
 
   /**
@@ -341,7 +403,7 @@ class GameUtil {
   static getSavedData() {
     const data = Util.getSavedData();
     if (!data || !data.sets === undefined) {
-      return { sets: [] };
+      return { sets: [], isPersonalStory: false };
     }
 
     return data;
@@ -383,7 +445,7 @@ class GameUtil {
   }
 
   static getActiveIconReference() {
-    return world.__eldritchHorror.activeIconReference;
+    return GameUtil.getSavedData().iconReference;
   }
 }
 exports.GameUtil = GameUtil;

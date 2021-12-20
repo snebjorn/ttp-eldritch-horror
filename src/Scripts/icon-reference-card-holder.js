@@ -1,28 +1,22 @@
 const { UIElement, Vector, world, refHolder, Text } = require("@tabletop-playground/api");
+const { GameUtil } = require("./game-util");
 const { Util } = require("./util");
 
 refHolder.onInserted.add((_, iconReference) => {
   const cardName = iconReference.getCardDetails().name;
-  world.__eldritchHorror.activeIconReference = ToIconReference(cardName);
+  GameUtil.updateSavedData({ iconReference: toIconReference(cardName) });
 
   if (!!world.__eldritchHorror.updateSetupUIFn) {
     world.__eldritchHorror.updateSetupUIFn();
   }
 });
 refHolder.onRemoved.add(() => {
-  world.__eldritchHorror.activeIconReference = undefined;
+  GameUtil.updateSavedData({ iconReference: undefined });
 
   if (!!world.__eldritchHorror.updateSetupUIFn) {
     world.__eldritchHorror.updateSetupUIFn();
   }
 });
-// on script reload or game loads we need to repopulate the activeIconReference
-const cardsInHolder = refHolder.getCards();
-if (cardsInHolder.length > 0) {
-  const iconReference = cardsInHolder[0];
-  const cardName = iconReference.getCardDetails().name;
-  world.__eldritchHorror.activeIconReference = ToIconReference(cardName);
-}
 
 const ui = new UIElement();
 ui.position = new Vector(0, 0, 0.11);
@@ -38,7 +32,7 @@ if (refHolder.getCards().length === 0) {
  * @param {string} name
  * @returns {IconReference | undefined}
  */
-function ToIconReference(name) {
+function toIconReference(name) {
   switch (name) {
     case "1":
       return { numberOfPlayers: 1, spawnGates: 1, spawnClues: 1, monsterSurge: 1 };

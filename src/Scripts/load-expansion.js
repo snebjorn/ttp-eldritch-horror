@@ -20,19 +20,36 @@ const {
 let alreadyLoaded = [];
 
 /**
- * @param  {...string} expansions
+ * @param {string[]} expansions - the selected expansions
+ * @param {{ isFocus: boolean; isResource: boolean; isPersonalStory: boolean }} mechanics
  */
-function loadExpansion(...expansions) {
+function loadExpansion(expansions, mechanics) {
   // sort so expansions are loaded in order
   expansions.sort();
+
+  if (mechanics.isPersonalStory) {
+    addPersonalStories();
+  }
 
   for (const expansion of expansions) {
     if (alreadyLoaded.includes(expansion)) {
       console.warn(`${expansion} is already loaded!`);
     } else {
-      const expansionItems = loadScript(expansion);
+      let expansionItems = loadScript(expansion);
       if (!expansionItems) {
         continue;
+      } else if (typeof expansionItems === "function") {
+        expansionItems = expansionItems(expansions);
+      }
+
+      if (mechanics.isFocus) {
+        expansionItems.focus = true;
+      }
+      if (mechanics.isResource) {
+        expansionItems.resource = true;
+      }
+      if (!mechanics.isPersonalStory) {
+        delete expansionItems.personalStories;
       }
 
       createAssets(expansionItems);
@@ -44,6 +61,7 @@ exports.loadExpansion = loadExpansion;
 
 /**
  * @param {string} expansion
+ * @returns {Expansion.Items | ((expansions: string[]) => Expansion.Items) | undefined}
  */
 function loadScript(expansion) {
   switch (expansion) {
@@ -80,6 +98,11 @@ function loadScript(expansion) {
     }
     case "eh08": {
       const { expansionItems } = require("./08 Cities in Ruin/eh08");
+
+      return expansionItems;
+    }
+    case "eh09": {
+      const { expansionItems } = require("./09 Masks of Nyarlathotep/eh09");
 
       return expansionItems;
     }
@@ -120,6 +143,20 @@ function createAssets(expansionItems) {
     expansionItems.preludeCards,
     tableLocations.preludes
   );
+  if (expansionItems.personalStories) {
+    addExpansionCardsToDeck(
+      Util.getCardObjectById("personal-mission-deck"),
+      Util.createCard(expansionItems.personalStories.missions, expansionSpawn)
+    );
+    addExpansionCardsToDeck(
+      Util.getCardObjectById("personal-reward-deck"),
+      Util.createCard(expansionItems.personalStories.rewards, expansionSpawn)
+    );
+    addExpansionCardsToDeck(
+      Util.getCardObjectById("personal-consequence-deck"),
+      Util.createCard(expansionItems.personalStories.consequences, expansionSpawn)
+    );
+  }
   if (expansionItems.preludeCards) {
     addPreludeCardHolder();
   }
@@ -128,6 +165,9 @@ function createAssets(expansionItems) {
   }
   if (expansionItems.impairment === true) {
     addImpairmentTokens();
+  }
+  if (expansionItems.resource === true) {
+    addResourceTokens();
   }
 }
 
@@ -278,6 +318,27 @@ function addFocusTokens() {
   Util.moveObject(focusStack, tableLocations.focus);
 }
 
+function addResourceTokens() {
+  if (world.getObjectById("resource-token")) {
+    return; // abort - resource is already loaded
+  }
+
+  const resourceToken = Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", expansionSpawn);
+  const resourceStack = Util.convertToInfiniteStack(resourceToken);
+  resourceStack.setId("resource-token");
+  resourceStack.setName("Resource Token");
+  resourceStack.setDescription(`As an action on any space, you gain one Resource token.
+- As part of a Rest action, you may spend any number of Resources to recover 1 additional Health or 1 additional Sanity for each Resource spent.
+- As part of an Acquire Assets action, you may spend any number of Resources to add 1 success to your test result for each Resource spent.
+- Resources are possessions and may be traded using the Trade action. You cannot have more than two Resources.`);
+
+  if (!tableLocations.resource) {
+    throw new Error("Cannot find position for resource token");
+  }
+
+  Util.moveObject(resourceStack, tableLocations.resource);
+}
+
 function addImpairmentTokens() {
   if (world.getObjectsByTemplateId("682F0E47464E6B57ECD299908D2C1035").length > 0) {
     return; // abort - impairment tokens are already loaded
@@ -345,4 +406,58 @@ function addPreludeCardHolder() {
   ui.widget = new Text().setText(" Active\nPrelude");
 
   cardHolder.addUI(ui);
+}
+
+function addPersonalStories() {
+  if (world.getObjectById("personal-mission-deck")) {
+    return; // abort - personal stories are already loaded
+  }
+
+  const investigatorDeck = world.getObjectById("investigator-deck");
+  if (!investigatorDeck) {
+    throw new Error('Unable to find "investigator-deck"');
+  }
+
+  const topCenter = investigatorDeck
+    .getPosition()
+    .add(new Vector(investigatorDeck.getExtent(true).x, 0, 0))
+    // spacing
+    .add(new Vector(0.5, 0, 0))
+    // ½ height of personal story cards
+    .add(new Vector(3.15, 0, 0));
+
+  const personalMissions = Util.createCard("5AA0264443FAD6BA1A8015B49EC54E45", topCenter);
+  personalMissions.setId("personal-mission-deck");
+  personalMissions.setName("Personal Missions");
+  Util.flip(personalMissions);
+
+  if (world.getObjectById("personal-reward-deck")) {
+    return; // abort - personal stories are already loaded
+  }
+
+  const topRight = topCenter
+    // spacing
+    .add(new Vector(0, 0.5, 0))
+    // width of personal story cards
+    .add(new Vector(0, 4, 0));
+
+  const personalRewards = Util.createCard("D5C6DBE24E3409D4C9E87D9FA8F0C5AD", topRight);
+  personalRewards.setId("personal-reward-deck");
+  personalRewards.setName("Personal Rewards");
+  Util.flip(personalRewards);
+
+  if (world.getObjectById("personal-consequence-deck")) {
+    return; // abort - personal stories are already loaded
+  }
+
+  const topLeft = topCenter
+    // spacing
+    .subtract(new Vector(0, 0.5, 0))
+    // width of personal story cards
+    .subtract(new Vector(0, 4, 0));
+
+  const personalConsequences = Util.createCard("DA9D39E94D7179ACB513869A4730D3E5", topLeft);
+  personalConsequences.setId("personal-consequence-deck");
+  personalConsequences.setName("Personal Consequences");
+  Util.flip(personalConsequences);
 }

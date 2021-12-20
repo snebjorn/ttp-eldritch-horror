@@ -69,7 +69,7 @@ const preludes = {
       const investigatorDeckPosition = investigatorDeck.getPosition();
       const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
       const separatorBuffer = 2;
-      const investigator = Util.takeRandomCardFromStack(investigatorDeck);
+      const investigator = Util.takeRandomCardsFromStack(investigatorDeck);
       if (investigator) {
         const newPos = investigatorDeckPosition.add(
           new Vector(-heightOfSheet - separatorBuffer, 0, 2)

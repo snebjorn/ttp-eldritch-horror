@@ -1,0 +1,85 @@
+{
+	"Type": "Card",
+	"GUID": "78E0B3CC45F78684110FE9B5B8EEF5D9",
+	"Name": "Encounter Mystic Ruins Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "09 Masks of Nyarlathotep/Encounter - Mystic Ruins - front.jpg",
+	"BackTexture": "09 Masks of Nyarlathotep/Encounter - Mystic Ruins - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -3,
+	"HiddenIndex": -1,
+	"NumHorizontal": 5,
+	"NumVertical": 4,
+	"Width": 5.7,
+	"Height": 8.89,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
+	"CardNames":
+	{
+		"0": "Atlantis",
+		"1": "Atlantis",
+		"2": "Atlantis",
+		"3": "Atlantis",
+		"4": "Atlantis",
+		"5": "Hyperborea",
+		"6": "Hyperborea",
+		"7": "Hyperborea",
+		"8": "Hyperborea",
+		"9": "Hyperborea",
+		"10": "Mu",
+		"11": "Mu",
+		"12": "Mu",
+		"13": "Mu",
+		"14": "Mu",
+		"15": "Pnakotus",
+		"16": "Pnakotus",
+		"17": "Pnakotus",
+		"18": "Pnakotus",
+		"19": "Pnakotus"
+	},
+	"CardMetadata":
+	{
+	}
+}

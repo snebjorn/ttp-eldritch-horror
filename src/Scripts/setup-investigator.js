@@ -3,7 +3,6 @@ const {
   getAssetDeck,
   spellDeck,
   conditionDeck,
-  getCluePool,
   gameBoardLocations,
   willToken,
   artifactDeck,
@@ -33,10 +32,7 @@ function setupInvestigator(investigatorSheet, player) {
   } else {
     console.error(`Unable to find sanity snap point on Investigator (${foundInvestigator.name}])`);
   }
-  const startingLocation =
-    foundInvestigator.startingLocation !== undefined
-      ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
-      : investigatorSheet.getPosition();
+  const startingLocation = getStartingLocation(investigatorSheet, foundInvestigator);
   const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
 
   let extraItems;
@@ -56,7 +52,7 @@ function setupInvestigator(investigatorSheet, player) {
       healthToken,
       sanityToken,
       pawn,
-      activeAncientOne.name,
+      activeAncientOne,
       player
     );
     if (preludeItems) {
@@ -64,7 +60,11 @@ function setupInvestigator(investigatorSheet, player) {
     }
   }
 
-  setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extraItems);
+  const personalStory = GameUtil.getSavedData().isPersonalStory
+    ? foundInvestigator.personalStory
+    : undefined;
+
+  setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extraItems, personalStory);
   Util.logScriptAction(`${player.getName()} setup Investigator ${foundInvestigator.name}.`);
 }
 exports.setupInvestigator = setupInvestigator;
@@ -101,10 +101,7 @@ function setupDefeatedInvestigator(investigatorSheet, extras) {
   const foundInvestigator = getInvestigatorData(investigatorSheet);
   if (foundInvestigator) {
     setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extras);
-    const startingLocation =
-      foundInvestigator.startingLocation !== undefined
-        ? getSnapPointForStartingLocation(foundInvestigator.startingLocation)
-        : investigatorSheet.getPosition();
+    const startingLocation = getStartingLocation(investigatorSheet, foundInvestigator);
     const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
     if (pawn) {
       const pawnHeight = pawn.getExtent(false).z;
@@ -135,8 +132,9 @@ exports.getInvestigatorData = getInvestigatorData;
  * @param {Card} investigatorSheet
  * @param {Investigator["startingItems"]} startingItems
  * @param {ExtraItems} [extras]
+ * @param {string} [personalStory]
  */
-function setupStartingItems(investigatorSheet, startingItems, extras) {
+function setupStartingItems(investigatorSheet, startingItems, extras, personalStory) {
   let itemsGiven = 0;
 
   if (extras && extras.asset) {
@@ -161,12 +159,23 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
 
   if (extras && extras.randomAssets !== undefined && extras.randomAssets > 0) {
     for (let i = 0; i < extras.randomAssets; i++) {
-      const randomAsset = Util.takeRandomCardFromStack(getAssetDeck());
+      const randomAsset = Util.takeRandomCardsFromStack(getAssetDeck());
       if (randomAsset === undefined) {
         console.error(`Unable to take a random asset from the Asset Deck`);
         return;
       }
       positionItemOnInvestigatorSheet(investigatorSheet, randomAsset, itemsGiven++);
+    }
+  }
+
+  if (extras && extras.randomSpells !== undefined && extras.randomSpells > 0) {
+    for (let i = 0; i < extras.randomSpells; i++) {
+      const randomSpell = Util.takeRandomCardsFromStack(spellDeck);
+      if (randomSpell === undefined) {
+        console.error(`Unable to take a random spell from the Spell Deck`);
+        return;
+      }
+      positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
     }
   }
 
@@ -222,12 +231,21 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
 
   if (extras && extras.randomArtifacts !== undefined && extras.randomArtifacts > 0) {
     for (let i = 0; i < extras.randomArtifacts; i++) {
-      const randomArtifact = Util.takeRandomCardFromStack(artifactDeck);
+      const randomArtifact = Util.takeRandomCardsFromStack(artifactDeck);
       if (randomArtifact === undefined) {
         console.error(`Unable to take a random artifact from the Artifact Deck`);
         return;
       }
       positionItemOnInvestigatorSheet(investigatorSheet, randomArtifact, itemsGiven++);
+    }
+  }
+
+  if (personalStory && personalStory.length > 0) {
+    const personalMissionDeck = Util.getCardObjectById("personal-mission-deck");
+    const personalMission = Util.takeCardNameFromStack(personalMissionDeck, personalStory);
+    if (personalMission) {
+      Util.flip(personalMission);
+      positionItemOnInvestigatorSheet(investigatorSheet, personalMission, itemsGiven++);
     }
   }
 
@@ -238,21 +256,10 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
     const startingClues = startingItems.clues !== undefined ? startingItems.clues : 0;
     const extraClues = extras && extras.clues !== undefined ? extras.clues : 0;
     const clueCount = startingClues + extraClues;
-    const clueToken = Util.takeRandomCardFromStack(getCluePool());
+    const clueToken = GameUtil.takeRandomClueTokens(clueCount);
     if (clueToken === undefined) {
       console.error(`Unable to find a clue in Clue Pool`);
       return;
-    } else {
-      if (clueCount > 1) {
-        for (let i = 1; i < clueCount; i++) {
-          const extraClue = Util.takeRandomCardFromStack(getCluePool());
-          if (extraClue === undefined) {
-            console.error(`Unable to find a clue in Clue Pool`);
-            return;
-          }
-          clueToken.addCards(extraClue);
-        }
-      }
     }
 
     positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
@@ -267,6 +274,17 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
     const focusCount = startingFocus + extraFocus;
     const focusTokens = GameUtil.takeFocusTokens(focusCount);
     positionItemOnInvestigatorSheet(investigatorSheet, focusTokens, itemsGiven++);
+  }
+
+  if (
+    (startingItems.resources && startingItems.resources > 0) ||
+    (extras && extras.resources && extras.resources > 0)
+  ) {
+    const startingResources = startingItems.resources !== undefined ? startingItems.resources : 0;
+    const extraResources = extras && extras.resources !== undefined ? extras.resources : 0;
+    const resourceCount = startingResources + extraResources;
+    const resourceTokens = GameUtil.takeResourceTokens(resourceCount);
+    positionItemOnInvestigatorSheet(investigatorSheet, resourceTokens, itemsGiven++);
   }
 
   if (startingItems.shipTickets && startingItems.shipTickets > 0) {
@@ -317,6 +335,26 @@ function setupStartingItems(investigatorSheet, startingItems, extras) {
 
     positionItemOnInvestigatorSheet(investigatorSheet, takenWillToken, itemsGiven++);
   }
+
+  if (extras && extras.eldritchTokens && extras.eldritchTokens > 0) {
+    const eldritchTokens = GameUtil.takeEldritchTokens(extras.eldritchTokens);
+    if (eldritchTokens === undefined) {
+      console.error(`Unable to find Eldritch token`);
+      return;
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, eldritchTokens, itemsGiven++);
+  }
+
+  if (extras && extras.monster && extras.monster.length > 0) {
+    const monsterToken = GameUtil.takeMonster(extras.monster);
+    if (monsterToken === undefined) {
+      console.error(`Unable to find ${extras.monster} Monster`);
+      return;
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
+  }
 }
 
 /**
@@ -338,10 +376,10 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
       .getPosition()
       .add(new Vector(0, 0, 1)) // raise it above the sheet
       .subtract(sheetSize) // starting pos is upper left corner
-      .subtract(new Vector(0.6, 0, 0)) // removes the add UI height
+      .subtract(new Vector(0.6, 0, 0)) // removes the added UI height
       .add(new Vector(-0.5, 0.5, 0)) // margin
       .add(itemSize)
-      .add(new Vector(-(offset * 2), offset * 2, offset)),
+      .add(new Vector(-offset, offset, 1 + offset / 5)),
     1
   );
 }
@@ -374,6 +412,25 @@ function setupPawn(pawnTemplateId, startingLocation) {
 /** @param {keyof GameBoardLocations["space"]} startingLocation */
 function getSnapPointForStartingLocation(startingLocation) {
   return gameBoardLocations.space[startingLocation];
+}
+
+/**
+ *
+ * @param {Card} investigatorSheet
+ * @param {Investigator} foundInvestigator
+ */
+function getStartingLocation(investigatorSheet, foundInvestigator) {
+  const fallbackLocation = investigatorSheet.getPosition();
+
+  if (foundInvestigator.startingLocation === undefined) {
+    return fallbackLocation;
+  }
+  const snapPointLocation = getSnapPointForStartingLocation(foundInvestigator.startingLocation);
+  if (snapPointLocation === undefined) {
+    return fallbackLocation;
+  }
+
+  return snapPointLocation;
 }
 
 /**

@@ -21,22 +21,22 @@ const syzygy = {
   },
   customSetup: () => {
     const mysticRuinsDeck = Util.createCard("8477CAF347EE3FEB6BC15E827D79544B", expansionSpawn);
-    if (mysticRuinsDeck) {
-      GameUtil.addEncounterDeck(mysticRuinsDeck);
-      mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
-      mysticRuinsDeck.setName("Mystic Ruins Encounters");
-      mysticRuinsDeck.shuffle();
+    Array.from(world.__eldritchHorror.mysticRuins)
+      .filter((x) => x !== "8477CAF347EE3FEB6BC15E827D79544B")
+      .forEach((id) => {
+        mysticRuinsDeck.addCards(Util.createCard(id, expansionSpawn));
+      });
 
-      const mysticRuinsToken = world.createObjectFromTemplate(
-        "A9C452A442F9A36AC77CC1B68633FEEE",
-        mysticRuinsDeck.getPosition().add(new Vector(0, 0, 2))
-      );
-      if (mysticRuinsToken) {
-        mysticRuinsToken.setId("mystic-ruins-token");
-        mysticRuinsToken.setName("Mystic Ruins Token");
-        mysticRuinsToken.snap();
-      }
-    }
+    GameUtil.addEncounterDeck(mysticRuinsDeck);
+    mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
+    mysticRuinsDeck.setName("Mystic Ruins Encounters");
+    mysticRuinsDeck.shuffle();
+
+    const mysticRuinsToken = Util.createCard("A9C452A442F9A36AC77CC1B68633FEEE", expansionSpawn);
+    mysticRuinsToken.setId("mystic-ruins-token");
+    mysticRuinsToken.setName("Mystic Ruins Token");
+    Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
+    world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
   },
 };
 

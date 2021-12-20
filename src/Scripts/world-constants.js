@@ -22,6 +22,10 @@ exports.encounterDecks = {
 };
 /** @type {Container} */
 exports.ancientContainer = world.getObjectById("ancient-container");
+/** @type {Container} */
+exports.clueDiscardPile = world.getObjectById("clue-discard-pile");
+/** @type {Container} */
+exports.gateDiscardPile = world.getObjectById("gate-discard-pile");
 
 /** @type {MythosSetupDecks} */
 exports.mythosSetupDecks = {
@@ -88,9 +92,11 @@ const gameBoardLocations = {
     "Buenos Aires": gameBoard.getSnapPoint(34),
     Istanbul: gameBoard.getSnapPoint(22),
     London: gameBoard.getSnapPoint(26),
+    Stonehenge: gameBoard.getSnapPoint(26),
     Rome: gameBoard.getSnapPoint(25),
     "San Francisco": gameBoard.getSnapPoint(46),
     Shanghai: gameBoard.getSnapPoint(8),
+    "Great Wall of China": gameBoard.getSnapPoint(8),
     Sydney: gameBoard.getSnapPoint(12),
     "The Amazon": gameBoard.getSnapPoint(32),
     "The Heart of Africa": gameBoard.getSnapPoint(19),
@@ -100,17 +106,23 @@ const gameBoardLocations = {
     Tunguska: gameBoard.getSnapPoint(3),
     1: gameBoard.getSnapPoint(44),
     2: gameBoard.getSnapPoint(45),
+    Mu: gameBoard.getSnapPoint(45),
     3: gameBoard.getSnapPoint(39),
+    "Moai Statues": gameBoard.getSnapPoint(39),
+    "R'lyeh": gameBoard.getSnapPoint(39),
     4: gameBoard.getSnapPoint(43),
     5: gameBoard.getSnapPoint(42),
     6: gameBoard.getSnapPoint(41),
     7: gameBoard.getSnapPoint(40),
+    "Chichen Itza": gameBoard.getSnapPoint(40),
     8: gameBoard.getSnapPoint(32),
+    Atlantis: gameBoard.getSnapPoint(32),
     9: gameBoard.getSnapPoint(28),
     10: gameBoard.getSnapPoint(38),
     11: gameBoard.getSnapPoint(36),
     12: gameBoard.getSnapPoint(37),
     13: gameBoard.getSnapPoint(0),
+    Hyperborea: gameBoard.getSnapPoint(0),
     14: gameBoard.getSnapPoint(1),
     15: gameBoard.getSnapPoint(17),
     16: gameBoard.getSnapPoint(2),
@@ -119,6 +131,7 @@ const gameBoardLocations = {
     19: gameBoard.getSnapPoint(5),
     20: gameBoard.getSnapPoint(10),
     21: gameBoard.getSnapPoint(11),
+    Pnakotus: gameBoard.getSnapPoint(11),
   },
   bankLoan: gameBoard.getSnapPoint(79),
   reserve: [

@@ -111,11 +111,11 @@ const preludes = {
         }
       } else {
         const antarcticaAdventuresStage1 = createCard("F7FD62E34F458F4B51C0FAA6EA3A1723");
-        const randomStage1Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage1);
+        const randomStage1Card = Util.takeRandomCardsFromStack(antarcticaAdventuresStage1);
         const antarcticaAdventuresStage2 = createCard("258610DA4A3A3781ADA2AFAD520DC865");
-        const randomStage2Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage2);
+        const randomStage2Card = Util.takeRandomCardsFromStack(antarcticaAdventuresStage2);
         const antarcticaAdventuresStage3 = createCard("9601C51C44FE111792B9EF910ADEAE63");
-        const randomStage3Card = Util.takeRandomCardFromStack(antarcticaAdventuresStage3);
+        const randomStage3Card = Util.takeRandomCardsFromStack(antarcticaAdventuresStage3);
 
         if (
           randomStage1Card &&
@@ -199,7 +199,7 @@ const preludes = {
       const separatorBuffer = 2;
       const sacrificedNames = [];
       for (let i = 1; i < 3; i++) {
-        const investigator = Util.takeRandomCardFromStack(investigatorDeck);
+        const investigator = Util.takeRandomCardsFromStack(investigatorDeck);
         if (investigator) {
           const newPos = investigatorDeckPosition.add(
             new Vector(-(heightOfSheet * i) - separatorBuffer * i, 0, 2)

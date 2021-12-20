@@ -54,7 +54,7 @@ function drawSetupUi() {
       .setFont(arkhamBoldFont)
       .setFontSize(40)
   );
-  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text());
   vBox.addChild(
     new Text()
       .setText(`${step++}. Select Icon Reference Card`)
@@ -79,7 +79,7 @@ function drawSetupUi() {
     }
   }
 
-  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text());
   vBox.addChild(
     new Text()
       .setText(`${step++}. Select Expansions`)
@@ -93,16 +93,60 @@ function drawSetupUi() {
   const expansionBox3 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox3);
 
+  vBox.addChild(new Text());
+
+  vBox.addChild(new Text().setText("Expansion Mechanics").setFont(arkhamRegFont).setFontSize(15));
+  vBox.addChild(
+    new Text().setText(
+      "Players can choose to use mechanics not explicitly required by the selected expansion(s)."
+    )
+  );
+  const mechanicsBox = new HorizontalBox();
+  mechanicsBox.setChildDistance(12);
+  vBox.addChild(mechanicsBox);
+
+  const focusTokenBox = new HorizontalBox().setChildDistance(3);
+  const focusIcon = new ImageWidget().setImage(`Focus Token Icon.png`).setImageSize(50, 50);
+  const focusCheckBox = new CheckBox().setText("Focus Token").setIsChecked(true).setEnabled(false);
+  focusTokenBox.addChild(focusIcon).addChild(focusCheckBox);
+  mechanicsBox.addChild(focusTokenBox);
+
+  const resourceTokenBox = new HorizontalBox().setChildDistance(3);
+  const resourceIcon = new ImageWidget().setImage(`Resource Token Icon.png`).setImageSize(50, 50);
+  const resourceCheckBox = new CheckBox()
+    .setText("Resource Token")
+    .setIsChecked(true)
+    .setEnabled(false);
+  resourceTokenBox.addChild(resourceIcon).addChild(resourceCheckBox);
+  mechanicsBox.addChild(resourceTokenBox);
+
+  const personalStoryBox = new HorizontalBox().setChildDistance(3);
+  const personalStoryIcon = new ImageWidget()
+    .setImage(`Personal Story Icon.png`)
+    .setImageSize(50, 50);
+  const personalStoryCheckBox = new CheckBox().setText("Personal Stories").setIsChecked(false);
+  personalStoryBox.addChild(personalStoryIcon).addChild(personalStoryCheckBox);
+  mechanicsBox.addChild(personalStoryBox);
+
+  function getChosenMechanics() {
+    return {
+      isFocus: focusCheckBox.isChecked(),
+      isResource: resourceCheckBox.isChecked(),
+      isPersonalStory: personalStoryCheckBox.isChecked(),
+    };
+  }
+
   /**
    * GOTO below to see the code for Select Expansions
    * @see activeExpansions
    */
 
+  vBox.addChild(new Text());
   const loadExpansionBtn = new Button().setText("Load Selected Expansion(s)");
   vBox.addChild(loadExpansionBtn);
   let isExpansionsLoaded = false;
   loadExpansionBtn.onClicked.add(() => {
-    loadExpansion(...activeExpansions);
+    loadExpansion(activeExpansions, getChosenMechanics());
     eh02.setEnabled(false);
     eh03.setEnabled(false);
     eh04.setEnabled(false);
@@ -110,11 +154,17 @@ function drawSetupUi() {
     eh06.setEnabled(false);
     eh07.setEnabled(false);
     eh08.setEnabled(false);
+    eh09.setEnabled(false);
+
+    focusCheckBox.setEnabled(false);
+    resourceCheckBox.setEnabled(false);
+    personalStoryCheckBox.setEnabled(false);
+
     loadExpansionBtn.setEnabled(false);
     isExpansionsLoaded = true;
   });
 
-  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text());
   vBox.addChild(
     new Text()
       .setText(`${step++}. Select Prelude (optional)`)
@@ -139,22 +189,41 @@ function drawSetupUi() {
     }
   }
 
-  vBox.addChild(new Text().setText(""));
-  vBox.addChild(
+  vBox.addChild(new Text());
+
+  const gameDifficultyBox = new VerticalBox();
+  vBox.addChild(gameDifficultyBox);
+  gameDifficultyBox.setChildDistance(6);
+
+  gameDifficultyBox.addChild(
     new Text()
-      .setText(`${step++}. Select Mythos Difficulty`)
+      .setText(`${step++}. Adjust Game Difficulty`)
       .setFont(arkhamRegFont)
       .setFontSize(20)
   );
-  const difficultyBox = new HorizontalBox();
-  difficultyBox.setChildDistance(6);
-  vBox.addChild(difficultyBox);
-  const difficultyEasy = new CheckBox().setText("Easy").setIsChecked(true);
-  difficultyBox.addChild(difficultyEasy);
-  const difficultyMedium = new CheckBox().setText("Medium").setIsChecked(true);
-  difficultyBox.addChild(difficultyMedium);
-  const difficultyHard = new CheckBox().setText("Hard").setIsChecked(true);
-  difficultyBox.addChild(difficultyHard);
+
+  gameDifficultyBox.addChild(
+    new Text().setText("Mythos Deck Difficulty").setFont(arkhamRegFont).setFontSize(15)
+  );
+  gameDifficultyBox.addChild(
+    new Text().setText(
+      "Players can alter the game's difficulty when building the Mythos deck.\n" +
+        "Players can make the game easier by not using the hard Mythos cards.\n" +
+        "Likewise, players can make the game harder by not using the easy Mythos cards."
+    )
+  );
+  gameDifficultyBox.addChild(
+    new Text().setText("Choose what Mythos cards are used to build the Mythos deck:")
+  );
+  const mythosDifficultyBox = new HorizontalBox();
+  mythosDifficultyBox.setChildDistance(12);
+  gameDifficultyBox.addChild(mythosDifficultyBox);
+  const difficultyEasy = new CheckBox().setText("Easy Mythos cards").setIsChecked(true);
+  mythosDifficultyBox.addChild(difficultyEasy);
+  const difficultyMedium = new CheckBox().setText("Medium Mythos cards").setIsChecked(true);
+  mythosDifficultyBox.addChild(difficultyMedium);
+  const difficultyHard = new CheckBox().setText("Hard Mythos cards").setIsChecked(true);
+  mythosDifficultyBox.addChild(difficultyHard);
 
   function getMythosDifficulty() {
     return {
@@ -165,7 +234,7 @@ function drawSetupUi() {
   }
 
   //#region ancient one selection
-  vBox.addChild(new Text().setText(""));
+  vBox.addChild(new Text());
   vBox.addChild(
     new Text()
       .setText(`${step++}. Select Ancient One`)
@@ -190,7 +259,8 @@ function drawSetupUi() {
       ancientOne,
       getMythosDifficulty(),
       GameUtil.getActiveIconReference(),
-      GameUtil.getActivePrelude()
+      GameUtil.getActivePrelude(),
+      getChosenMechanics()
     );
     world.removeUIElement(ui);
     world.__eldritchHorror.updateSetupUIFn = undefined;
@@ -200,7 +270,11 @@ function drawSetupUi() {
       preludeDeck.destroy();
     }
 
-    GameUtil.updateSavedData({ sets: ["eh01", ...activeExpansions] });
+    GameUtil.updateSavedData({
+      sets: ["eh01", ...activeExpansions],
+      ancientOne: ancientOne,
+      isPersonalStory: getChosenMechanics().isPersonalStory,
+    });
   }
 
   const ancientAzathoth = new ImageButton()
@@ -300,11 +374,40 @@ function drawSetupUi() {
     .setImageSize(157, 100);
   ancientShuddeMell.onClicked.add((_, player) => ancientClickFn("Shudde M'ell", player));
   ancientBox4.addChild(ancientShuddeMell);
+
+  const ancientAntediluvium = new ImageButton()
+    .setImage("09 Masks of Nyarlathotep/Antediluvium - button.jpg")
+    .setImageSize(157, 100);
+  ancientAntediluvium.onClicked.add((_, player) => ancientClickFn("Antediluvium", player));
+  ancientBox4.addChild(ancientAntediluvium);
+
+  const ancientNyarlathotep = new ImageButton()
+    .setImage("09 Masks of Nyarlathotep/Nyarlathotep - button.jpg")
+    .setImageSize(157, 100);
+  ancientNyarlathotep.onClicked.add((_, player) => ancientClickFn("Nyarlathotep", player));
+  ancientBox4.addChild(ancientNyarlathotep);
   //#endregion ancient one selection
 
   //#region expansion selection
   /** @type string[] */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07", "eh08"];
+  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07", "eh08", "eh09"];
+
+  function updateMechanics() {
+    const focusExp = ["eh03", "eh04", "eh05", "eh07", "eh09"];
+    const resourceExp = "eh09";
+
+    if (focusExp.some((x) => activeExpansions.includes(x))) {
+      focusCheckBox.setIsChecked(true).setEnabled(false);
+    } else {
+      focusCheckBox.setIsChecked(false).setEnabled(true);
+    }
+
+    if (activeExpansions.includes(resourceExp)) {
+      resourceCheckBox.setIsChecked(true).setEnabled(false);
+    } else {
+      resourceCheckBox.setIsChecked(false).setEnabled(true);
+    }
+  }
 
   /**
    * @param {string} expansion
@@ -328,6 +431,7 @@ function drawSetupUi() {
       }
       expIcon.setEnabled(isChecked);
       ancientOnes.forEach((x) => x.setEnabled(isChecked));
+      updateMechanics();
     });
 
     return expBox;
@@ -368,20 +472,18 @@ function drawSetupUi() {
 
   const eh08 = expansionWidget("eh08", "Cities in Ruin", [ancientShuddeMell], "08 Cities in Ruin");
   expansionBox3.addChild(eh08);
+
+  const eh09 = expansionWidget(
+    "eh09",
+    "Masks of Nyarlathotep",
+    [ancientAntediluvium, ancientNyarlathotep],
+    "09 Masks of Nyarlathotep"
+  );
+  expansionBox3.addChild(eh09);
   //#endregion expansion selection
 
-  vBox.addChild(new Text().setText(""));
-  vBox.addChild(
-    new Text()
-      .setText(`${step++}. Select Investigators`)
-      .setFont(arkhamRegFont)
-      .setFontSize(20)
-  );
-  vBox.addChild(new Text().setText("Choose and setup investigators from the investigator deck."));
-  vBox.addChild(new Text().setText("Do not do this before previous steps."));
-
   world.__eldritchHorror.updateSetupUIFn = () => {
-    updateIconReference(world.__eldritchHorror.activeIconReference);
+    updateIconReference(GameUtil.getActiveIconReference());
     updatePrelude(world.__eldritchHorror.activePrelude);
   };
 

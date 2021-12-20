@@ -1,0 +1,78 @@
+{
+	"Type": "Card",
+	"GUID": "372C546449CBC4EEDAB6F9823A0BF81B",
+	"Name": "Prelude Cards",
+	"Metadata": "",
+	"CollisionType": "Regular",
+	"Friction": 0.7,
+	"Restitution": 0,
+	"Density": 0.5,
+	"SurfaceType": "Cardboard",
+	"Roughness": 1,
+	"Metallic": 0,
+	"PrimaryColor":
+	{
+		"R": 255,
+		"G": 255,
+		"B": 255
+	},
+	"SecondaryColor":
+	{
+		"R": 0,
+		"G": 0,
+		"B": 0
+	},
+	"Flippable": true,
+	"AutoStraighten": false,
+	"ShouldSnap": true,
+	"ScriptName": "",
+	"Blueprint": "",
+	"Models": [],
+	"Collision": [],
+	"SnapPointsGlobal": false,
+	"SnapPoints": [],
+	"ZoomViewDirection":
+	{
+		"X": 0,
+		"Y": 0,
+		"Z": 0
+	},
+	"FrontTexture": "09 Masks of Nyarlathotep/preludes - front.jpg",
+	"BackTexture": "preludes - back.jpg",
+	"HiddenTexture": "",
+	"BackIndex": -2,
+	"HiddenIndex": -1,
+	"NumHorizontal": 5,
+	"NumVertical": 2,
+	"Width": 5.7,
+	"Height": 8.89,
+	"Thickness": 0.05,
+	"HiddenInHand": false,
+	"UsedWithCardHolders": true,
+	"CanStack": true,
+	"UsePrimaryColorForSide": false,
+	"FrontTextureOverrideExposed": false,
+	"AllowFlippedInStack": false,
+	"MirrorBack": true,
+	"Model": "Rounded",
+	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+	"CardNames":
+	{
+		"0": "Aid of the Elder Gods",
+		"1": "Army of Darkness",
+		"2": "Father of Serpents",
+		"3": "Harbinger of the Outer Gods",
+		"4": "In the Lightless Chamber",
+		"5": "Temptation",
+		"6": "The Archives",
+		"7": "The Stars Align",
+		"8": "Unto the Breach",
+		"9": "Wondrous Curios"
+	},
+	"CardMetadata":
+	{
+		"0": "eh07",
+		"2": "eh02",
+		"4": "eh05"
+	}
+}

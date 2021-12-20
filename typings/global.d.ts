@@ -68,6 +68,7 @@ declare global {
       epicMonsters?: Card;
       focus?: true;
       impairment?: true;
+      resource?: true;
       gates?: Card;
       investigators?: Card;
       monsters?: Card;
@@ -75,6 +76,11 @@ declare global {
       spellCards?: Card;
       preludeCards?: Card;
       uniqueAssetCards?: Card;
+      personalStories?: {
+        missions: string;
+        rewards: string;
+        consequences: string;
+      };
     }
   }
 
@@ -107,12 +113,16 @@ declare global {
   interface ExtraItems {
     randomArtifacts?: number;
     randomAssets?: number;
+    randomSpells?: number;
     clues?: number;
     focus?: number;
+    resources?: number;
     asset?: string;
     condition?: string;
     strength?: number;
     will?: number;
+    eldritchTokens?: number;
+    monster?: string;
   }
 
   interface Prelude {
@@ -188,9 +198,9 @@ declare global {
     investigators: Investigator[];
     alreadyLoaded: string[];
     updateSetupUIFn?: () => void;
-    activeIconReference?: IconReference;
     activePrelude?: string;
     preludes: Map<string, Prelude>;
+    mysticRuins: Set<string>;
   }
 
   interface IconReference {
@@ -218,9 +228,11 @@ declare global {
         "Buenos Aires": SnapPoint;
         Istanbul: SnapPoint;
         London: SnapPoint;
+        Stonehenge: SnapPoint; // London
         Rome: SnapPoint;
         "San Francisco": SnapPoint;
         Shanghai: SnapPoint;
+        "Great Wall of China": SnapPoint; // Shanghai
         Sydney: SnapPoint;
         "The Amazon": SnapPoint;
         "The Heart of Africa": SnapPoint;
@@ -230,17 +242,23 @@ declare global {
         Tunguska: SnapPoint;
         1: SnapPoint;
         2: SnapPoint;
+        Mu: SnapPoint; // space 2
         3: SnapPoint;
+        "Moai Statues": SnapPoint; // space 3
+        "R'lyeh": SnapPoint; // space 3
         4: SnapPoint;
         5: SnapPoint;
         6: SnapPoint;
         7: SnapPoint;
+        "Chichen Itza": SnapPoint; // space 7
         8: SnapPoint;
+        Atlantis: SnapPoint; // space 8
         9: SnapPoint;
         10: SnapPoint;
         11: SnapPoint;
         12: SnapPoint;
         13: SnapPoint;
+        Hyperborea: SnapPoint; // space 13
         14: SnapPoint;
         15: SnapPoint;
         16: SnapPoint;
@@ -249,6 +267,7 @@ declare global {
         19: SnapPoint;
         20: SnapPoint;
         21: SnapPoint;
+        Pnakotus: SnapPoint; // space 21
       };
     bankLoan: SnapPoint;
     reserve: SnapPoint[];
@@ -355,5 +374,8 @@ declare global {
 
   interface SavedData {
     sets: string[];
+    ancientOne?: AncientOneName;
+    isPersonalStory: boolean;
+    iconReference?: IconReference;
   }
 }

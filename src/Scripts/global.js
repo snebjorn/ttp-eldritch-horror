@@ -21,6 +21,7 @@ function initGlobalObject() {
     ancientOnes: new Map(),
     alreadyLoaded: [],
     preludes: new Map(),
+    mysticRuins: new Set(),
   };
 }
 

@@ -9,6 +9,7 @@ const {
   MultistateObject,
   CardHolder,
   Color,
+  Container,
 } = require("@tabletop-playground/api");
 
 class Util {
@@ -123,12 +124,30 @@ class Util {
 
   /**
    * @param {Card} cardStack
+   * @param {number} count - Amount of cards to take. Default: `1`.
    * @returns {Card | undefined}
    */
-  static takeRandomCardFromStack(cardStack) {
-    const randomOffset = this.randomIntFromInterval(0, cardStack.getStackSize() - 1);
+  static takeRandomCardsFromStack(cardStack, count = 1) {
+    let stack;
+    for (let i = 0; i < count; i++) {
+      const randomOffset = this.randomIntFromInterval(0, cardStack.getStackSize() - 1);
 
-    return cardStack.takeCards(1, true, randomOffset);
+      let randomCard = cardStack.takeCards(1, true, randomOffset);
+      if (!randomCard && cardStack.getStackSize() === 1) {
+        // takeCards returns undefined if there's only 1 card left
+        // that means the card we want is the stack
+        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
+        randomCard = cardStack;
+      }
+
+      if (stack === undefined) {
+        stack = randomCard;
+      } else if (randomCard) {
+        stack.addCards(randomCard);
+      }
+    }
+
+    return stack;
   }
 
   /**
@@ -173,7 +192,9 @@ class Util {
         // but that happens somewhat randomly and can cause the objects to rotate or move away from their original location.
         //
         // To resolve this issue we need to offset the height (Z-axises) so it doesn't collide with the below surface.
-        .add(new Vector(0, 0, gameObject.getExtent(true).z)),
+        .add(new Vector(0, 0, gameObject.getExtent(true).z))
+        // add extra height so we're outside the bounding box
+        .add(new Vector(0, 0, 0.01)),
       animationSpeed
     );
 
@@ -184,6 +205,25 @@ class Util {
     } else {
       gameObject.snapToGround();
     }
+  }
+
+  /**
+   * Moves a GameObject on top of another GameObject.
+   *
+   * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
+   * @param {GameObject} destinationObject - Object that {@link gameObject} should be moved on top of
+   * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
+   */
+  static moveOnTopOfObject(gameObject, destinationObject, animationSpeed = 1) {
+    const destinationGlobalPosition = destinationObject
+      // getPosition returns the center of the object
+      .getPosition()
+      // add half of the height of the object
+      .add(new Vector(0, 0, gameObject.getExtent(true).z))
+      // add extra height so we're outside the bounding box
+      .add(new Vector(0, 0, 0.01));
+
+    Util.moveObject(gameObject, destinationGlobalPosition, animationSpeed);
   }
 
   /**
@@ -239,7 +279,7 @@ class Util {
     }
     if (!(card instanceof Card)) {
       throw new Error(
-        `Tried to created ${templateId} as a Card but it's a ${card.constructor.name}`
+        `Tried to create ${templateId} as a Card but it's a ${card.constructor.name}`
       );
     }
     return card;
@@ -270,7 +310,7 @@ class Util {
     }
     if (!(multistateObject instanceof MultistateObject)) {
       throw new Error(
-        `Tried to created ${templateId} as a MultistateObject but it's a ${multistateObject.constructor.name}`
+        `Tried to create ${templateId} as a MultistateObject but it's a ${multistateObject.constructor.name}`
       );
     }
     return multistateObject;
@@ -288,10 +328,28 @@ class Util {
     }
     if (!(cardHolder instanceof CardHolder)) {
       throw new Error(
-        `Tried to created ${templateId} as a CardHolder but it's a ${cardHolder.constructor.name}`
+        `Tried to create ${templateId} as a CardHolder but it's a ${cardHolder.constructor.name}`
       );
     }
     return cardHolder;
+  }
+
+  /**
+   * @param {string} templateId
+   * @param {Vector} position
+   * @returns {Container}
+   */
+  static createContainer(templateId, position) {
+    const container = world.createObjectFromTemplate(templateId, position);
+    if (!container) {
+      throw new Error(`Something went wrong when trying to create ${templateId}`);
+    }
+    if (!(container instanceof Container)) {
+      throw new Error(
+        `Tried to create ${templateId} as a Container but it's a ${container.constructor.name}`
+      );
+    }
+    return container;
   }
 
   /**
@@ -498,7 +556,9 @@ class Util {
    * @param {Vector} direction - direction to find objects in. Defaults to `Vector(0, 0, 2)`
    */
   static findObjectsOnTop(object, direction = new Vector(0, 0, 2)) {
-    const topPosition = Util.getTopPosition(object);
+    const topPosition = Util.getTopPosition(object)
+      // add a little extra height so the line trace wont hit the origin object
+      .add(new Vector(0, 0, 0.01));
     return world.lineTrace(topPosition, topPosition.add(direction));
   }
 
@@ -615,6 +675,28 @@ class Util {
       throw new Error(`Found "${objectId}" but it isn't a Card it's a ${card.constructor.name}`);
     }
     return card;
+  }
+
+  /**
+   * Return the {@link Card} with the specified {@link objectId}.
+   *
+   * @param {string} objectId
+   * @returns {MultistateObject} The {@link Card} with the specified {@link objectId}.
+   * @throws If unable to find {@link objectId}.
+   * @throws If {@link objectId} isn't a {@link Card}.
+   */
+  static getMultistateObjectById(objectId) {
+    const obj = world.getObjectById(objectId);
+
+    if (!obj) {
+      throw new Error(`Unable to find "${objectId}" on the table`);
+    }
+    if (!(obj instanceof MultistateObject)) {
+      throw new Error(
+        `Found "${objectId}" but it isn't a MultistateObject it's a ${obj.constructor.name}`
+      );
+    }
+    return obj;
   }
 }
 
