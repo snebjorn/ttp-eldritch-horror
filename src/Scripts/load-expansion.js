@@ -295,7 +295,7 @@ function addExpansionCardsToExpansionDeck(
     Util.flip(cards);
   }
 
-  Util.addToStack(cards, deckId, deckName, deckDescription, position);
+  Util.addToOrCreateStack(cards, deckId, deckName, deckDescription, position);
 }
 
 function addFocusTokens() {

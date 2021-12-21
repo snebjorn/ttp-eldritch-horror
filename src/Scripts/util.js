@@ -408,7 +408,7 @@ class Util {
    * @param {string} cardDescription
    * @param {SnapPoint | Vector} [position]
    */
-  static addToStack(card, cardStackId, cardStackName, cardDescription, position) {
+  static addToOrCreateStack(card, cardStackId, cardStackName, cardDescription, position) {
     /** @type Card | undefined */
     // @ts-ignore
     const stack = world.getObjectById(cardStackId);
