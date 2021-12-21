@@ -109,15 +109,19 @@ world.__eldritchHorror.mysticRuins.add("78E0B3CC45F78684110FE9B5B8EEF5D9");
 const preludes = {
   "Aid of the Elder Gods": {
     spawnsSideBoard: (ancientOne) => {
-      return "portrait";
+      if (ancientOne !== "Hypnos") {
+        return "portrait";
+      }
     },
     step5: (ancientOne, sideBoardSpawn) => {
-      // setup dreamlands side board
-      const { setupSideBoard } = require("../07 The Dreamlands/setup-side-board");
-      if (!sideBoardSpawn) {
-        throw new Error("Missing sideBoardSpawn argument");
+      if (ancientOne !== "Hypnos") {
+        // setup dreamlands side board
+        const { setupSideBoard } = require("../07 The Dreamlands/setup-side-board");
+        if (!sideBoardSpawn) {
+          throw new Error("Missing sideBoardSpawn argument");
+        }
+        return setupSideBoard(sideBoardSpawn);
       }
-      return setupSideBoard(sideBoardSpawn);
     },
     afterResolvingSetup: (ancientOne) => {
       if (!gameBoardLocations.dreamlandsMat) {
@@ -267,15 +271,19 @@ const preludes = {
   },
   "In the Lightless Chamber": {
     spawnsSideBoard: (ancientOne) => {
-      return "landscape";
+      if (ancientOne !== "Nephren-Ka") {
+        return "landscape";
+      }
     },
     step5: (ancientOne, sideBoardSpawn) => {
-      // setup dreamlands side board
-      const { setupSideBoard } = require("../05 Under the Pyramids/setup-side-board");
-      if (!sideBoardSpawn) {
-        throw new Error("Missing sideBoardSpawn argument");
+      if (ancientOne !== "Nephren-Ka") {
+        // setup dreamlands side board
+        const { setupSideBoard } = require("../05 Under the Pyramids/setup-side-board");
+        if (!sideBoardSpawn) {
+          throw new Error("Missing sideBoardSpawn argument");
+        }
+        return setupSideBoard(sideBoardSpawn);
       }
-      return setupSideBoard(sideBoardSpawn);
     },
     afterResolvingSetup: (ancientOne) => {
       if (!gameBoardLocations.egyptMat) {
