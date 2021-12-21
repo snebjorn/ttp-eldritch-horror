@@ -4,10 +4,10 @@ const { GameUtil } = require("../game-util");
 const { expansionSpawn, mythosSetupDecks, tableLocations } = require("../world-constants");
 
 /**
- * @param {string} templateId
+ * @param {...string} templateId
  */
-function createCard(templateId) {
-  return Util.createCard(templateId, expansionSpawn);
+function createCard(...templateId) {
+  return Util.createCard(expansionSpawn, ...templateId);
 }
 
 /** @type Expansion.Items */

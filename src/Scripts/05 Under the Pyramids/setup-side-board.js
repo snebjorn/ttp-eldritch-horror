@@ -32,13 +32,13 @@ function setupSideBoard(spawnPosition) {
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
-  const africaCards = Util.createCard(egypt.africaCards, spawnPosition);
+  const africaCards = Util.createCard(spawnPosition, egypt.africaCards);
   Util.moveObject(africaCards, gameBoardLocations.egyptMat.africa);
   africaCards.setName("Africa Encounters");
   africaCards.setId("encounter-africa-deck");
   africaCards.shuffle();
 
-  const egyptCards = Util.createCard(egypt.egyptCards, spawnPosition);
+  const egyptCards = Util.createCard(spawnPosition, egypt.egyptCards);
   Util.moveObject(egyptCards, gameBoardLocations.egyptMat.egypt);
   egyptCards.setName("Egypt Encounters");
   egyptCards.setId("encounter-egypt-deck");
@@ -64,12 +64,12 @@ function setupSideBoard(spawnPosition) {
   Util.moveObject(spawnOfSebak, gameBoardLocations.egyptMat.monster3);
 
   const gateStack = Util.getCardObjectById("gate-stack");
-  const gates = Util.createCard(egypt.gates, spawnPosition.add(new Vector(0, 0, 1)));
+  const gates = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), egypt.gates);
   gateStack.addCards(gates);
   gateStack.shuffle();
 
   const cluePool = Util.getCardObjectById("clue-pool");
-  const clues = Util.createCard(egypt.clues, spawnPosition.add(new Vector(0, 0, 1)));
+  const clues = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), egypt.clues);
   cluePool.addCards(clues);
   cluePool.shuffle();
 }

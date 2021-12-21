@@ -10,10 +10,10 @@ const {
 const { Vector } = require("@tabletop-playground/api");
 
 /**
- * @param {string} templateId
+ * @param {...string} templateId
  */
-function createCard(templateId) {
-  return Util.createCard(templateId, expansionSpawn);
+function createCard(...templateId) {
+  return Util.createCard(expansionSpawn, ...templateId);
 }
 
 /**

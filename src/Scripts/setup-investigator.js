@@ -294,8 +294,8 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
 
   if (extras && extras.strength && extras.strength > 0) {
     const improvementTokens = Util.createCard(
-      strengthToken.getTemplateId(),
-      strengthToken.getPosition().add(new Vector(0, 0, 2))
+      strengthToken.getPosition().add(new Vector(0, 0, 2)),
+      strengthToken.getTemplateId()
     );
     const takenStrengthToken = Util.takeCardNameFromStack(improvementTokens, "strength");
     improvementTokens.destroy();
@@ -319,8 +319,8 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     const extraWill = extras && extras.will !== undefined ? extras.will : 0;
     const willCount = startingWill + extraWill;
     const improvementTokens = Util.createCard(
-      willToken.getTemplateId(),
-      willToken.getPosition().add(new Vector(0, 0, 2))
+      willToken.getPosition().add(new Vector(0, 0, 2)),
+      willToken.getTemplateId()
     );
     const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
     improvementTokens.destroy();

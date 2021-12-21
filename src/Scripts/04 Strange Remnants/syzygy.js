@@ -1,4 +1,4 @@
-const { refCard, world, Vector } = require("@tabletop-playground/api");
+const { refCard, world } = require("@tabletop-playground/api");
 const { expansionSpawn } = require("../world-constants");
 const { GameUtil } = require("../game-util");
 const { Util } = require("../util");
@@ -20,19 +20,17 @@ const syzygy = {
     stage3: { green: 3, yellow: 5, blue: 0 },
   },
   customSetup: () => {
-    const mysticRuinsDeck = Util.createCard("8477CAF347EE3FEB6BC15E827D79544B", expansionSpawn);
-    Array.from(world.__eldritchHorror.mysticRuins)
-      .filter((x) => x !== "8477CAF347EE3FEB6BC15E827D79544B")
-      .forEach((id) => {
-        mysticRuinsDeck.addCards(Util.createCard(id, expansionSpawn));
-      });
-
+    // TODO check if already created
+    const mysticRuinsDeck = Util.createCard(
+      expansionSpawn,
+      ...Array.from(world.__eldritchHorror.mysticRuins)
+    );
     GameUtil.addEncounterDeck(mysticRuinsDeck);
     mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
     mysticRuinsDeck.setName("Mystic Ruins Encounters");
     mysticRuinsDeck.shuffle();
 
-    const mysticRuinsToken = Util.createCard("A9C452A442F9A36AC77CC1B68633FEEE", expansionSpawn);
+    const mysticRuinsToken = Util.createCard(expansionSpawn, "A9C452A442F9A36AC77CC1B68633FEEE");
     mysticRuinsToken.setId("mystic-ruins-token");
     mysticRuinsToken.setName("Mystic Ruins Token");
     Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);

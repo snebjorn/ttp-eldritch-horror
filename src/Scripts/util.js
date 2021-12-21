@@ -268,21 +268,37 @@ class Util {
   }
 
   /**
-   * @param {string} templateId
-   * @param {Vector} position
+   * @param {SnapPoint | Vector} position
+   * @param {...string} templateIds
    * @returns {Card}
    */
-  static createCard(templateId, position) {
-    const card = world.createObjectFromTemplate(templateId, position);
-    if (!card) {
-      throw new Error(`Something went wrong when trying to create ${templateId}`);
+  static createCard(position, ...templateIds) {
+    if (templateIds.length === 0) {
+      throw new Error("Missing argument. TemplateIds is empty");
     }
-    if (!(card instanceof Card)) {
-      throw new Error(
-        `Tried to create ${templateId} as a Card but it's a ${card.constructor.name}`
-      );
+
+    const vectorPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
+
+    let deck;
+    for (const templateId of templateIds) {
+      const card = world.createObjectFromTemplate(templateId, vectorPosition);
+      if (!card) {
+        throw new Error(`Something went wrong when trying to create ${templateIds}`);
+      }
+      if (!(card instanceof Card)) {
+        throw new Error(
+          `Tried to create ${templateIds} as a Card but it's a ${card.constructor.name}`
+        );
+      }
+
+      if (!deck) {
+        deck = card;
+      } else {
+        deck.addCards(card);
+      }
     }
-    return card;
+
+    return deck;
   }
 
   /**

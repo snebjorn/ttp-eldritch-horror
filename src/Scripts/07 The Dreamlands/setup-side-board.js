@@ -34,18 +34,18 @@ function setupSideBoard(spawnPosition) {
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
-  const dreamQuestCards = Util.createCard(dreamlands.dreamQuestCards, spawnPosition);
+  const dreamQuestCards = Util.createCard(spawnPosition, dreamlands.dreamQuestCards);
   Util.moveObject(dreamQuestCards, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestCards.setName("Dream-Quest Encounters");
   dreamQuestCards.setId("encounter-dream-quest-deck");
   dreamQuestCards.shuffle();
 
-  const dreamQuestToken = Util.createCard(dreamlands.dreamQuestToken, spawnPosition);
+  const dreamQuestToken = Util.createCard(spawnPosition, dreamlands.dreamQuestToken);
   Util.moveObject(dreamQuestToken, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestToken.setName("Dream-Quest Token");
   dreamQuestToken.setId("dream-quest-token");
 
-  const dreamlandsCards = Util.createCard(dreamlands.dreamlandsCards, spawnPosition);
+  const dreamlandsCards = Util.createCard(spawnPosition, dreamlands.dreamlandsCards);
   Util.moveObject(dreamlandsCards, gameBoardLocations.dreamlandsMat.dreamlands);
   dreamlandsCards.setName("Dreamlands Encounters");
   dreamlandsCards.setId("encounter-dreamlands-deck");
@@ -77,17 +77,17 @@ function setupSideBoard(spawnPosition) {
   Util.moveObject(zoog, gameBoardLocations.dreamlandsMat.monster4);
 
   const gateStack = Util.getCardObjectById("gate-stack");
-  const gates = Util.createCard(dreamlands.gates, spawnPosition.add(new Vector(0, 0, 1)));
+  const gates = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), dreamlands.gates);
   gateStack.addCards(gates);
   gateStack.shuffle();
 
   const cluePool = Util.getCardObjectById("clue-pool");
-  const clues = Util.createCard(dreamlands.clues, spawnPosition.add(new Vector(0, 0, 1)));
+  const clues = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), dreamlands.clues);
   cluePool.addCards(clues);
   cluePool.shuffle();
 
   return () => {
-    const dreamPortals = Util.createCard(dreamlands.dreamPortals, spawnPosition);
+    const dreamPortals = Util.createCard(spawnPosition, dreamlands.dreamPortals);
     dreamPortals.shuffle();
     spawnDreamPortals(gateStack, dreamPortals);
   };

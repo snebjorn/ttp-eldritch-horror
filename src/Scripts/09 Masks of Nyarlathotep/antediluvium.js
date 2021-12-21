@@ -42,19 +42,17 @@ const antediluvium = {
     }
 
     // set up the mystic ruins encounter deck.
-    const mysticRuinsDeck = Util.createCard("78E0B3CC45F78684110FE9B5B8EEF5D9", expansionSpawn);
-    Array.from(world.__eldritchHorror.mysticRuins)
-      .filter((x) => x !== "78E0B3CC45F78684110FE9B5B8EEF5D9")
-      .forEach((id) => {
-        mysticRuinsDeck.addCards(Util.createCard(id, expansionSpawn));
-      });
-
+    // TODO check if already created
+    const mysticRuinsDeck = Util.createCard(
+      expansionSpawn,
+      ...Array.from(world.__eldritchHorror.mysticRuins)
+    );
     GameUtil.addEncounterDeck(mysticRuinsDeck);
     mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
     mysticRuinsDeck.setName("Mystic Ruins Encounters");
     mysticRuinsDeck.shuffle();
 
-    const mysticRuinsToken = Util.createCard("A9C452A442F9A36AC77CC1B68633FEEE", expansionSpawn);
+    const mysticRuinsToken = Util.createCard(expansionSpawn, "A9C452A442F9A36AC77CC1B68633FEEE");
     mysticRuinsToken.setId("mystic-ruins-token");
     mysticRuinsToken.setName("Mystic Ruins Token");
     Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);

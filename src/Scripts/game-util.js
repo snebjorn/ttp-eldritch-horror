@@ -32,13 +32,13 @@ class GameUtil {
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static retreatDoom(number = 1) {
+  static retreatDoom(count = 1) {
     const doomCount = findDoomCount();
     if (doomCount) {
       // @ts-ignore
-      const retreatedDoomSnapShot = gameBoardLocations.doom[doomCount + number];
+      const retreatedDoomSnapShot = gameBoardLocations.doom[doomCount + count];
       if (retreatedDoomSnapShot) {
         Util.moveObject(doomToken, retreatedDoomSnapShot);
       }
@@ -46,57 +46,45 @@ class GameUtil {
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static takeEldritchTokens(number = 1) {
+  static takeEldritchTokens(count = 1) {
     const stackPos = eldritchToken.getPosition().add(new Vector(0, 0, 3));
-    const tokenStack = Util.createCard("2B59F5E24A16BA40DBA5DEB42AA14D89", stackPos);
-
-    if (number > 1) {
-      for (let i = 1; i < number; i++) {
-        tokenStack.addCards(Util.createCard("2B59F5E24A16BA40DBA5DEB42AA14D89", stackPos));
-      }
-    }
+    /** @type {string[]} */
+    const ids = Array(count).fill("2B59F5E24A16BA40DBA5DEB42AA14D89");
+    const tokenStack = Util.createCard(stackPos, ...ids);
 
     return tokenStack;
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static takeFocusTokens(number = 1) {
+  static takeFocusTokens(count = 1) {
     const focusStack = world.getObjectById("focus-token");
     if (!focusStack) {
       throw new Error("Unable to find focus token");
     }
     const stackPos = focusStack.getPosition().add(new Vector(0, 0, 3));
-    const focusToken = Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", stackPos);
-
-    if (number > 1) {
-      for (let i = 1; i < number; i++) {
-        focusToken.addCards(Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", stackPos));
-      }
-    }
+    /** @type {string[]} */
+    const ids = Array(count).fill("414DCAD946F6CCB38C7D8BB8F8838008");
+    const focusToken = Util.createCard(stackPos, ...ids);
 
     return focusToken;
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static takeResourceTokens(number = 1) {
+  static takeResourceTokens(count = 1) {
     const resourceStack = world.getObjectById("resource-token");
     if (!resourceStack) {
       throw new Error("Unable to find resource token");
     }
     const stackPos = resourceStack.getPosition().add(new Vector(0, 0, 3));
-    const resourceToken = Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", stackPos);
-
-    if (number > 1) {
-      for (let i = 1; i < number; i++) {
-        resourceToken.addCards(Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", stackPos));
-      }
-    }
+    /** @type {string[]} */
+    const ids = Array(count).fill("6B38AFF1442360922B6DCBBEFA072DAE");
+    const resourceToken = Util.createCard(stackPos, ...ids);
 
     return resourceToken;
   }
@@ -143,32 +131,28 @@ class GameUtil {
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static takeDevastationTokens(number = 1) {
+  static takeDevastationTokens(count = 1) {
     const devastationStack = world.getObjectById("devastation-token");
     if (!devastationStack) {
       throw new Error("Unable to find devastation token");
     }
     const stackPos = devastationStack.getPosition().add(new Vector(0, 0, 3));
-    const devastationToken = Util.createCard("41A12F664413E91443499C984A9A80F9", stackPos);
-
-    if (number > 1) {
-      for (let i = 1; i < number; i++) {
-        devastationToken.addCards(Util.createCard("41A12F664413E91443499C984A9A80F9", stackPos));
-      }
-    }
+    /** @type {string[]} */
+    const ids = Array(count).fill("41A12F664413E91443499C984A9A80F9");
+    const devastationToken = Util.createCard(stackPos, ...ids);
 
     return devastationToken;
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
    * @throws If unable to take ship token from travel tickets template object
    */
-  static takeShipTokens(number = 1) {
+  static takeShipTokens(count = 1) {
     const stackPos = shipTicket.getPosition().add(new Vector(0, 0, 3));
-    const travelTickets = Util.createCard("934AA7324CE46C2AC3DF2999F5F3EFEB", stackPos);
+    const travelTickets = Util.createCard(stackPos, "934AA7324CE46C2AC3DF2999F5F3EFEB");
     const shipTokens = Util.takeCardNameFromStack(travelTickets, "Ship Ticket");
     travelTickets.destroy();
 
@@ -176,9 +160,9 @@ class GameUtil {
       throw new Error("Unable to take ship token");
     }
 
-    if (number > 1) {
+    if (count > 1) {
       const json = shipTokens.toJSONString();
-      for (let i = 1; i < number; i++) {
+      for (let i = 1; i < count; i++) {
         const copiedToken = Util.cloneCardFromJson(json, stackPos);
         shipTokens.addCards(copiedToken);
       }

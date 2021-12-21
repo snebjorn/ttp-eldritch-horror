@@ -42,7 +42,7 @@ const nyarlathotep = {
       "BEEB07464B9819C2D6BAB883A88C9146", // adventure token
     ];
     for (const adventureId of adventureIds) {
-      const adventureCards = Util.createCard(adventureId, expansionSpawn);
+      const adventureCards = Util.createCard(expansionSpawn, adventureId);
       adventureBag.addObjects([adventureCards], 0);
     }
 

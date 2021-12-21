@@ -101,7 +101,7 @@ function setupMysteryCards(mysteryTemplateIds) {
     throw new Error("Cannot find table location for the mystery deck");
   }
 
-  const mysteryDeck = buildDeck(mysteryTemplateIds, mysteryDeckTableLocation);
+  const mysteryDeck = Util.createCard(mysteryDeckTableLocation, ...mysteryTemplateIds);
 
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
@@ -126,7 +126,7 @@ function setupResearchCards(researchTemplateIds) {
     return;
   }
 
-  const researchDeck = buildDeck(researchTemplateIds, tableLocations.research);
+  const researchDeck = Util.createCard(tableLocations.research, ...researchTemplateIds);
 
   researchDeck.setName("Research Encounters");
   researchDeck.snap();
@@ -146,43 +146,15 @@ function setupSpecialCards(specialTemplateIds) {
     let specialDeck;
     try {
       const snapPoint = Util.getNextAvailableSnapPoint(tableLocations.specials);
-      specialDeck = buildDeck(templateIds, snapPoint);
+      specialDeck = Util.createCard(snapPoint, ...templateIds);
     } catch {
       // some ancient ones have more than 2 special decks,
       // in that event we need to shift the entire top row to make room
-      specialDeck = buildDeck(templateIds, expansionSpawn);
+      specialDeck = Util.createCard(expansionSpawn, ...templateIds);
       Util.insertObjectAt(specialDeck, [tableLocations.research, ...tableLocations.topDeckRow], 0);
     }
     specialDeck.snap();
     specialDeck.setName(specialName);
     specialDeck.shuffle();
   }
-}
-
-/**
- * @param {string[]} templateIds
- * @param {SnapPoint | Vector} position
- */
-function buildDeck(templateIds, position) {
-  /** @type Card */
-  // @ts-ignore
-  const finalDeck = templateIds.reduce(
-    /** @param {Card | undefined} deck */
-    (deck, templateId) => {
-      const expansionCards = Util.createCard(
-        templateId,
-        position instanceof SnapPoint ? position.getGlobalPosition() : position
-      );
-      if (deck === undefined) {
-        deck = expansionCards;
-      } else {
-        deck.addCards(expansionCards, true, 0, false);
-      }
-
-      return deck;
-    },
-    undefined
-  );
-
-  return finalDeck;
 }

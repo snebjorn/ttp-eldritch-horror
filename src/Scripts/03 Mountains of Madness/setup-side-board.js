@@ -33,19 +33,19 @@ function setupSideBoard(spawnPosition) {
   sideBoardMat.setGroupId(groupId);
   sideBoard.setGroupId(groupId);
 
-  const researchCards = Util.createCard(antarctica.researchCards, spawnPosition);
+  const researchCards = Util.createCard(spawnPosition, antarctica.researchCards);
   Util.moveObject(researchCards, gameBoardLocations.antarcticaMat.research);
   researchCards.setName("Antarctica Research Encounters");
   researchCards.setId("encounter-antarctica-research-deck");
   researchCards.shuffle();
 
-  const mountainCards = Util.createCard(antarctica.mountainsCards, spawnPosition);
+  const mountainCards = Util.createCard(spawnPosition, antarctica.mountainsCards);
   Util.moveObject(mountainCards, gameBoardLocations.antarcticaMat.mountains);
   mountainCards.setName("Mountains Encounters");
   mountainCards.setId("encounter-mountains-deck");
   mountainCards.shuffle();
 
-  const outpostCards = Util.createCard(antarctica.outpostCards, spawnPosition);
+  const outpostCards = Util.createCard(spawnPosition, antarctica.outpostCards);
   Util.moveObject(outpostCards, gameBoardLocations.antarcticaMat.outposts);
   outpostCards.setName("Outpost Encounters");
   outpostCards.setId("encounter-outpost-deck");
@@ -77,7 +77,7 @@ function setupSideBoard(spawnPosition) {
   Util.moveObject(shoggoth, gameBoardLocations.antarcticaMat.monster4);
 
   const gateStack = Util.getCardObjectById("gate-stack");
-  const gates = Util.createCard(antarctica.gates, spawnPosition.add(new Vector(0, 0, 1)));
+  const gates = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), antarctica.gates);
   gateStack.addCards(gates);
   gateStack.shuffle();
 
@@ -85,7 +85,7 @@ function setupSideBoard(spawnPosition) {
   if (!cluePool) {
     throw new Error("Cannot find clue pool");
   }
-  const clues = Util.createCard(antarctica.clues, spawnPosition.add(new Vector(0, 0, 1)));
+  const clues = Util.createCard(spawnPosition.add(new Vector(0, 0, 1)), antarctica.clues);
   cluePool.addCards(clues);
   cluePool.shuffle();
 }

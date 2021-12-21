@@ -12,10 +12,10 @@ const {
 const { setupCrippledInvestigator, getInvestigatorData } = require("../setup-investigator");
 
 /**
- * @param {string} templateId
+ * @param {...string} templateId
  */
-function createCard(templateId) {
-  return Util.createCard(templateId, expansionSpawn);
+function createCard(...templateId) {
+  return Util.createCard(expansionSpawn, ...templateId);
 }
 
 /** @type Expansion.Items */

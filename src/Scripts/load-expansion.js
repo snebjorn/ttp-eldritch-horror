@@ -146,15 +146,15 @@ function createAssets(expansionItems) {
   if (expansionItems.personalStories) {
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-mission-deck"),
-      Util.createCard(expansionItems.personalStories.missions, expansionSpawn)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.missions)
     );
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-reward-deck"),
-      Util.createCard(expansionItems.personalStories.rewards, expansionSpawn)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.rewards)
     );
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-consequence-deck"),
-      Util.createCard(expansionItems.personalStories.consequences, expansionSpawn)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.consequences)
     );
   }
   if (expansionItems.preludeCards) {
@@ -303,7 +303,7 @@ function addFocusTokens() {
     return; // abort - focus is already loaded
   }
 
-  const focusToken = Util.createCard("414DCAD946F6CCB38C7D8BB8F8838008", expansionSpawn);
+  const focusToken = Util.createCard(expansionSpawn, "414DCAD946F6CCB38C7D8BB8F8838008");
   const focusStack = Util.convertToInfiniteStack(focusToken);
   focusStack.setId("focus-token");
   focusStack.setName("Focus Token");
@@ -323,7 +323,7 @@ function addResourceTokens() {
     return; // abort - resource is already loaded
   }
 
-  const resourceToken = Util.createCard("6B38AFF1442360922B6DCBBEFA072DAE", expansionSpawn);
+  const resourceToken = Util.createCard(expansionSpawn, "6B38AFF1442360922B6DCBBEFA072DAE");
   const resourceStack = Util.convertToInfiniteStack(resourceToken);
   resourceStack.setId("resource-token");
   resourceStack.setName("Resource Token");
@@ -344,7 +344,7 @@ function addImpairmentTokens() {
     return; // abort - impairment tokens are already loaded
   }
 
-  const impairmentStack = Util.createCard("682F0E47464E6B57ECD299908D2C1035", expansionSpawn);
+  const impairmentStack = Util.createCard(expansionSpawn, "682F0E47464E6B57ECD299908D2C1035");
 
   /**
    * @param {string} name
@@ -426,7 +426,7 @@ function addPersonalStories() {
     // ½ height of personal story cards
     .add(new Vector(3.15, 0, 0));
 
-  const personalMissions = Util.createCard("5AA0264443FAD6BA1A8015B49EC54E45", topCenter);
+  const personalMissions = Util.createCard(topCenter, "5AA0264443FAD6BA1A8015B49EC54E45");
   personalMissions.setId("personal-mission-deck");
   personalMissions.setName("Personal Missions");
   Util.flip(personalMissions);
@@ -441,7 +441,7 @@ function addPersonalStories() {
     // width of personal story cards
     .add(new Vector(0, 4, 0));
 
-  const personalRewards = Util.createCard("D5C6DBE24E3409D4C9E87D9FA8F0C5AD", topRight);
+  const personalRewards = Util.createCard(topRight, "D5C6DBE24E3409D4C9E87D9FA8F0C5AD");
   personalRewards.setId("personal-reward-deck");
   personalRewards.setName("Personal Rewards");
   Util.flip(personalRewards);
@@ -456,7 +456,7 @@ function addPersonalStories() {
     // width of personal story cards
     .subtract(new Vector(0, 4, 0));
 
-  const personalConsequences = Util.createCard("DA9D39E94D7179ACB513869A4730D3E5", topLeft);
+  const personalConsequences = Util.createCard(topLeft, "DA9D39E94D7179ACB513869A4730D3E5");
   personalConsequences.setId("personal-consequence-deck");
   personalConsequences.setName("Personal Consequences");
   Util.flip(personalConsequences);
