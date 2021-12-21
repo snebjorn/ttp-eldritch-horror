@@ -62,29 +62,27 @@ const preludes = {
   "In Cosmic Alignment": {
     step5: (ancientOne) => {
       if (ancientOne !== "Syzygy") {
-        // setup mystic ruins deck
-        const mysticRuinsDeck = createCard("8477CAF347EE3FEB6BC15E827D79544B");
-        mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
-        mysticRuinsDeck.setName("Mystic Ruins Encounters");
+        const mysticRuinsIds = Array.from(world.__eldritchHorror.mysticRuins);
+        if (!mysticRuinsIds.some((x) => world.__eldritchHorror.alreadyLoaded.includes(x))) {
+          // setup mystic ruins deck
+          const mysticRuinsDeck = createCard(...mysticRuinsIds);
+          mysticRuinsDeck.setId("encounter-mystic-ruins-deck");
+          mysticRuinsDeck.setName("Mystic Ruins Encounters");
+          GameUtil.addEncounterDeck(mysticRuinsDeck);
+          mysticRuinsDeck.shuffle();
 
-        Array.from(world.__eldritchHorror.mysticRuins)
-          .filter((x) => x !== "8477CAF347EE3FEB6BC15E827D79544B")
-          .forEach((id) => {
-            mysticRuinsDeck.addCards(createCard(id));
-          });
+          const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
+          mysticRuinsToken.setId("mystic-ruins-token");
+          mysticRuinsToken.setName("Mystic Ruins Token");
+          Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
+          world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
 
-        GameUtil.addEncounterDeck(mysticRuinsDeck);
-        mysticRuinsDeck.shuffle();
+          Util.logScriptAction(
+            "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck."
+          );
 
-        const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
-        mysticRuinsToken.setId("mystic-ruins-token");
-        mysticRuinsToken.setName("Mystic Ruins Token");
-        Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
-        world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
-
-        Util.logScriptAction(
-          "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck."
-        );
+          world.__eldritchHorror.alreadyLoaded.push(...mysticRuinsIds);
+        }
       }
     },
     afterResolvingSetup: (ancientOne) => {
