@@ -123,16 +123,27 @@ class Util {
   }
 
   /**
-   * @param {Card} cardStack
+   * @param {Card} cardStack - Card stack to take from.
    * @param {number} count - Amount of cards to take. Default: `1`.
+   * @param {string[]} excludeCardNames - Card names to exclude from the random take. Default: `[]`.
    * @returns {Card | undefined}
    */
-  static takeRandomCardsFromStack(cardStack, count = 1) {
+  static takeRandomCardsFromStack(cardStack, count = 1, excludeCardNames = []) {
     let stack;
     for (let i = 0; i < count; i++) {
-      const randomOffset = this.randomIntFromInterval(0, cardStack.getStackSize() - 1);
+      const includedIndexes = cardStack
+        .getAllCardDetails()
+        .reduce((/** @type {number[]} */ prev, next, index) => {
+          if (!excludeCardNames.includes(next.name)) {
+            prev.push(index);
+          }
+          return prev;
+        }, []);
 
-      let randomCard = cardStack.takeCards(1, true, randomOffset);
+      const randomIncludedOffset =
+        includedIndexes[this.randomIntFromInterval(0, includedIndexes.length - 1)];
+
+      let randomCard = cardStack.takeCards(1, true, randomIncludedOffset);
       if (!randomCard && cardStack.getStackSize() === 1) {
         // takeCards returns undefined if there's only 1 card left
         // that means the card we want is the stack

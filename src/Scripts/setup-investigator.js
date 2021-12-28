@@ -168,17 +168,6 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
   }
 
-  if (extras && extras.randomSpells !== undefined && extras.randomSpells > 0) {
-    for (let i = 0; i < extras.randomSpells; i++) {
-      const randomSpell = Util.takeRandomCardsFromStack(spellDeck);
-      if (randomSpell === undefined) {
-        console.error(`Unable to take a random spell from the Spell Deck`);
-        return;
-      }
-      positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
-    }
-  }
-
   if (startingItems.uniqueAssets && startingItems.uniqueAssets.length > 0) {
     /** @type Card | undefined */
     // @ts-ignore
@@ -198,6 +187,16 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
   }
 
+  /**
+   * This array is used to keep track of spells given to an investigator so we can adhere to the following rule.
+   *
+   * > **Gaining a Random Card:**
+   * >
+   * > If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
+   * > repeating this process until he draws a card he does not already have (if able).
+   *
+   * @type string[] */
+  const givenSpells = [];
   if (startingItems.spells && startingItems.spells.length > 0) {
     startingItems.spells.forEach((spell) => {
       const spellCard = Util.takeCardNameFromStack(spellDeck, spell);
@@ -205,13 +204,30 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
         console.error(`Unable to find "${spell}" in Spell Deck`);
         return;
       }
+      givenSpells.push(spellCard.getCardDetails().name);
 
       positionItemOnInvestigatorSheet(investigatorSheet, spellCard, itemsGiven++);
     });
   }
 
+  if (extras && extras.randomSpells !== undefined && extras.randomSpells > 0) {
+    for (let i = 0; i < extras.randomSpells; i++) {
+      const randomSpell = Util.takeRandomCardsFromStack(spellDeck, 1, givenSpells);
+      if (randomSpell === undefined) {
+        console.error(`Unable to take a random spell from the Spell Deck`);
+        return;
+      }
+      positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
+    }
+  }
+
   if (extras && extras.condition) {
-    if (startingItems.conditions) {
+    if (
+      startingItems.conditions &&
+      // An investigator cannot have multiple copies of the same Condition.
+      // If he would gain a Condition that he already has a copy of, he does not gain another copy of that Condition.
+      !startingItems.conditions.includes(extras.condition)
+    ) {
       startingItems.conditions.push(extras.condition);
     } else {
       startingItems.conditions = [extras.condition];
