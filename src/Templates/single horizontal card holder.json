@@ -2,6 +2,7 @@
 	"Type": "Card Holder",
 	"GUID": "256D88174A01E35195FC3094D7BA9336",
 	"Name": "Single Horizontal Card Holder",
+	"Metadata": "",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0.3,
@@ -23,6 +24,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": false,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [
@@ -50,6 +52,7 @@
 			"NormalMap": "Texture2D'/Game/Textures/Boards/BoardWood_Normal.BoardWood_Normal'",
 			"ExtraMap": "Texture2D'/Game/Textures/Boards/BoardWood_Extra.BoardWood_Extra'",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": false,
 			"Roughness": 0.7,
 			"Metallic": 0,
@@ -91,6 +94,7 @@
 			"NormalMap": "",
 			"ExtraMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Plastic"
 		}
@@ -111,6 +115,6 @@
 		"Z": 0.2
 	},
 	"CardsWidth": 6.5,
-	"MaxCards": 24,
+	"MaxCards": 1,
 	"MaxCardHeight": 4.2
 }
