@@ -174,7 +174,7 @@ function drawSetupUi() {
   const preludeBox = new HorizontalBox();
   vBox.addChild(preludeBox);
   const noPreludeText =
-    'No prelude selected\nPlace a prelude card on the "Active Prelude" to select one';
+    'No prelude selected\nPlace a Prelude card on the "Active Prelude" to select one';
   const preludeTextBox = new Text().setText(noPreludeText);
   preludeBox.addChild(preludeTextBox);
 

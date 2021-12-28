@@ -126,7 +126,7 @@ declare global {
   }
 
   interface Prelude {
-    /** Indicates if this prelude spawns a side board and in what orientation */
+    /** Indicates if this Prelude spawns a side board and in what orientation */
     spawnsSideBoard?: (ancientOne: string) => "landscape" | "portrait" | undefined;
     /** Organize Tokens */
     step2?: (ancientOne: string, iconReference?: IconReference) => void;
