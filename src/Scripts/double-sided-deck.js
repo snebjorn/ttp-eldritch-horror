@@ -16,7 +16,7 @@ refCard.onInserted.add((stack, insertedCard, offset, player) => {
 
   stack.shuffle();
 
-  const insertedCardNames = insertedCard.map((card) => card.name);
+  const insertedCardNames = insertedCard.getAllCardDetails().map((card) => card.name);
   Util.logScriptAction(
     `${player.getName()} discarded "${insertedCardNames.join(
       '", "'

@@ -17,14 +17,6 @@ declare module "@tabletop-playground/api" {
     // as without ?. support I cannot be bothered to define this as optional :-/
     __eldritchHorror: EldritchHorrorGameWorld;
   }
-
-  interface Card {
-    forEach(
-      callbackfn: (value: CardDetails, index: number, stack: Card) => void,
-      thisArg?: any
-    ): void;
-    map<U>(callbackfn: (value: CardDetails, index: number, stack: Card) => U, thisArg?: any): U[];
-  }
 }
 
 declare global {
