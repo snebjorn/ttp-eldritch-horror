@@ -40,6 +40,7 @@ function setupInvestigator(investigatorSheet, player) {
   const activePrelude = GameUtil.getActivePrelude();
   const activeAncientOne = GameUtil.getActiveAncientOne();
   if (
+    !GameUtil.getSavedData().isGameBegun &&
     activeAncientOne &&
     activePrelude &&
     !!activePrelude.investigatorSetup &&

@@ -389,7 +389,7 @@ class GameUtil {
   static getSavedData() {
     const data = Util.getSavedData();
     if (!data || !data.sets === undefined) {
-      return { sets: [], isPersonalStory: false };
+      return { sets: [], isPersonalStory: false, isGameBegun: false };
     }
 
     return data;

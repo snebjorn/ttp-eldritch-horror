@@ -43,6 +43,7 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
   Util.moveObject(stage3, tableLocations.mythosDeck);
   stage3.setName("Mythos Deck");
   stage3.setId("mythos-deck");
+  stage3.setScript("mythos-deck.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 
   cleanupMythosCards();
 }

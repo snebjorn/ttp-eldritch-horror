@@ -369,5 +369,6 @@ declare global {
     ancientOne?: AncientOneName;
     isPersonalStory: boolean;
     iconReference?: IconReference;
+    isGameBegun: boolean;
   }
 }
