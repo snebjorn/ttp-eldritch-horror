@@ -5,6 +5,8 @@ const { world, Card, Container, Vector, SnapPoint } = require("@tabletop-playgro
 exports.investigatorDeck = world.getObjectById("investigator-deck");
 /** @type {() => Card} */
 exports.getAssetDeck = () => world.getObjectById("asset-deck");
+/** @type {() => Card | undefined} */
+exports.getAssetDiscardPile = () => world.getObjectById("asset-discard-pile");
 /** @type {Card} */
 exports.conditionDeck = world.getObjectById("condition-deck");
 /** @type {Card} */
@@ -22,10 +24,10 @@ exports.encounterDecks = {
 };
 /** @type {Container} */
 exports.ancientContainer = world.getObjectById("ancient-container");
-/** @type {Container} */
-exports.clueDiscardPile = world.getObjectById("clue-discard-pile");
-/** @type {Container} */
-exports.gateDiscardPile = world.getObjectById("gate-discard-pile");
+/** @type {() => Card | undefined} */
+exports.getClueDiscardPile = () => world.getObjectById("clue-discard-pile");
+/** @type {() => Card | undefined} */
+exports.getGateDiscardPile = world.getObjectById("gate-discard-pile");
 
 /** @type {MythosSetupDecks} */
 exports.mythosSetupDecks = {

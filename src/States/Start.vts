@@ -162,70 +162,6 @@
 			{
 				"rotation":
 				{
-					"x": 0,
-					"y": 0,
-					"z": 0,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": -3.0895793437957764,
-					"y": -5.7356123924255371,
-					"z": 83.23992919921875
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": false,
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 255,
-				"r": 255,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0.30000001192092896,
-			"roughness": 0.60000002384185791,
-			"friction": 0.69999998807907104,
-			"restitution": 0.30000001192092896,
-			"density": 1,
-			"surfaceType": "SurfaceType2",
-			"objectName": "",
-			"objectDescription": "",
-			"collisionType": "CB_Ground",
-			"templateId": "57C43863456EC91D75CBADAE933981D4",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
-			"persistentData": "",
-			"uniqueId": "j8t",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "DynamicObject",
-			"transform":
-			{
-				"rotation":
-				{
 					"x": -4.226015732911037e-07,
 					"y": -1.0728841743912199e-06,
 					"z": 1.745849317558168e-06,
@@ -276,77 +212,10 @@
 				"y": 0,
 				"z": 0
 			},
-			"objectScriptPackage": "00000000000000000000000000000000",
-			"objectScriptName": "",
+			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
+			"objectScriptName": "game-mat.js",
 			"persistentData": "",
 			"uniqueId": "table-mat",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Bag",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": 1.597896812199906e-06,
-					"y": -1.6093251815618714e-06,
-					"z": 8.7156955430600647e-08,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": 5.9998464584350586,
-					"y": 49.283500671386719,
-					"z": 87.092086791992188
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"bagType": "Stack",
-			"maxItems": 100,
-			"itemsJson": [],
-			"primaryColor":
-			{
-				"b": 30,
-				"g": 87,
-				"r": 8,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 0.80000001192092896,
-			"friction": 0.69999998807907104,
-			"restitution": 0.30000001192092896,
-			"density": 1,
-			"surfaceType": "SurfaceType3",
-			"objectName": "Discarded Clues",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "BD18A8444572DEB3F1677B8751A66578",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "clue-discard-pool.js",
-			"persistentData": "",
-			"uniqueId": "clue-discard-pile",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -416,73 +285,6 @@
 			"objectScriptName": "",
 			"persistentData": "",
 			"uniqueId": "h2d",
-			"objectGroupId": -1,
-			"ownerIndex": -1,
-			"bCanBeDamaged": false
-		},
-		{
-			"objectType": "Bag",
-			"transform":
-			{
-				"rotation":
-				{
-					"x": -3.8878856685187202e-06,
-					"y": 2.9294765226950403e-06,
-					"z": 1.8472223928256426e-07,
-					"w": 1
-				},
-				"translation":
-				{
-					"x": -0.00033330134465359151,
-					"y": 49.283275604248047,
-					"z": 87.092094421386719
-				},
-				"scale3D":
-				{
-					"x": 1,
-					"y": 1,
-					"z": 1
-				}
-			},
-			"simulatingPhysics": true,
-			"bagType": "Stack",
-			"maxItems": 100,
-			"itemsJson": [],
-			"primaryColor":
-			{
-				"b": 255,
-				"g": 165,
-				"r": 167,
-				"a": 255
-			},
-			"secondaryColor":
-			{
-				"b": 0,
-				"g": 0,
-				"r": 0,
-				"a": 255
-			},
-			"metallic": 0,
-			"roughness": 0.80000001192092896,
-			"friction": 0.69999998807907104,
-			"restitution": 0.30000001192092896,
-			"density": 1,
-			"surfaceType": "SurfaceType3",
-			"objectName": "Discarded Gates",
-			"objectDescription": "",
-			"collisionType": "CB_Regular",
-			"templateId": "BD18A8444572DEB3F1677B8751A66578",
-			"shouldSnap": true,
-			"previousPosition":
-			{
-				"x": 0,
-				"y": 0,
-				"z": 0
-			},
-			"objectScriptPackage": "8A0B748B4DA2CE04CB79E4A02C7FD720",
-			"objectScriptName": "gate-discard-pile.js",
-			"persistentData": "",
-			"uniqueId": "gate-discard-pile",
 			"objectGroupId": -1,
 			"ownerIndex": -1,
 			"bCanBeDamaged": false
@@ -5822,5 +5624,288 @@
 			"bCanBeDamaged": false
 		}
 	],
-	"zones": []
+	"zones": [
+		{
+			"persistentData": "",
+			"shape": "Cube",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "asset-discard-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0,
+					"y": -0,
+					"z": 0,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 1.4555435180664062,
+					"y": -158.10420227050781,
+					"z": 260.8463134765625
+				},
+				"scale3D":
+				{
+					"x": 17.770389556884766,
+					"y": 10.263931274414062,
+					"z": 1
+				}
+			},
+			"bCanBeDamaged": true
+		},
+		{
+			"persistentData": "",
+			"shape": "Cube",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "asset-deck-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0,
+					"y": -0,
+					"z": 0,
+					"w": 1
+				},
+				"translation":
+				{
+					"x": 1.3831477165222168,
+					"y": -142.89828491210938,
+					"z": 261.0009765625
+				},
+				"scale3D":
+				{
+					"x": 17.691368103027344,
+					"y": 10.809632301330566,
+					"z": 1
+				}
+			},
+			"bCanBeDamaged": true
+		},
+		{
+			"persistentData": "",
+			"shape": "Cylinder",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "gate-discard-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -0,
+					"y": 0,
+					"z": -0.011384767480194569,
+					"w": 0.99993520975112915
+				},
+				"translation":
+				{
+					"x": -0.16214942932128906,
+					"y": 147.85354614257812,
+					"z": 260.97140502929688
+				},
+				"scale3D":
+				{
+					"x": 15.225428581237793,
+					"y": 14.851775169372559,
+					"z": 1
+				}
+			},
+			"bCanBeDamaged": true
+		},
+		{
+			"persistentData": "",
+			"shape": "Cylinder",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "clue-discard-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": 0,
+					"y": -0,
+					"z": 0.0062615606002509594,
+					"w": 0.9999803900718689
+				},
+				"translation":
+				{
+					"x": 17.962915420532227,
+					"y": 147.90965270996094,
+					"z": 260.81875610351562
+				},
+				"scale3D":
+				{
+					"x": 4.6546182632446289,
+					"y": 4.7116103172302246,
+					"z": 1
+				}
+			},
+			"bCanBeDamaged": true
+		},
+		{
+			"persistentData": "",
+			"shape": "Cylinder",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "gate-stack-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -0,
+					"y": 0,
+					"z": -0.015522142872214317,
+					"w": 0.99987953901290894
+				},
+				"translation":
+				{
+					"x": -0.53755283355712891,
+					"y": 131.00907897949219,
+					"z": 260.9774169921875
+				},
+				"scale3D":
+				{
+					"x": 12.809159278869629,
+					"y": 12.185171127319336,
+					"z": 1.0005364418029785
+				}
+			},
+			"bCanBeDamaged": true
+		},
+		{
+			"persistentData": "",
+			"shape": "Cylinder",
+			"color":
+			{
+				"b": 0,
+				"g": 0,
+				"r": 0,
+				"a": 0
+			},
+			"alpha": 0.60000002384185791,
+			"alwaysVisible": false,
+			"ownerMask": 0,
+			"permissions":
+			{
+				"snapping": "All",
+				"stacking": "All",
+				"inserting": "All",
+				"objectsVisible": "All",
+				"cursorHidden": "None",
+				"interaction": "All"
+			},
+			"uniqueId": "clue-pool-zone",
+			"transform":
+			{
+				"rotation":
+				{
+					"x": -0,
+					"y": 0,
+					"z": -0.0073776878416538239,
+					"w": 0.99997276067733765
+				},
+				"translation":
+				{
+					"x": 18.033084869384766,
+					"y": 130.86489868164062,
+					"z": 261.00448608398438
+				},
+				"scale3D":
+				{
+					"x": 3.9040746688842773,
+					"y": 3.953399658203125,
+					"z": 1
+				}
+			},
+			"bCanBeDamaged": true
+		}
+	]
 }

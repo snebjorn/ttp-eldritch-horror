@@ -13,7 +13,6 @@ const {
   tableLocations,
   epicMonsterCup,
   omenToken,
-  clueDiscardPile,
 } = require("./world-constants");
 
 class GameUtil {
@@ -120,7 +119,10 @@ class GameUtil {
     /** @type {keyof GameBoardLocations["space"]} */
     // @ts-ignore
     const spaceName = randomClue.getCardDetails().name;
-    clueDiscardPile.addObjects([randomClue], 0);
+    if (!tableLocations.clueDiscardPile) {
+      throw new Error("Unable to find snap point for clue discard pile");
+    }
+    Util.moveOrAddObject(randomClue, tableLocations.clueDiscardPile);
 
     const snapPoint = gameBoardLocations.space[spaceName];
     if (!snapPoint) {
