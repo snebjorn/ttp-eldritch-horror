@@ -7,6 +7,7 @@ const {
   willToken,
   artifactDeck,
   strengthToken,
+  getAssetDiscardPile,
 } = require("./world-constants");
 const { Util } = require("./util");
 const { GameUtil } = require("./game-util");
@@ -146,13 +147,38 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
   }
   if (startingItems.assets && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
-      const takenAsset = Util.takeCardNameFromStack(getAssetDeck(), asset);
+      let takenAsset = Util.takeCardNameFromStack(getAssetDeck(), asset);
       if (takenAsset === undefined) {
-        console.error(`Unable to find "${asset}" in Asset Deck`);
+        // search reserve
+
+        /** @type {Card | undefined} */
+        // @ts-ignore
+        const foundCardInReserve = gameBoardLocations.reserve
+          .map((x) => x.getSnappedObject())
+          .find((x) => {
+            if (x instanceof Card) {
+              return x.getCardDetails().name === asset;
+            }
+          });
+        if (foundCardInReserve) {
+          takenAsset = foundCardInReserve;
+        } else {
+          // search discard pile
+          const assetDiscardPile = getAssetDiscardPile();
+          if (assetDiscardPile) {
+            takenAsset = Util.takeCardNameFromStack(assetDiscardPile, asset);
+          }
+        }
+      }
+
+      if (takenAsset === undefined) {
+        console.error(`Unable to find "${asset}" in Asset Deck/Reserve/Discard pile`);
         return;
       }
 
-      Util.flip(takenAsset);
+      if (!takenAsset.isFaceUp()) {
+        Util.flip(takenAsset);
+      }
       positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
     });
   }
