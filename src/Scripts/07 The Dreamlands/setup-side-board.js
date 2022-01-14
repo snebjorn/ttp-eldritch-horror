@@ -112,19 +112,18 @@ function spawnDreamPortals(gateStack, dreamPortals) {
   let spawnedDreamPortals = 0;
   const portalsRevealed = [];
   for (let i = 0; i < gateStack.getStackSize(); i++) {
-    /** @type {CardDetails | undefined} */
     const revealedGateDetails = Util.flipInStack(gateStack, 1, false, i);
     const revealedGateName = revealedGateDetails && revealedGateDetails.name;
     if (revealedGateName && !dreamlandGates.includes(revealedGateName)) {
       spawnedDreamPortals++;
-      const dreamPortal = spawnedDreamPortals === 3 ? dreamPortals : dreamPortals.takeCards();
-      if (dreamPortal) {
-        Util.flip(dreamPortal);
-        Util.moveObject(dreamPortal, gameBoardLocations.space[revealedGateName]);
+      const dreamPortal = Util.takeCards(dreamPortals, 1);
+      Util.flip(dreamPortal);
+      // @ts-ignore
+      const revealedGatePosition = gameBoardLocations.space[revealedGateName];
+      Util.moveObject(dreamPortal, revealedGatePosition);
 
-        const dreamPortalName = dreamPortal.getCardDetails().name;
-        portalsRevealed.push(`spawned "${dreamPortalName}" (Dream Portal) on ${revealedGateName}`);
-      }
+      const dreamPortalName = dreamPortal.getCardDetails().name;
+      portalsRevealed.push(`spawned "${dreamPortalName}" (Dream Portal) on ${revealedGateName}`);
     } else {
       portalsRevealed.push(`revealed ${revealedGateName} (Gate)`);
     }

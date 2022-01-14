@@ -105,10 +105,7 @@ const preludes = {
         Util.moveObject(adventureDeck, tableLocations.adventureDeck);
         adventureDeck.setId("adventure-cosmic-alignment-deck");
         adventureDeck.setName("Cosmic Alignment Adventures");
-        const firstAdventureCard = adventureDeck.takeCards(1);
-        if (!firstAdventureCard) {
-          throw new Error("Unable to take the first card from the Cosmic Alignment adventure deck");
-        }
+        const firstAdventureCard = Util.takeCards(adventureDeck, 1);
         if (!tableLocations.activeAdventure) {
           throw new Error("Unable to find snap point for active adventure deck");
         }

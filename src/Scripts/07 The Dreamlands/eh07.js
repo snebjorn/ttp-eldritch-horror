@@ -140,10 +140,7 @@ const preludes = {
         adventureDeck.setName("Otherworldly Dreams Adventures");
         Util.moveObject(adventureDeck, gameBoardLocations.dreamlandsMat.adventure);
 
-        const firstAdventureCard = adventureDeck.takeCards(1);
-        if (!firstAdventureCard) {
-          throw new Error("Unable to take the first card from the Museum Heist adventure deck");
-        }
+        const firstAdventureCard = Util.takeCards(adventureDeck, 1);
         const dreamlandsActiveAdventureSnapPoint = gameBoardLocations.dreamlandsMat.activeAdventure;
         if (!dreamlandsActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");

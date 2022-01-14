@@ -166,7 +166,7 @@ const preludes = {
       // split expedition deck into 2, and place token on top
       encounterDecks.expedition.shuffle();
       const size = encounterDecks.expedition.getStackSize();
-      const secondDeck = encounterDecks.expedition.takeCards(Math.floor(size / 2));
+      const secondDeck = Util.takeCards(encounterDecks.expedition, Math.floor(size / 2));
       if (!secondDeck) {
         throw new Error("Unable to split expedition deck");
       }
@@ -256,10 +256,7 @@ const preludes = {
         Util.moveObject(adventureDeck, egyptAdventureSnapPoint);
         adventureDeck.setId("adventure-museum-heist-deck");
         adventureDeck.setName("Museum Heist Adventures");
-        const firstAdventureCard = adventureDeck.takeCards(1);
-        if (!firstAdventureCard) {
-          throw new Error("Unable to take the first card from the Museum Heist adventure deck");
-        }
+        const firstAdventureCard = Util.takeCards(adventureDeck, 1);
         const egyptActiveAdventureSnapPoint = gameBoardLocations.egyptMat.activeAdventure;
         if (!egyptActiveAdventureSnapPoint) {
           throw new Error("Unable to find snap point for active adventure on Egypt side board");

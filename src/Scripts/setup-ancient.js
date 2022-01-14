@@ -1,4 +1,4 @@
-const { world, Card, SnapPoint, Vector } = require("@tabletop-playground/api");
+const { world, Vector } = require("@tabletop-playground/api");
 const { buildMythosDeck } = require("./build-mythos");
 const { GameUtil } = require("./game-util");
 const { Util } = require("./util");
@@ -106,10 +106,7 @@ function setupMysteryCards(mysteryTemplateIds) {
   mysteryDeck.setName("Mysteries");
   mysteryDeck.setId("mystery-deck");
   mysteryDeck.shuffle();
-  const topMysteryCard = mysteryDeck.takeCards();
-  if (!topMysteryCard) {
-    throw new Error("Cannot find the top card of the mystery deck");
-  }
+  const topMysteryCard = Util.takeCards(mysteryDeck, 1);
   const activeMysteryTableLocation = tableLocations.activeMystery;
   if (!activeMysteryTableLocation) {
     throw new Error("Cannot find table location for the active mystery deck");

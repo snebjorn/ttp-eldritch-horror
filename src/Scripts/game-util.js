@@ -174,43 +174,41 @@ class GameUtil {
   }
 
   /**
-   * @param {number} number
+   * @param {number} number - Number of gates to spawn
    * @throws If unable to find snap point for spawned gate
    * @returns {[gateName: string, monsterName: string | undefined][]}
    */
   static spawnGates(number = 1) {
-    /** @type {[gateName: string, monsterName: string | undefined][]} */
+    const gateStack = getGateStack();
     const output = [];
 
     for (let i = 0; i < number; i++) {
-      const gateToken = getGateStack().takeCards(1);
+      const gateToken = Util.takeCards(gateStack, 1);
 
-      if (gateToken) {
-        if (!gateToken.isFaceUp()) {
-          Util.flip(gateToken);
-        }
+      if (!gateToken.isFaceUp()) {
+        Util.flip(gateToken);
+      }
 
-        const gateName = gateToken.getCardDetails().name;
-        // @ts-ignore
-        let snapPoint = gameBoardLocations.space[gateName];
-        if (!snapPoint) {
-          throw new Error(`Cannot find snap point for gate location: ${gateName}`);
-        }
+      const gateName = gateToken.getCardDetails().name;
+      // @ts-ignore
+      let snapPoint = gameBoardLocations.space[gateName];
+      if (!snapPoint) {
+        throw new Error(`Cannot find snap point for gate location: ${gateName}`);
+      }
 
-        const locationName = findGateSpawnLocation(gateName, snapPoint);
-        // @ts-ignore
-        snapPoint = gameBoardLocations.space[locationName];
-        if (!snapPoint) {
-          throw new Error(`Cannot find snap point for gate location: ${locationName}`);
-        }
+      const locationName = findGateSpawnLocation(gateName, snapPoint);
+      // @ts-ignore
+      snapPoint = gameBoardLocations.space[locationName];
+      if (!snapPoint) {
+        throw new Error(`Cannot find snap point for gate location: ${locationName}`);
+      }
 
-        Util.moveObject(gateToken, snapPoint);
+      Util.moveObject(gateToken, snapPoint);
 
         const monster = GameUtil.spawnMonster(snapPoint);
         const monsterName = monster && monster.getCardDetails().name;
 
         output.push([gateName, monsterName]);
-      }
     }
 
     return output;
@@ -222,21 +220,20 @@ class GameUtil {
    * @returns {string[]} Names of spawned clues
    */
   static spawnClues(number = 1) {
+    const cluePool = getCluePool();
+
     const output = [];
-
     for (let i = 0; i < number; i++) {
-      const clueToken = getCluePool().takeCards(1);
-      if (clueToken) {
-        const clueName = clueToken.getCardDetails().name;
-        // @ts-ignore
-        const snapPoint = gameBoardLocations.space[clueName];
-        if (!snapPoint) {
-          throw new Error(`Cannot find snap point for clue: ${clueName}`);
-        }
-        Util.moveOrAddObject(clueToken, snapPoint);
-
-        output.push(clueName);
+      const clueToken = Util.takeCards(cluePool, 1);
+      const clueName = clueToken.getCardDetails().name;
+      // @ts-ignore
+      const snapPoint = gameBoardLocations.space[clueName];
+      if (!snapPoint) {
+        throw new Error(`Cannot find snap point for clue: ${clueName}`);
       }
+      Util.moveOrAddObject(clueToken, snapPoint);
+
+      output.push(clueName);
     }
 
     return output;
@@ -251,11 +248,11 @@ class GameUtil {
     if (isOccupied) {
       return; // abort - already a card here
     }
-    const drawnAssetCard = getAssetDeck().takeCards(1);
-    if (!drawnAssetCard) {
-      throw new Error("Unable to draw card from the asset deck");
+    const assetDeck = getAssetDeck();
+    const drawnAssetCard = Util.takeCards(assetDeck, 1);
+    if (!drawnAssetCard.isFaceUp()) {
+      Util.flip(drawnAssetCard);
     }
-    Util.flip(drawnAssetCard);
     Util.moveObject(drawnAssetCard, reserveSnapPoint);
   }
 

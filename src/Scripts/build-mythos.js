@@ -162,10 +162,10 @@ function setupDifficulty(mythosDifficulty, color) {
 function setupStage(config, greenDeck, yellowDeck, blueDeck) {
   let stageDeck;
   if (config.green > 0) {
-    stageDeck = greenDeck.takeCards(config.green);
+    stageDeck = Util.takeCards(greenDeck, config.green);
   }
   if (config.yellow > 0) {
-    const yellowCards = yellowDeck.takeCards(config.yellow);
+    const yellowCards = Util.takeCards(yellowDeck, config.yellow);
     if (stageDeck === undefined) {
       stageDeck = yellowCards;
     } else {
@@ -173,7 +173,7 @@ function setupStage(config, greenDeck, yellowDeck, blueDeck) {
     }
   }
   if (config.blue > 0) {
-    const blueCards = blueDeck.takeCards(config.blue);
+    const blueCards = Util.takeCards(blueDeck, config.blue);
     if (stageDeck === undefined) {
       stageDeck = blueCards;
     } else {

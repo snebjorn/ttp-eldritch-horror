@@ -55,26 +55,21 @@ class Util {
       if (foundCardOffset === undefined) {
         break; // abort - no cards with this name is left in the stack
       }
-      let foundCard = cardStack.takeCards(1, fromFront, foundCardOffset);
-      if (!foundCard && cardStack.getStackSize() === 1) {
-        // takeCards returns undefined if there's only 1 card left
-        // that means the card we want is the stack
-        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
-        foundCard = cardStack;
+
+      const foundCard = Util.takeCards(cardStack, 1, fromFront, foundCardOffset);
+
+      const foundCardName = foundCard.getCardDetails().name;
+      if (foundCardName !== cardName) {
+        // put the incorrect card back
+        cardStack.addCards(foundCard, fromFront, foundCardOffset);
+        throw new Error(
+          `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${foundCardName}" instead`
+        );
       }
-      if (foundCard) {
-        const foundCardName = foundCard.getCardDetails().name;
-        if (foundCardName !== cardName) {
-          // put the incorrect card back
-          cardStack.addCards(foundCard, fromFront, foundCardOffset);
-          throw new Error(
-            `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${foundCardName}" instead`
-          );
-        }
-      }
+
       if (stack === undefined) {
         stack = foundCard;
-      } else if (foundCard) {
+      } else {
         stack.addCards(foundCard);
       }
     }
@@ -95,26 +90,20 @@ class Util {
       if (foundCardOffset === undefined) {
         continue; // card not found, try next
       }
-      let foundCard = cardStack.takeCards(1, fromFront, foundCardOffset);
-      if (!foundCard && cardStack.getStackSize() === 1) {
-        // takeCards returns undefined if there's only 1 card left
-        // that means the card we want is the stack
-        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
-        foundCard = cardStack;
+      const foundCard = Util.takeCards(cardStack, 1, fromFront, foundCardOffset);
+
+      const foundCardName = foundCard.getCardDetails().name;
+      if (foundCardName !== cardName) {
+        // put the incorrect card back
+        cardStack.addCards(foundCard, fromFront, foundCardOffset);
+        throw new Error(
+          `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${foundCardName}" instead`
+        );
       }
-      if (foundCard) {
-        const foundCardName = foundCard.getCardDetails().name;
-        if (foundCardName !== cardName) {
-          // put the incorrect card back
-          cardStack.addCards(foundCard, fromFront, foundCardOffset);
-          throw new Error(
-            `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${foundCardName}" instead`
-          );
-        }
-      }
+
       if (stack === undefined) {
         stack = foundCard;
-      } else if (foundCard) {
+      } else {
         stack.addCards(foundCard);
       }
     }
@@ -143,22 +132,69 @@ class Util {
       const randomIncludedOffset =
         includedIndexes[this.randomIntFromInterval(0, includedIndexes.length - 1)];
 
-      let randomCard = cardStack.takeCards(1, true, randomIncludedOffset);
-      if (!randomCard && cardStack.getStackSize() === 1) {
-        // takeCards returns undefined if there's only 1 card left
-        // that means the card we want is the stack
-        //! there might be some strange behavior as the foundCard will have the id of the stack - not sure if it's a problem
-        randomCard = cardStack;
-      }
-
+      const randomCard = Util.takeCards(cardStack, 1, true, randomIncludedOffset);
       if (stack === undefined) {
         stack = randomCard;
-      } else if (randomCard) {
+      } else {
         stack.addCards(randomCard);
       }
     }
 
     return stack;
+  }
+
+  /**
+   * Take a stack of cards from the stack. The new stack will be positioned directly above the original stack.
+   * Returns the {@link cardStack} itself if this object is only a single card.
+   *
+   * @param {Card} cardStack - Card stack to take from.
+   * @param {number} count - Amount of cards to take. Default: `1`.
+   * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
+   * @param {number} offset — Number of cards to leave at the back (or front when {@link fromFront} is `true`) before taking cards. Default: `0`.
+   *
+   * @throws If {@link count} is as large or larger than the stack (minus {@link offset}).
+   *
+   * @returns The taken cards. Returns the {@link cardStack} itself if it's only a single card.
+   */
+  static takeCards(cardStack, count = 1, fromFront = false, offset = 0) {
+    const stackSize = cardStack.getStackSize();
+    if (count < 1) {
+      throw new RangeError(`Invalid number (${count}) of cards to take`);
+    }
+    const isOutOfBounds = stackSize - offset < count;
+    if (isOutOfBounds) {
+      throw new RangeError(
+        `Cannot take ${count} card(s) from "${cardStack.getName()}" (id: ${cardStack.getId()}) as it exceeds the available number of cards`
+      );
+    }
+
+    if (stackSize === 1) {
+      //! there might be some strange behavior as the cardStack will have the id of the stack - not sure if it's a problem
+      return cardStack;
+    }
+
+    if (stackSize === count) {
+      // if the number of cards to take is as large as the stack or larger, one card will remain in the original stack
+      const takenCards = cardStack.takeCards(count, fromFront, offset);
+      if (takenCards === undefined) {
+        throw new Error(
+          `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`
+        );
+      }
+      // add the remaining card
+      takenCards.addCards(cardStack);
+
+      return takenCards;
+    }
+
+    const takenCards = cardStack.takeCards(count, fromFront, offset);
+    if (takenCards === undefined) {
+      throw new Error(
+        `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`
+      );
+    }
+
+    return takenCards;
   }
 
   /**
