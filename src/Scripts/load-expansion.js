@@ -134,7 +134,8 @@ function createAssets(expansionItems) {
 - If an effect says, “gain 1 random Asset from the deck,” the investigator gains the Asset from the Asset deck, not the Unique Asset deck. An investigator gains a Unique Asset only if the effect specifically calls for a Unique Asset.`,
     expansionItems.uniqueAssetCards,
     tableLocations.uniqueAssets,
-    true
+    true,
+    "double-sided-deck.js"
   );
   addExpansionCardsToExpansionDeck(
     "prelude-deck",
@@ -279,6 +280,7 @@ function addExpansionCardsToDeck(deck, cards) {
  * @param {Card | undefined} cards
  * @param {SnapPoint | Vector} [position]
  * @param {boolean} flip
+ * @param {string} [scriptName]
  */
 function addExpansionCardsToExpansionDeck(
   deckId,
@@ -286,7 +288,8 @@ function addExpansionCardsToExpansionDeck(
   deckDescription,
   cards,
   position,
-  flip = false
+  flip = false,
+  scriptName
 ) {
   if (!cards) {
     return;
@@ -295,7 +298,7 @@ function addExpansionCardsToExpansionDeck(
     Util.flip(cards);
   }
 
-  Util.addToOrCreateStack(cards, deckId, deckName, deckDescription, position);
+  Util.addToOrCreateStack(cards, deckId, deckName, deckDescription, position, scriptName);
 }
 
 function addFocusTokens() {

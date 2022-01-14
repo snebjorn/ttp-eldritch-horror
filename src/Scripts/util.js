@@ -418,8 +418,16 @@ class Util {
    * @param {string} cardStackName
    * @param {string} cardDescription
    * @param {SnapPoint | Vector} [position]
+   * @param {string} [scriptName]
    */
-  static addToOrCreateStack(card, cardStackId, cardStackName, cardDescription, position) {
+  static addToOrCreateStack(
+    card,
+    cardStackId,
+    cardStackName,
+    cardDescription,
+    position,
+    scriptName
+  ) {
     /** @type Card | undefined */
     // @ts-ignore
     const stack = world.getObjectById(cardStackId);
@@ -442,6 +450,9 @@ class Util {
       card.setId(cardStackId);
       card.setName(cardStackName);
       card.setDescription(cardDescription);
+      if (scriptName) {
+        card.setScript(scriptName, "8A0B748B4DA2CE04CB79E4A02C7FD720");
+      }
     } else {
       stack.addCards(card);
     }
