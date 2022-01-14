@@ -17,7 +17,7 @@ const {
 } = require("./world-constants");
 
 /** @type string[] */
-let alreadyLoaded = [];
+const alreadyLoaded = [];
 
 /**
  * @param {string[]} expansions - the selected expansions
@@ -27,6 +27,12 @@ function loadExpansion(expansions, mechanics) {
   // sort so expansions are loaded in order
   expansions.sort();
 
+  if (mechanics.isFocus) {
+    addFocusTokens();
+  }
+  if (mechanics.isResource) {
+    addResourceTokens();
+  }
   if (mechanics.isPersonalStory) {
     addPersonalStories();
   }
@@ -42,12 +48,6 @@ function loadExpansion(expansions, mechanics) {
         expansionItems = expansionItems(expansions);
       }
 
-      if (mechanics.isFocus) {
-        expansionItems.focus = true;
-      }
-      if (mechanics.isResource) {
-        expansionItems.resource = true;
-      }
       if (!mechanics.isPersonalStory) {
         delete expansionItems.personalStories;
       }
