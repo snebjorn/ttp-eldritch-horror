@@ -65,5 +65,6 @@
 	},
 	"CardMetadata":
 	{
+		"3": "{ \"text\": \"When this Monster is spawned, move it to the nearest investigator. Then an investigator on this space becomes Delayed\", \"shouldPing\": true }"
 	}
 }

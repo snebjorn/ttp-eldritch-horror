@@ -112,16 +112,18 @@ const preludes = {
         Util.moveObject(firstAdventureCard, tableLocations.activeAdventure);
         Util.flip(firstAdventureCard);
 
-        const spawnedGates = GameUtil.spawnGates(1);
-        const [spawnedGate, spawnedMonster] = spawnedGates[0];
+        const [spawnedGate, spawnedMonster, spawnEffect] = GameUtil.spawnGates(1);
 
         const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
         adventureToken.setId("adventure-cosmic-alignment-token");
         adventureToken.setName("Adventure Token: Cosmic Alignment");
         Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
         Util.logScriptAction(
-          `SETUP (Prelude: In Cosmic Alignment) set aside Cosmic Alignment Adventures; then drew the "Discovery of a Cosmic Syzygy" Adventure and spawned 1 Gate on "${spawnedGate}" with a "${spawnedMonster}" Monster.`
+          `SETUP (Prelude: In Cosmic Alignment) set aside Cosmic Alignment Adventures; then drew the Discovery of a Cosmic Syzygy Adventure and spawned 1 Gate on ${spawnedGate} with ${spawnedMonster} Monster.`
         );
+        if (spawnEffect) {
+          Util.logScriptAction(`Spawn Effect (${spawnedMonster}): ${spawnEffect}.`);
+        }
       }
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {

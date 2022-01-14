@@ -206,28 +206,32 @@ const preludes = {
               Util.flip(activeMysteryCard);
 
               message +=
-                ' Drew the "Spawn of the Black Goat" (Errata) Mystery instead of a random Mystery then resolved the "when this card enters play" effect.';
+                ' Drew the Spawn of the Black Goat Mystery instead of a random Mystery then resolved the "when this card enters play" effect.';
             }
           }
         }
       } else {
         GameUtil.setAsideMonster("Ghoul", 2);
 
-        message += " Spawned the Nug Epic Monster on The Amazon.";
-      }
+        try {
+          GameUtil.spawnEpicMonster("Nug", gameBoardLocations.space["The Amazon"]);
+        } catch (error) {
+          console.error(error.message);
+        }
 
-      try {
-        GameUtil.spawnEpicMonster("Nug", gameBoardLocations.space["The Amazon"]);
-      } catch (error) {
-        console.error(error.message);
+        message += " Spawned the Nug Epic Monster on The Amazon.";
       }
 
       // if playing with forsaken lore
       if (GameUtil.getSavedData().sets.includes("eh02")) {
         GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
         // Yeb spawn effect: spawn 2 monsters on this space
-        const monster1 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
-        const monster2 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
+        const [monster1, spawnEffect1] = GameUtil.spawnMonster(
+          gameBoardLocations.space["The Amazon"]
+        );
+        const [monster2, spawnEffect2] = GameUtil.spawnMonster(
+          gameBoardLocations.space["The Amazon"]
+        );
         const spawnedMonsters = [monster1, monster2].map((monster) => {
           if (monster) {
             const monsterName = monster.getCardDetails().name;
@@ -240,6 +244,12 @@ const preludes = {
         message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
           ", "
         )})`;
+        if (spawnEffect1) {
+          message += `\nSpawn Effect (${spawnedMonsters[0]}): ${spawnEffect1}.`;
+        }
+        if (spawnEffect2) {
+          message += `\nSpawn Effect (${spawnedMonsters[1]}): ${spawnEffect2}.`;
+        }
       }
 
       Util.logScriptAction(message);
@@ -283,13 +293,27 @@ const preludes = {
     afterResolvingSetup: (ancientOne, iconReference) => {
       if (ancientOne === "Atlach-Nacha" && iconReference) {
         const spawnedGates = GameUtil.spawnGates(iconReference.spawnGates);
-        const spawnedGatesText = spawnedGates
-          .map(([gateName, monsterName]) => `"${gateName}" with 1 monster (${monsterName})`)
-          .join("; ");
-
-        Util.logScriptAction(
-          `SETUP (Prelude: Web Between Worlds) spawned ${iconReference.spawnGates} additional Gates (${spawnedGatesText}) as indicated by the Reference card.`
-        );
+        if (spawnedGates.length === 1) {
+          const [gateName, monsterName, spawnEffect] = spawnedGates[0];
+          Util.logScriptAction(
+            `SETUP (Prelude: Web Between Worlds) 1 Gate on ${gateName} with ${monsterName} Monster.`
+          );
+          if (spawnEffect) {
+            Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);
+          }
+        } else if (spawnedGates.length > 1) {
+          const spawnedGatesText = spawnedGates
+            .map(
+              ([gateName, monsterName, spawnEffect]) =>
+                `\t- ${gateName} with ${monsterName} Monster. ${
+                  spawnEffect ? `\n\t\t- Spawn Effect (${monsterName}): ${spawnEffect}.` : ""
+                }`
+            )
+            .join("\n");
+          Util.logScriptAction(
+            `SETUP (Prelude: Web Between Worlds) spawned ${spawnedGates.length} Gates on:\n${spawnedGatesText}`
+          );
+        }
       }
     },
   },

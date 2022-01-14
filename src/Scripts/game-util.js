@@ -176,10 +176,11 @@ class GameUtil {
   /**
    * @param {number} number - Number of gates to spawn
    * @throws If unable to find snap point for spawned gate
-   * @returns {[gateName: string, monsterName: string | undefined][]}
+   * @returns {[gateName: string, monsterName?: string, spawnEffect?: string][]}
    */
   static spawnGates(number = 1) {
     const gateStack = getGateStack();
+    /** @type {[gateName: string, monsterName?: string, spawnEffect?: string][]} */
     const output = [];
 
     for (let i = 0; i < number; i++) {
@@ -205,10 +206,10 @@ class GameUtil {
 
       Util.moveObject(gateToken, snapPoint);
 
-        const monster = GameUtil.spawnMonster(snapPoint);
-        const monsterName = monster && monster.getCardDetails().name;
+      const [monster, spawnEffect] = GameUtil.spawnMonster(snapPoint);
+      const monsterName = monster && monster.getCardDetails().name;
 
-        output.push([gateName, monsterName]);
+      output.push([gateName, monsterName, spawnEffect]);
     }
 
     return output;
@@ -306,14 +307,33 @@ class GameUtil {
    * Spawns a monster from the monster cup
    *
    * @param {SnapPoint | Vector} position
+   * @returns {[monster?: Card, spawnEffect?: string]}
    */
   static spawnMonster(position) {
-    const monster = monsterCup.takeCards(1);
+    /** @type {string | undefined} */
+    let spawnEffectText;
+
+    const monster = Util.takeCards(monsterCup, 1);
     if (monster) {
+      const spawnEffect = GameUtil.getMonsterSpawnEffect(monster);
+      if (spawnEffect) {
+        spawnEffectText = spawnEffect.text;
+        if (spawnEffect.moveTo !== undefined) {
+          const spawnEffectPosition = gameBoardLocations.space[spawnEffect.moveTo];
+          if (spawnEffectPosition) {
+            position = spawnEffectPosition;
+          }
+        }
+        if (spawnEffect.shouldPing) {
+          const globalPosition =
+            position instanceof SnapPoint ? position.getGlobalPosition() : position;
+          world.showPing(globalPosition, Util.Colors.WHITE, true);
+        }
+      }
       Util.moveOrAddObject(monster, position);
     }
 
-    return monster;
+    return [monster, spawnEffectText];
   }
 
   /**
@@ -330,6 +350,17 @@ class GameUtil {
     Util.moveOrAddObject(epicMonster, position);
 
     return epicMonster;
+  }
+
+  /**
+   * @param {Card} monster
+   * @returns {MonsterSpawnEffect | undefined}
+   */
+  static getMonsterSpawnEffect(monster) {
+    const metadata = monster.getCardDetails().metadata;
+    if (metadata !== "") {
+      return JSON.parse(metadata);
+    }
   }
 
   /**

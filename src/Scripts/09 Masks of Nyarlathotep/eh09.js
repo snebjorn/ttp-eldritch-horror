@@ -215,13 +215,20 @@ const preludes = {
           gameBoardLocations.space["The Pyramids"],
         ];
 
-        for (const space of expeditionSpaces) {
-          GameUtil.spawnMonster(space);
-        }
+        const spawnedMonsters = expeditionSpaces.map((space) => GameUtil.spawnMonster(space));
+        const spawnedMonsterText = spawnedMonsters.map(([monster, spawnEffect]) => [
+          monster && monster.getCardDetails().name,
+          spawnEffect,
+        ]);
 
         Util.logScriptAction(
           "SETUP (Prelude: Father of Serpents) set aside 1 Serpent People Monster and spawned 1 Monster on each Expedition space."
         );
+        for (const [monsterName, spawnEffect] of spawnedMonsterText) {
+          if (spawnEffect) {
+            Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);
+          }
+        }
       } else {
         const monster = GameUtil.takeMonster("Serpent People");
         if (monster) {
@@ -602,21 +609,25 @@ const duplicatePrelude = {
       } else {
         GameUtil.setAsideMonster("Ghoul", 2);
 
-        message += " Spawned the Nug Epic Monster on The Amazon.";
-      }
+        try {
+          GameUtil.spawnEpicMonster("Nug", gameBoardLocations.space["The Amazon"]);
+        } catch (error) {
+          console.error(error.message);
+        }
 
-      try {
-        GameUtil.spawnEpicMonster("Nug", gameBoardLocations.space["The Amazon"]);
-      } catch (error) {
-        console.error(error.message);
+        message += " Spawned the Nug Epic Monster on The Amazon.";
       }
 
       // if playing with forsaken lore
       if (GameUtil.getSavedData().sets.includes("eh02")) {
         GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
         // Yeb spawn effect: spawn 2 monsters on this space
-        const monster1 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
-        const monster2 = GameUtil.spawnMonster(gameBoardLocations.space["The Amazon"]);
+        const [monster1, spawnEffect1] = GameUtil.spawnMonster(
+          gameBoardLocations.space["The Amazon"]
+        );
+        const [monster2, spawnEffect2] = GameUtil.spawnMonster(
+          gameBoardLocations.space["The Amazon"]
+        );
         const spawnedMonsters = [monster1, monster2].map((monster) => {
           if (monster) {
             const monsterName = monster.getCardDetails().name;
@@ -629,6 +640,12 @@ const duplicatePrelude = {
         message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
           ", "
         )})`;
+        if (spawnEffect1) {
+          message += `\nSpawn Effect (${spawnedMonsters[0]}): ${spawnEffect1}.`;
+        }
+        if (spawnEffect2) {
+          message += `\nSpawn Effect (${spawnedMonsters[1]}): ${spawnEffect2}.`;
+        }
       }
 
       Util.logScriptAction(message);

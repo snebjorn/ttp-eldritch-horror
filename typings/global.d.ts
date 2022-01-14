@@ -371,4 +371,10 @@ declare global {
     iconReference?: IconReference;
     isGameBegun: boolean;
   }
+
+  interface MonsterSpawnEffect {
+    text: string;
+    shouldPing?: true;
+    moveTo?: Required<keyof GameBoardLocations["space"]>;
+  }
 }

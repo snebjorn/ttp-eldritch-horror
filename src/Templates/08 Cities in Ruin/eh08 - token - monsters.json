@@ -65,5 +65,7 @@
 	},
 	"CardMetadata":
 	{
+		"1": "{ \"text\": \"When this Monster is spawned, move it to The Heart of Africa. Then search the deck for a The Heart of Africa Expedition Encounter. Shuffle the deck and place that card on top\", \"moveTo\": \"The Heart of Africa\", \"shouldPing\": true }",
+		"3": "{ \"text\": \"When this Monster is spawned, each investigator on this space or an adjacent space loses 1 Health and 1 Sanity\", \"shouldPing\": true }"
 	}
 }

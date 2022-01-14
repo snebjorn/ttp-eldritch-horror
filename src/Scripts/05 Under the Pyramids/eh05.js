@@ -219,7 +219,9 @@ const preludes = {
         }
 
         // spawn 1 monster on active expedition
-        const activeExpeditionMonster = GameUtil.spawnMonster(activeExpeditionToken.getPosition());
+        const [activeExpeditionMonster, activeExpeditionSpawnEffect] = GameUtil.spawnMonster(
+          activeExpeditionToken.getPosition()
+        );
         const activeExpeditionMonsterName =
           activeExpeditionMonster && activeExpeditionMonster.getCardDetails().name;
 
@@ -228,7 +230,7 @@ const preludes = {
         if (!bentPyramid) {
           throw new Error("Unable to find The Bent Pyramid space");
         }
-        const bentPyramidMonster = GameUtil.spawnMonster(bentPyramid);
+        const [bentPyramidMonster, bentPyramidSpawnEffect] = GameUtil.spawnMonster(bentPyramid);
         const bentPyramidMonsterName =
           bentPyramidMonster && bentPyramidMonster.getCardDetails().name;
 
@@ -236,6 +238,14 @@ const preludes = {
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order.` +
             `Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
         );
+        if (activeExpeditionSpawnEffect) {
+          Util.logScriptAction(
+            `Spawn Effect (${activeExpeditionMonster}): ${activeExpeditionSpawnEffect}.`
+          );
+        }
+        if (bentPyramidSpawnEffect) {
+          Util.logScriptAction(`Spawn Effect (${bentPyramidMonster}): ${bentPyramidSpawnEffect}.`);
+        }
       } else {
         if (!gameBoardLocations.egyptMat) {
           throw new Error("The Egypt side board mat is missing snap points");

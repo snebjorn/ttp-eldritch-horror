@@ -71,5 +71,8 @@
 	},
 	"CardMetadata":
 	{
+		"2": "{ \"text\": \"When this Monster is spawned, move it to The Pyramids\", \"moveTo\": \"The Pyramids\" }",
+		"4": "{ \"text\": \"When this Monster is spawned, the Lead Investigator gains 1 Bane Condition\", \"shouldPing\": true }",
+		"7": "{ \"text\": \"When this Monster is spawned, advance the Omen by 1 unless investigators as a group spend 2 Clues\", \"shouldPing\": true }"
 	}
 }

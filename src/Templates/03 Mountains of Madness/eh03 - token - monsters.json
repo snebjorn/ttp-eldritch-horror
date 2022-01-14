@@ -74,5 +74,7 @@
 	},
 	"CardMetadata":
 	{
+		"4": "{ \"text\": \"When this Monster is spawned, an investigator on this space immediately encounters it\", \"shouldPing\": true }",
+		"5": "{ \"text\": \"When this Monster is spawned, move it to Antarctica\", \"moveTo\": \"Antarctica\" }"
 	}
 }

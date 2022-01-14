@@ -89,5 +89,12 @@
 	},
 	"CardMetadata":
 	{
+		"1": "{ \"text\": \"When this Monster is spawned, move it to Tunguska\", \"moveTo\": \"Tunguska\" }",
+		"2": "{ \"text\": \"When this Monster is spawned, move it to The Heart of Africa\", \"moveTo\": \"The Heart of Africa\" }",
+		"6": "{ \"text\": \"When this Monster is spawned, move it to Antarctica\", \"moveTo\": \"Antarctica\" }",
+		"9": "{ \"text\": \"When this Monster is spawned, move it to The Himalayas\", \"moveTo\": \"The Himalayas\" }",
+		"16": "{ \"text\": \"When this Monster is spawned, move it to The Pyramids\", \"moveTo\": \"The Pyramids\" }",
+		"19": "{ \"text\": \"When this Monster is spawned, move it to The Amazon\", \"moveTo\": \"The Amazon\" }",
+		"26": "{ \"text\": \"When this Monster is spawned, the Lead Investigator gains a Cursed Condition\", \"shouldPing\": true }"
 	}
 }

@@ -65,5 +65,6 @@
 	},
 	"CardMetadata":
 	{
+		"2": "{ \"text\": \"When this Monster is spawned, advance the Omen by 1 unless investigators as a group spend 2 Clues\", \"shouldPing\": true }"
 	}
 }
