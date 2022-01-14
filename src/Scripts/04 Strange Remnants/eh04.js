@@ -74,8 +74,7 @@ const preludes = {
           const mysticRuinsToken = createCard("A9C452A442F9A36AC77CC1B68633FEEE");
           mysticRuinsToken.setId("mystic-ruins-token");
           mysticRuinsToken.setName("Mystic Ruins Token");
-          Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
-          world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
+          GameUtil.positionEncounterToken(mysticRuinsDeck, mysticRuinsToken);
 
           Util.logScriptAction(
             "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck."

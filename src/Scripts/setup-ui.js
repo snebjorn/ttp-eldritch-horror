@@ -1,4 +1,3 @@
-const { TextJustification } = require("@tabletop-playground/api");
 const {
   Border,
   Button,
@@ -15,12 +14,12 @@ const {
   ImageButton,
   Widget,
   ImageWidget,
+  TextJustification,
 } = require("@tabletop-playground/api");
 const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
 const { setupAncient } = require("./setup-ancient");
 const { setupReferenceCard } = require("./setup-reference-card");
-const { Util } = require("./util");
 const {
   getAssetDeck,
   conditionDeck,
@@ -259,8 +258,7 @@ function drawSetupUi() {
       ancientOne,
       getMythosDifficulty(),
       GameUtil.getActiveIconReference(),
-      GameUtil.getActivePrelude(),
-      getChosenMechanics()
+      GameUtil.getActivePrelude()
     );
     world.removeUIElement(ui);
     world.__eldritchHorror.updateSetupUIFn = undefined;
@@ -556,7 +554,7 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
     }
   }
 
-  world.showPing(activeExpeditionToken.getPosition(), Util.Colors.WHITE, true);
+  GameUtil.positionEncounterToken(encounterDecks.expedition, activeExpeditionToken);
 }
 
 function shuffleDecks() {

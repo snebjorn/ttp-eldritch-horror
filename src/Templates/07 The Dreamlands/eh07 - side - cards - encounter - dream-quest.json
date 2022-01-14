@@ -58,6 +58,26 @@
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ],
 	"CardNames":
 	{
+		"0": "The Enchanted Wood",
+		"1": "The Enchanted Wood",
+		"2": "The Enchanted Wood",
+		"3": "The Enchanted Wood",
+		"4": "The Enchanted Wood",
+		"5": "The Moon",
+		"6": "The Moon",
+		"7": "The Moon",
+		"8": "The Moon",
+		"9": "The Moon",
+		"10": "The Underworld",
+		"11": "The Underworld",
+		"12": "The Underworld",
+		"13": "The Underworld",
+		"14": "The Underworld",
+		"15": "Unknown Kadath",
+		"16": "Unknown Kadath",
+		"17": "Unknown Kadath",
+		"18": "Unknown Kadath",
+		"19": "Unknown Kadath"
 	},
 	"CardMetadata":
 	{

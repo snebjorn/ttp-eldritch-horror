@@ -433,6 +433,27 @@ class GameUtil {
   static getActiveIconReference() {
     return GameUtil.getSavedData().iconReference;
   }
+
+  /**
+   *
+   * @param {Card} encounterDeck
+   * @param {Card} token
+   */
+  static positionEncounterToken(encounterDeck, token) {
+    /** @type {keyof GameBoardLocations["space"]} */
+    // @ts-ignore
+    const topCard = encounterDeck.getAllCardDetails().slice(-1)[0].name;
+    const encounterLocation = gameBoardLocations.space[topCard];
+    if (encounterLocation) {
+      Util.moveObject(token, encounterLocation);
+    } else {
+      console.error(
+        `Unable to find SnapPoint for space "${topCard}". So can't move ${
+          token.getCardDetails().name
+        }`
+      );
+    }
+  }
 }
 exports.GameUtil = GameUtil;
 

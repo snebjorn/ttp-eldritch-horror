@@ -177,11 +177,10 @@ const preludes = {
       GameUtil.addEncounterDeck(secondDeck);
       secondDeck.shuffle();
 
-      const activeExpeditionToken = createCard("BD2E757C40F92C8EC8429193D862F47C");
-      activeExpeditionToken.setId("active-expedition-token2");
-      activeExpeditionToken.setName("Active Expedition Token");
-      Util.moveOnTopOfObject(activeExpeditionToken, secondDeck);
-      world.showPing(activeExpeditionToken.getPosition(), Util.Colors.WHITE, true);
+      const secondActiveExpeditionToken = createCard("BD2E757C40F92C8EC8429193D862F47C");
+      secondActiveExpeditionToken.setId("active-expedition-token2");
+      secondActiveExpeditionToken.setName("Active Expedition Token");
+      GameUtil.positionEncounterToken(secondDeck, secondActiveExpeditionToken);
 
       Util.logScriptAction(
         "SETUP (Prelude: Litany of Secrets) shuffled the Expedition Encounter deck then split it into two decks."

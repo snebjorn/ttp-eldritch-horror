@@ -53,8 +53,7 @@ const antediluvium = {
       const mysticRuinsToken = Util.createCard(expansionSpawn, "A9C452A442F9A36AC77CC1B68633FEEE");
       mysticRuinsToken.setId("mystic-ruins-token");
       mysticRuinsToken.setName("Mystic Ruins Token");
-      Util.moveOnTopOfObject(mysticRuinsToken, mysticRuinsDeck);
-      world.showPing(mysticRuinsToken.getPosition(), Util.Colors.WHITE, true);
+      GameUtil.positionEncounterToken(mysticRuinsDeck, mysticRuinsToken);
 
       world.__eldritchHorror.alreadyLoaded.push(...mysticRuinsIds);
     }

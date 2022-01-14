@@ -1,4 +1,5 @@
 const { Card, CardDetails, Vector, world } = require("@tabletop-playground/api");
+const { GameUtil } = require("../game-util");
 const { Util } = require("../util");
 const { gameBoardLocations } = require("../world-constants");
 
@@ -41,9 +42,9 @@ function setupSideBoard(spawnPosition) {
   dreamQuestCards.shuffle();
 
   const dreamQuestToken = Util.createCard(spawnPosition, dreamlands.dreamQuestToken);
-  Util.moveObject(dreamQuestToken, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestToken.setName("Dream-Quest Token");
   dreamQuestToken.setId("dream-quest-token");
+  GameUtil.positionEncounterToken(dreamQuestCards, dreamQuestToken);
 
   const dreamlandsCards = Util.createCard(spawnPosition, dreamlands.dreamlandsCards);
   Util.moveObject(dreamlandsCards, gameBoardLocations.dreamlandsMat.dreamlands);
