@@ -720,6 +720,11 @@ class Util {
       stack.addCards(card, fromFront, offset, false, true);
 
       return details;
+    } else if (stack.getStackSize() === 1) {
+      // Card.takeCards returns undefined if the stack is a single card
+      Util.flip(stack);
+
+      return stack.getCardDetails();
     }
   }
 
