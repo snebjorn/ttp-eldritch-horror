@@ -173,16 +173,21 @@ function drawSetupUi() {
   const preludeBox = new HorizontalBox();
   vBox.addChild(preludeBox);
   const noPreludeText =
-    'No prelude selected\nPlace a Prelude card on the "Active Prelude" to select one';
+    "No prelude selected\n" +
+    'Place a Prelude card on the "Active Prelude" to select one\n\n' +
+    "To play with a random/unknown Prelude first shuffle the Prelude deck\n" +
+    'then place a Prelude face down on the "Active Prelude"';
   const preludeTextBox = new Text().setText(noPreludeText);
   preludeBox.addChild(preludeTextBox);
 
-  /**
-   * @param {string} [preludeName]
-   */
-  function updatePrelude(preludeName) {
-    if (preludeName) {
-      preludeTextBox.setText(preludeName);
+  function updatePrelude() {
+    const [preludeCard, preludeName] = GameUtil.getActivePreludeCard();
+    if (preludeCard && preludeName) {
+      if (preludeCard.isFaceUp()) {
+        preludeTextBox.setText(preludeName);
+      } else {
+        preludeTextBox.setText("Prelude is hidden");
+      }
     } else {
       preludeTextBox.setText(noPreludeText);
     }
@@ -266,6 +271,11 @@ function drawSetupUi() {
     const preludeDeck = world.getObjectById("prelude-deck");
     if (preludeDeck) {
       preludeDeck.destroy();
+    }
+
+    const [preludeCard] = GameUtil.getActivePreludeCard();
+    if (preludeCard && !preludeCard.isFaceUp()) {
+      preludeCard.flipOrUpright();
     }
 
     GameUtil.updateSavedData({
@@ -482,7 +492,7 @@ function drawSetupUi() {
 
   world.__eldritchHorror.updateSetupUIFn = () => {
     updateIconReference(GameUtil.getActiveIconReference());
-    updatePrelude(world.__eldritchHorror.activePrelude);
+    updatePrelude();
   };
 
   world.addUI(ui);

@@ -777,6 +777,28 @@ class Util {
     }
     return obj;
   }
+
+  /**
+   * Return the {@link CardHolder} with the specified {@link objectId}.
+   *
+   * @param {string} objectId
+   * @returns {CardHolder} The {@link CardHolder} with the specified {@link objectId}.
+   * @throws If unable to find {@link objectId}.
+   * @throws If {@link objectId} isn't a {@link CardHolder}.
+   */
+  static getCardHolderById(objectId) {
+    const obj = world.getObjectById(objectId);
+
+    if (!obj) {
+      throw new Error(`Unable to find "${objectId}" on the table`);
+    }
+    if (!(obj instanceof CardHolder)) {
+      throw new Error(
+        `Found "${objectId}" but it isn't a CardHolder it's a ${obj.constructor.name}`
+      );
+    }
+    return obj;
+  }
 }
 
 exports.Util = Util;

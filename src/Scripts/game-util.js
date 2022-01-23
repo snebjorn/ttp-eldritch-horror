@@ -266,9 +266,30 @@ class GameUtil {
     Util.moveOrAddObject(drawnDebtCard, gameBoardLocations.bankLoan);
   }
 
+  /**
+   * @returns {[preludeCard?: Card, preludeName?: string]}
+   */
+  static getActivePreludeCard() {
+    let preludeHolder;
+    try {
+      preludeHolder = Util.getCardHolderById("prelude-card-holder");
+    } catch {}
+
+    if (preludeHolder) {
+      const cards = preludeHolder.getCards();
+      if (cards.length > 0) {
+        const preludeCard = cards[0];
+        return [preludeCard, preludeCard.getCardDetails().name];
+      }
+    }
+
+    return [undefined, undefined];
+  }
+
   static getActivePrelude() {
-    if (world.__eldritchHorror.activePrelude) {
-      return world.__eldritchHorror.preludes.get(world.__eldritchHorror.activePrelude);
+    const [preludeCard, preludeName] = GameUtil.getActivePreludeCard();
+    if (preludeName) {
+      return world.__eldritchHorror.preludes.get(preludeName);
     }
   }
 

@@ -388,27 +388,7 @@ function addPreludeCardHolder() {
   cardHolder.setId("prelude-card-holder");
   cardHolder.snapToGround();
   cardHolder.toggleLock();
-  world.showPing(tableLocations.preludeCardHolder, Util.Colors.WHITE, true);
-
-  cardHolder.onInserted.add((_, prelude) => {
-    const preludeName = prelude.getCardDetails().name;
-    if (!!world.__eldritchHorror.updateSetupUIFn) {
-      world.__eldritchHorror.activePrelude = preludeName;
-      world.__eldritchHorror.updateSetupUIFn();
-    }
-  });
-  cardHolder.onRemoved.add(() => {
-    if (!!world.__eldritchHorror.updateSetupUIFn) {
-      world.__eldritchHorror.activePrelude = undefined;
-      world.__eldritchHorror.updateSetupUIFn();
-    }
-  });
-
-  const ui = new UIElement();
-  ui.position = new Vector(0, 0, 0.11);
-  ui.widget = new Text().setText(" Active\nPrelude");
-
-  cardHolder.addUI(ui);
+  cardHolder.setScript("prelude-card-holder.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 }
 
 function addPersonalStories() {

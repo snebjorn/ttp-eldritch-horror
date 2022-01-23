@@ -190,7 +190,6 @@ declare global {
     investigators: Investigator[];
     alreadyLoaded: string[];
     updateSetupUIFn?: () => void;
-    activePrelude?: string;
     preludes: Map<string, Prelude>;
     mysticRuins: Set<string>;
   }
