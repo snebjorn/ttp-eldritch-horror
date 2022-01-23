@@ -41,6 +41,10 @@ if (!world.__eldritchHorror.alreadyLoaded.includes(refCard.getTemplateId())) {
       const { investigators } = require("./08 Cities in Ruin/investigators");
       world.__eldritchHorror.investigators.push(...investigators);
     }
+    if (expansion === "eh09") {
+      const { investigators } = require("./09 Masks of Nyarlathotep/investigators");
+      world.__eldritchHorror.investigators.push(...investigators);
+    }
   }
 }
 
