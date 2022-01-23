@@ -58,7 +58,7 @@
 		}
 	],
 	"Collision": [],
-	"SnapPointsGlobal": false,
+	"SnapPointsGlobal": true,
 	"SnapPoints": [
 		{
 			"X": 17.577,
