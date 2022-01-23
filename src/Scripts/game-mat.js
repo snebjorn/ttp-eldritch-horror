@@ -55,8 +55,9 @@ if (assetDeckZone) {
       do {
         randomStr = Math.random().toString(36).substring(2, 5);
       } while (object.setId(randomStr) === false);
-
-      object.setName("");
+      if (object.getName() === "Assets") {
+        object.setName("");
+      }
     }
   });
 }
@@ -86,8 +87,9 @@ if (assetDiscardZone) {
       do {
         randomStr = Math.random().toString(36).substring(2, 5);
       } while (object.setId(randomStr) === false);
-
-      object.setName("");
+      if (object.getName() === "Asset Discard Pile") {
+        object.setName("");
+      }
     }
   });
 }
@@ -136,8 +138,12 @@ if (cluePoolZone) {
       do {
         randomStr = Math.random().toString(36).substring(2, 5);
       } while (object.setId(randomStr) === false);
-      object.setName("");
-      object.setScript("");
+      if (object.getName() === "Clue Pool") {
+        object.setName("");
+      }
+      if (object.getScriptFilename() === "clue-pool.js") {
+        object.setScript("");
+      }
     }
   });
 }
@@ -163,7 +169,9 @@ if (clueDiscardZone) {
       object.getTemplateName().startsWith("Clues") &&
       object.getId() === "clue-discard-pile"
     ) {
-      object.setName("");
+      if (object.getName() === "Clue Discard Pile") {
+        object.setName("");
+      }
     }
   });
 }
@@ -212,8 +220,12 @@ if (gateStackZone) {
       do {
         randomStr = Math.random().toString(36).substring(2, 5);
       } while (object.setId(randomStr) === false);
-      object.setName("");
-      object.setScript("");
+      if (object.getName() === "Gate Stack") {
+        object.setName("");
+      }
+      if (object.getScriptFilename() === "gate-stack.js") {
+        object.setScript("");
+      }
     }
   });
 }
@@ -243,8 +255,9 @@ if (gateDiscardZone) {
       do {
         randomStr = Math.random().toString(36).substring(2, 5);
       } while (object.setId(randomStr) === false);
-
-      object.setName("");
+      if (object.getName() === "Gate Discard Pile") {
+        object.setName("");
+      }
     }
   });
 }
