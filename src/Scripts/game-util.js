@@ -533,14 +533,17 @@ function findGateSpawnLocation(gateName, snapPoint) {
   let kateWinthropFound = false;
   let dreamPortalLocation;
 
-  for (const { object } of foundObjects) {
+  for (const { object: foundObject } of foundObjects) {
     // Kate Winthrop
-    if (object.getTemplateId() === "3EF51A3C93174BCF804135ED733F84EE") {
+    if (foundObject.getTemplateId() === "3EF51A3C93174BCF804135ED733F84EE") {
       kateWinthropFound = true;
     }
     // Dream Portal
-    if (object.getTemplateId() === "B03C56724E726EF0ECDFB2BCFF70742C" && object instanceof Card) {
-      const cardName = object.getCardDetails().name;
+    if (
+      foundObject.getTemplateId() === "B03C56724E726EF0ECDFB2BCFF70742C" &&
+      foundObject instanceof Card
+    ) {
+      const cardName = foundObject.getCardDetails().name;
       switch (cardName) {
         case "To The Moon":
           dreamPortalLocation = "The Moon";
@@ -560,14 +563,28 @@ function findGateSpawnLocation(gateName, snapPoint) {
   // The active investigator decides which effect takes priority.
   // As such, he could have Kate’s passive ability cause the Gate to be discarded instead of spawning.
   if (dreamPortalLocation && !kateWinthropFound) {
-    Util.logScriptAction(
-      `Dream Portal found on "${gateName}"! Gate moved to "${dreamPortalLocation}".`
+    // delay to make it appear after the spawn gate message
+    setTimeout(
+      (dreamPortalLocationArg) => {
+        Util.logScriptAction(
+          `Dream Portal found on ${gateName}! Gate moved to ${dreamPortalLocationArg}.`
+        );
+      },
+      0,
+      dreamPortalLocation
     );
 
     return dreamPortalLocation;
   } else if (dreamPortalLocation && kateWinthropFound) {
-    Util.logScriptAction(
-      `Dream Portal and Kate Winthrop found on "${gateName}"! The active investigator decides whether the Gate is discarded or moved to "${dreamPortalLocation}".`
+    // delay to make it appear after the spawn gate message
+    setTimeout(
+      (dreamPortalLocationArg) => {
+        Util.logScriptAction(
+          `Dream Portal and Kate Winthrop found on ${gateName}! The active investigator decides whether the Gate is discarded or moved to ${dreamPortalLocationArg}.`
+        );
+      },
+      0,
+      dreamPortalLocation
     );
 
     return gateName;
