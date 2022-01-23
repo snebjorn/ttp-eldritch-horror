@@ -248,7 +248,10 @@ class Util {
     // calling snap() right after calling setPosition() will take care of moving the object
     // on down onto the table without colliding, and the animation will still work.
     if (position instanceof SnapPoint) {
-      gameObject.snap();
+      const wasSnapped = !!gameObject.snap();
+      if (!wasSnapped) {
+        gameObject.snapToGround();
+      }
     } else {
       gameObject.snapToGround();
     }
@@ -280,23 +283,12 @@ class Util {
     let isAddedToStack = false;
     const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
     const objectsAtPosition = world.lineTrace(globalPosition, positionAboveGameObject);
-    for (const traceHit of objectsAtPosition) {
-      const foundObject = traceHit.object;
-
-      if (!isAddedToStack) {
-        if (foundObject instanceof Card && gameObject instanceof Card) {
-          const showAnimation = animationSpeed > 0;
-          isAddedToStack = foundObject.addCards(gameObject, false, 0, showAnimation, false);
-          if (isAddedToStack) {
-            continue;
-          }
-        }
-      } else {
-        // if the object was added to a stack we need to snap the objects on top of the stack so they're not sent flying
-        if (position instanceof SnapPoint) {
-          foundObject.snap();
-        } else {
-          foundObject.snapToGround();
+    for (const { object: foundObject } of objectsAtPosition) {
+      if (foundObject instanceof Card && gameObject instanceof Card) {
+        const showAnimation = animationSpeed > 0;
+        isAddedToStack = Util.addCardsSafe(foundObject, gameObject, false, 0, showAnimation);
+        if (isAddedToStack) {
+          break;
         }
       }
     }
@@ -633,6 +625,64 @@ class Util {
   static findObjectsOnTop(object, direction = new Vector(0, 0, 2)) {
     const topPosition = Util.getTopPosition(object);
     return world.lineTrace(topPosition, topPosition.add(direction));
+  }
+
+  /**
+   * Add {@link cards} to the {@link cardStack} and safely lift GameObjects on top of the stack
+   * to the height of the stack.
+   *
+   * @remarks
+   * GameObjects on top a stack where cards were added would have their position inside the stack
+   * as the newly added cards would add additional height to the stack.
+   * The physics engine would eventually resolve this. But scripts run right after cards were added
+   * would have to look for GameObjects on top of the stack inside it - which wasn't ideal.
+   * Furthermore when the physics engine resolved the collision and the height difference was anything
+   * but minor the GameObjects on top would be sent flying.
+   *
+   * @param {Card} cardStack - Card (stack) to add the {@link cards} to.
+   * @param {Card} cards - Card (stack) to add to the {@link cardStack}.
+   * @param {boolean} toFront - If `true`, add new cards to front of the stack. Default: `false`.
+   * @param {number} offset - Number of cards to skip at the back (or front when {@link toFront} is `true`) before adding cards. Default: `0`
+   * @param {boolean} animate - If `true`, play card drop sound and animate the new cards flying to the stack. The animation takes some time, so the new cards aren't added to the stack instantly. If you need to react when the cards are added, you can use onInserted. Default: `false`.
+   * @param {boolean} flipped - If `true`, add the cards flipped compared to the front card of the stack. Only has an effect if all involved cards allow flipping in stacks. Default: `false`.
+   * @param {Vector} direction - Direction to find objects in. Defaults to `Vector(0, 0, 2)`
+   *
+   * @returns {boolean} Whether the cards have been added successfully. Will not succeed if the shape or size of the cards does not match, or if this card is in a card holder.
+   */
+  static addCardsSafe(
+    cardStack,
+    cards,
+    toFront = false,
+    offset = 0,
+    animate = false,
+    flipped = false,
+    direction = new Vector(0, 0, 2)
+  ) {
+    const foundObjects = Util.findObjectsOnTop(cardStack, direction);
+    if (foundObjects.length > 0) {
+      const buffer = 0.1;
+      // adding the cards will add this much height to the cardStack
+      const deltaHeight = cards.getSize().z;
+      // to prevent tokens on top of the cardStack from flying off,
+      // we move them up before adding new cards
+      for (const { object: foundObject } of foundObjects) {
+        const currentPosition = foundObject.getPosition();
+        const elevatedPosition = currentPosition.add(new Vector(0, 0, deltaHeight + buffer));
+        foundObject.setPosition(elevatedPosition, 0);
+      }
+    }
+
+    const wasAdded = cardStack.addCards(cards, toFront, offset, animate, flipped);
+
+    // snap objects on top in place. This should prevent objects from free falling
+    for (const { object: foundObject } of foundObjects) {
+      const wasSnapped = !!foundObject.snap();
+      if (!wasSnapped) {
+        foundObject.snapToGround();
+      }
+    }
+
+    return wasAdded;
   }
 
   /**

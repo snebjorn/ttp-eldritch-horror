@@ -1,4 +1,4 @@
-const { SnapPoint, Card, world, Vector, UIElement, Text } = require("@tabletop-playground/api");
+const { SnapPoint, Card, world, Vector } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const {
   encounterDecks,
@@ -229,12 +229,7 @@ function addEncounterCards(encounterExpansions) {
   let expansionEntries = Object.entries(encounterExpansions);
   for (const [encounter, cards] of expansionEntries) {
     const encounterDeck = encounterDecks[encounter];
-    const foundObjects = Util.findObjectsOnTop(encounterDeck);
     addExpansionCardsToDeck(encounterDeck, cards);
-
-    // adding many cards can send tokens on top of the deck flying,
-    // this fixes that
-    foundObjects.forEach((x) => x.object.snap());
   }
 }
 
@@ -268,9 +263,7 @@ function addExpansionCardsToDeck(deck, cards) {
     return;
   }
 
-  const showAnimation = false;
-  const toFront = true;
-  deck.addCards(cards, toFront, 0, showAnimation);
+  Util.addCardsSafe(deck, cards);
 }
 
 /**
