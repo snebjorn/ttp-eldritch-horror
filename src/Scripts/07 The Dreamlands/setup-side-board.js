@@ -123,9 +123,9 @@ function spawnDreamPortals(gateStack, dreamPortals) {
       Util.moveObject(dreamPortal, revealedGatePosition);
 
       const dreamPortalName = dreamPortal.getCardDetails().name;
-      portalsRevealed.push(`spawned "${dreamPortalName}" (Dream Portal) on ${revealedGateName}`);
+      portalsRevealed.push(`\t- Spawned ${dreamPortalName} (Dream Portal) on ${revealedGateName}.`);
     } else {
-      portalsRevealed.push(`revealed ${revealedGateName} (Gate)`);
+      portalsRevealed.push(`\t- Revealed ${revealedGateName} (Gate).`);
     }
 
     if (spawnedDreamPortals === 3) {
@@ -134,8 +134,7 @@ function spawnDreamPortals(gateStack, dreamPortals) {
   }
 
   Util.logScriptAction(
-    `SETUP (Side board: Dreamlands) revealed gates from the top of the Gate stack and spawned Dream Portals: ${portalsRevealed.join(
-      "; "
-    )}.`
+    "SETUP (Side board: Dreamlands) revealed gates from the top of the Gate stack and spawned Dream Portals.\n" +
+      portalsRevealed.join("\n")
   );
 }

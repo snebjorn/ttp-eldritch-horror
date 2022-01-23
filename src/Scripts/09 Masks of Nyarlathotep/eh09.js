@@ -145,8 +145,16 @@ const preludes = {
       const dreamQuestToken = Util.getCardObjectById("dream-quest-token");
       Util.moveOnTopOfObject(GameUtil.takeFocusTokens(1), dreamQuestToken);
 
+      let dreamQuestSpace;
+      try {
+        const dreamQuestDeck = Util.getCardObjectById("encounter-dream-quest-deck");
+        dreamQuestSpace = dreamQuestDeck.getAllCardDetails().slice(-1)[0].name;
+      } catch {
+        dreamQuestSpace = "ERROR";
+      }
+
       Util.logScriptAction(
-        "SETUP (Prelude: Aid of the Elder Gods) placed 1 Focus token on Ulthar and Celephaïs and 1 Focus token on the Dream-Quest token."
+        `SETUP (Prelude: Aid of the Elder Gods) placed 1 Focus token on Ulthar and Celephaïs and 1 Focus token on the Dream-Quest token (${dreamQuestSpace}).`
       );
     },
     investigatorSetup: (
