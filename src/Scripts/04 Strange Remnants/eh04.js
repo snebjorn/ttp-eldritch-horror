@@ -112,7 +112,7 @@ const preludes = {
         Util.moveObject(firstAdventureCard, tableLocations.activeAdventure);
         Util.flip(firstAdventureCard);
 
-        const [spawnedGate, spawnedMonster, spawnEffect] = GameUtil.spawnGates(1);
+        const [spawnedGate, spawnedMonster, spawnEffect] = GameUtil.spawnGates(1)[0];
 
         const adventureToken = createCard("BEEB07464B9819C2D6BAB883A88C9146");
         adventureToken.setId("adventure-cosmic-alignment-token");
