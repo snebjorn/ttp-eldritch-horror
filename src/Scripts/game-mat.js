@@ -21,8 +21,8 @@ if (assetDiscardPileSnap) {
   ui.position = assetDiscardPileSnap
     .getLocalPosition()
     .subtract(new Vector(0, 0, zDifference))
-    // 0.04 is the magic height that raises the UI so it's visible
-    .add(new Vector(0, 0, 0.04));
+    // 0.03 is the magic height that raises the UI so it's visible
+    .add(new Vector(0, 0, 0.03));
   // need to scale so images are not pixilated
   ui.scale = 0.1; // at scale 1, one pixel corresponds to one millimeter
 
@@ -103,8 +103,8 @@ if (clueDiscardPileSnap) {
   ui.position = clueDiscardPileSnap
     .getLocalPosition()
     .subtract(new Vector(0, 0, zDifference))
-    // 0.04 is the magic height that raises the UI so it's visible
-    .add(new Vector(0, 0, 0.04));
+    // 0.03 is the magic height that raises the UI so it's visible
+    .add(new Vector(0, 0, 0.03));
   // need to scale so images are not pixilated
   ui.scale = 0.1; // at scale 1, one pixel corresponds to one millimeter
 
@@ -185,8 +185,8 @@ if (gateDiscardPileSnap) {
   ui.position = gateDiscardPileSnap
     .getLocalPosition()
     .subtract(new Vector(0, 0, zDifference))
-    // 0.04 is the magic height that raises the UI so it's visible
-    .add(new Vector(0, 0, 0.04));
+    // 0.03 is the magic height that raises the UI so it's visible
+    .add(new Vector(0, 0, 0.03));
   // need to scale so images are not pixilated
   ui.scale = 0.1; // at scale 1, one pixel corresponds to one millimeter
 

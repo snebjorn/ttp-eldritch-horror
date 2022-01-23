@@ -262,15 +262,8 @@ class Util {
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
    */
   static moveOnTopOfObject(gameObject, destinationObject, animationSpeed = 1) {
-    const destinationGlobalPosition = destinationObject
-      // getPosition returns the center of the object
-      .getPosition()
-      // add half of the height of the object
-      .add(new Vector(0, 0, gameObject.getExtent(true).z))
-      // add extra height so we're outside the bounding box
-      .add(new Vector(0, 0, 0.01));
-
-    Util.moveObject(gameObject, destinationGlobalPosition, animationSpeed);
+    const destinationPosition = Util.getTopPosition(destinationObject);
+    Util.moveObject(gameObject, destinationPosition, animationSpeed);
   }
 
   /**
@@ -622,7 +615,15 @@ class Util {
    * @param {GameObject} object
    */
   static getTopPosition(object) {
-    return object.getPosition().add(new Vector(0, 0, object.getExtent(true).z));
+    return (
+      object
+        // getPosition returns the center of the object
+        .getPosition()
+        // add half of the height of the object
+        .add(new Vector(0, 0, object.getExtent(true).z))
+        // add a little extra height so we're outside the bounding box
+        .add(new Vector(0, 0, 0.01))
+    );
   }
 
   /**
@@ -630,9 +631,7 @@ class Util {
    * @param {Vector} direction - direction to find objects in. Defaults to `Vector(0, 0, 2)`
    */
   static findObjectsOnTop(object, direction = new Vector(0, 0, 2)) {
-    const topPosition = Util.getTopPosition(object)
-      // add a little extra height so the line trace wont hit the origin object
-      .add(new Vector(0, 0, 0.01));
+    const topPosition = Util.getTopPosition(object);
     return world.lineTrace(topPosition, topPosition.add(direction));
   }
 
