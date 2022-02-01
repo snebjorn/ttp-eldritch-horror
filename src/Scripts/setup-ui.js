@@ -63,7 +63,8 @@ function drawSetupUi() {
   const iconRefBox = new HorizontalBox();
   vBox.addChild(iconRefBox);
   const noIconRefText =
-    'No Icon Reference card selected\nPlace an Icon Reference card on the "Active Icon Reference" to select one';
+    "No Icon Reference card selected.\n" +
+    'Place an Icon Reference card on the "Active Icon Reference" to select one.';
   const iconRefTextBox = new Text().setText(noIconRefText);
   iconRefBox.addChild(iconRefTextBox);
 
@@ -201,10 +202,10 @@ function drawSetupUi() {
   const preludeBox = new HorizontalBox();
   vBox.addChild(preludeBox);
   const noPreludeText =
-    "No prelude selected\n" +
-    'Place a Prelude card on the "Active Prelude" to select one\n\n' +
+    "No prelude selected.\n" +
+    'Place a Prelude card on the "Active Prelude" to select one.\n\n' +
     "To play with a random/unknown Prelude first shuffle the Prelude deck\n" +
-    'then place a Prelude face down on the "Active Prelude"';
+    'then place a Prelude face down on the "Active Prelude".';
   const preludeTextBox = new Text().setText(noPreludeText);
   preludeBox.addChild(preludeTextBox);
 

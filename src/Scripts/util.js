@@ -14,10 +14,10 @@ const {
 
 class Util {
   /**
-   * @param {Card} cardStack
-   * @param {string} cardName
+   * @param {Card} cardStack - Card stack to search.
+   * @param {string} cardName  Card name to search for.
    * @param {boolean} fromFront - If true, searches from the front of the stack instead of the back. Default: `false`.
-   * @returns {number | undefined} Offset of the matching card name, relative to the search direction. If no match returns undefined
+   * @returns {number | undefined} Offset of the matching card name, relative to the search direction. If no match returns `undefined`.
    */
   static findCardNameInStack(cardStack, cardName, fromFront = false) {
     const deckSize = cardStack.getStackSize();
