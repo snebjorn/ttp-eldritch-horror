@@ -301,7 +301,7 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("0105BF814CE91E975EA44E98DC0B
 }
 
 if (!world.__eldritchHorror.alreadyLoaded.includes("8DAC8A0A49992180769CC4969AD6AABA")) {
-  const { investigators } = require("./investigators");
-  world.__eldritchHorror.investigators.push(...investigators);
+  const { investigators05 } = require("./investigators");
+  world.__eldritchHorror.investigators.push(...investigators05);
   world.__eldritchHorror.alreadyLoaded.push("8DAC8A0A49992180769CC4969AD6AABA");
 }

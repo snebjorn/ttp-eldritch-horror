@@ -1,5 +1,5 @@
 /** @type Investigator[] */
-exports.investigators = [
+exports.investigators07 = [
   {
     name: "Amanda Sharpe",
     pawnTemplateId: "D33B1FE6487728FFF021EB87D2BD5CB4",
