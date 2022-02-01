@@ -73,5 +73,17 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Glamour\"]",
+		"1": "[\"Glamour\"]",
+		"2": "[\"Glamour\"]",
+		"3": "[\"Glamour\"]",
+		"4": "[\"Ritual\"]",
+		"5": "[\"Ritual\"]",
+		"6": "[\"Ritual\"]",
+		"7": "[\"Ritual\"]",
+		"8": "[\"Incantation\"]",
+		"9": "[\"Incantation\"]",
+		"10": "[\"Incantation\"]",
+		"11": "[\"Incantation\"]"
 	}
 }

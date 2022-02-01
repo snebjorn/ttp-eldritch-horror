@@ -85,5 +85,29 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Madness\"]",
+		"1": "[\"Injury\"]",
+		"2": "[\"Boon\"]",
+		"3": "[\"Boon\"]",
+		"4": "[\"Boon\"]",
+		"5": "[\"Bane\"]",
+		"6": "[\"Bane\"]",
+		"7": "[\"Bane\"]",
+		"8": "[\"Deal\"]",
+		"9": "[\"Deal\", \"Common\"]",
+		"10": "[\"Deal\", \"Common\"]",
+		"11": "[\"Restriction\"]",
+		"12": "[\"Madness\"]",
+		"13": "[\"Injury\"]",
+		"14": "[\"Injury\"]",
+		"15": "[\"Restriction\"]",
+		"16": "[\"Restriction\"]",
+		"17": "[\"Restriction\"]",
+		"18": "[\"Restriction\"]",
+		"19": "[\"Madness\"]",
+		"20": "[\"Illness\"]",
+		"21": "[\"Illness\"]",
+		"22": "[\"Illness\"]",
+		"23": "[\"Illness\"]"
 	}
 }

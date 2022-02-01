@@ -65,5 +65,9 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Item\", \"Relic\", \"Tome\"]",
+		"1": "[\"Item\", \"Magical\", \"Relic\"]",
+		"2": "[\"Item\", \"Magical\"]",
+		"3": "[\"Item\", \"Magical\", \"Relic\"]"
 	}
 }

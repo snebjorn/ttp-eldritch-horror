@@ -128,7 +128,16 @@ const preludes = {
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       if (ancientOne === "Syzygy") {
-        // TODO lose 1 sanity and gain 1 relic unique asset
+        // lose 1 sanity and gain 1 relic unique asset
+        sanityToken.setState(sanityToken.getState() - 1);
+
+        Util.logScriptAction(
+          `SETUP (Prelude: In Cosmic Alignment, Investigator: ${investigator.name}) lost 1 Sanity and gained 1 Relic Unique Asset.`
+        );
+
+        return {
+          uniqueAssetTrait: "Relic",
+        };
       }
     },
   },
@@ -194,7 +203,14 @@ const preludes = {
       }
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
-      // TODO gain 1 Glamour Spell - need tagging support to tag cards with Glamour
+      // After resolving setup, each investigator gains 1 Glamour Spell.
+      Util.logScriptAction(
+        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Glamour Spell.`
+      );
+
+      return {
+        spellTrait: "Glamour",
+      };
     },
   },
 };

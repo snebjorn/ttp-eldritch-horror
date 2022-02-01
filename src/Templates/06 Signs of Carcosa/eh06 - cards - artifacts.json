@@ -65,5 +65,10 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Trinket\", \"Magical\"]",
+		"1": "[\"Item\", \"Tome\"]",
+		"2": "[\"Item\", \"Magical\", \"Relic\"]",
+		"3": "[\"Item\", \"Magical\"]"
+
 	}
 }

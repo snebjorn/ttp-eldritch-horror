@@ -160,6 +160,7 @@ const preludes = {
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       if (ancientOne === "Hypnos") {
+        // each investigator loses 1 Health and 1 Sanity and gains 1 Focus
         healthToken.setState(healthToken.getState() - 1);
         sanityToken.setState(sanityToken.getState() - 1);
 
@@ -263,6 +264,7 @@ const preludes = {
       ancientOne,
       player
     ) => {
+      // each investigator improves strength and will
       Util.logScriptAction(
         `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`
       );

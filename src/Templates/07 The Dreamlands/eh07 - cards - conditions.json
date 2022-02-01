@@ -80,5 +80,24 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Talent\", \"Boon\"]",
+		"1": "[\"Talent\", \"Boon\"]",
+		"2": "[\"Deal\"]",
+		"3": "[\"Deal\", \"Common\"]",
+		"4": "[\"Talent\"]",
+		"5": "[\"Talent\"]",
+		"6": "[\"Madness\"]",
+		"7": "[\"Restriction\"]",
+		"8": "[\"Restriction\"]",
+		"9": "[\"Restriction\"]",
+		"10": "[\"Restriction\"]",
+		"11": "[\"Talent\"]",
+		"12": "[\"Talent\"]",
+		"13": "[\"Talent\"]",
+		"14": "[\"Talent\"]",
+		"15": "[\"Talent\"]",
+		"16": "[\"Talent\"]",
+		"17": "[\"Talent\"]",
+		"18": "[\"Talent\"]"
 	}
 }

@@ -77,5 +77,21 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Ally\"]",
+		"1": "[\"Item\", \"Magical\", \"Weapon\"]",
+		"2": "[\"Service\"]",
+		"3": "[\"Ally\"]",
+		"4": "[\"Trinket\", \"Tome\"]",
+		"5": "[\"Trinket\"]",
+		"6": "[\"Item\"]",
+		"7": "[\"Item\", \"Magical\", \"Relic\", \"Weapon\"]",
+		"8": "[\"Service\"]",
+		"9": "[\"Item\", \"Tome\"]",
+		"10": "[\"Ally\"]",
+		"11": "[\"Item\", \"Tome\"]",
+		"12": "[\"Item\", \"Tome\"]",
+		"13": "[\"Item\", \"Magical\", \"Weapon\"]",
+		"14": "[\"Task\"]",
+		"15": "[\"Item\", \"Tome\"]"
 	}
 }

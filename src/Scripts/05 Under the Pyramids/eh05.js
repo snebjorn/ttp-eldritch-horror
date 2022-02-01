@@ -105,7 +105,7 @@ const preludes = {
         // for now just put it on the investigator sheet
 
         Util.logScriptAction(
-          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) placed 1 Eldritch token on Investigator sheet.`
+          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`
         );
         player.sendChatMessage(
           `You received an Eldritch token. Place it on the nearest sea space that does not contain an Eldritch token. Also move your Investigator to the nearest sea space and lose 1 sanity.`,
@@ -144,9 +144,34 @@ const preludes = {
           monster: "Cultist",
         };
       } else {
-        // TODO need to figure out how to find lead investigator
         // lead investigator spawns Child of Abhoth epic monster on nearest wilderness
         // then each investigator gains 1 illness condition and 1 clue
+        const gameState = GameUtil.getSavedData();
+        if (gameState.leadInvestigator === investigator.name) {
+          Util.logScriptAction(
+            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue, and placed 1 Child of Abhoth Epic Monster on Investigator sheet.`
+          );
+
+          player.sendChatMessage(
+            `You received a Child of Abhoth Epic Monster. Place it on the nearest Wilderness space.`,
+            player.getPlayerColor()
+          );
+
+          return {
+            epicMonster: "Child of Abhoth",
+            conditionTrait: "Illness",
+            clues: 1,
+          };
+        } else {
+          Util.logScriptAction(
+            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue.`
+          );
+
+          return {
+            conditionTrait: "Illness",
+            clues: 1,
+          };
+        }
       }
     },
   },

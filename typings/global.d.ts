@@ -106,15 +106,20 @@ declare global {
     randomArtifacts?: number;
     randomAssets?: number;
     randomSpells?: number;
+    spellTrait?: SpellTrait;
+    uniqueAssetTrait?: UniqueAssetTrait;
+    conditionTrait?: ConditionTrait;
     clues?: number;
     focus?: number;
     resources?: number;
     asset?: string;
+    uniqueAsset?: string;
     condition?: string;
     strength?: number;
     will?: number;
     eldritchTokens?: number;
     monster?: string;
+    epicMonster?: string;
   }
 
   interface Prelude {
@@ -377,4 +382,50 @@ declare global {
     shouldPing?: true;
     moveTo?: Required<keyof GameBoardLocations["space"]>;
   }
+
+  type ArtifactTrait =
+    | "Elixir"
+    | "Item"
+    | "Magical"
+    | "Relic"
+    | "Teamwork"
+    | "Tome"
+    | "Trinket"
+    | "Weapon";
+  type AssetTrait =
+    | "Ally"
+    | "Item"
+    | "Magical"
+    | "Relic"
+    | "Service"
+    | "Task"
+    | "Teamwork"
+    | "Tome"
+    | "Trinket"
+    | "Weapon";
+  type ConditionTrait =
+    | "Bane"
+    | "Boon"
+    | "Common"
+    | "Deal"
+    | "Exposure"
+    | "Illness"
+    | "Injury"
+    | "Madness"
+    | "Pursuit"
+    | "Restriction"
+    | "Talent";
+  type SpellTrait = "Glamour" | "Incantation" | "Ritual" | "Teamwork";
+  type UniqueAssetTrait =
+    | "Ally"
+    | "Character"
+    | "Item"
+    | "Magical"
+    | "Relic"
+    | "Tarot"
+    | "Task"
+    | "Tome"
+    | "Trinket"
+    | "Weapon";
+  type AllTraits = ArtifactTrait | AssetTrait | ConditionTrait | SpellTrait | UniqueAssetTrait;
 }

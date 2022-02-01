@@ -399,6 +399,13 @@ class GameUtil {
   /**
    * @param {string} monsterName
    */
+  static takeEpicMonster(monsterName) {
+    return Util.takeCardNameFromStack(epicMonsterCup, monsterName);
+  }
+
+  /**
+   * @param {string} monsterName
+   */
   static takeSetAsideMonster(monsterName) {
     for (const snapPoint of tableLocations.ancientOneMonsters) {
       const snappedObject = snapPoint.getSnappedObject();
@@ -416,6 +423,36 @@ class GameUtil {
         }
       }
     }
+  }
+
+  /**
+   * @param {Card} cardStack - Card stack to take from.
+   * @param {AllTraits[]} traits
+   * @param {number} count - Amount of cards to take. Default: `1`.
+   * @param {string[]} excludeCardNames - Card names to exclude from the random take. Default: `[]`.
+   * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
+   * @returns {Card | undefined}
+   */
+  static takeCardTraitFromStack(
+    cardStack,
+    traits,
+    count = 1,
+    excludeCardNames = [],
+    fromFront = false
+  ) {
+    return Util.takeCardMetadataFromStack(
+      cardStack,
+      (metadata) => {
+        if (metadata instanceof Array) {
+          return traits.every((trait) => metadata.includes(trait));
+        }
+
+        return false;
+      },
+      count,
+      excludeCardNames,
+      fromFront
+    );
   }
 
   /**

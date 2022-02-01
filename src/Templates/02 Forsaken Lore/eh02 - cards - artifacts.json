@@ -69,5 +69,13 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Item\", \"Magical\"]",
+		"1": "[\"Item\", \"Elixir\"]",
+		"2": "[\"Item\", \"Tome\"]",
+		"3": "[\"Item\", \"Elixir\"]",
+		"4": "[\"Item\", \"Magical\"]",
+		"5": "[\"Item\", \"Magical\"]",
+		"6": "[\"Item\", \"Magical\", \"Weapon\"]",
+		"7": "[\"Item\", \"Tome\"]"
 	}
 }

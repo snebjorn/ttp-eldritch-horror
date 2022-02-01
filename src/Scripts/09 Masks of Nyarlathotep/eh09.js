@@ -167,16 +167,18 @@ const preludes = {
       player
     ) => {
       if (ancientOne === "Nyarlathotep") {
+        // each investigator gains 1 Eldritch token
         Util.logScriptAction(
-          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) placed 1 Eldritch token on Investigator sheet.`
+          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`
         );
 
         return {
           eldritchTokens: 1,
         };
       } else {
+        // each investigator gains a Corruption Condition and 1 Clue
         Util.logScriptAction(
-          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) placed a Corruption Condition and 1 Clue token on Investigator sheet.`
+          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained a Corruption Condition and 1 Clue.`
         );
 
         return {
@@ -208,7 +210,17 @@ const preludes = {
       ancientOne,
       player
     ) => {
-      // TODO lead investigator loses 2 health and gains 1 Chainsaw Asset
+      // lead investigator loses 2 health and gains 1 Chainsaw Asset
+      const gameState = GameUtil.getSavedData();
+      if (gameState.leadInvestigator === investigator.name) {
+        Util.logScriptAction(
+          `SETUP (Prelude: Army of Darkness, Investigator: ${investigator.name}) lost 2 Health and gained 1 Chainsaw Asset.`
+        );
+
+        healthToken.setState(healthToken.getState() - 2);
+
+        return { asset: "Chainsaw" };
+      }
     },
   },
   "Father of Serpents": {
@@ -261,7 +273,7 @@ const preludes = {
     ) => {
       if (ancientOne === "Nyarlathotep") {
         Util.logScriptAction(
-          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) placed an Eldritch token on Investigator sheet.`
+          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`
         );
 
         player.sendChatMessage(`You must improve 1 skill of your choice.`, player.getPlayerColor());
@@ -271,7 +283,7 @@ const preludes = {
         };
       } else {
         Util.logScriptAction(
-          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) placed a Corruption Condition on Investigator sheet.`
+          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained a Corruption Condition.`
         );
         player.sendChatMessage(
           `You must improve 2 skills of your choice.`,
@@ -502,7 +514,7 @@ const duplicatePrelude = {
         // for now just put it on the investigator sheet
 
         Util.logScriptAction(
-          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) placed 1 Eldritch token on Investigator sheet.`
+          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`
         );
         player.sendChatMessage(
           `You received an Eldritch token. Place it on the nearest sea space that does not contain an Eldritch token. Also move your Investigator to the nearest sea space and lose 1 sanity.`,
@@ -567,10 +579,11 @@ const duplicatePrelude = {
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       Util.logScriptAction(
-        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) placed 1 random spell on Investigator sheet.`
+        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Spell.`
       );
 
       return {
+        // random spell differs from original where it's a Glamour Spell
         randomSpells: 1,
       };
     },

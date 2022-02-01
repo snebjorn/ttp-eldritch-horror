@@ -196,6 +196,12 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
   }
 
+  /**
+   * From FAQ in EH03 rulebook
+   *
+   * Q. Can an investigator have multiple copies of the same Unique Asset?
+   * A. Yes. There is no limit to the number of Unique Assets an investigator can have.
+   */
   if (startingItems.uniqueAssets && startingItems.uniqueAssets.length > 0) {
     /** @type Card | undefined */
     // @ts-ignore
@@ -215,13 +221,56 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
   }
 
+  if (extras && extras.uniqueAsset && extras.uniqueAsset.length > 0) {
+    /** @type Card | undefined */
+    // @ts-ignore
+    const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
+    if (!uniqueAssetDeck) {
+      console.error("Unable to find Unique Asset Deck");
+    } else {
+      const takenAsset = Util.takeCardNameFromStack(uniqueAssetDeck, extras.uniqueAsset);
+      if (takenAsset === undefined) {
+        console.error(`Unable to find "${extras.uniqueAsset}" in Unique Asset Deck`);
+        return;
+      }
+
+      positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
+    }
+  }
+
+  if (extras && extras.uniqueAssetTrait !== undefined && extras.uniqueAssetTrait.length > 0) {
+    /** @type Card | undefined */
+    // @ts-ignore
+    const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
+    if (!uniqueAssetDeck) {
+      console.error("Unable to find Unique Asset Deck");
+    } else {
+      const uniqueAssetWithTrait = GameUtil.takeCardTraitFromStack(uniqueAssetDeck, [
+        extras.uniqueAssetTrait,
+      ]);
+      if (uniqueAssetWithTrait === undefined) {
+        console.error(
+          `Unable to take a Unique Asset with trait ${extras.uniqueAssetTrait} from the Unique Asset Deck`
+        );
+        return;
+      }
+
+      positionItemOnInvestigatorSheet(investigatorSheet, uniqueAssetWithTrait, itemsGiven++);
+    }
+  }
+
   /**
-   * This array is used to keep track of spells given to an investigator so we can adhere to the following rule.
+   * This array is used to keep track of spells given to an investigator so we can adhere to the following rules.
    *
    * > **Gaining a Random Card:**
    * >
    * > If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
    * > repeating this process until he draws a card he does not already have (if able).
+   * >
+   * > **Gaining a Card with a Specific Trait:**
+   * >
+   * > An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
+   * > the specified trait he does not already have and gains that card.
    *
    * @type string[] */
   const givenSpells = [];
@@ -238,6 +287,22 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     });
   }
 
+  if (extras && extras.spellTrait !== undefined && extras.spellTrait.length > 0) {
+    const spellWithTrait = GameUtil.takeCardTraitFromStack(
+      spellDeck,
+      [extras.spellTrait],
+      1,
+      givenSpells
+    );
+    if (spellWithTrait === undefined) {
+      console.error(`Unable to take a spell with trait ${extras.spellTrait} from the Spell Deck`);
+      return;
+    }
+    givenSpells.push(spellWithTrait.getCardDetails().name);
+
+    positionItemOnInvestigatorSheet(investigatorSheet, spellWithTrait, itemsGiven++);
+  }
+
   if (extras && extras.randomSpells !== undefined && extras.randomSpells > 0) {
     for (let i = 0; i < extras.randomSpells; i++) {
       const randomSpell = Util.takeRandomCardsFromStack(spellDeck, 1, givenSpells);
@@ -245,22 +310,27 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
         console.error(`Unable to take a random spell from the Spell Deck`);
         return;
       }
+      givenSpells.push(randomSpell.getCardDetails().name);
+
       positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
     }
   }
 
-  if (extras && extras.condition) {
-    if (
-      startingItems.conditions &&
-      // An investigator cannot have multiple copies of the same Condition.
-      // If he would gain a Condition that he already has a copy of, he does not gain another copy of that Condition.
-      !startingItems.conditions.includes(extras.condition)
-    ) {
-      startingItems.conditions.push(extras.condition);
-    } else {
-      startingItems.conditions = [extras.condition];
-    }
-  }
+  /**
+   * This array is used to keep track of spells given to an investigator so we can adhere to the following rules.
+   *
+   * > **Gaining a Random Card:**
+   * >
+   * > If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
+   * > repeating this process until he draws a card he does not already have (if able).
+   * >
+   * > **Gaining a Card with a Specific Trait:**
+   * >
+   * > An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
+   * > the specified trait he does not already have and gains that card.
+   *
+   * @type string[] */
+  const givenConditions = [];
   if (startingItems.conditions && startingItems.conditions.length > 0) {
     startingItems.conditions.forEach((condition) => {
       const conditionCard = Util.takeCardNameFromStack(conditionDeck, condition);
@@ -269,8 +339,47 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
         return;
       }
 
+      givenConditions.push(conditionCard.getCardDetails().name);
+
       positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
     });
+  }
+
+  if (extras && extras.condition !== undefined && extras.condition.length > 0) {
+    if (
+      startingItems.conditions &&
+      // An investigator cannot have multiple copies of the same Condition.
+      // If he would gain a Condition that he already has a copy of, he does not gain another copy of that Condition.
+      !givenConditions.includes(extras.condition)
+    ) {
+      const conditionCard = Util.takeCardNameFromStack(conditionDeck, extras.condition);
+      if (conditionCard === undefined) {
+        console.error(`Unable to find "${extras.condition}" in Condition Deck`);
+        return;
+      }
+
+      givenConditions.push(conditionCard.getCardDetails().name);
+
+      positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
+    }
+  }
+
+  if (extras && extras.conditionTrait !== undefined && extras.conditionTrait.length > 0) {
+    const conditionWithTrait = GameUtil.takeCardTraitFromStack(
+      conditionDeck,
+      [extras.conditionTrait],
+      1,
+      givenConditions
+    );
+    if (conditionWithTrait === undefined) {
+      console.error(
+        `Unable to take a condition with trait ${extras.conditionTrait} from the Condition Deck`
+      );
+      return;
+    }
+    givenSpells.push(conditionWithTrait.getCardDetails().name);
+
+    positionItemOnInvestigatorSheet(investigatorSheet, conditionWithTrait, itemsGiven++);
   }
 
   if (extras && extras.randomArtifacts !== undefined && extras.randomArtifacts > 0) {
@@ -394,6 +503,16 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     const monsterToken = GameUtil.takeMonster(extras.monster);
     if (monsterToken === undefined) {
       console.error(`Unable to find ${extras.monster} Monster`);
+      return;
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
+  }
+
+  if (extras && extras.epicMonster && extras.epicMonster.length > 0) {
+    const monsterToken = GameUtil.takeEpicMonster(extras.epicMonster);
+    if (monsterToken === undefined) {
+      console.error(`Unable to find ${extras.epicMonster} Epic Monster`);
       return;
     }
 

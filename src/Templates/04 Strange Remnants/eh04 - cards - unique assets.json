@@ -85,5 +85,29 @@
 	},
 	"CardMetadata":
 	{
+		"0": "[\"Item\", \"Magical\", \"Relic\", \"Weapon\"]",
+		"1": "[\"Ally\", \"Character\"]",
+		"2": "[\"Ally\", \"Character\"]",
+		"3": "[\"Task\"]",
+		"4": "[\"Task\"]",
+		"5": "[\"Task\"]",
+		"6": "[\"Item\", \"Magical\", \"Relic\"]",
+		"7": "[\"Item\", \"Magical\", \"Relic\"]",
+		"8": "[\"Item\", \"Magical\", \"Relic\"]",
+		"9": "[\"Item\", \"Magical\", \"Relic\"]",
+		"10": "[\"Task\"]",
+		"11": "[\"Task\"]",
+		"12": "[\"Task\"]",
+		"13": "[\"Ally\", \"Character\"]",
+		"14": "[\"Task\"]",
+		"15": "[\"Task\"]",
+		"16": "[\"Task\"]",
+		"17": "[\"Item\", \"Magical\", \"Relic\"]",
+		"18": "[\"Item\", \"Relic\"]",
+		"19": "[\"Item\", \"Relic\"]",
+		"20": "[\"Item\", \"Relic\"]",
+		"21": "[\"Item\", \"Relic\"]",
+		"22": "[\"Item\", \"Relic\"]",
+		"23": "[\"Item\", \"Relic\"]"
 	}
 }

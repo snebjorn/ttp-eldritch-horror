@@ -95,6 +95,32 @@ const preludes = {
 
       Util.logScriptAction("SETUP (Prelude: You Know What You Must Do) advanced Doom by 3.");
     },
+    investigatorSetup: (
+      investigator,
+      sheet,
+      healthToken,
+      sanityToken,
+      pawn,
+      ancientOne,
+      player
+    ) => {
+      // the lead investigator gains 1 For the Greater Good Unique Asset
+      // each other investigator gains 1 Clue
+      const gameState = GameUtil.getSavedData();
+      if (gameState.leadInvestigator === investigator.name) {
+        Util.logScriptAction(
+          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 For the Greater Good Unique Asset.`
+        );
+
+        return { uniqueAsset: "For the Greater Good" };
+      } else {
+        Util.logScriptAction(
+          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 Clue.`
+        );
+
+        return { clues: 1 };
+      }
+    },
   },
 };
 
