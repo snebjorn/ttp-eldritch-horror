@@ -68,6 +68,7 @@ function setupInvestigator(investigatorSheet, player) {
 
   setupStartingItems(investigatorSheet, foundInvestigator.startingItems, extraItems, personalStory);
   Util.logScriptAction(`${player.getName()} setup Investigator ${foundInvestigator.name}.`);
+  investigatorSheet.setOwningPlayerSlot(player.getSlot());
 }
 exports.setupInvestigator = setupInvestigator;
 

@@ -369,6 +369,7 @@ declare global {
     isPersonalStory: boolean;
     iconReference?: IconReference;
     isGameBegun: boolean;
+    leadInvestigator?: string;
   }
 
   interface MonsterSpawnEffect {

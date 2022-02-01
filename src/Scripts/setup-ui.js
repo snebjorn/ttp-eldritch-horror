@@ -166,6 +166,34 @@ function drawSetupUi() {
   vBox.addChild(new Text());
   vBox.addChild(
     new Text()
+      .setText(`${step++}. Choose Investigators`)
+      .setFont(arkhamRegFont)
+      .setFontSize(20)
+  );
+  vBox.addChild(
+    new Text().setText(
+      "Players agree upon one player to receive the Lead Investigator token.\n" +
+        "Starting with the Lead Investigator and proceeding clockwise,\n" +
+        "each player chooses one investigator.\n"
+    )
+  );
+  const noLeadInvestigatorText =
+    "To register a Lead Investigator move the token next to the Investigator sheet.";
+  const leadInvestigatorTextBox = new Text().setText(noLeadInvestigatorText);
+  vBox.addChild(leadInvestigatorTextBox);
+
+  function updateLeadInvestigator() {
+    const leadInvestigator = GameUtil.getSavedData().leadInvestigator;
+    if (leadInvestigator) {
+      leadInvestigatorTextBox.setText(`Registered Lead Investigator: ${leadInvestigator}`);
+    } else {
+      leadInvestigatorTextBox.setText(noLeadInvestigatorText);
+    }
+  }
+
+  vBox.addChild(new Text());
+  vBox.addChild(
+    new Text()
       .setText(`${step++}. Select Prelude (optional)`)
       .setFont(arkhamRegFont)
       .setFontSize(20)
@@ -493,6 +521,7 @@ function drawSetupUi() {
   world.__eldritchHorror.updateSetupUIFn = () => {
     updateIconReference(GameUtil.getActiveIconReference());
     updatePrelude();
+    updateLeadInvestigator();
   };
 
   world.addUI(ui);
