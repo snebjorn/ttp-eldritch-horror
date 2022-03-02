@@ -140,6 +140,161 @@ exports.getInvestigatorData = getInvestigatorData;
 function setupStartingItems(investigatorSheet, startingItems, extras, personalStory) {
   let itemsGiven = 0;
 
+  itemsGiven = fetchAssets(investigatorSheet, itemsGiven, startingItems, extras);
+  itemsGiven = fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras);
+  itemsGiven = fetchSpells(investigatorSheet, itemsGiven, startingItems, extras);
+  itemsGiven = fetchConditions(investigatorSheet, itemsGiven, startingItems, extras);
+
+  if (personalStory !== undefined && personalStory.length > 0) {
+    const personalMissionDeck = Util.getCardObjectById("personal-mission-deck");
+    const personalMission = Util.takeCardNameFromStack(personalMissionDeck, personalStory);
+    if (personalMission === undefined) {
+      console.error(`Unable to find "${personalStory}" in Personal Mission Deck`);
+    } else {
+      Util.flip(personalMission);
+      positionItemOnInvestigatorSheet(investigatorSheet, personalMission, itemsGiven++);
+    }
+  }
+
+  if (extras?.randomArtifacts !== undefined && extras.randomArtifacts > 0) {
+    for (let i = 0; i < extras.randomArtifacts; i++) {
+      const randomArtifact = Util.takeRandomCardsFromStack(artifactDeck);
+      if (randomArtifact === undefined) {
+        console.error(`Unable to take a random artifact from the Artifact Deck`);
+      } else {
+        positionItemOnInvestigatorSheet(investigatorSheet, randomArtifact, itemsGiven++);
+      }
+    }
+  }
+
+  const startingClues = startingItems.clues ?? 0;
+  const extraClues = extras?.clues ?? 0;
+  const clueCount = startingClues + extraClues;
+  if (clueCount > 0) {
+    const clueToken = GameUtil.takeRandomClueTokens(clueCount);
+    if (clueToken === undefined) {
+      console.error(`Unable to find a clue in Clue Pool`);
+    } else {
+      positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
+    }
+  }
+  const startingFocus = startingItems.focus ?? 0;
+  const extraFocus = extras?.focus ?? 0;
+  const focusCount = startingFocus + extraFocus;
+  if (focusCount > 0) {
+    const focusTokens = GameUtil.takeFocusTokens(focusCount);
+    positionItemOnInvestigatorSheet(investigatorSheet, focusTokens, itemsGiven++);
+  }
+
+  const startingResources = startingItems.resources ?? 0;
+  const extraResources = extras?.resources ?? 0;
+  const resourceCount = startingResources + extraResources;
+  if (resourceCount > 0) {
+    const resourceTokens = GameUtil.takeResourceTokens(resourceCount);
+    positionItemOnInvestigatorSheet(investigatorSheet, resourceTokens, itemsGiven++);
+  }
+
+  if (startingItems.shipTickets !== undefined && startingItems.shipTickets > 0) {
+    const shipTokens = GameUtil.takeShipTokens(startingItems.shipTickets);
+    positionItemOnInvestigatorSheet(investigatorSheet, shipTokens, itemsGiven++);
+  }
+
+  if (extras?.strength !== undefined && extras.strength > 0) {
+    if (extras.strength > 2) {
+      // improving skills: An investigator cannot improve a single skill more than twice
+      extras.strength = 2;
+    }
+    const improvementTokens = Util.createCard(
+      strengthToken.getPosition().add(new Vector(0, 0, 2)),
+      strengthToken.getTemplateId()
+    );
+    const takenStrengthToken = Util.takeCardNameFromStack(improvementTokens, "strength");
+    improvementTokens.destroy();
+    if (takenStrengthToken === undefined) {
+      console.error(`Unable to find Strength token`);
+      return;
+    }
+
+    if (extras.strength === 1) {
+      Util.flip(takenStrengthToken);
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, takenStrengthToken, itemsGiven++);
+  }
+
+  const startingWill = startingItems.will ?? 0;
+  const extraWill = extras?.will ?? 0;
+  let willCount = startingWill + extraWill;
+  if (willCount > 0) {
+    if (willCount > 2) {
+      // improving skills: An investigator cannot improve a single skill more than twice
+      willCount = 2;
+    }
+    const improvementTokens = Util.createCard(
+      willToken.getPosition().add(new Vector(0, 0, 2)),
+      willToken.getTemplateId()
+    );
+    const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
+    improvementTokens.destroy();
+    if (takenWillToken === undefined) {
+      console.error(`Unable to find Will token`);
+      return;
+    }
+
+    if (willCount === 1) {
+      Util.flip(takenWillToken);
+    }
+
+    positionItemOnInvestigatorSheet(investigatorSheet, takenWillToken, itemsGiven++);
+  }
+
+  if (extras?.eldritchTokens !== undefined && extras.eldritchTokens > 0) {
+    const eldritchTokens = GameUtil.takeEldritchTokens(extras.eldritchTokens);
+    if (eldritchTokens === undefined) {
+      console.error(`Unable to find Eldritch token`);
+    } else {
+      positionItemOnInvestigatorSheet(investigatorSheet, eldritchTokens, itemsGiven++);
+    }
+  }
+
+  if (extras?.monster !== undefined && extras.monster.length > 0) {
+    const monsterToken = GameUtil.takeMonster(extras.monster);
+    if (monsterToken === undefined) {
+      console.error(`Unable to find ${extras.monster} Monster`);
+    } else {
+      positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
+    }
+  }
+
+  if (extras?.epicMonster !== undefined && extras.epicMonster.length > 0) {
+    const monsterToken = GameUtil.takeEpicMonster(extras.epicMonster);
+    if (monsterToken === undefined) {
+      console.error(`Unable to find ${extras.epicMonster} Epic Monster`);
+    } else {
+      positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
+    }
+  }
+}
+
+/**
+ * **Gaining a Specific Card**
+ *
+ * Some effects instruct an investigator to gain a specific card by name (for example, “Gain an Axe Asset”).
+ * The investigator searches that card type’s deck then discard pile for the first card matching the
+ * specified name and gains that card.
+ * - If the named card is in the reserve, the investigator gains that card instead.
+ * - If the specified card is not found while searching, he does not gain a card.
+ *
+ * For instance, if other investigators or defeated investigators possess all copies of the card or
+ * all copies of the card have been returned to the game box.
+ *
+ * @param {Card} investigatorSheet
+ * @param {number} itemsGiven
+ * @param {Investigator["startingItems"]} startingItems
+ * @param {ExtraItems} [extras]
+ * @returns {number}
+ */
+function fetchAssets(investigatorSheet, itemsGiven, startingItems, extras) {
   if (extras && extras.asset) {
     if (startingItems.assets) {
       startingItems.assets.push(extras.asset);
@@ -147,12 +302,12 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
       startingItems.assets = [extras.asset];
     }
   }
-  if (startingItems.assets && startingItems.assets.length > 0) {
+
+  if (startingItems.assets !== undefined && startingItems.assets.length > 0) {
     startingItems.assets.forEach((asset) => {
       let takenAsset = Util.takeCardNameFromStack(getAssetDeck(), asset);
       if (takenAsset === undefined) {
         // search reserve
-
         /** @type {Card | undefined} */
         // @ts-ignore
         const foundCardInReserve = gameBoardLocations.reserve
@@ -185,24 +340,34 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     });
   }
 
-  if (extras && extras.randomAssets !== undefined && extras.randomAssets > 0) {
+  if (extras?.randomAssets !== undefined && extras.randomAssets > 0) {
     for (let i = 0; i < extras.randomAssets; i++) {
       const randomAsset = Util.takeRandomCardsFromStack(getAssetDeck());
       if (randomAsset === undefined) {
         console.error(`Unable to take a random asset from the Asset Deck`);
-        return;
+      } else {
+        positionItemOnInvestigatorSheet(investigatorSheet, randomAsset, itemsGiven++);
       }
-      positionItemOnInvestigatorSheet(investigatorSheet, randomAsset, itemsGiven++);
     }
   }
 
-  /**
-   * From FAQ in EH03 rulebook
-   *
-   * Q. Can an investigator have multiple copies of the same Unique Asset?
-   * A. Yes. There is no limit to the number of Unique Assets an investigator can have.
-   */
-  if (startingItems.uniqueAssets && startingItems.uniqueAssets.length > 0) {
+  return itemsGiven;
+}
+
+/**
+ * From FAQ in EH03 rulebook
+ *
+ * Q. Can an investigator have multiple copies of the same Unique Asset?
+ * A. Yes. There is no limit to the number of Unique Assets an investigator can have.
+ *
+ * @param {Card} investigatorSheet
+ * @param {number} itemsGiven
+ * @param {Investigator["startingItems"]} startingItems
+ * @param {ExtraItems} [extras]
+ * @returns {number}
+ */
+function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras) {
+  if (startingItems.uniqueAssets !== undefined && startingItems.uniqueAssets.length > 0) {
     /** @type Card | undefined */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
@@ -221,7 +386,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
   }
 
-  if (extras && extras.uniqueAsset && extras.uniqueAsset.length > 0) {
+  if (extras?.uniqueAsset !== undefined && extras.uniqueAsset.length > 0) {
     /** @type Card | undefined */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
@@ -231,14 +396,13 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
       const takenAsset = Util.takeCardNameFromStack(uniqueAssetDeck, extras.uniqueAsset);
       if (takenAsset === undefined) {
         console.error(`Unable to find "${extras.uniqueAsset}" in Unique Asset Deck`);
-        return;
+      } else {
+        positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
       }
-
-      positionItemOnInvestigatorSheet(investigatorSheet, takenAsset, itemsGiven++);
     }
   }
 
-  if (extras && extras.uniqueAssetTrait !== undefined && extras.uniqueAssetTrait.length > 0) {
+  if (extras?.uniqueAssetTrait !== undefined && extras.uniqueAssetTrait.length > 0) {
     /** @type Card | undefined */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
@@ -252,29 +416,36 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
         console.error(
           `Unable to take a Unique Asset with trait ${extras.uniqueAssetTrait} from the Unique Asset Deck`
         );
-        return;
+      } else {
+        positionItemOnInvestigatorSheet(investigatorSheet, uniqueAssetWithTrait, itemsGiven++);
       }
-
-      positionItemOnInvestigatorSheet(investigatorSheet, uniqueAssetWithTrait, itemsGiven++);
     }
   }
 
-  /**
-   * This array is used to keep track of spells given to an investigator so we can adhere to the following rules.
-   *
-   * > **Gaining a Random Card:**
-   * >
-   * > If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
-   * > repeating this process until he draws a card he does not already have (if able).
-   * >
-   * > **Gaining a Card with a Specific Trait:**
-   * >
-   * > An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
-   * > the specified trait he does not already have and gains that card.
-   *
-   * @type string[] */
+  return itemsGiven;
+}
+
+/**
+ * **Gaining a Random Card**
+ *
+ * If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
+ * repeating this process until he draws a card he does not already have (if able).
+ *
+ * **Gaining a Card with a Specific Trait**
+ *
+ * An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
+ * the specified trait he does not already have and gains that card.
+ *
+ * @param {Card} investigatorSheet
+ * @param {number} itemsGiven
+ * @param {Investigator["startingItems"]} startingItems
+ * @param {ExtraItems} [extras]
+ * @returns {number}
+ */
+function fetchSpells(investigatorSheet, itemsGiven, startingItems, extras) {
+  /** @type string[] */
   const givenSpells = [];
-  if (startingItems.spells && startingItems.spells.length > 0) {
+  if (startingItems.spells !== undefined && startingItems.spells.length > 0) {
     startingItems.spells.forEach((spell) => {
       const spellCard = Util.takeCardNameFromStack(spellDeck, spell);
       if (spellCard === undefined) {
@@ -287,7 +458,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     });
   }
 
-  if (extras && extras.spellTrait !== undefined && extras.spellTrait.length > 0) {
+  if (extras?.spellTrait !== undefined && extras.spellTrait.length > 0) {
     const spellWithTrait = GameUtil.takeCardTraitFromStack(
       spellDeck,
       [extras.spellTrait],
@@ -296,58 +467,67 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     );
     if (spellWithTrait === undefined) {
       console.error(`Unable to take a spell with trait ${extras.spellTrait} from the Spell Deck`);
-      return;
-    }
-    givenSpells.push(spellWithTrait.getCardDetails().name);
+    } else {
+      givenSpells.push(spellWithTrait.getCardDetails().name);
 
-    positionItemOnInvestigatorSheet(investigatorSheet, spellWithTrait, itemsGiven++);
+      positionItemOnInvestigatorSheet(investigatorSheet, spellWithTrait, itemsGiven++);
+    }
   }
 
-  if (extras && extras.randomSpells !== undefined && extras.randomSpells > 0) {
+  if (extras?.randomSpells !== undefined && extras.randomSpells > 0) {
     for (let i = 0; i < extras.randomSpells; i++) {
       const randomSpell = Util.takeRandomCardsFromStack(spellDeck, 1, givenSpells);
       if (randomSpell === undefined) {
         console.error(`Unable to take a random spell from the Spell Deck`);
-        return;
-      }
-      givenSpells.push(randomSpell.getCardDetails().name);
+      } else {
+        givenSpells.push(randomSpell.getCardDetails().name);
 
-      positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
+        positionItemOnInvestigatorSheet(investigatorSheet, randomSpell, itemsGiven++);
+      }
     }
   }
 
-  /**
-   * This array is used to keep track of spells given to an investigator so we can adhere to the following rules.
-   *
-   * > **Gaining a Random Card:**
-   * >
-   * > If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
-   * > repeating this process until he draws a card he does not already have (if able).
-   * >
-   * > **Gaining a Card with a Specific Trait:**
-   * >
-   * > An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
-   * > the specified trait he does not already have and gains that card.
-   *
-   * @type string[] */
+  return itemsGiven;
+}
+
+/**
+ * **Gaining a Specific Card**
+ *
+ * Some effects instruct an investigator to gain a specific card by name (for example, “Gain an Axe Asset”).
+ * The investigator searches that card type’s deck then discard pile for the first card matching the
+ * specified name and gains that card.
+ * - If the named card is in the reserve, the investigator gains that card instead.
+ * - If the specified card is not found while searching, he does not gain a card.
+ *
+ * For instance, if other investigators or defeated investigators possess all copies of the card or
+ * all copies of the card have been returned to the game box.
+ *
+ * @param {Card} investigatorSheet
+ * @param {number} itemsGiven
+ * @param {Investigator["startingItems"]} startingItems
+ * @param {ExtraItems} [extras]
+ * @returns {number}
+ */
+function fetchConditions(investigatorSheet, itemsGiven, startingItems, extras) {
+  /** @type string[] */
   const givenConditions = [];
-  if (startingItems.conditions && startingItems.conditions.length > 0) {
+
+  if (startingItems.conditions !== undefined && startingItems.conditions.length > 0) {
     startingItems.conditions.forEach((condition) => {
       const conditionCard = Util.takeCardNameFromStack(conditionDeck, condition);
       if (conditionCard === undefined) {
         console.error(`Unable to find "${condition}" in Condition Deck`);
-        return;
+      } else {
+        givenConditions.push(conditionCard.getCardDetails().name);
+
+        positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
       }
-
-      givenConditions.push(conditionCard.getCardDetails().name);
-
-      positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
     });
   }
 
-  if (extras && extras.condition !== undefined && extras.condition.length > 0) {
+  if (extras?.condition !== undefined && extras.condition.length > 0) {
     if (
-      startingItems.conditions &&
+      startingItems.conditions !== undefined &&
       // An investigator cannot have multiple copies of the same Condition.
       // If he would gain a Condition that he already has a copy of, he does not gain another copy of that Condition.
       !givenConditions.includes(extras.condition)
@@ -355,16 +535,15 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
       const conditionCard = Util.takeCardNameFromStack(conditionDeck, extras.condition);
       if (conditionCard === undefined) {
         console.error(`Unable to find "${extras.condition}" in Condition Deck`);
-        return;
+      } else {
+        givenConditions.push(conditionCard.getCardDetails().name);
+
+        positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
       }
-
-      givenConditions.push(conditionCard.getCardDetails().name);
-
-      positionItemOnInvestigatorSheet(investigatorSheet, conditionCard, itemsGiven++);
     }
   }
 
-  if (extras && extras.conditionTrait !== undefined && extras.conditionTrait.length > 0) {
+  if (extras?.conditionTrait !== undefined && extras.conditionTrait.length > 0) {
     const conditionWithTrait = GameUtil.takeCardTraitFromStack(
       conditionDeck,
       [extras.conditionTrait],
@@ -375,149 +554,14 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
       console.error(
         `Unable to take a condition with trait ${extras.conditionTrait} from the Condition Deck`
       );
-      return;
-    }
-    givenSpells.push(conditionWithTrait.getCardDetails().name);
+    } else {
+      givenConditions.push(conditionWithTrait.getCardDetails().name);
 
-    positionItemOnInvestigatorSheet(investigatorSheet, conditionWithTrait, itemsGiven++);
-  }
-
-  if (extras && extras.randomArtifacts !== undefined && extras.randomArtifacts > 0) {
-    for (let i = 0; i < extras.randomArtifacts; i++) {
-      const randomArtifact = Util.takeRandomCardsFromStack(artifactDeck);
-      if (randomArtifact === undefined) {
-        console.error(`Unable to take a random artifact from the Artifact Deck`);
-        return;
-      }
-      positionItemOnInvestigatorSheet(investigatorSheet, randomArtifact, itemsGiven++);
+      positionItemOnInvestigatorSheet(investigatorSheet, conditionWithTrait, itemsGiven++);
     }
   }
 
-  if (personalStory && personalStory.length > 0) {
-    const personalMissionDeck = Util.getCardObjectById("personal-mission-deck");
-    const personalMission = Util.takeCardNameFromStack(personalMissionDeck, personalStory);
-    if (personalMission) {
-      Util.flip(personalMission);
-      positionItemOnInvestigatorSheet(investigatorSheet, personalMission, itemsGiven++);
-    }
-  }
-
-  if (
-    (startingItems.clues && startingItems.clues > 0) ||
-    (extras && extras.clues && extras.clues > 0)
-  ) {
-    const startingClues = startingItems.clues !== undefined ? startingItems.clues : 0;
-    const extraClues = extras && extras.clues !== undefined ? extras.clues : 0;
-    const clueCount = startingClues + extraClues;
-    const clueToken = GameUtil.takeRandomClueTokens(clueCount);
-    if (clueToken === undefined) {
-      console.error(`Unable to find a clue in Clue Pool`);
-      return;
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, clueToken, itemsGiven++);
-  }
-
-  if (
-    (startingItems.focus && startingItems.focus > 0) ||
-    (extras && extras.focus && extras.focus > 0)
-  ) {
-    const startingFocus = startingItems.focus !== undefined ? startingItems.focus : 0;
-    const extraFocus = extras && extras.focus !== undefined ? extras.focus : 0;
-    const focusCount = startingFocus + extraFocus;
-    const focusTokens = GameUtil.takeFocusTokens(focusCount);
-    positionItemOnInvestigatorSheet(investigatorSheet, focusTokens, itemsGiven++);
-  }
-
-  if (
-    (startingItems.resources && startingItems.resources > 0) ||
-    (extras && extras.resources && extras.resources > 0)
-  ) {
-    const startingResources = startingItems.resources !== undefined ? startingItems.resources : 0;
-    const extraResources = extras && extras.resources !== undefined ? extras.resources : 0;
-    const resourceCount = startingResources + extraResources;
-    const resourceTokens = GameUtil.takeResourceTokens(resourceCount);
-    positionItemOnInvestigatorSheet(investigatorSheet, resourceTokens, itemsGiven++);
-  }
-
-  if (startingItems.shipTickets && startingItems.shipTickets > 0) {
-    const shipTokens = GameUtil.takeShipTokens(startingItems.shipTickets);
-    positionItemOnInvestigatorSheet(investigatorSheet, shipTokens, itemsGiven++);
-  }
-
-  if (extras && extras.strength && extras.strength > 0) {
-    const improvementTokens = Util.createCard(
-      strengthToken.getPosition().add(new Vector(0, 0, 2)),
-      strengthToken.getTemplateId()
-    );
-    const takenStrengthToken = Util.takeCardNameFromStack(improvementTokens, "strength");
-    improvementTokens.destroy();
-    if (takenStrengthToken === undefined) {
-      console.error(`Unable to find Strength token`);
-      return;
-    }
-
-    if (extras.strength === 1) {
-      Util.flip(takenStrengthToken);
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, takenStrengthToken, itemsGiven++);
-  }
-
-  if (
-    (startingItems.will && startingItems.will > 0) ||
-    (extras && extras.will && extras.will > 0)
-  ) {
-    const startingWill = startingItems.will !== undefined ? startingItems.will : 0;
-    const extraWill = extras && extras.will !== undefined ? extras.will : 0;
-    const willCount = startingWill + extraWill;
-    const improvementTokens = Util.createCard(
-      willToken.getPosition().add(new Vector(0, 0, 2)),
-      willToken.getTemplateId()
-    );
-    const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
-    improvementTokens.destroy();
-    if (takenWillToken === undefined) {
-      console.error(`Unable to find Will token`);
-      return;
-    }
-
-    if (willCount === 1) {
-      Util.flip(takenWillToken);
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, takenWillToken, itemsGiven++);
-  }
-
-  if (extras && extras.eldritchTokens && extras.eldritchTokens > 0) {
-    const eldritchTokens = GameUtil.takeEldritchTokens(extras.eldritchTokens);
-    if (eldritchTokens === undefined) {
-      console.error(`Unable to find Eldritch token`);
-      return;
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, eldritchTokens, itemsGiven++);
-  }
-
-  if (extras && extras.monster && extras.monster.length > 0) {
-    const monsterToken = GameUtil.takeMonster(extras.monster);
-    if (monsterToken === undefined) {
-      console.error(`Unable to find ${extras.monster} Monster`);
-      return;
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
-  }
-
-  if (extras && extras.epicMonster && extras.epicMonster.length > 0) {
-    const monsterToken = GameUtil.takeEpicMonster(extras.epicMonster);
-    if (monsterToken === undefined) {
-      console.error(`Unable to find ${extras.epicMonster} Epic Monster`);
-      return;
-    }
-
-    positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
-  }
+  return itemsGiven;
 }
 
 /**
@@ -578,7 +622,6 @@ function getSnapPointForStartingLocation(startingLocation) {
 }
 
 /**
- *
  * @param {Card} investigatorSheet
  * @param {Investigator} foundInvestigator
  */
