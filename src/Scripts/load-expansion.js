@@ -357,6 +357,7 @@ function addImpairmentTokens() {
         throw new Error(`Cannot find snap point for ${name} impairment token`);
       }
       Util.moveObject(infiniteStack, snapPoint);
+      Util.flip(infiniteStack);
     }
   }
 
