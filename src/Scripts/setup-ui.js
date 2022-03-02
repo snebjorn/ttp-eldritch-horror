@@ -298,12 +298,10 @@ function drawSetupUi() {
     world.__eldritchHorror.updateSetupUIFn = undefined;
 
     const preludeDeck = world.getObjectById("prelude-deck");
-    if (preludeDeck) {
-      preludeDeck.destroy();
-    }
+    preludeDeck?.destroy();
 
     const [preludeCard] = GameUtil.getActivePreludeCard();
-    if (preludeCard && !preludeCard.isFaceUp()) {
+    if (preludeCard?.isFaceUp() === false) {
       preludeCard.flipOrUpright();
     }
 
@@ -543,55 +541,37 @@ function setupGame(ancientName, mythosDifficulty, iconReference, prelude) {
 
   const sideBoardSpawns = calcSideBoardSpawns(prelude, foundAncientOne);
 
-  if (prelude && !!prelude.step2) {
-    prelude.step2(ancientName, iconReference);
-  }
-  if (prelude && !!prelude.step3) {
-    prelude.step3(ancientName, iconReference);
-  }
-  if (prelude && !!prelude.step4) {
-    prelude.step4(ancientName, iconReference);
-  }
+  prelude?.step2?.(ancientName, iconReference);
+  prelude?.step3?.(ancientName, iconReference);
+  prelude?.step4?.(ancientName, iconReference);
 
   shuffleTokens();
 
   let sideBoardFn;
-  if (prelude && !!prelude.step5) {
-    if (!!prelude.spawnsSideBoard && prelude.spawnsSideBoard(foundAncientOne.name)) {
-      sideBoardFn = prelude.step5(ancientName, sideBoardSpawns.shift(), iconReference);
-    } else {
-      prelude.step5(ancientName, undefined, iconReference);
-    }
+  if (prelude?.spawnsSideBoard?.(foundAncientOne.name) !== undefined) {
+    sideBoardFn = prelude?.step5?.(ancientName, sideBoardSpawns.shift(), iconReference);
+  } else {
+    prelude?.step5?.(ancientName, undefined, iconReference);
   }
 
   setupAncient(foundAncientOne, mythosDifficulty, sideBoardSpawns.shift());
 
-  if (!!sideBoardFn) {
+  if (typeof sideBoardFn === "function") {
     sideBoardFn();
   }
 
-  if (prelude && !!prelude.step6) {
-    prelude.step6(ancientName, iconReference);
-  }
-  if (prelude && !!prelude.step7) {
-    prelude.step7(ancientName, iconReference);
-  }
-  if (prelude && !!prelude.step8) {
-    prelude.step8(ancientName, iconReference);
-  }
+  prelude?.step6?.(ancientName, iconReference);
+  prelude?.step7?.(ancientName, iconReference);
+  prelude?.step8?.(ancientName, iconReference);
 
   shuffleDecks();
   setupReferenceCard(iconReference);
 
-  if (prelude && !!prelude.afterResolvingSetup) {
-    prelude.afterResolvingSetup(ancientName, iconReference);
-  }
+  prelude?.afterResolvingSetup?.(ancientName, iconReference);
 
-  if (!prelude) {
+  if (prelude === undefined) {
     const preludeCardHolder = world.getObjectById("prelude-card-holder");
-    if (preludeCardHolder) {
-      preludeCardHolder.destroy();
-    }
+    preludeCardHolder?.destroy();
   }
 
   GameUtil.positionEncounterToken(encounterDecks.expedition, activeExpeditionToken);
@@ -622,13 +602,11 @@ function shuffleTokens() {
 function calcSideBoardSpawns(prelude, ancientOne) {
   /** @type {("landscape" | "portrait")[]} */
   const sideBoards = [];
-  if (prelude && !!prelude.spawnsSideBoard) {
-    const preludeSideBoard = prelude.spawnsSideBoard(ancientOne.name);
-    if (preludeSideBoard) {
-      sideBoards.push(preludeSideBoard);
-    }
+  const preludeSideBoard = prelude?.spawnsSideBoard?.(ancientOne.name);
+  if (preludeSideBoard !== undefined) {
+    sideBoards.push(preludeSideBoard);
   }
-  if (ancientOne.sideBoard) {
+  if (ancientOne.sideBoard !== undefined) {
     sideBoards.push(ancientOne.sideBoard);
   }
 

@@ -547,10 +547,7 @@ class Util {
 
     // card.destroy() doesn't work, so have to take() it from the stack first
     const insertedCard = stack.takeCards(card.getStackSize(), true, offset);
-
-    if (insertedCard) {
-      insertedCard.destroy();
-    }
+    insertedCard?.destroy();
   }
 
   /**

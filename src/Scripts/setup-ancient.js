@@ -25,9 +25,7 @@ function setupAncient(ancientOne, difficulty, sideBoardSpawn) {
   setupResearchCards(ancientOne.researchTemplateIds);
   setupSpecialCards(ancientOne.specialTemplateIds);
 
-  if (!!ancientOne.customSetup) {
-    ancientOne.customSetup(sideBoardSpawn);
-  }
+  ancientOne?.customSetup?.(sideBoardSpawn);
 }
 exports.setupAncient = setupAncient;
 

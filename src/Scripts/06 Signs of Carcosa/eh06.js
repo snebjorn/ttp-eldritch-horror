@@ -10,7 +10,7 @@ function createCard(...templateId) {
   return Util.createCard(expansionSpawn, ...templateId);
 }
 
-/** @type Expansion.Items */
+/** @type {Expansion.Items} */
 exports.expansionItems = {
   encounterCards: {
     otherWorld: createCard("DFBF9C99484CD1BA183C6F806296D53C"),
@@ -55,7 +55,7 @@ exports.expansionItems = {
   },
 };
 
-/** @type Record<string, Prelude> */
+/** @type {Record<string, Prelude>} */
 const preludes = {
   "Silver Twilight Stockpile": {},
   "Sins of the Past": {},

@@ -183,7 +183,7 @@ exports.tableLocations = {
    * Snap points for Set Aside monsters
    *
    * @type {SnapPoint[]}
-   * */
+   */
   ancientOneMonsters: [
     tableMat.getSnapPoint(33),
     tableMat.getSnapPoint(34),

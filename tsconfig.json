@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "checkJs": true,
-    "lib": ["ES2017", "DOM"],
+    "lib": ["ES2021", "DOM"],
     "module": "CommonJS",
     "noEmit": true,
     "strict": true,

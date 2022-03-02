@@ -125,7 +125,6 @@
     "Zoey",
     "Zoog"
   ],
-  "javascript.suggest.includeAutomaticOptionalChainCompletions": false,
   "json.schemas": [
     {
       "fileMatch": ["*.json"],

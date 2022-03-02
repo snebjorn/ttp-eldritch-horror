@@ -171,11 +171,9 @@ const preludes = {
       // else put 6 eldritch tokens on The Wind-Walker mythos card
       if (ancientOne === "Ithaqua") {
         GameUtil.advanceOmen();
-        const windWalkerCard =
-          tableLocations.activeMythos && tableLocations.activeMythos.getSnappedObject();
-        if (windWalkerCard) {
-          windWalkerCard.destroy();
-        }
+        const windWalkerCard = tableLocations.activeMythos?.getSnappedObject();
+        windWalkerCard?.destroy();
+
         Util.logScriptAction("SETUP (Prelude: Rumors From the North) advanced Omen by 1.");
       } else {
         if (tableLocations.activeMythos) {

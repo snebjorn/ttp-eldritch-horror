@@ -293,7 +293,7 @@ const preludes = {
       }
     },
     afterResolvingSetup: (ancientOne, iconReference) => {
-      if (ancientOne === "Atlach-Nacha" && iconReference) {
+      if (ancientOne === "Atlach-Nacha" && iconReference !== undefined) {
         const spawnedGates = GameUtil.spawnGates(iconReference.spawnGates);
         if (spawnedGates.length === 1) {
           const [gateName, monsterName, spawnEffect] = spawnedGates[0];

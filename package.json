@@ -1,5 +1,5 @@
 {
-  "dependencies": {
-    "@tabletop-playground/api": "^0.24.0"
+  "devDependencies": {
+    "@tabletop-playground/api": "^0.25.1"
   }
 }

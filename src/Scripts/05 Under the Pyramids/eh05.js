@@ -247,8 +247,7 @@ const preludes = {
         const [activeExpeditionMonster, activeExpeditionSpawnEffect] = GameUtil.spawnMonster(
           activeExpeditionToken.getPosition()
         );
-        const activeExpeditionMonsterName =
-          activeExpeditionMonster && activeExpeditionMonster.getCardDetails().name;
+        const activeExpeditionMonsterName = activeExpeditionMonster?.getCardDetails().name;
 
         // spawn 1 monster on The Bent Pyramid
         const bentPyramid = gameBoardLocations.space["The Bent Pyramid"];
@@ -256,8 +255,7 @@ const preludes = {
           throw new Error("Unable to find The Bent Pyramid space");
         }
         const [bentPyramidMonster, bentPyramidSpawnEffect] = GameUtil.spawnMonster(bentPyramid);
-        const bentPyramidMonsterName =
-          bentPyramidMonster && bentPyramidMonster.getCardDetails().name;
+        const bentPyramidMonsterName = bentPyramidMonster?.getCardDetails().name;
 
         Util.logScriptAction(
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order.` +

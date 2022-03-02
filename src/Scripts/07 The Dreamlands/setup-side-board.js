@@ -113,7 +113,7 @@ function spawnDreamPortals(gateStack, dreamPortals) {
   const portalsRevealed = [];
   for (let i = 0; i < gateStack.getStackSize(); i++) {
     const revealedGateDetails = Util.flipInStack(gateStack, 1, false, i);
-    const revealedGateName = revealedGateDetails && revealedGateDetails.name;
+    const revealedGateName = revealedGateDetails?.name;
     if (revealedGateName && !dreamlandGates.includes(revealedGateName)) {
       spawnedDreamPortals++;
       const dreamPortal = Util.takeCards(dreamPortals, 1);

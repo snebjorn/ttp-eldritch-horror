@@ -2,21 +2,15 @@ const { UIElement, Vector, world, refHolder, Text } = require("@tabletop-playgro
 const { Util } = require("./util");
 
 refHolder.onInserted.add(() => {
-  if (!!world.__eldritchHorror.updateSetupUIFn) {
-    world.__eldritchHorror.updateSetupUIFn();
-  }
+  world.__eldritchHorror.updateSetupUIFn?.();
 });
 refHolder.onRemoved.add(() => {
-  if (!!world.__eldritchHorror.updateSetupUIFn) {
-    world.__eldritchHorror.updateSetupUIFn();
-  }
+  world.__eldritchHorror.updateSetupUIFn?.();
 });
-refHolder.onCardFlipped.add((holder, card) => {
+refHolder.onCardFlipped.add(() => {
   setTimeout(
     () => {
-      if (!!world.__eldritchHorror.updateSetupUIFn) {
-        world.__eldritchHorror.updateSetupUIFn();
-      }
+      world.__eldritchHorror.updateSetupUIFn?.();
     },
     // onCardFlipped is triggered before the card is registered as flipped
     // so wait a bit to let the animation finish

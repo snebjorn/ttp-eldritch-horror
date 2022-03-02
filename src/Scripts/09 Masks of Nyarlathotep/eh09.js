@@ -25,9 +25,7 @@ function createPreludeCard(expansions) {
   for (const cardDetails of preludeCards.getAllCardDetails()) {
     if (cardDetails.metadata && !expansions.includes(cardDetails.metadata)) {
       const removedPrelude = Util.takeCardNameFromStack(preludeCards, cardDetails.name);
-      if (removedPrelude) {
-        removedPrelude.destroy();
-      }
+      removedPrelude?.destroy();
     }
   }
 
@@ -237,7 +235,7 @@ const preludes = {
 
         const spawnedMonsters = expeditionSpaces.map((space) => GameUtil.spawnMonster(space));
         const spawnedMonsterText = spawnedMonsters.map(([monster, spawnEffect]) => [
-          monster && monster.getCardDetails().name,
+          monster?.getCardDetails().name,
           spawnEffect,
         ]);
 

@@ -207,7 +207,7 @@ class GameUtil {
       Util.moveObject(gateToken, snapPoint);
 
       const [monster, spawnEffect] = GameUtil.spawnMonster(snapPoint);
-      const monsterName = monster && monster.getCardDetails().name;
+      const monsterName = monster?.getCardDetails().name;
 
       output.push([gateName, monsterName, spawnEffect]);
     }
@@ -273,14 +273,14 @@ class GameUtil {
     let preludeHolder;
     try {
       preludeHolder = Util.getCardHolderById("prelude-card-holder");
-    } catch {}
+    } catch {
+      return [undefined, undefined];
+    }
 
-    if (preludeHolder) {
-      const cards = preludeHolder.getCards();
-      if (cards.length > 0) {
-        const preludeCard = cards[0];
-        return [preludeCard, preludeCard.getCardDetails().name];
-      }
+    const cards = preludeHolder.getCards();
+    if (cards.length > 0) {
+      const preludeCard = cards[0];
+      return [preludeCard, preludeCard.getCardDetails().name];
     }
 
     return [undefined, undefined];
