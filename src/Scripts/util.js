@@ -214,15 +214,13 @@ class Util {
   ) {
     let stack;
     for (let i = 0; i < count; i++) {
-      const stackDetails = cardStack
-        .getAllCardDetails()
-        .map((cardDetails, index) => ({ index, cardDetails }));
+      const stackDetails = cardStack.getAllCardDetails();
       if (fromFront === false) {
         stackDetails.reverse();
       }
 
       const foundCard = stackDetails.find(
-        ({ cardDetails }) =>
+        (cardDetails) =>
           !excludeCardNames.includes(cardDetails.name) &&
           cardDetails.metadata !== "" &&
           predicate(JSON.parse(cardDetails.metadata))
@@ -232,7 +230,7 @@ class Util {
         break; // abort - no cards with this metadata is left in the stack
       }
 
-      const takenCard = Util.takeCards(cardStack, 1, true, foundCard.index);
+      const takenCard = Util.takeCards(cardStack, 1, true, foundCard.stackIndex);
 
       if (stack === undefined) {
         stack = takenCard;
