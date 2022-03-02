@@ -94,6 +94,6 @@ exports.investigators07 = [
       focus: 1,
     },
     startingLocation: "Sydney",
-    personalStory: "To Be Or Not To Be",
+    personalStory: "To Be or Not To Be",
   },
 ];
