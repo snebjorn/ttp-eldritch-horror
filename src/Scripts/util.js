@@ -756,8 +756,10 @@ class Util {
       const objectsFound = Util.findObjectsOnTop(object);
       Util.moveObject(object, snapPoint);
 
+      let objectToMoveOnTopOf = object;
       for (const objectHit of objectsFound) {
-        Util.moveObject(objectHit.object, snapPoint);
+        Util.moveOnTopOfObject(objectHit.object, objectToMoveOnTopOf);
+        objectToMoveOnTopOf = objectHit.object;
       }
 
       return;
