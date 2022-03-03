@@ -1,6 +1,6 @@
 const { refCard, world } = require("@tabletop-playground/api");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const cthulhu = {
   name: "Cthulhu",
   doom: 12,

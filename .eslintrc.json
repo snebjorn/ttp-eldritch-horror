@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "jsdoc"],
+  "extends": ["eslint:recommended", "plugin:jsdoc/recommended"],
+  "globals": {
+    "globalEvents": "readonly",
+    "refCard": "readonly",
+    "refContainer": "readonly",
+    "refDice": "readonly",
+    "refHolder": "readonly",
+    "refMultistate": "readonly",
+    "refObject": "readonly",
+    "refPackageId": "readonly",
+    "world": "writable"
+  },
+  "settings": {
+    "jsdoc": {
+      "structuredTags": {
+        "remarks": { "type": false }
+      }
+    }
+  },
+  "rules": {
+    "no-unused-vars": "off",
+    "jsdoc/tag-lines": "off",
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-returns": "off",
+    "jsdoc/no-undefined-types": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns-description": "off"
+  }
+}

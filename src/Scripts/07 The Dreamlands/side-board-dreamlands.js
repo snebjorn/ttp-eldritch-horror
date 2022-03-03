@@ -30,7 +30,7 @@ if (!theMoonSnap) {
   throw new Error("Missing snap point on The Dreamlands side board");
 }
 
-/** @type SideBoard.Dreamlands */
+/** @type {SideBoard.Dreamlands} */
 const sideBoardSpaces = {
   "Unknown Kadath": unknownKadathSnap,
   "The Enchanted Wood": theEnchantedWoodSnap,

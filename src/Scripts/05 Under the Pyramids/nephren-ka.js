@@ -1,7 +1,7 @@
 const { refCard, world } = require("@tabletop-playground/api");
 const { setupSideBoard } = require("./setup-side-board");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const nephrenKa = {
   name: "Nephren-Ka",
   doom: 12,

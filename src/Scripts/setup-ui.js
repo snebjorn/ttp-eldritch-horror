@@ -138,6 +138,7 @@ function drawSetupUi() {
 
   /**
    * GOTO below to see the code for Select Expansions
+   *
    * @see activeExpansions
    */
 
@@ -424,7 +425,7 @@ function drawSetupUi() {
   //#endregion ancient one selection
 
   //#region expansion selection
-  /** @type string[] */
+  /** @type {string[]} */
   let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07", "eh08", "eh09"];
 
   function updateMechanics() {

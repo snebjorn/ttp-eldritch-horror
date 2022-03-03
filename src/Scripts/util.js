@@ -154,7 +154,7 @@ class Util {
    *
    * @throws If {@link count} is as large or larger than the stack (minus {@link offset}).
    *
-   * @returns The taken cards. Returns the {@link cardStack} itself if it's only a single card.
+   * @returns {Card} The taken cards. Returns the {@link cardStack} itself if it's only a single card.
    */
   static takeCards(cardStack, count = 1, fromFront = false, offset = 0) {
     const stackSize = cardStack.getStackSize();
@@ -494,7 +494,7 @@ class Util {
     position,
     scriptName
   ) {
-    /** @type Card | undefined */
+    /** @type {Card | undefined} */
     // @ts-ignore
     const stack = world.getObjectById(cardStackId);
     if (!stack) {

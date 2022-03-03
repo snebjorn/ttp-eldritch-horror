@@ -17,7 +17,7 @@ function createCard(...templateId) {
   return Util.createCard(expansionSpawn, ...templateId);
 }
 
-/** @type Expansion.Items */
+/** @type {Expansion.Items} */
 exports.expansionItems = {
   encounterCards: {
     otherWorld: createCard("C15638394FE122FFCBEC96A58F0AC36A"),
@@ -66,7 +66,7 @@ exports.expansionItems = {
   },
 };
 
-/** @type Record<string, Prelude> */
+/** @type {Record<string, Prelude>} */
 const preludes = {
   "Beginning of the End": {
     afterResolvingSetup: () => {

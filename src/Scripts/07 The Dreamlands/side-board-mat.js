@@ -38,7 +38,7 @@ if (!monster4Snap) {
   throw new Error("Missing snap point on The Dreamlands side board mat");
 }
 
-/** @type SideBoard.DreamlandsMat */
+/** @type {SideBoard.DreamlandsMat} */
 const matSnaps = {
   board: boardSnap,
   dreamQuest: dreamQuestSnap,

@@ -3,7 +3,7 @@ const { expansionSpawn } = require("../world-constants");
 const { GameUtil } = require("../game-util");
 const { Util } = require("../util");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const syzygy = {
   name: "Syzygy",
   doom: 13,

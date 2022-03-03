@@ -16,7 +16,7 @@ const {
   tableLocations,
 } = require("./world-constants");
 
-/** @type string[] */
+/** @type {string[]} */
 const alreadyLoaded = [];
 
 /**
@@ -224,7 +224,7 @@ function addEncounterCards(encounterExpansions) {
     return;
   }
 
-  /** @type [keyof EncounterCards, Card][] */
+  /** @type {[keyof EncounterCards, Card][]} */
   // @ts-ignore
   let expansionEntries = Object.entries(encounterExpansions);
   for (const [encounter, cards] of expansionEntries) {
@@ -241,11 +241,11 @@ function addMythosCards(mythosExpansions) {
     return;
   }
 
-  /** @type [keyof Expansion.MythosCards, Partial<MythosCardDifficult>][] */
+  /** @type {[keyof Expansion.MythosCards, Partial<MythosCardDifficult>][]} */
   // @ts-ignore
   let expansionEntries = Object.entries(mythosExpansions);
   for (const [color, difficulties] of expansionEntries) {
-    /** @type [keyof MythosCardDifficult, Card][] */
+    /** @type {[keyof MythosCardDifficult, Card][]} */
     // @ts-ignore
     let difficultyEntries = Object.entries(difficulties);
     for (const [difficulty, cards] of difficultyEntries) {

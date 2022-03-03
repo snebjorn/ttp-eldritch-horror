@@ -10,7 +10,7 @@ function createCard(...templateId) {
   return Util.createCard(expansionSpawn, ...templateId);
 }
 
-/** @type Expansion.Items */
+/** @type {Expansion.Items} */
 exports.expansionItems = {
   encounterCards: {
     otherWorld: createCard("803FD166477F3DD0265FA0AD35896396"),
@@ -56,7 +56,7 @@ exports.expansionItems = {
 
 world.__eldritchHorror.mysticRuins.add("8477CAF347EE3FEB6BC15E827D79544B");
 
-/** @type Record<string, Prelude> */
+/** @type {Record<string, Prelude>} */
 const preludes = {
   "Dark Blessings": {},
   "In Cosmic Alignment": {

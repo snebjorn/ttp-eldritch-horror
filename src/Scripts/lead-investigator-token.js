@@ -66,7 +66,5 @@ refCard.onMovementStopped.add((token) => {
 
   refCard.updateUI(ui);
 
-  if (!!world.__eldritchHorror.updateSetupUIFn) {
-    world.__eldritchHorror.updateSetupUIFn();
-  }
+  world.__eldritchHorror.updateSetupUIFn?.();
 });

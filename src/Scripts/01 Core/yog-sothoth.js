@@ -1,6 +1,6 @@
 const { refCard, world } = require("@tabletop-playground/api");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const yogSothoth = {
   name: "Yog-Sothoth",
   doom: 14,

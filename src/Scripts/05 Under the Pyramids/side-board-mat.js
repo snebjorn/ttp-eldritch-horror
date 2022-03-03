@@ -38,7 +38,7 @@ if (!monster4Snap) {
   throw new Error("Missing snap point on Egypt side board mat");
 }
 
-/** @type SideBoard.EgyptMat */
+/** @type {SideBoard.EgyptMat} */
 const matSnaps = {
   board: boardSnap,
   africa: africaSnap,

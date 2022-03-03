@@ -26,7 +26,7 @@ if (!theNileRiverSnap) {
   throw new Error("Missing snap point on Egypt side board");
 }
 
-/** @type SideBoard.Egypt */
+/** @type {SideBoard.Egypt} */
 const sideBoardSpaces = {
   "The Sahara Desert": theSaharaDesertSnap,
   Alexandria: alexandriaSnap,

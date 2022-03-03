@@ -2,7 +2,7 @@ const { refCard, world } = require("@tabletop-playground/api");
 const { Util } = require("../util");
 const { eldritchToken, gameBoardLocations } = require("../world-constants");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const azathoth = {
   name: "Azathoth",
   doom: 15,

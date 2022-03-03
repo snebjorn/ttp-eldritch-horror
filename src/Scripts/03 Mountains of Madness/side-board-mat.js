@@ -42,7 +42,7 @@ if (!monster4Snap) {
   throw new Error("Missing snap point on Antarctica side board mat");
 }
 
-/** @type SideBoard.AntarcticaMat */
+/** @type {SideBoard.AntarcticaMat} */
 const matSnaps = {
   board: boardSnap,
   research: researchSnap,

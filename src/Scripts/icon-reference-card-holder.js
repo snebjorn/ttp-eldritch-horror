@@ -6,16 +6,12 @@ refHolder.onInserted.add((_, iconReference) => {
   const cardName = iconReference.getCardDetails().name;
   GameUtil.updateSavedData({ iconReference: toIconReference(cardName) });
 
-  if (!!world.__eldritchHorror.updateSetupUIFn) {
-    world.__eldritchHorror.updateSetupUIFn();
-  }
+  world.__eldritchHorror.updateSetupUIFn?.();
 });
 refHolder.onRemoved.add(() => {
   GameUtil.updateSavedData({ iconReference: undefined });
 
-  if (!!world.__eldritchHorror.updateSetupUIFn) {
-    world.__eldritchHorror.updateSetupUIFn();
-  }
+  world.__eldritchHorror.updateSetupUIFn?.();
 });
 
 const ui = new UIElement();

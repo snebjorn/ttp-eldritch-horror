@@ -2,7 +2,7 @@ const { refCard, world, Vector } = require("@tabletop-playground/api");
 const { Util } = require("../util");
 const { tableLocations, expansionSpawn } = require("../world-constants");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const nyarlathotep = {
   name: "Nyarlathotep",
   doom: 12,

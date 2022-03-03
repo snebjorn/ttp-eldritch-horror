@@ -3,7 +3,7 @@ const { Util } = require("../util");
 const { GameUtil } = require("../game-util");
 const { gameBoardLocations } = require("../world-constants");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const shudde = {
   name: "Shudde M'ell",
   doom: 15,

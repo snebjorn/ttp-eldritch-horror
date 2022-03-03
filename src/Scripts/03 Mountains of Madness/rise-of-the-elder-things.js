@@ -1,7 +1,7 @@
 const { refCard, world } = require("@tabletop-playground/api");
 const { setupSideBoard } = require("./setup-side-board");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const riseOfTheElderThings = {
   name: "Rise of the Elder Things",
   doom: 16,

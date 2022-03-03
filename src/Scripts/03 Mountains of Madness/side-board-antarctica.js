@@ -26,7 +26,7 @@ if (!snowyMountainsSnap) {
   throw new Error("Missing snap point on Antarctica side board");
 }
 
-/** @type SideBoard.Antarctica */
+/** @type {SideBoard.Antarctica} */
 const sideBoardSpaces = {
   "Miskatonic Outpost": miskatonicOutpostSnap,
   "Lake Camp": lakeCampSnap,

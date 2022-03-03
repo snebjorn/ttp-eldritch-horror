@@ -1,4 +1,4 @@
-/** @type Investigator[] */
+/** @type {Investigator[]} */
 exports.investigators01 = [
   {
     name: "Akachi Onyele",

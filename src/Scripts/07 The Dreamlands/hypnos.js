@@ -1,7 +1,7 @@
 const { refCard, world } = require("@tabletop-playground/api");
 const { setupSideBoard } = require("./setup-side-board");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const hypnos = {
   name: "Hypnos",
   doom: 12,
@@ -24,9 +24,7 @@ const hypnos = {
       throw new Error("No spawn location for the Dreamlands side board was found");
     }
     const spawnDreamPortalsFn = setupSideBoard(sideBoardSpawn);
-    if (!!spawnDreamPortalsFn) {
-      spawnDreamPortalsFn();
-    }
+    spawnDreamPortalsFn?.();
   },
 };
 

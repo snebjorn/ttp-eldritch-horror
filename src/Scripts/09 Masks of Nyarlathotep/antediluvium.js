@@ -3,7 +3,7 @@ const { Util } = require("../util");
 const { GameUtil } = require("../game-util");
 const { gameBoardLocations, expansionSpawn } = require("../world-constants");
 
-/** @type AncientOne */
+/** @type {AncientOne} */
 const antediluvium = {
   name: "Antediluvium",
   doom: 13,

@@ -368,7 +368,7 @@ function fetchAssets(investigatorSheet, itemsGiven, startingItems, extras) {
  */
 function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras) {
   if (startingItems.uniqueAssets !== undefined && startingItems.uniqueAssets.length > 0) {
-    /** @type Card | undefined */
+    /** @type {Card | undefined} */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
@@ -387,7 +387,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
   }
 
   if (extras?.uniqueAsset !== undefined && extras.uniqueAsset.length > 0) {
-    /** @type Card | undefined */
+    /** @type {Card | undefined} */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
@@ -403,7 +403,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
   }
 
   if (extras?.uniqueAssetTrait !== undefined && extras.uniqueAssetTrait.length > 0) {
-    /** @type Card | undefined */
+    /** @type {Card | undefined} */
     // @ts-ignore
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
@@ -443,7 +443,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
  * @returns {number}
  */
 function fetchSpells(investigatorSheet, itemsGiven, startingItems, extras) {
-  /** @type string[] */
+  /** @type {string[]} */
   const givenSpells = [];
   if (startingItems.spells !== undefined && startingItems.spells.length > 0) {
     startingItems.spells.forEach((spell) => {
@@ -509,7 +509,7 @@ function fetchSpells(investigatorSheet, itemsGiven, startingItems, extras) {
  * @returns {number}
  */
 function fetchConditions(investigatorSheet, itemsGiven, startingItems, extras) {
-  /** @type string[] */
+  /** @type {string[]} */
   const givenConditions = [];
 
   if (startingItems.conditions !== undefined && startingItems.conditions.length > 0) {

@@ -103,7 +103,7 @@ exports.expansionItems = (expansions) => ({
 
 world.__eldritchHorror.mysticRuins.add("78E0B3CC45F78684110FE9B5B8EEF5D9");
 
-/** @type Record<string, Prelude> */
+/** @type {Record<string, Prelude>} */
 const preludes = {
   "Aid of the Elder Gods": {
     spawnsSideBoard: (ancientOne) => {
@@ -461,7 +461,7 @@ const preludes = {
   "Wondrous Curios": {},
 };
 
-/** @type Record<string, Prelude> */
+/** @type {Record<string, Prelude>} */
 const duplicatePrelude = {
   "Beginning of the End": {
     afterResolvingSetup: () => {

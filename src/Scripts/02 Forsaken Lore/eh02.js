@@ -8,7 +8,7 @@ function createCard(...templateId) {
   return Util.createCard(expansionSpawn, ...templateId);
 }
 
-/** @type Expansion.Items */
+/** @type {Expansion.Items} */
 exports.expansionItems = {
   encounterCards: {
     otherWorld: createCard("03EC6E794E859419A279739D98BDB799"),
@@ -41,7 +41,7 @@ exports.expansionItems = {
   ancientOneSheets: [createCard("81D962174B099996EBAE3EA12905FDDC")],
 };
 
-/** @type Expansion.AncientOne[] */
+/** @type {Expansion.AncientOne[]} */
 exports.expandedAncientOnes = [
   {
     name: "Azathoth",
