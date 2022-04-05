@@ -3,11 +3,11 @@
     "lint": "eslint ./src --ext .js,.ts"
   },
   "devDependencies": {
-    "@tabletop-playground/api": "^0.25.1",
-    "@typescript-eslint/eslint-plugin": "^5.13.0",
-    "@typescript-eslint/parser": "^5.13.0",
-    "eslint": "^8.10.0",
-    "eslint-plugin-jsdoc": "^37.9.6",
-    "typescript": "^4.6.2"
+    "@tabletop-playground/api": "^0.26.1",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.12.0",
+    "eslint-plugin-jsdoc": "^38.1.6",
+    "typescript": "^4.6.3"
   }
 }
