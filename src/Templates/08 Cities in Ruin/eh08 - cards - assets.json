@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "08 Cities in Ruin/assets - front.jpg",
 	"BackTexture": "Asset - back.jpg",
 	"HiddenTexture": "",
@@ -77,21 +78,64 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Service\"]",
-		"1": "[\"Item\", \"Tome\"]",
-		"2": "[\"Item\", \"Tome\"]",
-		"3": "[\"Item\", \"Weapon\"]",
-		"4": "[\"Trinket\", \"Magical\"]",
-		"5": "[\"Ally\"]",
-		"6": "[\"Item\", \"Weapon\"]",
-		"7": "[\"Service\"]",
-		"8": "[\"Item\", \"Tome\"]",
-		"9": "[\"Service\"]",
-		"10": "[\"Item\", \"Tome\"]",
-		"11": "[\"Trinket\"]",
-		"12": "[\"Service\"]",
-		"13": "[\"Service\"]",
-		"14": "[\"Service\"]",
-		"15": "[\"Item\", \"Weapon\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Service"
+		],
+		"1": [
+			"Item",
+			"Tome"
+		],
+		"2": [
+			"Item",
+			"Tome"
+		],
+		"3": [
+			"Item",
+			"Weapon"
+		],
+		"4": [
+			"Trinket",
+			"Magical"
+		],
+		"5": [
+			"Ally"
+		],
+		"6": [
+			"Item",
+			"Weapon"
+		],
+		"7": [
+			"Service"
+		],
+		"8": [
+			"Item",
+			"Tome"
+		],
+		"9": [
+			"Service"
+		],
+		"10": [
+			"Item",
+			"Tome"
+		],
+		"11": [
+			"Trinket"
+		],
+		"12": [
+			"Service"
+		],
+		"13": [
+			"Service"
+		],
+		"14": [
+			"Service"
+		],
+		"15": [
+			"Item",
+			"Weapon"
+		]
 	}
 }

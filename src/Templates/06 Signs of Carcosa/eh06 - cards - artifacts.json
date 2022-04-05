@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "06 Signs of Carcosa/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -65,10 +66,25 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Trinket\", \"Magical\"]",
-		"1": "[\"Item\", \"Tome\"]",
-		"2": "[\"Item\", \"Magical\", \"Relic\"]",
-		"3": "[\"Item\", \"Magical\"]"
-
+	},
+	"CardTags":
+	{
+		"0": [
+			"Trinket",
+			"Magical"
+		],
+		"1": [
+			"Item",
+			"Tome"
+		],
+		"2": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"3": [
+			"Item",
+			"Magical"
+		]
 	}
 }

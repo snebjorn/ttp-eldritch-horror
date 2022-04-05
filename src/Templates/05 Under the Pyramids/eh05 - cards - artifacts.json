@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "05 Under the Pyramids/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -65,9 +66,27 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Relic\", \"Tome\"]",
-		"1": "[\"Item\", \"Magical\", \"Relic\"]",
-		"2": "[\"Item\", \"Magical\"]",
-		"3": "[\"Item\", \"Magical\", \"Relic\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Relic",
+			"Tome"
+		],
+		"1": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"2": [
+			"Item",
+			"Magical"
+		],
+		"3": [
+			"Item",
+			"Magical",
+			"Relic"
+		]
 	}
 }

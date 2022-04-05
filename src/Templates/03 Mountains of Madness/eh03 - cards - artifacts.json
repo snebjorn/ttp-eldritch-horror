@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -69,13 +70,37 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\"]",
-		"1": "[\"Item\"]",
-		"2": "[\"Item\", \"Tome\"]",
-		"3": "[\"Item\", \"Tome\"]",
-		"4": "[\"Item\"]",
-		"5": "[\"Item\", \"Magical\"]",
-		"6": "[\"Item\", \"Tome\"]",
-		"7": "[\"Item\", \"Tome\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item"
+		],
+		"1": [
+			"Item"
+		],
+		"2": [
+			"Item",
+			"Tome"
+		],
+		"3": [
+			"Item",
+			"Tome"
+		],
+		"4": [
+			"Item"
+		],
+		"5": [
+			"Item",
+			"Magical"
+		],
+		"6": [
+			"Item",
+			"Tome"
+		],
+		"7": [
+			"Item",
+			"Tome"
+		]
 	}
 }

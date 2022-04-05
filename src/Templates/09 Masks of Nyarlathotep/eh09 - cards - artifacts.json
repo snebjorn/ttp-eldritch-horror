@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "09 Masks of Nyarlathotep/artifacts - front.png",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -65,9 +66,23 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Tome\"]",
-		"1": "[\"Item\", \"Magical\"]",
-		"2": "[\"Item\"]",
-		"3": "[\"Item\", \"Tome\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Tome"
+		],
+		"1": [
+			"Item",
+			"Magical"
+		],
+		"2": [
+			"Item"
+		],
+		"3": [
+			"Item",
+			"Tome"
+		]
 	}
 }

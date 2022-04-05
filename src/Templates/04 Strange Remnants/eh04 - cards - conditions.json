@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "04 Strange Remnants/conditions - front.jpg",
 	"BackTexture": "04 Strange Remnants/conditions - back.jpg",
 	"HiddenTexture": "",
@@ -77,21 +78,57 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Deal\"]",
-		"1": "[\"Deal\"]",
-		"2": "[\"Deal\"]",
-		"3": "[\"Deal\"]",
-		"4": "[\"Boon\"]",
-		"5": "[\"Bane\"]",
-		"6": "[\"Deal\"]",
-		"7": "[\"Deal\", \"Common\"]",
-		"8": "[\"Injury\"]",
-		"9": "[\"Injury\"]",
-		"10": "[\"Injury\"]",
-		"11": "[\"Injury\"]",
-		"12": "[\"Boon\"]",
-		"13": "[\"Boon\"]",
-		"14": "[\"Boon\"]",
-		"15": "[\"Boon\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Deal"
+		],
+		"1": [
+			"Deal"
+		],
+		"2": [
+			"Deal"
+		],
+		"3": [
+			"Deal"
+		],
+		"4": [
+			"Boon"
+		],
+		"5": [
+			"Bane"
+		],
+		"6": [
+			"Deal"
+		],
+		"7": [
+			"Deal",
+			"Common"
+		],
+		"8": [
+			"Injury"
+		],
+		"9": [
+			"Injury"
+		],
+		"10": [
+			"Injury"
+		],
+		"11": [
+			"Injury"
+		],
+		"12": [
+			"Boon"
+		],
+		"13": [
+			"Boon"
+		],
+		"14": [
+			"Boon"
+		],
+		"15": [
+			"Boon"
+		]
 	}
 }

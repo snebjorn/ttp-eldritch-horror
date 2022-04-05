@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "09 Masks of Nyarlathotep/spells - front.jpg",
 	"BackTexture": "09 Masks of Nyarlathotep/spells - back.jpg",
 	"HiddenTexture": "",
@@ -65,9 +66,20 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Ritual\"]",
-		"1": "[\"Ritual\"]",
-		"2": "[\"Ritual\"]",
-		"3": "[\"Ritual\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Ritual"
+		],
+		"1": [
+			"Ritual"
+		],
+		"2": [
+			"Ritual"
+		],
+		"3": [
+			"Ritual"
+		]
 	}
 }

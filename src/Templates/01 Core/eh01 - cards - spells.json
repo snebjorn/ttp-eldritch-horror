@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/spells - front.jpg",
 	"BackTexture": "01 Core/spells - back.jpg",
 	"HiddenTexture": "",
@@ -81,25 +82,68 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Ritual\"]",
-		"1": "[\"Ritual\"]",
-		"2": "[\"Incantation\"]",
-		"3": "[\"Incantation\"]",
-		"4": "[\"Ritual\"]",
-		"5": "[\"Ritual\"]",
-		"6": "[\"Ritual\"]",
-		"7": "[\"Ritual\"]",
-		"8": "[\"Incantation\"]",
-		"9": "[\"Incantation\"]",
-		"10": "[\"Incantation\"]",
-		"11": "[\"Incantation\"]",
-		"12": "[\"Incantation\"]",
-		"13": "[\"Incantation\"]",
-		"14": "[\"Ritual\"]",
-		"15": "[\"Ritual\"]",
-		"16": "[\"Ritual\"]",
-		"17": "[\"Ritual\"]",
-		"18": "[\"Incantation\"]",
-		"19": "[\"Incantation\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Ritual"
+		],
+		"1": [
+			"Ritual"
+		],
+		"2": [
+			"Incantation"
+		],
+		"3": [
+			"Incantation"
+		],
+		"4": [
+			"Ritual"
+		],
+		"5": [
+			"Ritual"
+		],
+		"6": [
+			"Ritual"
+		],
+		"7": [
+			"Ritual"
+		],
+		"8": [
+			"Incantation"
+		],
+		"9": [
+			"Incantation"
+		],
+		"10": [
+			"Incantation"
+		],
+		"11": [
+			"Incantation"
+		],
+		"12": [
+			"Incantation"
+		],
+		"13": [
+			"Incantation"
+		],
+		"14": [
+			"Ritual"
+		],
+		"15": [
+			"Ritual"
+		],
+		"16": [
+			"Ritual"
+		],
+		"17": [
+			"Ritual"
+		],
+		"18": [
+			"Incantation"
+		],
+		"19": [
+			"Incantation"
+		]
 	}
 }

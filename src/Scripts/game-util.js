@@ -427,7 +427,7 @@ class GameUtil {
 
   /**
    * @param {Card} cardStack - Card stack to take from.
-   * @param {AllTraits[]} traits
+   * @param {AllTraits[]} traits - Traits on card to take.
    * @param {number} count - Amount of cards to take. Default: `1`.
    * @param {string[]} excludeCardNames - Card names to exclude from the random take. Default: `[]`.
    * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
@@ -440,19 +440,7 @@ class GameUtil {
     excludeCardNames = [],
     fromFront = false
   ) {
-    return Util.takeCardMetadataFromStack(
-      cardStack,
-      (metadata) => {
-        if (metadata instanceof Array) {
-          return traits.every((trait) => metadata.includes(trait));
-        }
-
-        return false;
-      },
-      count,
-      excludeCardNames,
-      fromFront
-    );
+    return Util.takeCardTagsFromStack(cardStack, traits, count, excludeCardNames, fromFront);
   }
 
   /**

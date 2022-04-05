@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "07 The Dreamlands/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -65,9 +66,25 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Magical\"]",
-		"1": "[\"Item\", \"Magical\", \"Teamwork\"]",
-		"2": "[\"Item\", \"Tome\"]",
-		"3": "[\"Item\", \"Magical\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Magical"
+		],
+		"1": [
+			"Item",
+			"Magical",
+			"Teamwork"
+		],
+		"2": [
+			"Item",
+			"Tome"
+		],
+		"3": [
+			"Item",
+			"Magical"
+		]
 	}
 }

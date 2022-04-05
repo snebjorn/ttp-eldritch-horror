@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -69,13 +70,41 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Magical\"]",
-		"1": "[\"Item\", \"Elixir\"]",
-		"2": "[\"Item\", \"Tome\"]",
-		"3": "[\"Item\", \"Elixir\"]",
-		"4": "[\"Item\", \"Magical\"]",
-		"5": "[\"Item\", \"Magical\"]",
-		"6": "[\"Item\", \"Magical\", \"Weapon\"]",
-		"7": "[\"Item\", \"Tome\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Magical"
+		],
+		"1": [
+			"Item",
+			"Elixir"
+		],
+		"2": [
+			"Item",
+			"Tome"
+		],
+		"3": [
+			"Item",
+			"Elixir"
+		],
+		"4": [
+			"Item",
+			"Magical"
+		],
+		"5": [
+			"Item",
+			"Magical"
+		],
+		"6": [
+			"Item",
+			"Magical",
+			"Weapon"
+		],
+		"7": [
+			"Item",
+			"Tome"
+		]
 	}
 }

@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/spells - front.jpg",
 	"BackTexture": "03 Mountains of Madness/spells - back.jpg",
 	"HiddenTexture": "",
@@ -77,21 +78,60 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Ritual\"]",
-		"1": "[\"Ritual\"]",
-		"2": "[\"Ritual\"]",
-		"3": "[\"Ritual\"]",
-		"4": "[\"Ritual\"]",
-		"5": "[\"Ritual\"]",
-		"6": "[\"Ritual\"]",
-		"7": "[\"Ritual\"]",
-		"8": "[\"Incantation\", \"Teamwork\"]",
-		"9": "[\"Incantation\", \"Teamwork\"]",
-		"10": "[\"Incantation\", \"Teamwork\"]",
-		"11": "[\"Incantation\", \"Teamwork\"]",
-		"12": "[\"Incantation\"]",
-		"13": "[\"Incantation\"]",
-		"14": "[\"Incantation\"]",
-		"15": "[\"Incantation\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Ritual"
+		],
+		"1": [
+			"Ritual"
+		],
+		"2": [
+			"Ritual"
+		],
+		"3": [
+			"Ritual"
+		],
+		"4": [
+			"Ritual"
+		],
+		"5": [
+			"Ritual"
+		],
+		"6": [
+			"Ritual"
+		],
+		"7": [
+			"Ritual"
+		],
+		"8": [
+			"Incantation",
+			"Teamwork"
+		],
+		"9": [
+			"Incantation",
+			"Teamwork"
+		],
+		"10": [
+			"Incantation",
+			"Teamwork"
+		],
+		"11": [
+			"Incantation",
+			"Teamwork"
+		],
+		"12": [
+			"Incantation"
+		],
+		"13": [
+			"Incantation"
+		],
+		"14": [
+			"Incantation"
+		],
+		"15": [
+			"Incantation"
+		]
 	}
 }

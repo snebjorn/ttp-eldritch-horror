@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "09 Masks of Nyarlathotep/unique assets - front.jpg",
 	"BackTexture": "09 Masks of Nyarlathotep/unique assets - back.jpg",
 	"HiddenTexture": "",
@@ -89,33 +90,118 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Relic\", \"Tome\"]",
-		"1": "[\"Item\", \"Magical\", \"Relic\"]",
-		"2": "[\"Ally\", \"Character\"]",
-		"3": "[\"Item\", \"Magical\"]",
-		"4": "[\"Item\", \"Magical\"]",
-		"5": "[\"Ally\", \"Character\"]",
-		"6": "[\"Ally\", \"Character\"]",
-		"7": "[\"Item\", \"Magical\", \"Relic\"]",
-		"8": "[\"Item\", \"Magical\", \"Relic\"]",
-		"9": "[\"Task\"]",
-		"10": "[\"Task\"]",
-		"11": "[\"Task\"]",
-		"12": "[\"Trinket\", \"Magical\", \"Relic\"]",
-		"13": "[\"Task\"]",
-		"14": "[\"Task\"]",
-		"15": "[\"Task\"]",
-		"16": "[\"Item\", \"Magical\", \"Relic\"]",
-		"17": "[\"Item\", \"Relic\"]",
-		"18": "[\"Item\", \"Relic\"]",
-		"19": "[\"Item\", \"Relic\"]",
-		"20": "[\"Item\", \"Relic\"]",
-		"21": "[\"Item\", \"Relic\"]",
-		"22": "[\"Item\", \"Relic\"]",
-		"23": "[\"Task\"]",
-		"24": "[\"Task\"]",
-		"25": "[\"Task\"]",
-		"26": "[\"Ally\", \"Character\"]",
-		"27": "[\"Ally\", \"Magical\", \"Relic\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Relic",
+			"Tome"
+		],
+		"1": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"2": [
+			"Ally",
+			"Character"
+		],
+		"3": [
+			"Item",
+			"Magical"
+		],
+		"4": [
+			"Item",
+			"Magical"
+		],
+		"5": [
+			"Ally",
+			"Character"
+		],
+		"6": [
+			"Ally",
+			"Character"
+		],
+		"7": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"8": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"9": [
+			"Task"
+		],
+		"10": [
+			"Task"
+		],
+		"11": [
+			"Task"
+		],
+		"12": [
+			"Trinket",
+			"Magical",
+			"Relic"
+		],
+		"13": [
+			"Task"
+		],
+		"14": [
+			"Task"
+		],
+		"15": [
+			"Task"
+		],
+		"16": [
+			"Item",
+			"Magical",
+			"Relic"
+		],
+		"17": [
+			"Item",
+			"Relic"
+		],
+		"18": [
+			"Item",
+			"Relic"
+		],
+		"19": [
+			"Item",
+			"Relic"
+		],
+		"20": [
+			"Item",
+			"Relic"
+		],
+		"21": [
+			"Item",
+			"Relic"
+		],
+		"22": [
+			"Item",
+			"Relic"
+		],
+		"23": [
+			"Task"
+		],
+		"24": [
+			"Task"
+		],
+		"25": [
+			"Task"
+		],
+		"26": [
+			"Ally",
+			"Character"
+		],
+		"27": [
+			"Ally",
+			"Magical",
+			"Relic"
+		]
 	}
 }

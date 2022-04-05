@@ -198,9 +198,8 @@ class Util {
   }
 
   /**
-   *
    * @param {Card} cardStack - Card stack to take from.
-   * @param {(metadata: unknown) => boolean} predicate
+   * @param {(metadata: unknown) => boolean} predicate - Predicate to determine if the card should be taken or not.
    * @param {number} count - Amount of cards to take. Default: `1`.
    * @param {string[]} excludeCardNames - Card names to exclude from the random take. Default: `[]`.
    * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
@@ -228,6 +227,49 @@ class Util {
 
       if (foundCard === undefined) {
         break; // abort - no cards with this metadata is left in the stack
+      }
+
+      const takenCard = Util.takeCards(cardStack, 1, true, foundCard.stackIndex);
+
+      if (stack === undefined) {
+        stack = takenCard;
+      } else {
+        stack.addCards(takenCard);
+      }
+    }
+
+    return stack;
+  }
+
+  /**
+   * @param {Card} cardStack - Card stack to take from.
+   * @param {string[]} tags - Tags on card to take.
+   * @param {number} count - Amount of cards to take. Default: `1`.
+   * @param {string[]} excludeCardNames - Card names to exclude from the random take. Default: `[]`.
+   * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
+   */
+  static takeCardTagsFromStack(
+    cardStack,
+    tags,
+    count = 1,
+    excludeCardNames = [],
+    fromFront = false
+  ) {
+    let stack;
+    for (let i = 0; i < count; i++) {
+      const stackDetails = cardStack.getAllCardDetails();
+      if (fromFront === false) {
+        stackDetails.reverse();
+      }
+
+      const foundCard = stackDetails.find(
+        (cardDetails) =>
+          !excludeCardNames.includes(cardDetails.name) &&
+          tags.every((tag) => cardDetails.tags.includes(tag))
+      );
+
+      if (foundCard === undefined) {
+        break; // abort - no cards with these tags is left in the stack
       }
 
       const takenCard = Util.takeCards(cardStack, 1, true, foundCard.stackIndex);

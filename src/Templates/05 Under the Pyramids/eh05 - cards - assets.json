@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "05 Under the Pyramids/assets - front.jpg",
 	"BackTexture": "Asset - back.jpg",
 	"HiddenTexture": "",
@@ -77,21 +78,66 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Weapon\"]",
-		"1": "[\"Item\", \"Relic\", \"Tome\"]",
-		"2": "[\"Item\", \"Relic\"]",
-		"3": "[\"Trinket\", \"Tome\"]",
-		"4": "[\"Item\", \"Tome\"]",
-		"5": "[\"Service\"]",
-		"6": "[\"Item\", \"Magical\", \"Weapon\"]",
-		"7": "[\"Trinket\", \"Relic\"]",
-		"8": "[\"Service\"]",
-		"9": "[\"Trinket\"]",
-		"10": "[\"Ally\"]",
-		"11": "[\"Trinket\"]",
-		"12": "[\"Item\", \"Tome\"]",
-		"13": "[\"Item\"]",
-		"14": "[\"Ally\"]",
-		"15": "[\"Service\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Weapon"
+		],
+		"1": [
+			"Item",
+			"Relic",
+			"Tome"
+		],
+		"2": [
+			"Item",
+			"Relic"
+		],
+		"3": [
+			"Trinket",
+			"Tome"
+		],
+		"4": [
+			"Item",
+			"Tome"
+		],
+		"5": [
+			"Service"
+		],
+		"6": [
+			"Item",
+			"Magical",
+			"Weapon"
+		],
+		"7": [
+			"Trinket",
+			"Relic"
+		],
+		"8": [
+			"Service"
+		],
+		"9": [
+			"Trinket"
+		],
+		"10": [
+			"Ally"
+		],
+		"11": [
+			"Trinket"
+		],
+		"12": [
+			"Item",
+			"Tome"
+		],
+		"13": [
+			"Item"
+		],
+		"14": [
+			"Ally"
+		],
+		"15": [
+			"Service"
+		]
 	}
 }

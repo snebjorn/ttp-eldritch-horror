@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "08 Cities in Ruin/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -65,9 +66,27 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Magical\", \"Weapon\"]",
-		"1": "[\"Item\", \"Relic\", \"Tome\"]",
-		"2": "[\"Item\", \"Elixir\"]",
-		"3": "[\"Item\", \"Magical\", \"Tome\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Magical",
+			"Weapon"
+		],
+		"1": [
+			"Item",
+			"Relic",
+			"Tome"
+		],
+		"2": [
+			"Item",
+			"Elixir"
+		],
+		"3": [
+			"Item",
+			"Magical",
+			"Tome"
+		]
 	}
 }

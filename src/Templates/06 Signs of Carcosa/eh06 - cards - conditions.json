@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "06 Signs of Carcosa/conditions - front.jpg",
 	"BackTexture": "06 Signs of Carcosa/conditions - back.jpg",
 	"HiddenTexture": "",
@@ -89,33 +90,93 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Boon\"]",
-		"1": "[\"Bane\"]",
-		"2": "[\"Bane\"]",
-		"3": "[\"Bane\"]",
-		"4": "[\"Bane\"]",
-		"5": "[\"Bane\"]",
-		"6": "[\"Deal\"]",
-		"7": "[\"Deal\", \"Common\"]",
-		"8": "[\"Talent\"]",
-		"9": "[\"Talent\"]",
-		"10": "[\"Talent\"]",
-		"11": "[\"Talent\"]",
-		"12": "[\"Talent\"]",
-		"13": "[\"Talent\"]",
-		"14": "[\"Deal\"]",
-		"15": "[\"Deal\"]",
-		"16": "[\"Deal\"]",
-		"17": "[\"Deal\"]",
-		"18": "[\"Talent\"]",
-		"19": "[\"Talent\"]",
-		"20": "[\"Talent\"]",
-		"21": "[\"Talent\"]",
-		"22": "[\"Talent\"]",
-		"23": "[\"Talent\"]",
-		"24": "[\"Pursuit\"]",
-		"25": "[\"Pursuit\"]",
-		"26": "[\"Pursuit\"]",
-		"27": "[\"Pursuit\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Boon"
+		],
+		"1": [
+			"Bane"
+		],
+		"2": [
+			"Bane"
+		],
+		"3": [
+			"Bane"
+		],
+		"4": [
+			"Bane"
+		],
+		"5": [
+			"Bane"
+		],
+		"6": [
+			"Deal"
+		],
+		"7": [
+			"Deal",
+			"Common"
+		],
+		"8": [
+			"Talent"
+		],
+		"9": [
+			"Talent"
+		],
+		"10": [
+			"Talent"
+		],
+		"11": [
+			"Talent"
+		],
+		"12": [
+			"Talent"
+		],
+		"13": [
+			"Talent"
+		],
+		"14": [
+			"Deal"
+		],
+		"15": [
+			"Deal"
+		],
+		"16": [
+			"Deal"
+		],
+		"17": [
+			"Deal"
+		],
+		"18": [
+			"Talent"
+		],
+		"19": [
+			"Talent"
+		],
+		"20": [
+			"Talent"
+		],
+		"21": [
+			"Talent"
+		],
+		"22": [
+			"Talent"
+		],
+		"23": [
+			"Talent"
+		],
+		"24": [
+			"Pursuit"
+		],
+		"25": [
+			"Pursuit"
+		],
+		"26": [
+			"Pursuit"
+		],
+		"27": [
+			"Pursuit"
+		]
 	}
 }

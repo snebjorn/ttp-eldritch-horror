@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/assets - front.jpg",
 	"BackTexture": "Asset - back.jpg",
 	"HiddenTexture": "",
@@ -77,21 +78,61 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Weapon\"]",
-		"1": "[\"Service\"]",
-		"2": "[\"Ally\"]",
-		"3": "[\"Ally\"]",
-		"4": "[\"Trinket\", \"Magical\"]",
-		"5": "[\"Trinket\", \"Magical\", \"Weapon\"]",
-		"6": "[\"Item\"]",
-		"7": "[\"Service\"]",
-		"8": "[\"Item\"]",
-		"9": "[\"Trinket\"]",
-		"10": "[\"Ally\"]",
-		"11": "[\"Service\"]",
-		"12": "[\"Item\"]",
-		"13": "[\"Ally\"]",
-		"14": "[\"Ally\"]",
-		"15": "[\"Item\", \"Weapon\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Weapon"
+		],
+		"1": [
+			"Service"
+		],
+		"2": [
+			"Ally"
+		],
+		"3": [
+			"Ally"
+		],
+		"4": [
+			"Trinket",
+			"Magical"
+		],
+		"5": [
+			"Trinket",
+			"Magical",
+			"Weapon"
+		],
+		"6": [
+			"Item"
+		],
+		"7": [
+			"Service"
+		],
+		"8": [
+			"Item"
+		],
+		"9": [
+			"Trinket"
+		],
+		"10": [
+			"Ally"
+		],
+		"11": [
+			"Service"
+		],
+		"12": [
+			"Item"
+		],
+		"13": [
+			"Ally"
+		],
+		"14": [
+			"Ally"
+		],
+		"15": [
+			"Item",
+			"Weapon"
+		]
 	}
 }

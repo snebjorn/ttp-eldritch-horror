@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/conditions - front.jpg",
 	"BackTexture": "03 Mountains of Madness/conditions - back.jpg",
 	"HiddenTexture": "",
@@ -93,37 +94,106 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Madness\"]",
-		"1": "[\"Boon\"]",
-		"2": "[\"Bane\"]",
-		"3": "[\"Deal\"]",
-		"4": "[\"Deal\", \"Common\"]",
-		"5": "[\"Deal\", \"Common\"]",
-		"6": "[\"Restriction\"]",
-		"7": "[\"Deal\"]",
-		"8": "[\"Deal\"]",
-		"9": "[\"Deal\"]",
-		"10": "[\"Deal\"]",
-		"11": "[\"Madness\"]",
-		"12": "[\"Madness\"]",
-		"13": "[\"Madness\"]",
-		"14": "[\"Madness\"]",
-		"15": "[\"Pursuit\"]",
-		"16": "[\"Pursuit\"]",
-		"17": "[\"Pursuit\"]",
-		"18": "[\"Pursuit\"]",
-		"19": "[\"Exposure\"]",
-		"20": "[\"Exposure\"]",
-		"21": "[\"Exposure\"]",
-		"22": "[\"Exposure\"]",
-		"23": "[\"Exposure\"]",
-		"24": "[\"Exposure\"]",
-		"25": "[\"Exposure\"]",
-		"26": "[\"Exposure\"]",
-		"27": "[\"Illness\"]",
-		"28": "[\"Illness\"]",
-		"29": "[\"Illness\"]",
-		"30": "[\"Illness\"]",
-		"31": "[\"Injury\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Madness"
+		],
+		"1": [
+			"Boon"
+		],
+		"2": [
+			"Bane"
+		],
+		"3": [
+			"Deal"
+		],
+		"4": [
+			"Deal",
+			"Common"
+		],
+		"5": [
+			"Deal",
+			"Common"
+		],
+		"6": [
+			"Restriction"
+		],
+		"7": [
+			"Deal"
+		],
+		"8": [
+			"Deal"
+		],
+		"9": [
+			"Deal"
+		],
+		"10": [
+			"Deal"
+		],
+		"11": [
+			"Madness"
+		],
+		"12": [
+			"Madness"
+		],
+		"13": [
+			"Madness"
+		],
+		"14": [
+			"Madness"
+		],
+		"15": [
+			"Pursuit"
+		],
+		"16": [
+			"Pursuit"
+		],
+		"17": [
+			"Pursuit"
+		],
+		"18": [
+			"Pursuit"
+		],
+		"19": [
+			"Exposure"
+		],
+		"20": [
+			"Exposure"
+		],
+		"21": [
+			"Exposure"
+		],
+		"22": [
+			"Exposure"
+		],
+		"23": [
+			"Exposure"
+		],
+		"24": [
+			"Exposure"
+		],
+		"25": [
+			"Exposure"
+		],
+		"26": [
+			"Exposure"
+		],
+		"27": [
+			"Illness"
+		],
+		"28": [
+			"Illness"
+		],
+		"29": [
+			"Illness"
+		],
+		"30": [
+			"Illness"
+		],
+		"31": [
+			"Injury"
+		]
 	}
 }

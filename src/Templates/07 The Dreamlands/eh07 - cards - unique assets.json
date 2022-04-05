@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "07 The Dreamlands/unique assets - front.jpg",
 	"BackTexture": "07 The Dreamlands/unique assets - back.jpg",
 	"HiddenTexture": "",
@@ -86,30 +87,94 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Trinket\", \"Tarot\"]",
-		"1": "[\"Ally\", \"Character\"]",
-		"2": "[\"Task\"]",
-		"3": "[\"Task\"]",
-		"4": "[\"Task\"]",
-		"5": "[\"Trinket\", \"Tarot\"]",
-		"6": "[\"Task\"]",
-		"7": "[\"Task\"]",
-		"8": "[\"Task\"]",
-		"9": "[\"Trinket\", \"Tarot\"]",
-		"10": "[\"Item\"]",
-		"11": "[\"Trinket\", \"Tarot\"]",
-		"12": "[\"Ally\"]",
-		"13": "[\"Item\", \"Tome\"]",
-		"14": "[\"Item\", \"Tome\"]",
-		"15": "[\"Item\", \"Tome\"]",
-		"16": "[\"Item\", \"Tome\"]",
-		"17": "[\"Ally\", \"Character\"]",
-		"18": "[\"Trinket\", \"Tarot\"]",
-		"19": "[\"Task\"]",
-		"20": "[\"Task\"]",
-		"21": "[\"Task\"]",
-		"22": "[\"Task\"]",
-		"23": "[\"Task\"]",
-		"24": "[\"Task\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Trinket",
+			"Tarot"
+		],
+		"1": [
+			"Ally",
+			"Character"
+		],
+		"2": [
+			"Task"
+		],
+		"3": [
+			"Task"
+		],
+		"4": [
+			"Task"
+		],
+		"5": [
+			"Trinket",
+			"Tarot"
+		],
+		"6": [
+			"Task"
+		],
+		"7": [
+			"Task"
+		],
+		"8": [
+			"Task"
+		],
+		"9": [
+			"Trinket",
+			"Tarot"
+		],
+		"10": [
+			"Item"
+		],
+		"11": [
+			"Trinket",
+			"Tarot"
+		],
+		"12": [
+			"Ally"
+		],
+		"13": [
+			"Item",
+			"Tome"
+		],
+		"14": [
+			"Item",
+			"Tome"
+		],
+		"15": [
+			"Item",
+			"Tome"
+		],
+		"16": [
+			"Item",
+			"Tome"
+		],
+		"17": [
+			"Ally",
+			"Character"
+		],
+		"18": [
+			"Trinket",
+			"Tarot"
+		],
+		"19": [
+			"Task"
+		],
+		"20": [
+			"Task"
+		],
+		"21": [
+			"Task"
+		],
+		"22": [
+			"Task"
+		],
+		"23": [
+			"Task"
+		],
+		"24": [
+			"Task"
+		]
 	}
 }

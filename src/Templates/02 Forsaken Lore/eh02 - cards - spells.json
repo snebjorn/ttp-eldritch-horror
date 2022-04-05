@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/spells - front.jpg",
 	"BackTexture": "02 Forsaken Lore/spells - back.jpg",
 	"HiddenTexture": "",
@@ -89,33 +90,92 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Ritual\"]",
-		"1": "[\"Ritual\"]",
-		"2": "[\"Incantation\"]",
-		"3": "[\"Incantation\"]",
-		"4": "[\"Ritual\"]",
-		"5": "[\"Ritual\"]",
-		"6": "[\"Ritual\"]",
-		"7": "[\"Ritual\"]",
-		"8": "[\"Incantation\"]",
-		"9": "[\"Incantation\"]",
-		"10": "[\"Incantation\"]",
-		"11": "[\"Incantation\"]",
-		"12": "[\"Incantation\"]",
-		"13": "[\"Incantation\"]",
-		"14": "[\"Incantation\"]",
-		"15": "[\"Incantation\"]",
-		"16": "[\"Incantation\"]",
-		"17": "[\"Incantation\"]",
-		"18": "[\"Ritual\"]",
-		"19": "[\"Ritual\"]",
-		"20": "[\"Ritual\"]",
-		"21": "[\"Ritual\"]",
-		"22": "[\"Ritual\"]",
-		"23": "[\"Ritual\"]",
-		"24": "[\"Ritual\"]",
-		"25": "[\"Ritual\"]",
-		"26": "[\"Incantation\"]",
-		"27": "[\"Incantation\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Ritual"
+		],
+		"1": [
+			"Ritual"
+		],
+		"2": [
+			"Incantation"
+		],
+		"3": [
+			"Incantation"
+		],
+		"4": [
+			"Ritual"
+		],
+		"5": [
+			"Ritual"
+		],
+		"6": [
+			"Ritual"
+		],
+		"7": [
+			"Ritual"
+		],
+		"8": [
+			"Incantation"
+		],
+		"9": [
+			"Incantation"
+		],
+		"10": [
+			"Incantation"
+		],
+		"11": [
+			"Incantation"
+		],
+		"12": [
+			"Incantation"
+		],
+		"13": [
+			"Incantation"
+		],
+		"14": [
+			"Incantation"
+		],
+		"15": [
+			"Incantation"
+		],
+		"16": [
+			"Incantation"
+		],
+		"17": [
+			"Incantation"
+		],
+		"18": [
+			"Ritual"
+		],
+		"19": [
+			"Ritual"
+		],
+		"20": [
+			"Ritual"
+		],
+		"21": [
+			"Ritual"
+		],
+		"22": [
+			"Ritual"
+		],
+		"23": [
+			"Ritual"
+		],
+		"24": [
+			"Ritual"
+		],
+		"25": [
+			"Ritual"
+		],
+		"26": [
+			"Incantation"
+		],
+		"27": [
+			"Incantation"
+		]
 	}
 }

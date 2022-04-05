@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/artifacts - front.jpg",
 	"BackTexture": "artifacts - back.jpg",
 	"HiddenTexture": "",
@@ -75,19 +76,65 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Item\", \"Tome\"]",
-		"1": "[\"Item\", \"Tome\"]",
-		"2": "[\"Item\", \"Magical\"]",
-		"3": "[\"Item\", \"Magical\"]",
-		"4": "[\"Item\", \"Magical\"]",
-		"5": "[\"Item\"]",
-		"6": "[\"Item\", \"Magical\", \"Weapon\"]",
-		"7": "[\"Item\", \"Magical\"]",
-		"8": "[\"Item\", \"Tome\"]",
-		"9": "[\"Item\", \"Magical\"]",
-		"10": "[\"Item\", \"Magical\"]",
-		"11": "[\"Item\", \"Magical\", \"Weapon\"]",
-		"12": "[\"Item\", \"Magical\"]",
-		"13": "[\"Item\", \"Tome\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Item",
+			"Tome"
+		],
+		"1": [
+			"Item",
+			"Tome"
+		],
+		"2": [
+			"Item",
+			"Magical"
+		],
+		"3": [
+			"Item",
+			"Magical"
+		],
+		"4": [
+			"Item",
+			"Magical"
+		],
+		"5": [
+			"Item"
+		],
+		"6": [
+			"Item",
+			"Magical",
+			"Weapon"
+		],
+		"7": [
+			"Item",
+			"Magical"
+		],
+		"8": [
+			"Item",
+			"Tome"
+		],
+		"9": [
+			"Item",
+			"Magical"
+		],
+		"10": [
+			"Item",
+			"Magical"
+		],
+		"11": [
+			"Item",
+			"Magical",
+			"Weapon"
+		],
+		"12": [
+			"Item",
+			"Magical"
+		],
+		"13": [
+			"Item",
+			"Tome"
+		]
 	}
 }

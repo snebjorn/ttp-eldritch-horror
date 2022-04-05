@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "08 Cities in Ruin/conditions - front.jpg",
 	"BackTexture": "08 Cities in Ruin/conditions - back.jpg",
 	"HiddenTexture": "",
@@ -81,25 +82,69 @@
 	},
 	"CardMetadata":
 	{
-		"0": "[\"Talent\"]",
-		"1": "[\"Talent\"]",
-		"2": "[\"Boon\"]",
-		"3": "[\"Bane\"]",
-		"4": "[\"Deal\"]",
-		"5": "[\"Deal\", \"Common\"]",
-		"6": "[\"Talent\"]",
-		"7": "[\"Talent\"]",
-		"8": "[\"Talent\"]",
-		"9": "[\"Talent\"]",
-		"10": "[\"Talent\"]",
-		"11": "[\"Talent\"]",
-		"12": "[\"Talent\"]",
-		"13": "[\"Talent\"]",
-		"14": "[\"Talent\"]",
-		"15": "[\"Talent\"]",
-		"16": "[\"Madness\"]",
-		"17": "[\"Madness\"]",
-		"18": "[\"Madness\"]",
-		"19": "[\"Madness\"]"
+	},
+	"CardTags":
+	{
+		"0": [
+			"Talent"
+		],
+		"1": [
+			"Talent"
+		],
+		"2": [
+			"Boon"
+		],
+		"3": [
+			"Bane"
+		],
+		"4": [
+			"Deal"
+		],
+		"5": [
+			"Deal",
+			"Common"
+		],
+		"6": [
+			"Talent"
+		],
+		"7": [
+			"Talent"
+		],
+		"8": [
+			"Talent"
+		],
+		"9": [
+			"Talent"
+		],
+		"10": [
+			"Talent"
+		],
+		"11": [
+			"Talent"
+		],
+		"12": [
+			"Talent"
+		],
+		"13": [
+			"Talent"
+		],
+		"14": [
+			"Talent"
+		],
+		"15": [
+			"Talent"
+		],
+		"16": [
+			"Madness"
+		],
+		"17": [
+			"Madness"
+		],
+		"18": [
+			"Madness"
+		],
+		"19": [
+			"Madness"
+		]
 	}
 }
