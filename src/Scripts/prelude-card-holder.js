@@ -8,14 +8,7 @@ refHolder.onRemoved.add(() => {
   world.__eldritchHorror.updateSetupUIFn?.();
 });
 refHolder.onCardFlipped.add(() => {
-  setTimeout(
-    () => {
-      world.__eldritchHorror.updateSetupUIFn?.();
-    },
-    // onCardFlipped is triggered before the card is registered as flipped
-    // so wait a bit to let the animation finish
-    100
-  );
+  world.__eldritchHorror.updateSetupUIFn?.();
 });
 
 const ui = new UIElement();
