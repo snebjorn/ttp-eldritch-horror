@@ -1,7 +1,7 @@
 {
 	"Type": "Multistate Object",
-	"GUID": "346911D24251ACB6B7FEF0A14B49B614",
-	"Name": "Health",
+	"GUID": "CD0FA9DC41E13E96DC743A8A30C2DD75",
+	"Name": "Investigator Sanity",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0.3,
@@ -22,7 +22,7 @@
 		"B": 0
 	},
 	"Flippable": false,
-	"AutoStraighten": false,
+	"AutoStraighten": true,
 	"ShouldSnap": true,
 	"ScriptName": "health-sanity.js",
 	"Blueprint": "",
@@ -38,7 +38,7 @@
 	},
 	"MultistateModels": [
 		{
-			"Model": "Health 01.png",
+			"Model": "Investigator Sanity 01.png",
 			"ShapeAccuracy": 10,
 			"Offset":
 			{
@@ -48,8 +48,8 @@
 			},
 			"Scale":
 			{
-				"X": 1.959,
-				"Y": 1.316,
+				"X": 1.716,
+				"Y": 1.61,
 				"Z": 0.1
 			},
 			"Rotation":
@@ -58,7 +58,7 @@
 				"Y": 0,
 				"Z": 0
 			},
-			"Texture": "Health.png",
+			"Texture": "Investigator Sanity.png",
 			"NormalMap": "",
 			"ExtraMap": "",
 			"IsTransparent": false,
