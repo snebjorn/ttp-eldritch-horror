@@ -38,17 +38,29 @@ function setupSideBoard(spawnPosition) {
   const dreamQuestCards = Util.createCard(spawnPosition, dreamlands.dreamQuestCards);
   Util.moveObject(dreamQuestCards, gameBoardLocations.dreamlandsMat.dreamQuest);
   dreamQuestCards.setName("Dream-Quest Encounters");
+  dreamQuestCards.setDescription(
+    "- Dream-Quest Encounters are complex encounters that may require an investigator to resolve multiple tests.\n" +
+      "- Each Dream-Quest Encounter's back indicates the space it corresponds to.\n" +
+      '- The Dream-Quest token is placed on the space corresponding to the top card of the Dream-Quest Encounter deck. This space is referred to as the "active Dream-Quest space." If the top card of the Dream-Quest Encounter deck changes for any reason, move the Dream-Quest token to the appropriate space.\n' +
+      "- During the Encounter Phase, an investigator on the space containing the Dream-Quest token may encounter it by drawing and resolving the top card of the Dream-Quest Encounter deck."
+  );
   dreamQuestCards.setId("encounter-dream-quest-deck");
   dreamQuestCards.shuffle();
 
   const dreamQuestToken = Util.createCard(spawnPosition, dreamlands.dreamQuestToken);
   dreamQuestToken.setName("Dream-Quest Token");
+  dreamQuestToken.setDescription(
+    "During the Encounter Phase, an investigator on the space containing the Dream-Quest token may encounter it by drawing and resolving the top card of the Dream-Quest Encounter deck."
+  );
   dreamQuestToken.setId("dream-quest-token");
   GameUtil.positionEncounterToken(dreamQuestCards, dreamQuestToken);
 
   const dreamlandsCards = Util.createCard(spawnPosition, dreamlands.dreamlandsCards);
   Util.moveObject(dreamlandsCards, gameBoardLocations.dreamlandsMat.dreamlands);
   dreamlandsCards.setName("Dreamlands Encounters");
+  dreamlandsCards.setDescription(
+    "During the Encounter Phase, an investigator on Celephaïs, Dylath-Leen, or Ulthar may encounter that space by drawing a Dreamlands Encounter and resolving the effect that corresponds to his space."
+  );
   dreamlandsCards.setId("encounter-dreamlands-deck");
   dreamlandsCards.shuffle();
 

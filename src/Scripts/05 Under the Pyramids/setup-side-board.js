@@ -35,12 +35,18 @@ function setupSideBoard(spawnPosition) {
   const africaCards = Util.createCard(spawnPosition, egypt.africaCards);
   Util.moveObject(africaCards, gameBoardLocations.egyptMat.africa);
   africaCards.setName("Africa Encounters");
+  africaCards.setDescription(
+    "During the Encounter Phase, an investigator on The Sahara Desert, Tel el-Amarna, or The Nile River may encounter that space by drawing an Africa Encounter and resolving the effect that corresponds to his space."
+  );
   africaCards.setId("encounter-africa-deck");
   africaCards.shuffle();
 
   const egyptCards = Util.createCard(spawnPosition, egypt.egyptCards);
   Util.moveObject(egyptCards, gameBoardLocations.egyptMat.egypt);
   egyptCards.setName("Egypt Encounters");
+  egyptCards.setDescription(
+    "During the Encounter Phase, an investigator on Alexandria, The Bent Pyramid, or Cairo may encounter that space by drawing an Egypt Encounter and resolving the effect that corresponds to his space."
+  );
   egyptCards.setId("encounter-egypt-deck");
   egyptCards.shuffle();
 

@@ -150,6 +150,10 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
   const devastationDeck = createCard("98595B724DF997F72CB37997196EB8DE");
   devastationDeck.setId("encounter-devastation-deck");
   devastationDeck.setName("Devastation Encounters");
+  devastationDeck.setDescription(
+    "- Devastation Encounters are complex encounters that may require an investigator to resolve multiple tests.\n" +
+      "- An investigator on a devastated space cannot resolve a General Encounter or a location encounter that corresponds to his space. Instead, during the Encounter Phase, an investigator on a devastated space may encounter that space by drawing and resolving the top card of the Devastation Encounter deck."
+  );
   GameUtil.addEncounterDeck(devastationDeck);
   devastationDeck.shuffle();
 
@@ -159,6 +163,12 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
   );
   devastationToken.setId("devastation-token");
   devastationToken.setName("Devastation Token");
+  devastationToken.setDescription(
+    "- When a space is devastated, discard all Clues and defeated investigator tokens on that space, search the Expedition Encounter deck for each card that corresponds to that space and return them to the game box, then place a Devastation token on the space.\n" +
+      "- If a Clue would be spawned on a devastated space, discard that Clue instead. A Clue cannot be moved to a devastated space.\n" +
+      "- A devastated space does not have a space type; it is no longer a City space.\n" +
+      "- If all nine named City spaces on the main board would be devastated, the investigators lose the game."
+  );
   const devastationTokenSnapPoint = tableLocations.devastationToken;
   if (!devastationTokenSnapPoint) {
     throw new Error("Cannot find position for Devastation Token");
@@ -169,6 +179,11 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
   const disasterDeck = createCard("727547664488EA26E9DE96B8602C61FF");
   disasterDeck.setId("disaster-deck");
   disasterDeck.setName("Disasters");
+  disasterDeck.setDescription(
+    "Disasters represent natural or unnatural destructive forces that act on the cities of the world or other locations.\n" +
+      "Some effects cause the investigators to draw and resolve one or more Disasters. To do so, the Lead Investigator draws the top card of the Disaster deck, then he reads the card aloud to all investigators, resolving the card's effects as instructed.\n" +
+      "The card's effect is resolved immediately. After resolving the card's effect in its entirety, the card is discarded to a faceup discard pile by the Disaster deck."
+  );
   const disasterSnapPoint = tableLocations.disasterDeck;
   if (!disasterSnapPoint) {
     throw new Error("Cannot find position for Devastation Token");

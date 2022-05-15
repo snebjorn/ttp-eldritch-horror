@@ -36,18 +36,28 @@ function setupSideBoard(spawnPosition) {
   const researchCards = Util.createCard(spawnPosition, antarctica.researchCards);
   Util.moveObject(researchCards, gameBoardLocations.antarcticaMat.research);
   researchCards.setName("Antarctica Research Encounters");
+  researchCards.setDescription(
+    "- When an investigator encounters a Clue on the Antarctica side board, he does not resolve a Research Encounter for the chosen Ancient One. Instead, he draws and resolves an Antarctica Research Encounter.\n" +
+      "- An Antarctica Research Encounter is considered a Research Encounter for all game effects."
+  );
   researchCards.setId("encounter-antarctica-research-deck");
   researchCards.shuffle();
 
   const mountainCards = Util.createCard(spawnPosition, antarctica.mountainsCards);
   Util.moveObject(mountainCards, gameBoardLocations.antarcticaMat.mountains);
   mountainCards.setName("Mountains Encounters");
+  mountainCards.setDescription(
+    "During the Encounter Phase, an investigator on Snowy Mountains, City of the Elder Things, or Plateau of Leng may encounter that space by drawing a Mountain Encounter and resolving the effect that corresponds to his space."
+  );
   mountainCards.setId("encounter-mountains-deck");
   mountainCards.shuffle();
 
   const outpostCards = Util.createCard(spawnPosition, antarctica.outpostCards);
   Util.moveObject(outpostCards, gameBoardLocations.antarcticaMat.outposts);
   outpostCards.setName("Outpost Encounters");
+  outpostCards.setDescription(
+    "During the Encounter Phase, an investigator on Miskatonic Outpost, Lake Camp, or Frozen Waste may encounter that space by drawing an Outpost Encounter and resolving the effect that corresponds to his space."
+  );
   outpostCards.setId("encounter-outpost-deck");
   outpostCards.shuffle();
 
