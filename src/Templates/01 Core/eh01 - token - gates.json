@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/gates - front.jpg",
 	"BackTexture": "gates - back.jpg",
 	"HiddenTexture": "",
@@ -69,6 +70,18 @@
 		"8": "Tokyo"
 	},
 	"CardMetadata":
+	{
+		"0": "{ \"color\": \"red\" }",
+		"1": "{ \"color\": \"blue\" }",
+		"2": "{ \"color\": \"green\" }",
+		"3": "{ \"color\": \"blue\" }",
+		"4": "{ \"color\": \"red\" }",
+		"5": "{ \"color\": \"green\" }",
+		"6": "{ \"color\": \"red\" }",
+		"7": "{ \"color\": \"red\" }",
+		"8": "{ \"color\": \"blue\" }"
+	},
+	"CardTags":
 	{
 	}
 }

@@ -41,6 +41,8 @@ declare global {
     hard: Card;
   }
 
+  type OmenColor = "red" | "green" | "blue";
+
   namespace Expansion {
     type MythosCards = Record<MythosCardColors, Partial<MythosCardDifficult>>;
 

@@ -10,6 +10,7 @@ const {
   CardHolder,
   Color,
   Container,
+  ObjectType,
 } = require("@tabletop-playground/api");
 
 class Util {
@@ -354,6 +355,29 @@ class Util {
   static moveOnTopOfObject(gameObject, destinationObject, animationSpeed = 1) {
     const destinationPosition = Util.getTopPosition(destinationObject);
     Util.moveObject(gameObject, destinationPosition, animationSpeed);
+  }
+
+  /**
+   * Moves a GameObject to a given position.
+   * If there are already GameObjects at the position it'll put it on top of these.
+   *
+   * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
+   * @param {SnapPoint | Vector} position
+   * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
+   */
+  static moveOnTopOnPosition(gameObject, position, animationSpeed = 1) {
+    const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
+    const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
+    const objectsAtPosition = world
+      .lineTrace(globalPosition, positionAboveGameObject)
+      // remove grounded objects like the game board
+      .filter((x) => x.object.getObjectType() !== ObjectType.Ground);
+    const topHit = objectsAtPosition.slice(-1)[0];
+    if (topHit) {
+      Util.moveOnTopOfObject(gameObject, topHit.object, animationSpeed);
+    } else {
+      Util.moveObject(gameObject, position, animationSpeed);
+    }
   }
 
   /**

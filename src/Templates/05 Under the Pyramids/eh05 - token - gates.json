@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "05 Under the Pyramids/gates - front.jpg",
 	"BackTexture": "gates - back.jpg",
 	"HiddenTexture": "",
@@ -63,6 +64,12 @@
 		"2": "The Himalayas"
 	},
 	"CardMetadata":
+	{
+		"0": "{ \"color\": \"blue\" }",
+		"1": "{ \"color\": \"red\" }",
+		"2": "{ \"color\": \"red\" }"
+	},
+	"CardTags":
 	{
 	}
 }

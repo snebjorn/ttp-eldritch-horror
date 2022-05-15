@@ -170,11 +170,20 @@ const preludes = {
       // if ithaqua, advance omen by 1 and remove the The Wind-Walker mythos card
       // else put 6 eldritch tokens on The Wind-Walker mythos card
       if (ancientOne === "Ithaqua") {
-        GameUtil.advanceOmen();
+        const [currentOmenColor, matchingGateNames] = GameUtil.advanceOmen();
+        const matchingGateCount = matchingGateNames.length;
         const windWalkerCard = tableLocations.activeMythos?.getSnappedObject();
         windWalkerCard?.destroy();
 
-        Util.logScriptAction("SETUP (Prelude: Rumors From the North) advanced Omen by 1.");
+        let message = "SETUP (Prelude: Rumors From the North) advanced Omen by 1.";
+        message += `\n\t- Omen (${currentOmenColor}) matched ${matchingGateCount} gates`;
+        if (matchingGateCount === 0) {
+          message += ".";
+        } else {
+          message += `: ${matchingGateNames.join(", ")}.`;
+          message += `\n\t\t- Doom advanced by ${matchingGateCount} accordingly.`;
+        }
+        Util.logScriptAction(message);
       } else {
         if (tableLocations.activeMythos) {
           const eldritchTokens = GameUtil.takeEldritchTokens(6);

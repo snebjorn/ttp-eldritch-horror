@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "05 Under the Pyramids/egypt gates - front.jpg",
 	"BackTexture": "gates - back.jpg",
 	"HiddenTexture": "",
@@ -63,6 +64,12 @@
 		"2": "The Sahara Desert"
 	},
 	"CardMetadata":
+	{
+		"0": "{ \"color\": \"green\" }",
+		"1": "{ \"color\": \"blue\" }",
+		"2": "{ \"color\": \"red\" }"
+	},
+	"CardTags":
 	{
 	}
 }

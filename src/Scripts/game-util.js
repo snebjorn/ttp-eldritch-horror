@@ -1,4 +1,4 @@
-const { world, GameObject, Vector, SnapPoint, Card } = require("@tabletop-playground/api");
+const { world, GameObject, Vector, SnapPoint, Card, Color } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const {
   eldritchToken,
@@ -17,13 +17,17 @@ const {
 
 class GameUtil {
   /**
-   * @param {number} number
+   * @param {number} count
    */
-  static advanceDoom(number = 1) {
+  static advanceDoom(count = 1) {
+    if (count <= 0) {
+      return;
+    }
+
     const doomCount = findDoomCount();
     if (doomCount) {
       // @ts-ignore
-      const advancedDoomSnapShot = gameBoardLocations.doom[doomCount - number];
+      const advancedDoomSnapShot = gameBoardLocations.doom[doomCount - count];
       if (advancedDoomSnapShot) {
         Util.moveObject(doomToken, advancedDoomSnapShot);
       }
@@ -34,6 +38,10 @@ class GameUtil {
    * @param {number} count
    */
   static retreatDoom(count = 1) {
+    if (count <= 0) {
+      return;
+    }
+
     const doomCount = findDoomCount();
     if (doomCount) {
       // @ts-ignore
@@ -469,27 +477,32 @@ class GameUtil {
     return data;
   }
 
+  /**
+   * @returns {OmenColor}
+   */
   static getCurrentOmenColor() {
-    if (gameBoardLocations.omen.green.getSnappedObject() === omenToken) {
+    const omenSnapPoint = omenToken.getSnappedToPoint();
+    if (gameBoardLocations.omen.green === omenSnapPoint) {
       return "green";
     }
-    if (gameBoardLocations.omen.blue1.getSnappedObject() === omenToken) {
+    if (gameBoardLocations.omen.blue1 === omenSnapPoint) {
       return "blue";
     }
-    if (gameBoardLocations.omen.red.getSnappedObject() === omenToken) {
+    if (gameBoardLocations.omen.red === omenSnapPoint) {
       return "red";
     }
-    if (gameBoardLocations.omen.blue2.getSnappedObject() === omenToken) {
+    if (gameBoardLocations.omen.blue2 === omenSnapPoint) {
       return "blue";
     }
 
-    throw new Error("Unable to find omen token");
+    throw new Error("Unable to find the Omen token on the Omen Track");
   }
 
   /**
-   * @param {number} number
+   * @param {number} count
+   * @returns {[color: OmenColor, gateNames: string[]]}
    */
-  static advanceOmen(number = 1) {
+  static advanceOmen(count = 1) {
     const omenTrack = [
       gameBoardLocations.omen.green,
       gameBoardLocations.omen.blue1,
@@ -497,11 +510,56 @@ class GameUtil {
       gameBoardLocations.omen.blue2,
     ];
 
-    const currentOmenIndex = omenTrack.findIndex((x) => x.getSnappedObject() === omenToken);
-    const advancedOmenSnapShot = omenTrack[(currentOmenIndex + number) % 4];
-    Util.moveObject(omenToken, advancedOmenSnapShot);
+    const omenSnapPoint = omenToken.getSnappedToPoint();
+    const currentOmenIndex = omenTrack.findIndex(
+      (trackSnapPoint) => trackSnapPoint === omenSnapPoint
+    );
 
-    // TODO advance doom for each matching gates
+    if (currentOmenIndex === -1) {
+      throw new Error("Unable to find the Omen token on the Omen Track");
+    }
+
+    const advancedOmenSnapShot = omenTrack[(currentOmenIndex + count) % 4];
+    Util.moveOnTopOnPosition(omenToken, advancedOmenSnapShot);
+
+    const advancedOmenColor = GameUtil.getCurrentOmenColor();
+    const activeGatesMatchingOmen = GameUtil.getActiveGates(advancedOmenColor);
+    const gateNames = activeGatesMatchingOmen.map((x) => x.getCardDetails().name);
+    const advanceDoomCount = activeGatesMatchingOmen.length;
+    GameUtil.advanceDoom(advanceDoomCount);
+
+    return [advancedOmenColor, gateNames];
+  }
+
+  /**
+   * @param {OmenColor} [color]
+   * @returns {Card[]}
+   */
+  static getActiveGates(color) {
+    /** @type {Card[]} */
+    // @ts-ignore
+    const drawnGates = world
+      .getAllObjects(true)
+      .filter(
+        (x) =>
+          x.getTemplateName() === "Gates" &&
+          x.getId() !== "gate-stack" &&
+          x.getId() !== "gate-discard-pile"
+      );
+    // active gates should be placed on the game board
+    const activeGates = drawnGates.filter((gate) =>
+      world
+        .lineTrace(gate.getPosition(), gate.getPosition().subtract([0, 0, 10]))
+        .some(({ object: foundObject }) => foundObject.getTemplateName() === "Game Board")
+    );
+
+    if (color === undefined) {
+      return activeGates;
+    }
+
+    return activeGates.filter(
+      (gate) => JSON.parse(gate.getCardDetails().metadata)?.color === color
+    );
   }
 
   static getActiveIconReference() {
