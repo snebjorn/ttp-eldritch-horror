@@ -77,9 +77,13 @@ exports.setupInvestigator = setupInvestigator;
  * @param {ExtraItems} extras
  */
 function setupCrippledInvestigator(investigatorSheet, extras) {
-  const startingLocation = setupDefeatedInvestigator(investigatorSheet, extras);
-  if (startingLocation) {
-    setupHealthToken(startingLocation, 1);
+  const pawn = setupDefeatedInvestigator(investigatorSheet, extras);
+  if (pawn) {
+    const topOfPawn = Util.getTopPosition(pawn)
+      // move the token to the center of the pawn
+      .add([pawn.getExtent(false).z, 0, 0]);
+    const health = Util.createMultistateObject("36130392438619D2662948BF02946F4D", topOfPawn);
+    health.snapToGround();
   }
 }
 exports.setupCrippledInvestigator = setupCrippledInvestigator;
@@ -89,9 +93,13 @@ exports.setupCrippledInvestigator = setupCrippledInvestigator;
  * @param {ExtraItems} extras
  */
 function setupInsaneInvestigator(investigatorSheet, extras) {
-  const startingLocation = setupDefeatedInvestigator(investigatorSheet, extras);
-  if (startingLocation) {
-    setupSanityToken(startingLocation, 1);
+  const pawn = setupDefeatedInvestigator(investigatorSheet, extras);
+  if (pawn) {
+    const topOfPawn = Util.getTopPosition(pawn)
+      // move the token to the center of the pawn
+      .add([pawn.getExtent(false).z, 0, 0]);
+    const sanity = Util.createMultistateObject("17BAE636408EFD63E2107E85547D315D", topOfPawn);
+    sanity.snapToGround();
   }
 }
 exports.setupInsaneInvestigator = setupInsaneInvestigator;
@@ -111,9 +119,9 @@ function setupDefeatedInvestigator(investigatorSheet, extras) {
       pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
       pawn.setRotation(new Rotator(-90, 0, 0), 1);
       pawn.snapToGround();
-    }
 
-    return startingLocation;
+      return pawn;
+    }
   }
 }
 
