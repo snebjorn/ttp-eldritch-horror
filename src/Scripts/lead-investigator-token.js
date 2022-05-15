@@ -34,7 +34,7 @@ const textUi = new Text()
   .setJustification(TextJustification.Center)
   .setText(formatName(GameUtil.getSavedData().leadInvestigator || ""));
 ui.widget = textUi;
-ui.position = new Vector(0, 0, extend.z + 0.01);
+ui.position = new Vector(0, 0, extend.z + 0.02);
 ui.scale = 0.2;
 refCard.addUI(ui);
 
