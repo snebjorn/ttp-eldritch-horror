@@ -7,9 +7,9 @@
    viewBox="0 0 157.25671 230.87536"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   sodipodi:docname="health.svg"
-   inkscape:export-filename="C:\Users\Snebjorn\Repos\ttp-eldritch-horror\assets\01 Core\Health\health 09.png"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="investigator health.svg"
+   inkscape:export-filename="C:\Users\Snebjorn\Repos\ttp-eldritch-horror\assets\01 Core\Health\Investigator Health 01.png"
    inkscape:export-xdpi="48.455803"
    inkscape:export-ydpi="48.455803"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -41,11 +41,11 @@
      borderlayer="false"
      inkscape:showpageshadow="false"
      inkscape:zoom="1.0998546"
-     inkscape:cx="214.11921"
-     inkscape:cy="449.60488"
+     inkscape:cx="213.66461"
+     inkscape:cy="449.15028"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2" />
@@ -92,171 +92,163 @@
      id="layer2"
      inkscape:label="1"
      transform="translate(-2.8638818,2.7299783)"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="66.122902"
-       y="203.02902"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="53.329346"
+       y="185.07985"
        id="text44546"><tspan
          sodipodi:role="line"
          id="tspan44544"
-         style="font-size:88.1944px;fill:#ffffff;stroke-width:0.264583"
-         x="66.122902"
-         y="203.02902">1</tspan></text>
+         style="font-size:116.926px;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="53.329346"
+         y="185.07985">1</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="2"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="36.787418"
+       y="188.42116"
        id="text58533"><tspan
          sodipodi:role="line"
          id="tspan58531"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">2</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="36.787418"
+         y="188.42116">2</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g61446"
      inkscape:label="3"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="38.716698"
+       y="188.42116"
        id="text61444"><tspan
          sodipodi:role="line"
          id="tspan61442"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">3</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="38.716698"
+         y="188.42116">3</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g64432"
      inkscape:label="4"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="36.682186"
+       y="188.42116"
        id="text64430"><tspan
          sodipodi:role="line"
          id="tspan64428"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">4</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="36.682186"
+         y="188.42116">4</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g68364"
      inkscape:label="5"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="40.938293"
+       y="188.42116"
        id="text68362"><tspan
          sodipodi:role="line"
          id="tspan68360"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">5</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="40.938293"
+         y="188.42116">5</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g74338"
      inkscape:label="6"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="34.916603"
+       y="188.42116"
        id="text74336"><tspan
          sodipodi:role="line"
          id="tspan74334"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">6</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="34.916603"
+         y="188.42116">6</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g76770"
      inkscape:label="7"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="36.085865"
+       y="188.42116"
        id="text76768"><tspan
          sodipodi:role="line"
          id="tspan76766"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">7</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="36.085865"
+         y="188.42116">7</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g77946"
      inkscape:label="8"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
-       id="text77944"><tspan
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="47.498055"
+       y="180.52817"
+       id="text77944"
+       transform="rotate(5.500924)"><tspan
          sodipodi:role="line"
          id="tspan77942"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">8</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="47.498055"
+         y="180.52817">8</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="g78956"
      inkscape:label="9"
      style="display:none"
-     transform="translate(-0.47000157,-2.1313653)"
-     sodipodi:insensitive="true">
+     transform="translate(-0.47000157,-2.1313653)">
     <text
        xml:space="preserve"
-       style="font-size:88.1944px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke-width:0.264583"
-       x="53.057503"
-       y="206.74384"
+       style="font-size:116.926px;line-height:1.25;font-family:ARKHAM;-inkscape-font-specification:ARKHAM;fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+       x="36.261253"
+       y="188.42116"
        id="text78954"><tspan
          sodipodi:role="line"
          id="tspan78952"
-         style="fill:#ffffff;stroke-width:0.264583"
-         x="53.057503"
-         y="206.74384">9</tspan></text>
+         style="fill:#ffffff;stroke:#000000;stroke-width:3.50778;stroke-miterlimit:4;stroke-dasharray:none"
+         x="36.261253"
+         y="188.42116">9</tspan></text>
   </g>
   <metadata
      id="metadata90212">
