@@ -46,6 +46,6 @@ exports.investigators08 = [
       uniqueAssets: ["Agency Secrets"],
     },
     startingLocation: "San Francisco",
-    personalStory: "The Truth is Out There",
+    personalStory: "The Truth Is Out There",
   },
 ];

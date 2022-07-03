@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "08 Cities in Ruin/Personal Story - front.jpg",
 	"BackTexture": "08 Cities in Ruin/Personal Story - back.jpg",
 	"HiddenTexture": "",
@@ -54,16 +55,20 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
 	{
 		"0": "Powerful Nightmares",
 		"1": "Doing Business",
-		"2": "Throught Prejudice",
+		"2": "Through Prejudice",
 		"3": "The Truth Is Out There"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }
