@@ -21,7 +21,9 @@ if (GameUtil.getSavedData().sets.length === 0) {
 ##  Eldritch  Horror  ##
 #################
 
-To get started select the desired expansion(s), difficulty and Ancient One in the UI.
+To get started follow the steps in the setup UI.
+
+Note that cards marked with an Elder sign (star symbol) have been altered in the Errata and you'll have to refer to the "FAQ, errata and clarifications" PDF in the Rules bag.
 `);
   drawSetupUi();
 }
