@@ -183,16 +183,22 @@ class GameUtil {
 
   /**
    * @param {number} number - Number of gates to spawn
+   * @param {Card} [gateStack] - The gate stack to draw from. Default: the `"gate-stack"`
+   * @param {boolean} [fromFront] - If true, take the cards from the front of the stack instead of the back. Default: `false`.
    * @throws If unable to find snap point for spawned gate
    * @returns {[gateName: string, monsterName?: string, spawnEffect?: string][]}
    */
-  static spawnGates(number = 1) {
-    const gateStack = getGateStack();
+  static spawnGates(number = 1, gateStack = getGateStack(), fromFront = false) {
+    if (!(gateStack instanceof Card)) {
+      throw new Error(
+        `Parameter 'gateStack' is not typeof Card instead it is: ${typeof gateStack}`
+      );
+    }
     /** @type {[gateName: string, monsterName?: string, spawnEffect?: string][]} */
     const output = [];
 
     for (let i = 0; i < number; i++) {
-      const gateToken = Util.takeCards(gateStack, 1);
+      const gateToken = Util.takeCards(gateStack, 1, fromFront);
 
       if (!gateToken.isFaceUp()) {
         Util.flip(gateToken);

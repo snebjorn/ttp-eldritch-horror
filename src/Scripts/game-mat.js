@@ -5,6 +5,7 @@ const {
   Vector,
   ImageWidget,
   Card,
+  refPackageId,
 } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { tableLocations } = require("./world-constants");
@@ -176,27 +177,6 @@ if (clueDiscardZone) {
   });
 }
 
-const gateDiscardPileSnap = tableLocations.gateDiscardPile;
-if (gateDiscardPileSnap) {
-  const gateDiscardPileSnapZ = gateDiscardPileSnap.getGlobalPosition().z;
-  const zDifference = gateDiscardPileSnapZ - matSurfaceZ;
-
-  const ui = new UIElement();
-  ui.position = gateDiscardPileSnap
-    .getLocalPosition()
-    .subtract(new Vector(0, 0, zDifference))
-    // 0.03 is the magic height that raises the UI so it's visible
-    .add(new Vector(0, 0, 0.03));
-  // need to scale so images are not pixilated
-  ui.scale = 0.1; // at scale 1, one pixel corresponds to one millimeter
-
-  const image = new ImageWidget().setImage("gates - discard.png").setImageSize(550, 550);
-
-  ui.widget = image;
-
-  tableMat.addUI(ui);
-}
-
 const gateStackZone = world.getZoneById("gate-stack-zone");
 if (gateStackZone) {
   gateStackZone.onBeginOverlap.add((zone, object) => {
@@ -230,6 +210,27 @@ if (gateStackZone) {
   });
 }
 
+const gateDiscardPileSnap = tableLocations.gateDiscardPile;
+if (gateDiscardPileSnap) {
+  const gateDiscardPileSnapZ = gateDiscardPileSnap.getGlobalPosition().z;
+  const zDifference = gateDiscardPileSnapZ - matSurfaceZ;
+
+  const ui = new UIElement();
+  ui.position = gateDiscardPileSnap
+    .getLocalPosition()
+    .subtract(new Vector(0, 0, zDifference))
+    // 0.03 is the magic height that raises the UI so it's visible
+    .add(new Vector(0, 0, 0.03));
+  // need to scale so images are not pixilated
+  ui.scale = 0.1; // at scale 1, one pixel corresponds to one millimeter
+
+  const image = new ImageWidget().setImage("gates - discard.png").setImageSize(550, 550);
+
+  ui.widget = image;
+
+  tableMat.addUI(ui);
+}
+
 const gateDiscardZone = world.getZoneById("gate-discard-zone");
 if (gateDiscardZone) {
   gateDiscardZone.onBeginOverlap.add((zone, object) => {
@@ -240,6 +241,7 @@ if (gateDiscardZone) {
     ) {
       object.setId("gate-discard-pile");
       object.setName("Gate Discard Pile");
+      object.setScript("gate-discard-pile.js", refPackageId);
       if (!object.isFaceUp()) {
         Util.flip(object);
       }
@@ -257,6 +259,9 @@ if (gateDiscardZone) {
       } while (object.setId(randomStr) === false);
       if (object.getName() === "Gate Discard Pile") {
         object.setName("");
+      }
+      if (object.getScriptFilename() === "gate-discard-pile.js") {
+        object.setScript("");
       }
     }
   });
