@@ -441,6 +441,7 @@ class Util {
       }
     }
 
+    // @ts-ignore - this is guaranteed to be a Card
     return deck;
   }
 
@@ -838,7 +839,12 @@ class Util {
 
   static Colors = Object.freeze({
     BLACK: new Color(0, 0, 0),
-    WHITE: new Color(255, 255, 255),
+    GREEN: new Color(0, 1, 0),
+    RED: new Color(1, 0, 0),
+    DARK_RED: new Color(0.55, 0, 0),
+    YELLOW: new Color(1, 1, 0),
+    WHITE: new Color(1, 1, 1),
+    LIGHT_CORAL: new Color(1, 0.5, 0.5),
   });
 
   /**
