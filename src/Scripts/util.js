@@ -1,4 +1,5 @@
 const {
+  refPackageId,
   world,
   GameObject,
   SnapPoint,
@@ -805,8 +806,7 @@ class Util {
 
     card.addCards(Util.cloneCard(card, position));
     card.setInheritScript(false);
-    card.onRemoved.add(Util.addCloneToStack);
-    card.onInserted.add(Util.removeInsertedCardFromStack);
+    card.setScript("infinite-stack.js", refPackageId);
 
     return card;
   }
