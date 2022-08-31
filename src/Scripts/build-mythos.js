@@ -1,4 +1,4 @@
-const { Card, world } = require("@tabletop-playground/api");
+const { Card, world, Vector } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const { mythosSetupDecks, tableLocations } = require("./world-constants");
 
@@ -39,6 +39,10 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
 
   stage3.addCards(stage2, true);
   stage3.addCards(stage1, true);
+
+  if (tableLocations.mythosDeck === undefined) {
+    throw new Error("Cannot find Mythos Deck snap point.");
+  }
 
   Util.moveObject(stage3, tableLocations.mythosDeck);
   stage3.setName("Mythos Deck");
@@ -119,10 +123,21 @@ function shuffleMythosSetupDecks() {
   );
 }
 
-/** Return all remaining Mythos cards to the game box */
+/** Join all remaining Mythos cards into a single deck. This is considered to be in the game box */
 function cleanupMythosCards() {
-  Object.values(mythosSetupDecks).forEach((color) =>
-    Object.values(color).forEach((difficulty) => difficulty.destroy())
+  /** @type {Card[]} */
+  const mythosDecks = Object.values(mythosSetupDecks).flatMap((color) => Object.values(color));
+  const remainingMythosDeck = mythosDecks.pop();
+  if (!remainingMythosDeck) {
+    throw new Error("Unable to .pop() from mythosDecks");
+  }
+  mythosDecks.forEach((deck) => remainingMythosDeck.addCards(deck));
+  Util.moveObject(remainingMythosDeck, new Vector(58, 105, 87));
+  remainingMythosDeck.shuffle();
+  remainingMythosDeck.setId("unused-mythos-deck");
+  remainingMythosDeck.setName("Unused Mythos cards (game box)");
+  remainingMythosDeck.setDescription(
+    "These are the unused Mythos cards and considered in the game box.\nSome cards require you drawn Mythos from the game box."
   );
 }
 
