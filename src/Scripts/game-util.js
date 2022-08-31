@@ -548,15 +548,21 @@ class GameUtil {
       .getAllObjects(true)
       .filter(
         (x) =>
-          x.getTemplateName() === "Gates" &&
+          x.getTemplateName().startsWith("Gates") &&
           x.getId() !== "gate-stack" &&
           x.getId() !== "gate-discard-pile"
       );
-    // active gates should be placed on the game board
+    // active gates should be placed on the game board or a side board
     const activeGates = drawnGates.filter((gate) =>
       world
         .lineTrace(gate.getPosition(), gate.getPosition().subtract([0, 0, 10]))
-        .some(({ object: foundObject }) => foundObject.getTemplateName() === "Game Board")
+        .some(
+          ({ object: foundObject }) =>
+            foundObject.getTemplateName() === "Game Board" ||
+            foundObject.getTemplateName() === "Antarctica Side Board" ||
+            foundObject.getTemplateName() === "Egypt Side Board" ||
+            foundObject.getTemplateName() === "The Dreamlands Side Board"
+        )
     );
 
     if (color === undefined) {
