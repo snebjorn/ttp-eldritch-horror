@@ -6,7 +6,7 @@ const advanceOmenAction = "Advance the Omen clockwise by one";
 
 refCard.onCustomAction.add((card, player, actionName) => {
   if (actionName === advanceOmenAction) {
-    const [currentOmenColor, matchingGateNames] = GameUtil.advanceOmen(1);
+    const [currentOmenColor, matchingGateNames, doomAdvancedBy] = GameUtil.advanceOmen(1);
     const matchingGateCount = matchingGateNames.length;
     let message = `${player.getName()} advanced Omen by 1.`;
     message += `\n\t- Omen (${currentOmenColor}) matched ${matchingGateCount} gates`;
@@ -14,7 +14,11 @@ refCard.onCustomAction.add((card, player, actionName) => {
       message += ".";
     } else {
       message += `: ${matchingGateNames.join(", ")}.`;
-      message += `\n\t\t- Doom advanced by ${matchingGateCount} accordingly.`;
+      if (matchingGateCount === doomAdvancedBy) {
+        message += `\n\t\t- Doom advanced by ${matchingGateCount} accordingly.`;
+      } else {
+        message += `\n\t\t- Doom should have advanced by ${matchingGateCount} however could only advance by ${doomAdvancedBy}.`;
+      }
     }
     Util.logScriptAction(message);
   }

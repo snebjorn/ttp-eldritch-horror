@@ -17,39 +17,59 @@ const {
 
 class GameUtil {
   /**
-   * @param {number} count
+   * @param {number} count - Amount Doom should be advanced by
+   * @returns {number} Amount Doom was advanced by
    */
   static advanceDoom(count = 1) {
     if (count <= 0) {
-      return;
+      return 0;
     }
 
-    const doomCount = findDoomCount();
-    if (doomCount) {
+    const currentDoomCount = findDoomCount();
+    if (currentDoomCount) {
+      let advancedDoomCount = currentDoomCount - count;
+      if (advancedDoomCount < 0) {
+        // doom counter cannot advance further than 0
+        advancedDoomCount = 0;
+      }
       // @ts-ignore
-      const advancedDoomSnapShot = gameBoardLocations.doom[doomCount - count];
+      const advancedDoomSnapShot = gameBoardLocations.doom[advancedDoomCount];
       if (advancedDoomSnapShot) {
         Util.moveObject(doomToken, advancedDoomSnapShot);
+
+        return currentDoomCount - advancedDoomCount;
       }
     }
+
+    return 0;
   }
 
   /**
-   * @param {number} count
+   * @param {number} count - Amount Doom should be retreat by
+   * @returns {number} Amount Doom was retreat by
    */
   static retreatDoom(count = 1) {
     if (count <= 0) {
-      return;
+      return 0;
     }
 
-    const doomCount = findDoomCount();
-    if (doomCount) {
+    const currentDoomCount = findDoomCount();
+    if (currentDoomCount) {
+      let retreatedDoomCount = currentDoomCount + count;
+      if (retreatedDoomCount > 20) {
+        // doom counter cannot retreat to more than 20
+        retreatedDoomCount = 20;
+      }
       // @ts-ignore
-      const retreatedDoomSnapShot = gameBoardLocations.doom[doomCount + count];
+      const retreatedDoomSnapShot = gameBoardLocations.doom[currentDoomCount + count];
       if (retreatedDoomSnapShot) {
         Util.moveObject(doomToken, retreatedDoomSnapShot);
+
+        return retreatedDoomCount - currentDoomCount;
       }
     }
+
+    return 0;
   }
 
   /**
@@ -506,7 +526,7 @@ class GameUtil {
 
   /**
    * @param {number} count
-   * @returns {[color: OmenColor, gateNames: string[]]}
+   * @returns {[color: OmenColor, gateNames: string[], doomAdvancedBy: number]}
    */
   static advanceOmen(count = 1) {
     const omenTrack = [
@@ -532,9 +552,9 @@ class GameUtil {
     const activeGatesMatchingOmen = GameUtil.getActiveGates(advancedOmenColor);
     const gateNames = activeGatesMatchingOmen.map((x) => x.getCardDetails().name);
     const advanceDoomCount = activeGatesMatchingOmen.length;
-    GameUtil.advanceDoom(advanceDoomCount);
+    const doomAdvancedBy = GameUtil.advanceDoom(advanceDoomCount);
 
-    return [advancedOmenColor, gateNames];
+    return [advancedOmenColor, gateNames, doomAdvancedBy];
   }
 
   /**

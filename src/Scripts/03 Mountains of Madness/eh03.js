@@ -170,7 +170,7 @@ const preludes = {
       // if ithaqua, advance omen by 1 and remove the The Wind-Walker mythos card
       // else put 6 eldritch tokens on The Wind-Walker mythos card
       if (ancientOne === "Ithaqua") {
-        const [currentOmenColor, matchingGateNames] = GameUtil.advanceOmen();
+        const [currentOmenColor, matchingGateNames, _] = GameUtil.advanceOmen();
         const matchingGateCount = matchingGateNames.length;
         const windWalkerCard = tableLocations.activeMythos?.getSnappedObject();
         windWalkerCard?.destroy();
