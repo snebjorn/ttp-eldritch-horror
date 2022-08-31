@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "BD2E757C40F92C8EC8429193D862F47C",
 	"Name": "Active Expedition Token",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 20 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/Active Expedition Token.png",
 	"BackTexture": "",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "01 Core/Active Expedition Token.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
@@ -62,6 +64,9 @@
 	{
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

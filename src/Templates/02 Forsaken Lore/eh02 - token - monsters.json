@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/Cultist - front.jpg",
 	"BackTexture": "02 Forsaken Lore/Cultist - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": true,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Square",
 	"Indices": [ 0 ],
 	"CardNames":
@@ -61,6 +63,9 @@
 		"0": "Cultist"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

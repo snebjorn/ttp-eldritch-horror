@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/epic monsters - front.png",
 	"BackTexture": "02 Forsaken Lore/epic monsters - back.png",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": false,
+	"EmissiveFront": false,
 	"Model": "chipped tile.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
@@ -69,6 +71,9 @@
 		"6": "Yig"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

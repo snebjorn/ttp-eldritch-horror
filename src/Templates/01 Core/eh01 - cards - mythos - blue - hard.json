@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/blue - hard - mythos.jpg",
 	"BackTexture": "mythos - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
@@ -61,6 +63,9 @@
 		"3": "Web Between Worlds"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

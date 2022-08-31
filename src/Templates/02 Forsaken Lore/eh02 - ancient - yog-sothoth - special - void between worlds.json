@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "2FEFA89E42B7D69E91F0A58C4E0198CC",
 	"Name": "Yog-Sothoth Special Void Between Worlds Cards",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 10 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/Yog-Sothoth - Special - Void Between Worlds - front.jpg",
 	"BackTexture": "02 Forsaken Lore/Yog-Sothoth - Special - Void Between Worlds - back.jpg",
 	"HiddenTexture": "",
@@ -54,12 +55,16 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
 	"CardNames":
 	{
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

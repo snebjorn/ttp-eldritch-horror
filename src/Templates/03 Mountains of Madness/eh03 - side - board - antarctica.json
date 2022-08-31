@@ -51,6 +51,7 @@
 			"Texture": "03 Mountains of Madness/Antarctica Side Board.jpg",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,
@@ -65,48 +66,60 @@
 			"Y": 17.0557,
 			"Z": 0.500042,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 9.5822,
 			"Y": 4.26135,
 			"Z": 0.500039,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 9.76357,
 			"Y": -7.22925,
 			"Z": 0.500044,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 5.77492,
 			"Y": -16.5073,
 			"Z": 0.500042,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": -4.74579,
 			"Y": -15.4706,
 			"Z": 0.500042,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": -5.10518,
 			"Y": -3.9723,
 			"Z": 0.500044,
 			"Range": 2.10766,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		}
 	],
 	"ZoomViewDirection":
@@ -114,5 +127,6 @@
 		"X": 0,
 		"Y": 0,
 		"Z": 0
-	}
+	},
+	"Tags": []
 }

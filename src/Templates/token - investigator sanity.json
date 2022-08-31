@@ -2,6 +2,7 @@
 	"Type": "Multistate Object",
 	"GUID": "CD0FA9DC41E13E96DC743A8A30C2DD75",
 	"Name": "Investigator Sanity",
+	"Metadata": "",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0.3,
@@ -36,6 +37,7 @@
 		"Y": 0,
 		"Z": 1
 	},
+	"Tags": [],
 	"MultistateModels": [
 		{
 			"Model": "Investigator Sanity 01.png",
@@ -54,13 +56,14 @@
 			},
 			"Rotation":
 			{
-				"X": -180,
+				"X": 180,
 				"Y": 0,
 				"Z": 0
 			},
 			"Texture": "Investigator Sanity.png",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,
@@ -70,7 +73,8 @@
 			"NumVertical": 3,
 			"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ],
 			"BackTexture": "",
-			"BackIndex": 0
+			"BackIndex": 0,
+			"Emissive": false
 		}
 	]
 }

@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/monsters - front.jpg",
 	"BackTexture": "01 Core/monsters - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": true,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Square",
 	"Indices": [ 0, 1, 2, 3, 3, 3, 3, 3, 4, 5, 6, 7, 8, 8, 9, 10, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ],
 	"CardNames":
@@ -96,5 +98,8 @@
 		"16": "{ \"text\": \"When this Monster is spawned, move it to The Pyramids\", \"moveTo\": \"The Pyramids\" }",
 		"19": "{ \"text\": \"When this Monster is spawned, move it to The Amazon\", \"moveTo\": \"The Amazon\" }",
 		"26": "{ \"text\": \"When this Monster is spawned, the Lead Investigator gains a Cursed Condition\", \"shouldPing\": true }"
+	},
+	"CardTags":
+	{
 	}
 }

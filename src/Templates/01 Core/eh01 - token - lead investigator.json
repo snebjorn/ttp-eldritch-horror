@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "01 Core/Lead Investigator.png",
 	"BackTexture": "",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "01 Core/Lead Investigator.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
@@ -63,6 +65,9 @@
 		"0": "Lead Investigator"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 1
 	},
+	"Tags": [],
 	"MultistateModels": [
 		{
 			"Model": "Square",
@@ -61,12 +62,14 @@
 			"Texture": "02 Forsaken Lore/eh02_rulebook.pdf",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Cardboard",
 			"UseCardModel": true,
-			"Indices": [ 0, 1 ]
+			"Indices": [ 0, 1 ],
+			"Emissive": false
 		}
 	]
 }

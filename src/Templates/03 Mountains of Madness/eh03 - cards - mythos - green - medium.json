@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/green - medium - mythos.jpg",
 	"BackTexture": "mythos - back.jpg",
 	"HiddenTexture": "",
@@ -54,12 +55,16 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3 ],
 	"CardNames":
 	{
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

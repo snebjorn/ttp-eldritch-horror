@@ -51,6 +51,7 @@
 			"Texture": "Texture2D'/Game/Textures/Boards/BoardWood_Diffuse.BoardWood_Diffuse'",
 			"NormalMap": "Texture2D'/Game/Textures/Boards/BoardWood_Normal.BoardWood_Normal'",
 			"ExtraMap": "Texture2D'/Game/Textures/Boards/BoardWood_Extra.BoardWood_Extra'",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": false,
@@ -93,6 +94,7 @@
 			"Texture": "",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,
@@ -108,6 +110,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"CardsCenter":
 	{
 		"X": -0.227273,

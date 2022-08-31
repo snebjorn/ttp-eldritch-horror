@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/epic monsters - front.jpg",
 	"BackTexture": "03 Mountains of Madness/epic monsters - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": false,
+	"EmissiveFront": false,
 	"Model": "chipped tile.png",
 	"ShapeAccuracy": 10,
 	"ConvexCollision": true,
@@ -70,6 +72,9 @@
 		"7": "Zombie Horde"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

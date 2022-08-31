@@ -2,6 +2,7 @@
 	"Type": "Dice",
 	"GUID": "0F0F58E648F1218E276B289C4211C782",
 	"Name": "D6 Normal",
+	"Metadata": "",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0.5,
@@ -23,6 +24,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": false,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [
@@ -49,7 +51,9 @@
 			"Texture": "D6 - normal.jpg",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Plastic"
 		}
@@ -63,6 +67,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"Faces": [
 		{
 			"X": 0,

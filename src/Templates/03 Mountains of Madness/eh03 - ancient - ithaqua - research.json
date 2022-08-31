@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/Ithaqua - Research - front.jpg",
 	"BackTexture": "03 Mountains of Madness/Ithaqua - Research - back.jpg",
 	"HiddenTexture": "",
@@ -54,12 +55,16 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ],
 	"CardNames":
 	{
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

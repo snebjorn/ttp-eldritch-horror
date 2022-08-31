@@ -51,6 +51,7 @@
 			"Texture": "Table mat.jpg",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,

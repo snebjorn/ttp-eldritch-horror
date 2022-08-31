@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "02 Forsaken Lore/Yog-Sothoth - Mystery - front.jpg",
 	"BackTexture": "02 Forsaken Lore/Yog-Sothoth - Mystery - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1 ],
 	"CardNames":
@@ -62,6 +64,9 @@
 		"1": "Void Between Worlds"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

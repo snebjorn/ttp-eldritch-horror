@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/Ithaqua - Special - Exploring Hyperborea - front.jpg",
 	"BackTexture": "03 Mountains of Madness/Ithaqua - Special - Exploring Hyperborea - back.jpg",
 	"HiddenTexture": "",
@@ -54,12 +55,16 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Rounded",
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
 	"CardNames":
 	{
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

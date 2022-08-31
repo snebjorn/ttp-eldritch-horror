@@ -2,6 +2,7 @@
 	"Type": "Card Holder",
 	"GUID": "1B65237440585C62CF5B7F96F660E75A",
 	"Name": "Single Vertical Card Holder",
+	"Metadata": "",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0.3,
@@ -23,6 +24,7 @@
 	},
 	"Flippable": false,
 	"AutoStraighten": false,
+	"ShouldSnap": true,
 	"ScriptName": "",
 	"Blueprint": "",
 	"Models": [
@@ -49,7 +51,9 @@
 			"Texture": "Texture2D'/Game/Textures/Boards/BoardWood_Diffuse.BoardWood_Diffuse'",
 			"NormalMap": "Texture2D'/Game/Textures/Boards/BoardWood_Normal.BoardWood_Normal'",
 			"ExtraMap": "Texture2D'/Game/Textures/Boards/BoardWood_Extra.BoardWood_Extra'",
+			"EmissiveMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": false,
 			"Roughness": 0.7,
 			"Metallic": 0,
@@ -90,7 +94,9 @@
 			"Texture": "",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
+			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Plastic"
 		}
@@ -104,6 +110,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"CardsCenter":
 	{
 		"X": -0.5,

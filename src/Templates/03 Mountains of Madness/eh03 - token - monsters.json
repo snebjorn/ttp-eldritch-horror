@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/monsters - front.jpg",
 	"BackTexture": "03 Mountains of Madness/monsters - back.jpg",
 	"HiddenTexture": "",
@@ -54,6 +55,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": true,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Square",
 	"Indices": [ 0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ],
 	"CardNames":
@@ -76,5 +78,8 @@
 	{
 		"4": "{ \"text\": \"When this Monster is spawned, an investigator on this space immediately encounters it\", \"shouldPing\": true }",
 		"5": "{ \"text\": \"When this Monster is spawned, move it to Antarctica\", \"moveTo\": \"Antarctica\" }"
+	},
+	"CardTags":
+	{
 	}
 }

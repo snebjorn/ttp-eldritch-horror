@@ -36,16 +36,20 @@
 			"Y": -1.18,
 			"Z": -0.0250015,
 			"Range": 2,
-			"SnapRotation": true,
-			"RotationOffset": 0
+			"SnapRotation": 2,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": -0.87,
 			"Y": -3.795,
 			"Z": -0.0250092,
 			"Range": 2,
-			"SnapRotation": true,
-			"RotationOffset": 0
+			"SnapRotation": 2,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		}
 	],
 	"ZoomViewDirection":
@@ -54,6 +58,7 @@
 		"Y": 0,
 		"Z": 0
 	},
+	"Tags": [],
 	"FrontTexture": "03 Mountains of Madness/investigators - front.jpg",
 	"BackTexture": "03 Mountains of Madness/investigators - back.jpg",
 	"HiddenTexture": "",
@@ -71,6 +76,7 @@
 	"FrontTextureOverrideExposed": false,
 	"AllowFlippedInStack": false,
 	"MirrorBack": true,
+	"EmissiveFront": false,
 	"Model": "Square",
 	"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7 ],
 	"CardNames":
@@ -85,6 +91,9 @@
 		"7": "Wilson Richards"
 	},
 	"CardMetadata":
+	{
+	},
+	"CardTags":
 	{
 	}
 }

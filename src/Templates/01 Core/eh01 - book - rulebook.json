@@ -37,6 +37,7 @@
 		"Y": 0,
 		"Z": 1
 	},
+	"Tags": [],
 	"MultistateModels": [
 		{
 			"Model": "Square",
@@ -61,12 +62,14 @@
 			"Texture": "01 Core/eh01_rulebook.pdf",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"EmissiveMap": "",
 			"IsTransparent": false,
 			"CastShadow": true,
 			"UseOverrides": true,
 			"SurfaceType": "Cardboard",
 			"UseCardModel": true,
-			"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ]
+			"Indices": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 ],
+			"Emissive": false
 		}
 	]
 }
