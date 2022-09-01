@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "191204D847CE25F8D89A1E897EA39EC9",
 	"Name": "Clues",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 70 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "070F974949AA03A11262EC9AB035B20C",
 	"Name": "Gates - Egypt",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 10 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

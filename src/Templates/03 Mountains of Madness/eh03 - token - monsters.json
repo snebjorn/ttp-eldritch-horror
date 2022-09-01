@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "7C64AEE642F5FB5E75CCEAB4623A5325",
 	"Name": "Monsters",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 30 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

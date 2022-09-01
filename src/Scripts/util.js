@@ -359,6 +359,29 @@ class Util {
   }
 
   /**
+   * Moves a GameObject on top of another GameObject.
+   *
+   * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
+   * @param {GameObject} destinationObject - Object that {@link gameObject} should be moved on top of
+   * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
+   * @param {number} searchHeight - Height to find objects in. Defaults to `2`
+   */
+  static moveOnTopOfObjectSafe(
+    gameObject,
+    destinationObject,
+    animationSpeed = 1,
+    searchHeight = 2
+  ) {
+    const snapLiftedObjectsFn = Util.liftObjectsOnTop(gameObject, destinationObject, searchHeight);
+
+    const destinationPosition = Util.getTopPosition(destinationObject);
+    Util.moveObject(gameObject, destinationPosition, animationSpeed);
+
+    // snap objects on top in place. This should prevent objects from free falling
+    snapLiftedObjectsFn();
+  }
+
+  /**
    * Moves a GameObject to a given position.
    * If there are already GameObjects at the position it'll put it on top of these.
    *
@@ -368,12 +391,9 @@ class Util {
    */
   static moveOnTopOnPosition(gameObject, position, animationSpeed = 1) {
     const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
-    const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
-    const objectsAtPosition = world
-      .lineTrace(globalPosition, positionAboveGameObject)
-      // remove grounded objects like the game board
-      .filter((x) => x.object.getObjectType() !== ObjectType.Ground);
-    const topHit = objectsAtPosition.slice(-1)[0];
+    const objectsAtPosition = Util.findObjectsOnTop(globalPosition, 20);
+
+    const topHit = objectsAtPosition.at(-1);
     if (topHit) {
       Util.moveOnTopOfObject(gameObject, topHit.object, animationSpeed);
     } else {
@@ -382,33 +402,120 @@ class Util {
   }
 
   /**
+   * @param {GameObject} gameObjectToMakeRoomFor - Object to make room for, this can be a Card, Dice, etc
+   * @param {GameObject | Vector | SnapPoint} objectOrPosition -
+   * @param {number} searchHeight - Height to find objects in. Defaults to `20`
+   *
+   * @returns {() => void} A function to snap the lifted objects in place to prevent free falling
+   */
+  static liftObjectsOnTop(gameObjectToMakeRoomFor, objectOrPosition, searchHeight = 20) {
+    const objectsAtPosition = Util.findObjectsOnTop(objectOrPosition, searchHeight)
+      // remove grounded objects like the game board
+      .filter((x) => x.object.getObjectType() !== ObjectType.Ground);
+
+    if (objectsAtPosition.length > 0) {
+      const buffer = 0.1;
+      const deltaHeight = gameObjectToMakeRoomFor.getSize().z;
+      // to prevent objects on top of the position from flying off,
+      // we move them up before moving the gameObject into place
+      for (const { object: foundObject } of objectsAtPosition) {
+        const currentPosition = foundObject.getPosition();
+        const elevatedPosition = currentPosition.add(new Vector(0, 0, deltaHeight + buffer));
+        foundObject.setPosition(elevatedPosition, 0);
+      }
+    }
+
+    return () => {
+      for (const { object: foundObject } of objectsAtPosition) {
+        const wasSnapped = !!foundObject.snap();
+        if (!wasSnapped) {
+          foundObject.snapToGround();
+        }
+      }
+    };
+  }
+
+  /**
    * Moves a GameObject to a given position.
    * If there are already GameObjects at the position it'll try to add it to the already present GameObjects.
    * Else it'll just move the GameObject to the target position.
    *
    * @param {GameObject} gameObject - Object to move, this can be a Card, Dice, etc
-   * @param {SnapPoint | Vector} position
+   * @param {SnapPoint | Vector} destination
    * @param {number} animationSpeed - If larger than 0, show animation. A value of 1 gives a reasonable, quick animation. Value range clamped to [0.1, 5.0]. Defaults to 1.
    */
-  static moveOrAddObject(gameObject, position, animationSpeed = 1) {
-    const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
-    let isAddedToStack = false;
-    const positionAboveGameObject = globalPosition.add(new Vector(0, 0, 20));
-    const objectsAtPosition = world.lineTrace(globalPosition, positionAboveGameObject);
-    for (const { object: foundObject } of objectsAtPosition) {
-      if (foundObject instanceof Card && gameObject instanceof Card) {
-        const showAnimation = animationSpeed > 0;
-        isAddedToStack = Util.addCardsSafe(foundObject, gameObject, false, 0, showAnimation);
-        if (isAddedToStack) {
-          break;
+  static moveOrAddObject(gameObject, destination, animationSpeed = 1) {
+    const searchHeight = 20;
+    const globalPosition =
+      destination instanceof SnapPoint ? destination.getGlobalPosition() : destination;
+
+    const objectsAtDestination = Util.findObjectsOnTop(globalPosition, searchHeight);
+
+    // if nothing at destination then just move it
+    if (objectsAtDestination.length === 0) {
+      Util.moveObject(gameObject, destination, animationSpeed);
+
+      return;
+    }
+
+    // try adding gameObject to a stack already on position
+    if (gameObject instanceof Card) {
+      for (const { object: foundObject } of objectsAtDestination) {
+        if (foundObject instanceof Card && foundObject.canAddCards(gameObject)) {
+          const showAnimation = animationSpeed > 0;
+          const isAddedToStack = Util.addCardsSafe(
+            foundObject,
+            gameObject,
+            false,
+            0,
+            showAnimation,
+            false,
+            searchHeight
+          );
+          if (isAddedToStack) {
+            return; // abort - the gameObject was added to a stack already on position
+          }
         }
       }
     }
 
-    if (isAddedToStack) {
-      return; // the gameObject was added to a stack already on position
+    /** @type {SortOrder | null} */
+    const gameObjectMetadata = JSON.parse(gameObject.getTemplateMetadata() || "null");
+    const gameObjectSortOrder = gameObjectMetadata?.sortOrder;
+
+    // if no sort order then put on top
+    if (gameObjectSortOrder === undefined) {
+      const { object: topObjectAtDestination } = objectsAtDestination.at(-1) ?? {};
+      if (topObjectAtDestination === undefined) {
+        throw new Error("topObjectAtDestination is undefined, something is wrong!");
+      }
+
+      Util.moveOnTopOfObject(gameObject, topObjectAtDestination, animationSpeed);
+
+      return;
     }
-    Util.moveObject(gameObject, position, animationSpeed);
+
+    const topObjectWithLowerSortOrder = objectsAtDestination.findLast(({ object: foundObject }) => {
+      /** @type {SortOrder | null} */
+      const objectMetadata = JSON.parse(foundObject.getTemplateMetadata() || "null");
+      const foundObjectSortOrder = objectMetadata?.sortOrder ?? 999;
+
+      return foundObjectSortOrder <= gameObjectSortOrder;
+    });
+
+    if (topObjectWithLowerSortOrder !== undefined) {
+      const remainingDistance = searchHeight - topObjectWithLowerSortOrder.distance;
+      Util.moveOnTopOfObjectSafe(
+        gameObject,
+        topObjectWithLowerSortOrder.object,
+        animationSpeed,
+        remainingDistance
+      );
+    } else {
+      const snapLiftedObjectsFn = Util.liftObjectsOnTop(gameObject, destination);
+      Util.moveObject(gameObject, destination, animationSpeed);
+      snapLiftedObjectsFn();
+    }
   }
 
   /**
@@ -731,12 +838,29 @@ class Util {
   }
 
   /**
-   * @param {GameObject} object
-   * @param {Vector} direction - direction to find objects in. Defaults to `Vector(0, 0, 2)`
+   * @param {GameObject | Vector | SnapPoint} objectOrPosition
+   * @param {number} height - Height to find objects in. Defaults to `2`
    */
-  static findObjectsOnTop(object, direction = new Vector(0, 0, 2)) {
-    const topPosition = Util.getTopPosition(object);
-    return world.lineTrace(topPosition, topPosition.add(direction));
+  static findObjectsOnTop(objectOrPosition, height = 2) {
+    let startPosition;
+    if (objectOrPosition instanceof GameObject) {
+      startPosition = Util.getTopPosition(objectOrPosition);
+    } else if (objectOrPosition instanceof SnapPoint) {
+      startPosition = objectOrPosition.getGlobalPosition();
+    } else {
+      startPosition = objectOrPosition;
+    }
+
+    return (
+      world
+        .lineTrace(startPosition, startPosition.add(new Vector(0, 0, height)))
+        // remove grounded objects like the game board
+        .filter((x) => x.object.getObjectType() !== ObjectType.Ground)
+        // Line traces can hit the same object multiple times if the collision is not convex.
+        // Cardboard figures have two colliders (for the base and the figure) which together aren't convex.
+        // Removing sequential duplicate objects fixes multiple hits on the same object.
+        .filter((x, i, ary) => x.object.getId() !== ary[i + 1]?.object.getId())
+    );
   }
 
   /**
@@ -757,7 +881,7 @@ class Util {
    * @param {number} offset - Number of cards to skip at the back (or front when {@link toFront} is `true`) before adding cards. Default: `0`
    * @param {boolean} animate - If `true`, play card drop sound and animate the new cards flying to the stack. The animation takes some time, so the new cards aren't added to the stack instantly. If you need to react when the cards are added, you can use onInserted. Default: `false`.
    * @param {boolean} flipped - If `true`, add the cards flipped compared to the front card of the stack. Only has an effect if all involved cards allow flipping in stacks. Default: `false`.
-   * @param {Vector} direction - Direction to find objects in. Defaults to `Vector(0, 0, 2)`
+   * @param {number} searchHeight - Height to find objects in. Defaults to `2`
    *
    * @returns {boolean} Whether the cards have been added successfully. Will not succeed if the shape or size of the cards does not match, or if this card is in a card holder.
    */
@@ -768,31 +892,14 @@ class Util {
     offset = 0,
     animate = false,
     flipped = false,
-    direction = new Vector(0, 0, 2)
+    searchHeight = 2
   ) {
-    const foundObjects = Util.findObjectsOnTop(cardStack, direction);
-    if (foundObjects.length > 0) {
-      const buffer = 0.1;
-      // adding the cards will add this much height to the cardStack
-      const deltaHeight = cards.getSize().z;
-      // to prevent tokens on top of the cardStack from flying off,
-      // we move them up before adding new cards
-      for (const { object: foundObject } of foundObjects) {
-        const currentPosition = foundObject.getPosition();
-        const elevatedPosition = currentPosition.add(new Vector(0, 0, deltaHeight + buffer));
-        foundObject.setPosition(elevatedPosition, 0);
-      }
-    }
+    const snapLiftedObjectsFn = Util.liftObjectsOnTop(cards, cardStack, searchHeight);
 
     const wasAdded = cardStack.addCards(cards, toFront, offset, animate, flipped);
 
     // snap objects on top in place. This should prevent objects from free falling
-    for (const { object: foundObject } of foundObjects) {
-      const wasSnapped = !!foundObject.snap();
-      if (!wasSnapped) {
-        foundObject.snapToGround();
-      }
-    }
+    snapLiftedObjectsFn();
 
     return wasAdded;
   }

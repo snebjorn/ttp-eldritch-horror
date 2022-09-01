@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "BEEB07464B9819C2D6BAB883A88C9146",
 	"Name": "Adventure Token",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 60 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "B03C56724E726EF0ECDFB2BCFF70742C",
 	"Name": "Dream Portals",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 10 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "8BB70410401011B9B592F39A0112E6BD",
 	"Name": "Clues - Antarctica",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 70 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

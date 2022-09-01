@@ -431,6 +431,10 @@ declare global {
     | "Weapon";
   type AllTraits = ArtifactTrait | AssetTrait | ConditionTrait | SpellTrait | UniqueAssetTrait;
 
+  interface SortOrder {
+    sortOrder?: number;
+  }
+
   // Needed until https://github.com/microsoft/TypeScript/issues/48829
   interface Array<T> {
     findLast(

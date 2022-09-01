@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "A9C452A442F9A36AC77CC1B68633FEEE",
 	"Name": "Mystic Ruins Token",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 26 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

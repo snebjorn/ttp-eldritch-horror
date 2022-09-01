@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "710BA23D4725688A0F5AAE9EA9B7313C",
 	"Name": "Dream-Quest Token",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 25 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

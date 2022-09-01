@@ -238,7 +238,7 @@ class GameUtil {
         throw new Error(`Cannot find snap point for gate location: ${locationName}`);
       }
 
-      Util.moveObject(gateToken, snapPoint);
+      Util.moveOrAddObject(gateToken, snapPoint);
 
       const [monster, spawnEffect] = GameUtil.spawnMonster(snapPoint);
       const monsterName = monster?.getCardDetails().name;

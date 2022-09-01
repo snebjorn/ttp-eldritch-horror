@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "64DDD78441EB50FEA0064EBD2770E1FF",
 	"Name": "Gates - Antarctica",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 10 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

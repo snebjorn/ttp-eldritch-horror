@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "062FFF2E4BC08FFF2DD72CA191D41E1F",
 	"Name": "Mystery Token",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 50 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

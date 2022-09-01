@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "B5C945134B8C83F4594A02A34A1E5DCC",
 	"Name": "Epic Monsters",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 40 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,

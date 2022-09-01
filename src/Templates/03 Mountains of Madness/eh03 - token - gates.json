@@ -2,7 +2,7 @@
 	"Type": "Card",
 	"GUID": "7B6A2F754AE4F5E6AA03F9942CE2C1D3",
 	"Name": "Gates",
-	"Metadata": "",
+	"Metadata": "{ \"sortOrder\": 10 }",
 	"CollisionType": "Regular",
 	"Friction": 0.7,
 	"Restitution": 0,
