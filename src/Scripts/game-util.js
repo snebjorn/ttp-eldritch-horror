@@ -1,4 +1,4 @@
-const { world, GameObject, Vector, SnapPoint, Card, Color } = require("@tabletop-playground/api");
+const { world, GameObject, Vector, SnapPoint, Card } = require("@tabletop-playground/api");
 const { Util } = require("./util");
 const {
   eldritchToken,
@@ -606,7 +606,7 @@ class GameUtil {
   static positionEncounterToken(encounterDeck, token) {
     /** @type {keyof GameBoardLocations["space"]} */
     // @ts-ignore
-    const topCard = encounterDeck.getAllCardDetails().slice(-1)[0].name;
+    const topCard = encounterDeck.getAllCardDetails().at(-1)?.name;
     const encounterLocation = gameBoardLocations.space[topCard];
     if (encounterLocation) {
       Util.moveObject(token, encounterLocation);

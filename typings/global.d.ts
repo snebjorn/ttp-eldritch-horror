@@ -430,4 +430,17 @@ declare global {
     | "Trinket"
     | "Weapon";
   type AllTraits = ArtifactTrait | AssetTrait | ConditionTrait | SpellTrait | UniqueAssetTrait;
+
+  // Needed until https://github.com/microsoft/TypeScript/issues/48829
+  interface Array<T> {
+    findLast(
+      predicate: (element: T, index: number, array: T[]) => boolean,
+      thisArg?: any
+    ): T | undefined;
+
+    findLastIndex(
+      predicate: (element: T, index: number, array: T[]) => boolean,
+      thisArg?: any
+    ): number;
+  }
 }

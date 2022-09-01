@@ -543,7 +543,9 @@ class Util {
   }
 
   static getNextGroupId() {
-    return world.getObjectGroupIds().sort().slice(-1)[0] + 1;
+    const latestGroupId = world.getObjectGroupIds().sort().at(-1) ?? 1;
+
+    return latestGroupId + 1;
   }
 
   /**

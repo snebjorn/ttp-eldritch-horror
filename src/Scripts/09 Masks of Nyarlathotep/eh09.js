@@ -146,7 +146,7 @@ const preludes = {
       let dreamQuestSpace;
       try {
         const dreamQuestDeck = Util.getCardObjectById("encounter-dream-quest-deck");
-        dreamQuestSpace = dreamQuestDeck.getAllCardDetails().slice(-1)[0].name;
+        dreamQuestSpace = dreamQuestDeck.getAllCardDetails().at(-1)?.name ?? "ERROR";
       } catch {
         dreamQuestSpace = "ERROR";
       }
