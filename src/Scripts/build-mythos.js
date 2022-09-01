@@ -55,6 +55,64 @@ exports.buildMythosDeck = buildMythosDeck;
 
 /**
  * @param {MythosDeckOptions} mythosDeckOptions
+ * @param {MythosDifficulty} mythosDifficulty
+ */
+function canBuildMythosDeck(mythosDeckOptions, mythosDifficulty) {
+  if (!mythosDifficulty.isEasy && !mythosDifficulty.isMedium && !mythosDifficulty.isHard) {
+    return false;
+  }
+
+  const mythosColorsNeeded = [
+    mythosDeckOptions.stage1,
+    mythosDeckOptions.stage2,
+    mythosDeckOptions.stage3,
+  ].reduce(
+    (sum, stage) => {
+      sum.green += stage.green;
+      sum.yellow += stage.yellow;
+      sum.blue += stage.blue;
+
+      return sum;
+    },
+    { green: 0, yellow: 0, blue: 0 }
+  );
+
+  const mythosColorsAvailable = Object.entries(mythosSetupDecks).reduce(
+    (sum, decks) => {
+      /** @type {[MythosCardColors, MythosCardDifficult]} */
+      // @ts-ignore
+      const [color, mythosDeck] = decks;
+      if (mythosDifficulty.isEasy) {
+        sum[color] += mythosDeck.easy.getStackSize();
+      }
+
+      if (mythosDifficulty.isMedium) {
+        sum[color] += mythosDeck.medium.getStackSize();
+      }
+
+      if (mythosDifficulty.isHard) {
+        sum[color] += mythosDeck.hard.getStackSize();
+      }
+
+      return sum;
+    },
+    {
+      green: 0,
+      yellow: 0,
+      blue: 0,
+    }
+  );
+
+  return (
+    mythosColorsAvailable.green >= mythosColorsNeeded.green &&
+    mythosColorsAvailable.yellow >= mythosColorsNeeded.yellow &&
+    mythosColorsAvailable.blue >= mythosColorsNeeded.blue
+  );
+}
+exports.canBuildMythosDeck = canBuildMythosDeck;
+
+/**
+ * @param {MythosDeckOptions} mythosDeckOptions
  * @param {Card} greenMythos
  * @param {Card} yellowMythos
  * @param {Card} blueMythos

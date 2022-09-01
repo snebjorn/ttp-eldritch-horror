@@ -16,6 +16,7 @@ const {
   ImageWidget,
   TextJustification,
 } = require("@tabletop-playground/api");
+const { canBuildMythosDeck } = require("./build-mythos");
 const { GameUtil } = require("./game-util");
 const { loadExpansion } = require("./load-expansion");
 const { setupAncient } = require("./setup-ancient");
@@ -286,12 +287,24 @@ function drawSetupUi() {
   function ancientClickFn(ancientOne, player) {
     if (!isExpansionsLoaded) {
       player.showMessage("You must load expansions first!");
+
+      return;
+    }
+
+    const mythosDifficulty = getMythosDifficulty();
+
+    const foundAncientOne = world.__eldritchHorror.ancientOnes.get(ancientOne);
+    if (!foundAncientOne || !canBuildMythosDeck(foundAncientOne.mythosDeck, mythosDifficulty)) {
+      player.showMessage(
+        `Not enough Mythos cards to build the Mythos deck for ${ancientOne}!\nPlease include more expansions and/or adjust difficulty to include more Mythos cards.`
+      );
+
       return;
     }
 
     setupGame(
       ancientOne,
-      getMythosDifficulty(),
+      mythosDifficulty,
       GameUtil.getActiveIconReference(),
       GameUtil.getActivePrelude()
     );
