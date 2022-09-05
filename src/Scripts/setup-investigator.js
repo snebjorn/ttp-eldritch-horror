@@ -292,9 +292,8 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
  * specified name and gains that card.
  * - If the named card is in the reserve, the investigator gains that card instead.
  * - If the specified card is not found while searching, he does not gain a card.
- *
- * For instance, if other investigators or defeated investigators possess all copies of the card or
- * all copies of the card have been returned to the game box.
+ *   For instance, if other investigators or defeated investigators possess all copies of the card or
+ *   all copies of the card have been returned to the game box.
  *
  * @param {Card} investigatorSheet
  * @param {number} itemsGiven
@@ -435,14 +434,19 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
 
 /**
  * **Gaining a Random Card**
- *
- * If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
- * repeating this process until he draws a card he does not already have (if able).
+ * Some effects instruct an investigator to gain a card (for example, “Gain 1 Artifact”).
+ * The investigator draws one card from the top of the deck matching the specified card type.
+ * - If an investigator gains a Spell or Condition that he already has, he discards it and draws a replacement,
+ *   repeating this process until he draws a card he does not already have (if able).
+ * - Double-sided cards are gained from the bottom of the deck.
  *
  * **Gaining a Card with a Specific Trait**
  *
- * An investigator that gains a Spell or Condition in this way searches the deck for the first card matching
- * the specified trait he does not already have and gains that card.
+ * Some effects instruct an investigator to gain a card with a specific trait (for example, “Gain a Madness Condition”).
+ * The investigator searches that card type’s deck then discard pile for the first card matching the
+ * specified trait and gains that card. Then he shuffles the deck.
+ * - An investigator that gains a Spell or Condition in this way searches the deck for the first card
+ *   matching the specified trait he does not already have and gains that card.
  *
  * @param {Card} investigatorSheet
  * @param {number} itemsGiven
@@ -506,9 +510,16 @@ function fetchSpells(investigatorSheet, itemsGiven, startingItems, extras) {
  * specified name and gains that card.
  * - If the named card is in the reserve, the investigator gains that card instead.
  * - If the specified card is not found while searching, he does not gain a card.
+ *   For instance, if other investigators or defeated investigators possess all copies of the card or
+ *   all copies of the card have been returned to the game box.
  *
- * For instance, if other investigators or defeated investigators possess all copies of the card or
- * all copies of the card have been returned to the game box.
+ * **Gaining a Card with a Specific Trait**
+ *
+ * Some effects instruct an investigator to gain a card with a specific trait (for example, “Gain a Madness Condition”).
+ * The investigator searches that card type’s deck then discard pile for the first card matching the
+ * specified trait and gains that card. Then he shuffles the deck.
+ * - An investigator that gains a Spell or Condition in this way searches the deck for the first card
+ *   matching the specified trait he does not already have and gains that card.
  *
  * @param {Card} investigatorSheet
  * @param {number} itemsGiven
@@ -535,7 +546,6 @@ function fetchConditions(investigatorSheet, itemsGiven, startingItems, extras) {
 
   if (extras?.condition !== undefined && extras.condition.length > 0) {
     if (
-      startingItems.conditions !== undefined &&
       // An investigator cannot have multiple copies of the same Condition.
       // If he would gain a Condition that he already has a copy of, he does not gain another copy of that Condition.
       !givenConditions.includes(extras.condition)
