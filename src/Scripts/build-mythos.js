@@ -37,17 +37,17 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
 
   warnIfMythosDeckIsIncomplete(mythosDeckOptions, stage1, stage2, stage3);
 
-  stage3.addCards(stage2, true);
-  stage3.addCards(stage1, true);
+  stage1.addCards(stage2, true);
+  stage1.addCards(stage3, true);
 
   if (tableLocations.mythosDeck === undefined) {
     throw new Error("Cannot find Mythos Deck snap point.");
   }
 
-  Util.moveObject(stage3, tableLocations.mythosDeck);
-  stage3.setName("Mythos Deck");
-  stage3.setId("mythos-deck");
-  stage3.setScript("mythos-deck.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
+  Util.moveObject(stage1, tableLocations.mythosDeck);
+  stage1.setName("Mythos Deck");
+  stage1.setId("mythos-deck");
+  stage1.setScript("mythos-deck.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 
   cleanupMythosCards();
 }
