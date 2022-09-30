@@ -32,7 +32,7 @@ exports.investigators07 = [
     startingItems: {
       assets: ["Camera", "Seek the Truth"],
     },
-    startingLocation: 10,
+    startingLocation: 20,
     personalStory: "A Thousand Words",
   },
   {
