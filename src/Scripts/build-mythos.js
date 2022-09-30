@@ -254,5 +254,7 @@ function setupStage(config, greenDeck, yellowDeck, blueDeck) {
     }
   }
 
+  stageDeck?.shuffle();
+
   return stageDeck;
 }
