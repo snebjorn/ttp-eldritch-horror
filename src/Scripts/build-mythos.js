@@ -195,7 +195,7 @@ function cleanupMythosCards() {
   remainingMythosDeck.setId("unused-mythos-deck");
   remainingMythosDeck.setName("Unused Mythos cards (game box)");
   remainingMythosDeck.setDescription(
-    "These are the unused Mythos cards and considered in the game box.\nSome cards require you drawn Mythos from the game box."
+    "These are the unused Mythos cards and considered in the game box.\nSome cards require you to draw Mythos cards from the game box."
   );
 }
 
