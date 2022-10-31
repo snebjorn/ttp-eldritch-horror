@@ -130,5 +130,7 @@
       "fileMatch": ["*.json"],
       "url": "https://raw.githubusercontent.com/plasticity-studios/tabletop-playground-schemas/master/schema.json"
     }
-  ]
+  ],
+  "files.insertFinalNewline": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
