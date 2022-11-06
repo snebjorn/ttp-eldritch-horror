@@ -76,6 +76,7 @@ exports.expansionItems = (expansions) => ({
   preludeCards: createPreludeCard(expansions),
   mythosCards: {
     green: {
+      easy: createCard("E745EF574BD4B04EA9E1A9AFDEE8E0F3"),
       medium: createCard("84EBFC5A4CB02668F32B43A80049E789"),
       hard: createCard("9E3D2A6946E3711EA241B797E1D9E410"),
     },
@@ -85,7 +86,6 @@ exports.expansionItems = (expansions) => ({
       hard: createCard("4551942C4FF091E75D672392722613CB"),
     },
     blue: {
-      easy: createCard("E745EF574BD4B04EA9E1A9AFDEE8E0F3"),
       hard: createCard("1CCC7AE64567FC7B2827AF977F68829D"),
     },
   },
