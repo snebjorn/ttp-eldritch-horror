@@ -58,12 +58,12 @@
 	"Indices": [ 0, 1, 2, 3, 4, 5 ],
 	"CardNames":
 	{
-		"0": "Stricken from History",
-		"1": "The Black Wind",
-		"2": "The Beast",
-		"3": "Worshipers of a Forsaken Pharaoh",
-		"4": "Haunter of the Dark",
-		"5": "Exploring Egypt"
+		"0": "Exploring Egypt",
+		"1": "Haunter of the Dark",
+		"2": "Stricken from History",
+		"3": "The Beast",
+		"4": "The Black Wind",
+		"5": "Worshipers of a Forsaken Pharaoh"
 	},
 	"CardMetadata":
 	{
