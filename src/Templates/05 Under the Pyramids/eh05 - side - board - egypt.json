@@ -51,8 +51,10 @@
 			"Texture": "05 Under the Pyramids/Egypt Side Board.jpg",
 			"NormalMap": "",
 			"ExtraMap": "",
+			"ExtraMap2": "",
 			"IsTransparent": false,
 			"CastShadow": true,
+			"IsTwoSided": false,
 			"UseOverrides": true,
 			"SurfaceType": "Plastic"
 		}
@@ -65,48 +67,120 @@
 			"Y": -16.261,
 			"Z": 0.500003,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 9.7052,
 			"Y": -5.36598,
 			"Z": 0.5,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 9.95911,
 			"Y": 6.53343,
 			"Z": 0.500003,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": 3.77077,
 			"Y": 12.9724,
 			"Z": 0.5,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": -2.80925,
 			"Y": -0.213636,
 			"Z": 0.5,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		},
 		{
 			"X": -7.14827,
 			"Y": 9.22567,
 			"Z": 0.500005,
 			"Range": 2,
-			"SnapRotation": false,
-			"RotationOffset": 0
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": 3.49163,
+			"Y": -18.9646,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": 7.09509,
+			"Y": -8.24921,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": 7.37166,
+			"Y": 3.6798,
+			"Z": 0.5,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": 1.06613,
+			"Y": 10.059,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": -5.19269,
+			"Y": -3.0597,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
+		},
+		{
+			"X": -9.69427,
+			"Y": 6.31918,
+			"Z": 0.500003,
+			"Range": 2,
+			"SnapRotation": 0,
+			"RotationOffset": 0,
+			"Shape": 0,
+			"FlipValidity": 0
 		}
 	],
 	"ZoomViewDirection":
@@ -114,5 +188,6 @@
 		"X": 0,
 		"Y": 0,
 		"Z": 0
-	}
+	},
+	"Tags": []
 }
