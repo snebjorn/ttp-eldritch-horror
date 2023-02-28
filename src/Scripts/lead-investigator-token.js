@@ -47,24 +47,32 @@ refCard.onMovementStopped.add((token) => {
   const sortedInvestigators = investigators.sort(
     (a, b) => tokenPosition.distance(a.getPosition()) - tokenPosition.distance(b.getPosition())
   );
+  let wasUpdated = false;
   const closestInvestigator = sortedInvestigators[0];
   if (closestInvestigator instanceof Card) {
+    const { leadInvestigator } = GameUtil.getSavedData();
     const investigatorName = closestInvestigator.getCardDetails().name;
-    GameUtil.updateSavedData({ leadInvestigator: investigatorName });
-    textUi.setText(formatName(investigatorName));
+    if (leadInvestigator !== investigatorName) {
+      GameUtil.updateSavedData({ leadInvestigator: investigatorName });
+      textUi.setText(formatName(investigatorName));
 
-    Util.logScriptAction(`${investigatorName} is now the Lead Investigator!`);
+      Util.logScriptAction(`${investigatorName} is now the Lead Investigator!`);
 
-    const owningPlayer = closestInvestigator.getOwningPlayer();
-    if (owningPlayer) {
-      owningPlayer.showMessage("You're now the Lead Investigator!");
+      const owningPlayer = closestInvestigator.getOwningPlayer();
+      if (owningPlayer) {
+        owningPlayer.showMessage("You're now the Lead Investigator!");
+      }
+      wasUpdated = true;
     }
   } else {
     GameUtil.updateSavedData({ leadInvestigator: undefined });
     textUi.setText("");
+    wasUpdated = true;
   }
 
-  refCard.updateUI(ui);
+  if (wasUpdated) {
+    refCard.updateUI(ui);
 
-  world.__eldritchHorror.updateSetupUIFn?.();
+    world.__eldritchHorror.updateSetupUIFn?.();
+  }
 });
