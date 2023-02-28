@@ -6,6 +6,7 @@ const {
   Color,
   HorizontalBox,
   Player,
+  RichText,
   Text,
   UIElement,
   Vector,
@@ -64,9 +65,9 @@ function drawSetupUi() {
   const iconRefBox = new HorizontalBox();
   vBox.addChild(iconRefBox);
   const noIconRefText =
-    "No Icon Reference card selected.\n" +
-    'Place an Icon Reference card on the "Active Icon Reference" to select one.';
-  const iconRefTextBox = new Text().setText(noIconRefText);
+    "[color=#ff0000]No [b]Icon Reference[/b] card selected![/color]\n" +
+    "Place an [b]Icon Reference[/b] card on the [b]Active Icon Reference[/b] to select one.";
+  const iconRefTextBox = new RichText().setText(noIconRefText);
   iconRefBox.addChild(iconRefTextBox);
 
   /**
@@ -74,7 +75,7 @@ function drawSetupUi() {
    */
   function updateIconReference(iconReference) {
     if (iconReference) {
-      iconRefTextBox.setText(`Number of Players: ${iconReference.numberOfPlayers}`);
+      iconRefTextBox.setText(`Number of Players: [b]${iconReference.numberOfPlayers}[/b]`);
     } else {
       iconRefTextBox.setText(noIconRefText);
     }
@@ -82,10 +83,7 @@ function drawSetupUi() {
 
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text()
-      .setText(`${step++}. Select Expansions`)
-      .setFont(arkhamRegFont)
-      .setFontSize(20)
+    new Text().setText(`${step++}. Select Expansions`).setFont(arkhamRegFont).setFontSize(20)
   );
   const expansionBox1 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox1);
@@ -168,27 +166,25 @@ function drawSetupUi() {
 
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text()
-      .setText(`${step++}. Choose Investigators`)
-      .setFont(arkhamRegFont)
-      .setFontSize(20)
+    new Text().setText(`${step++}. Choose Investigators`).setFont(arkhamRegFont).setFontSize(20)
   );
   vBox.addChild(
-    new Text().setText(
-      "Players agree upon one player to receive the Lead Investigator token.\n" +
-        "Starting with the Lead Investigator and proceeding clockwise,\n" +
+    new RichText().setText(
+      "Players agree upon one player to receive the [b]Lead Investigator token[/b].\n" +
+        "Starting with the [b]Lead Investigator[/b] and proceeding clockwise,\n" +
         "each player chooses one investigator.\n"
     )
   );
   const noLeadInvestigatorText =
-    "To register a Lead Investigator move the token next to the Investigator sheet.";
-  const leadInvestigatorTextBox = new Text().setText(noLeadInvestigatorText);
+    "[color=#ff0000]No [b]Lead Investigator[/b] selected![/color]\n" +
+    "Move the [b]Lead Investigator token[/b] next to an [b]Investigator sheet[/b] to select one.";
+  const leadInvestigatorTextBox = new RichText().setText(noLeadInvestigatorText);
   vBox.addChild(leadInvestigatorTextBox);
 
   function updateLeadInvestigator() {
     const leadInvestigator = GameUtil.getSavedData().leadInvestigator;
     if (leadInvestigator) {
-      leadInvestigatorTextBox.setText(`Registered Lead Investigator: ${leadInvestigator}`);
+      leadInvestigatorTextBox.setText(`Registered Lead Investigator: [b]${leadInvestigator}[/b]`);
     } else {
       leadInvestigatorTextBox.setText(noLeadInvestigatorText);
     }
@@ -205,19 +201,19 @@ function drawSetupUi() {
   vBox.addChild(preludeBox);
   const noPreludeText =
     "No prelude selected.\n" +
-    'Place a Prelude card on the "Active Prelude" to select one.\n\n' +
+    "Place a Prelude card on the [b]Active Prelude[/b] to select one.\n\n" +
     "To play with a random/unknown Prelude first shuffle the Prelude deck\n" +
-    'then place a Prelude face down on the "Active Prelude".';
-  const preludeTextBox = new Text().setText(noPreludeText);
+    "then place a Prelude face down on the [b]Active Prelude[/b].";
+  const preludeTextBox = new RichText().setText(noPreludeText);
   preludeBox.addChild(preludeTextBox);
 
   function updatePrelude() {
     const [preludeCard, preludeName] = GameUtil.getActivePreludeCard();
     if (preludeCard && preludeName) {
       if (preludeCard.isFaceUp()) {
-        preludeTextBox.setText(preludeName);
+        preludeTextBox.setText(`[b]${preludeName}[/b]`);
       } else {
-        preludeTextBox.setText("Prelude is hidden");
+        preludeTextBox.setText("[b]Prelude is hidden[/b]");
       }
     } else {
       preludeTextBox.setText(noPreludeText);
@@ -231,24 +227,21 @@ function drawSetupUi() {
   gameDifficultyBox.setChildDistance(6);
 
   gameDifficultyBox.addChild(
-    new Text()
-      .setText(`${step++}. Adjust Game Difficulty`)
-      .setFont(arkhamRegFont)
-      .setFontSize(20)
+    new Text().setText(`${step++}. Adjust Game Difficulty`).setFont(arkhamRegFont).setFontSize(20)
   );
 
   gameDifficultyBox.addChild(
     new Text().setText("Mythos Deck Difficulty").setFont(arkhamRegFont).setFontSize(15)
   );
   gameDifficultyBox.addChild(
-    new Text().setText(
+    new RichText().setText(
       "Players can alter the game's difficulty when building the Mythos deck.\n" +
-        "Players can make the game easier by not using the hard Mythos cards.\n" +
-        "Likewise, players can make the game harder by not using the easy Mythos cards."
+        "Players can make the game [b]easier[/b] by not using the hard Mythos cards.\n" +
+        "Likewise, players can make the game [b]harder[/b] by not using the easy Mythos cards."
     )
   );
   gameDifficultyBox.addChild(
-    new Text().setText("Choose what Mythos cards are used to build the Mythos deck:")
+    new RichText().setText("Choose what Mythos cards are used to [b]build[/b] the Mythos deck:")
   );
   const mythosDifficultyBox = new HorizontalBox();
   mythosDifficultyBox.setChildDistance(12);
@@ -271,10 +264,7 @@ function drawSetupUi() {
   //#region ancient one selection
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text()
-      .setText(`${step++}. Select Ancient One`)
-      .setFont(arkhamRegFont)
-      .setFontSize(20)
+    new Text().setText(`${step++}. Select Ancient One`).setFont(arkhamRegFont).setFontSize(20)
   );
   const ancientBox = new HorizontalBox();
   ancientBox.setChildDistance(6);
