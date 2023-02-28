@@ -71,7 +71,7 @@ const preludes = {
           Util.moveObject(kingInYellowMythos, tableLocations.activeMythos);
           Util.flip(kingInYellowMythos);
           const eldritchTokens = GameUtil.takeEldritchTokens(2);
-          Util.moveOrAddObject(eldritchTokens, tableLocations.activeMythos);
+          Util.moveOnTopOnPosition(eldritchTokens, tableLocations.activeMythos);
         }
 
         Util.logScriptAction(
