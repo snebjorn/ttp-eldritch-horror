@@ -380,7 +380,6 @@ function addPreludeCardHolder() {
 
   cardHolder.setName("Active Prelude");
   cardHolder.setId("prelude-card-holder");
-  cardHolder.snapToGround();
   cardHolder.toggleLock();
   cardHolder.setScript("prelude-card-holder.js", "8A0B748B4DA2CE04CB79E4A02C7FD720");
 }

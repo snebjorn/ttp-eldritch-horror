@@ -215,7 +215,7 @@ exports.tableLocations = {
   spellDeck: tableMat.getSnapPoint(29),
   conditionDeck: tableMat.getSnapPoint(27),
   preludes: new Vector(52, -78.5, 88),
-  preludeCardHolder: new Vector(52.5, -86, 88),
+  preludeCardHolder: new Vector(52.5, -86, 87.222),
   adventureDeck: tableMat.getSnapPoint(58),
   activeAdventure: tableMat.getSnapPoint(59),
   disasterDeck: tableMat.getSnapPoint(65),
