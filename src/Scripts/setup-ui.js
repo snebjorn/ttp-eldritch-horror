@@ -106,7 +106,7 @@ function drawSetupUi() {
 
   const focusTokenBox = new HorizontalBox().setChildDistance(3);
   const focusIcon = new ImageWidget().setImage(`Focus Token Icon.png`).setImageSize(50, 50);
-  const focusCheckBox = new CheckBox().setText("Focus Token").setIsChecked(true).setEnabled(false);
+  const focusCheckBox = new CheckBox().setText("Focus Token").setIsChecked(false).setEnabled(false);
   focusTokenBox.addChild(focusIcon).addChild(focusCheckBox);
   mechanicsBox.addChild(focusTokenBox);
 
@@ -114,7 +114,7 @@ function drawSetupUi() {
   const resourceIcon = new ImageWidget().setImage(`Resource Token Icon.png`).setImageSize(50, 50);
   const resourceCheckBox = new CheckBox()
     .setText("Resource Token")
-    .setIsChecked(true)
+    .setIsChecked(false)
     .setEnabled(false);
   resourceTokenBox.addChild(resourceIcon).addChild(resourceCheckBox);
   mechanicsBox.addChild(resourceTokenBox);
@@ -429,7 +429,7 @@ function drawSetupUi() {
 
   //#region expansion selection
   /** @type {string[]} */
-  let activeExpansions = ["eh02", "eh03", "eh04", "eh05", "eh06", "eh07", "eh08", "eh09"];
+  let activeExpansions = [];
 
   function updateMechanics() {
     const focusExp = ["eh03", "eh04", "eh05", "eh07", "eh09"];
@@ -458,7 +458,8 @@ function drawSetupUi() {
   function expansionWidget(expansion, title, ancientOnes, path) {
     const expBox = new HorizontalBox();
     const expIcon = new ImageWidget().setImage(`${path}/${expansion} - symbol.png`);
-    const expCheckBox = new CheckBox().setText(title).setIsChecked(true);
+    const isExpansionActive = activeExpansions.includes(expansion);
+    const expCheckBox = new CheckBox().setText(title).setIsChecked(isExpansionActive);
 
     expBox.addChild(expIcon).addChild(expCheckBox);
 
