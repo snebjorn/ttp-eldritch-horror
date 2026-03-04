@@ -17,11 +17,11 @@ const azathoth = {
   customSetup: () => {
     world.createObjectFromTemplate(
       eldritchToken.getTemplateId(),
-      gameBoardLocations.omen.green.getGlobalPosition()
+      gameBoardLocations.omen.green.getGlobalPosition(),
     );
 
     Util.logScriptAction(
-      "SETUP (Azathoth) placed 1 Eldritch token on the green space of the Omen track."
+      "SETUP (Azathoth) placed 1 Eldritch token on the green space of the Omen track.",
     );
   },
 };

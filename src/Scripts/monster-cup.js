@@ -18,7 +18,7 @@ refCard.onInserted.add((stack, insertedCard, offset, player) => {
   const insertedCardNames = insertedCard.getAllCardDetails().map((card) => card.name);
   Util.logScriptAction(
     `${player.getName()} discarded "${insertedCardNames.join(
-      '", "'
-    )}". Shuffling ${stack.getName()}.`
+      '", "',
+    )}". Shuffling ${stack.getName()}.`,
   );
 });

@@ -1,1 +1,10 @@
-src/**/Templates/**/*.json
+# these are managed by TTP
+src/Templates/**/*.json
+src/Manifest.json
+
+# don't format image
+src/Textures
+assets
+
+# ignore yarn internals
+.yarn

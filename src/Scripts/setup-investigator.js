@@ -55,7 +55,7 @@ function setupInvestigator(investigatorSheet, player) {
       sanityToken,
       pawn,
       activeAncientOne,
-      player
+      player,
     );
     if (preludeItems) {
       extraItems = preludeItems;
@@ -129,7 +129,7 @@ function setupDefeatedInvestigator(investigatorSheet, extras) {
 function getInvestigatorData(investigatorSheet) {
   const investigatorName = investigatorSheet.getCardDetails().name;
   const foundInvestigator = world.__eldritchHorror.investigators.find(
-    (investigator) => investigator.name === investigatorName
+    (investigator) => investigator.name === investigatorName,
   );
   if (!foundInvestigator) {
     throw new Error(`Missing Investigator data for ${investigatorName}`);
@@ -214,7 +214,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
     const improvementTokens = Util.createCard(
       strengthToken.getPosition().add(new Vector(0, 0, 2)),
-      strengthToken.getTemplateId()
+      strengthToken.getTemplateId(),
     );
     const takenStrengthToken = Util.takeCardNameFromStack(improvementTokens, "strength");
     improvementTokens.destroy();
@@ -240,7 +240,7 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     }
     const improvementTokens = Util.createCard(
       willToken.getPosition().add(new Vector(0, 0, 2)),
-      willToken.getTemplateId()
+      willToken.getTemplateId(),
     );
     const takenWillToken = Util.takeCardNameFromStack(improvementTokens, "will");
     improvementTokens.destroy();
@@ -279,7 +279,13 @@ function setupStartingItems(investigatorSheet, startingItems, extras, personalSt
     if (monsterToken === undefined) {
       console.error(`Unable to find ${extras.epicMonster} Epic Monster`);
     } else {
-      positionItemOnInvestigatorSheet(investigatorSheet, monsterToken, itemsGiven++);
+      positionItemOnInvestigatorSheet(
+        investigatorSheet,
+        monsterToken,
+        // keeping ++ for consistency
+        // eslint-disable-next-line no-useless-assignment
+        itemsGiven++,
+      );
     }
   }
 }
@@ -316,7 +322,7 @@ function fetchAssets(investigatorSheet, itemsGiven, startingItems, extras) {
       if (takenAsset === undefined) {
         // search reserve
         /** @type {Card | undefined} */
-        // @ts-ignore
+        // @ts-expect-error - .find guarantees it's a Card
         const foundCardInReserve = gameBoardLocations.reserve
           .map((x) => x.getSnappedObject())
           .find((x) => {
@@ -376,7 +382,7 @@ function fetchAssets(investigatorSheet, itemsGiven, startingItems, extras) {
 function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras) {
   if (startingItems.uniqueAssets !== undefined && startingItems.uniqueAssets.length > 0) {
     /** @type {Card | undefined} */
-    // @ts-ignore
+    // @ts-expect-error - assuming it's a Card
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
       console.error("Unable to find Unique Asset Deck");
@@ -395,7 +401,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
 
   if (extras?.uniqueAsset !== undefined && extras.uniqueAsset.length > 0) {
     /** @type {Card | undefined} */
-    // @ts-ignore
+    // @ts-expect-error - assuming it's a Card
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
       console.error("Unable to find Unique Asset Deck");
@@ -411,7 +417,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
 
   if (extras?.uniqueAssetTrait !== undefined && extras.uniqueAssetTrait.length > 0) {
     /** @type {Card | undefined} */
-    // @ts-ignore
+    // @ts-expect-error - assuming it's a Card
     const uniqueAssetDeck = world.getObjectById("unique-asset-deck");
     if (!uniqueAssetDeck) {
       console.error("Unable to find Unique Asset Deck");
@@ -421,7 +427,7 @@ function fetchUniqueAssets(investigatorSheet, itemsGiven, startingItems, extras)
       ]);
       if (uniqueAssetWithTrait === undefined) {
         console.error(
-          `Unable to take a Unique Asset with trait ${extras.uniqueAssetTrait} from the Unique Asset Deck`
+          `Unable to take a Unique Asset with trait ${extras.uniqueAssetTrait} from the Unique Asset Deck`,
         );
       } else {
         positionItemOnInvestigatorSheet(investigatorSheet, uniqueAssetWithTrait, itemsGiven++);
@@ -475,7 +481,7 @@ function fetchSpells(investigatorSheet, itemsGiven, startingItems, extras) {
       spellDeck,
       [extras.spellTrait],
       1,
-      givenSpells
+      givenSpells,
     );
     if (spellWithTrait === undefined) {
       console.error(`Unable to take a spell with trait ${extras.spellTrait} from the Spell Deck`);
@@ -566,11 +572,11 @@ function fetchConditions(investigatorSheet, itemsGiven, startingItems, extras) {
       conditionDeck,
       [extras.conditionTrait],
       1,
-      givenConditions
+      givenConditions,
     );
     if (conditionWithTrait === undefined) {
       console.error(
-        `Unable to take a condition with trait ${extras.conditionTrait} from the Condition Deck`
+        `Unable to take a condition with trait ${extras.conditionTrait} from the Condition Deck`,
       );
     } else {
       givenConditions.push(conditionWithTrait.getCardDetails().name);
@@ -605,7 +611,7 @@ function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
       .add(new Vector(-0.5, 0.5, 0)) // margin
       .add(itemSize)
       .add(new Vector(-offset, offset, 1 + offset / 5)),
-    1
+    1,
   );
 }
 
@@ -618,7 +624,7 @@ function setupPawn(pawnTemplateId, startingLocation) {
     startingLocation instanceof SnapPoint ? startingLocation.getGlobalPosition() : startingLocation;
   const pawn = world.createObjectFromTemplate(
     pawnTemplateId,
-    globalPosition.add(new Vector(0, 0, 2))
+    globalPosition.add(new Vector(0, 0, 2)),
   );
   if (pawn) {
     const name = pawn.getTemplateName();
@@ -666,7 +672,7 @@ function setupHealthToken(position, health) {
   const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
   const healthToken = Util.createMultistateObject(
     healthTemplateId,
-    globalPosition.add(new Vector(0, 0, 1))
+    globalPosition.add(new Vector(0, 0, 1)),
   );
 
   if (position instanceof SnapPoint) {
@@ -688,7 +694,7 @@ function setupSanityToken(position, sanity) {
   const globalPosition = position instanceof SnapPoint ? position.getGlobalPosition() : position;
   const sanityToken = Util.createMultistateObject(
     sanityTemplateId,
-    globalPosition.add(new Vector(0, 0, 1))
+    globalPosition.add(new Vector(0, 0, 1)),
   );
   if (position instanceof SnapPoint) {
     sanityToken.snap();

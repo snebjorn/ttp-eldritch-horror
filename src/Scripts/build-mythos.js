@@ -19,7 +19,7 @@ function buildMythosDeck(mythosDeckOptions, mythosDifficulty) {
 
   if (greenMythos === undefined || yellowMythos === undefined || blueMythos === undefined) {
     world.broadcastChatMessage(
-      "Cannot configure Mythos difficulty, something is wrong with the decks."
+      "Cannot configure Mythos difficulty, something is wrong with the decks.",
     );
     return;
   }
@@ -74,13 +74,13 @@ function canBuildMythosDeck(mythosDeckOptions, mythosDifficulty) {
 
       return sum;
     },
-    { green: 0, yellow: 0, blue: 0 }
+    { green: 0, yellow: 0, blue: 0 },
   );
 
   const mythosColorsAvailable = Object.entries(mythosSetupDecks).reduce(
     (sum, decks) => {
       /** @type {[MythosCardColors, MythosCardDifficult]} */
-      // @ts-ignore
+      // @ts-expect-error - casting
       const [color, mythosDeck] = decks;
       if (mythosDifficulty.isEasy) {
         sum[color] += mythosDeck.easy.getStackSize();
@@ -100,7 +100,7 @@ function canBuildMythosDeck(mythosDeckOptions, mythosDifficulty) {
       green: 0,
       yellow: 0,
       blue: 0,
-    }
+    },
   );
 
   return (
@@ -124,7 +124,7 @@ function warnIfMissingMythosColors(mythosDeckOptions, greenMythos, yellowMythos,
     mythosDeckOptions.stage3.green;
   if (greenMythos.getStackSize() < greenCardCount) {
     world.broadcastChatMessage(
-      "Not enough green Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the green card pool is bigger."
+      "Not enough green Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the green card pool is bigger.",
     );
   }
 
@@ -134,7 +134,7 @@ function warnIfMissingMythosColors(mythosDeckOptions, greenMythos, yellowMythos,
     mythosDeckOptions.stage3.yellow;
   if (yellowMythos.getStackSize() < yellowCardCount) {
     world.broadcastChatMessage(
-      "Not enough yellow Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the yellow card pool is bigger."
+      "Not enough yellow Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the yellow card pool is bigger.",
     );
   }
 
@@ -142,7 +142,7 @@ function warnIfMissingMythosColors(mythosDeckOptions, greenMythos, yellowMythos,
     mythosDeckOptions.stage1.blue + mythosDeckOptions.stage2.blue + mythosDeckOptions.stage3.blue;
   if (blueMythos.getStackSize() < blueCardCount) {
     world.broadcastChatMessage(
-      "Not enough blue Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the blue card pool is bigger."
+      "Not enough blue Mythos cards to build the correct Mythos deck. Include more difficulties or expansions so the blue card pool is bigger.",
     );
   }
 }
@@ -170,14 +170,14 @@ function warnIfMythosDeckIsIncomplete(mythosDeckOptions, stage1, stage2, stage3)
   const builtDeckCount = stage1.getStackSize() + stage2.getStackSize() + stage3.getStackSize();
   if (builtDeckCount !== totalCardCount) {
     world.broadcastChatMessage(
-      `Mythos deck was supposed to have ${totalCardCount} cards, however it only contains ${builtDeckCount} cards. Include more difficulties or expansions so the Mythos card pool is bigger.`
+      `Mythos deck was supposed to have ${totalCardCount} cards, however it only contains ${builtDeckCount} cards. Include more difficulties or expansions so the Mythos card pool is bigger.`,
     );
   }
 }
 
 function shuffleMythosSetupDecks() {
   Object.values(mythosSetupDecks).forEach((color) =>
-    Object.values(color).forEach((difficulty) => difficulty.shuffle())
+    Object.values(color).forEach((difficulty) => difficulty.shuffle()),
   );
 }
 
@@ -195,7 +195,7 @@ function cleanupMythosCards() {
   remainingMythosDeck.setId("unused-mythos-deck");
   remainingMythosDeck.setName("Unused Mythos cards (game box)");
   remainingMythosDeck.setDescription(
-    "These are the unused Mythos cards and considered in the game box.\nSome cards require you to draw Mythos cards from the game box."
+    "These are the unused Mythos cards and considered in the game box.\nSome cards require you to draw Mythos cards from the game box.",
   );
 }
 

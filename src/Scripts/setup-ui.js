@@ -53,14 +53,14 @@ function drawSetupUi() {
       .setText("Setup")
       .setJustification(TextJustification.Center)
       .setFont(arkhamBoldFont)
-      .setFontSize(40)
+      .setFontSize(40),
   );
   vBox.addChild(new Text());
   vBox.addChild(
     new Text()
       .setText(`${step++}. Select Icon Reference Card`)
       .setFont(arkhamRegFont)
-      .setFontSize(20)
+      .setFontSize(20),
   );
   const iconRefBox = new HorizontalBox();
   vBox.addChild(iconRefBox);
@@ -83,7 +83,7 @@ function drawSetupUi() {
 
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text().setText(`${step++}. Select Expansions`).setFont(arkhamRegFont).setFontSize(20)
+    new Text().setText(`${step++}. Select Expansions`).setFont(arkhamRegFont).setFontSize(20),
   );
   const expansionBox1 = new HorizontalBox().setChildDistance(10);
   vBox.addChild(expansionBox1);
@@ -97,8 +97,8 @@ function drawSetupUi() {
   vBox.addChild(new Text().setText("Expansion Mechanics").setFont(arkhamRegFont).setFontSize(15));
   vBox.addChild(
     new Text().setText(
-      "Players can choose to use mechanics not explicitly required by the selected expansion(s)."
-    )
+      "Players can choose to use mechanics not explicitly required by the selected expansion(s).",
+    ),
   );
   const mechanicsBox = new HorizontalBox();
   mechanicsBox.setChildDistance(12);
@@ -166,14 +166,14 @@ function drawSetupUi() {
 
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text().setText(`${step++}. Choose Investigators`).setFont(arkhamRegFont).setFontSize(20)
+    new Text().setText(`${step++}. Choose Investigators`).setFont(arkhamRegFont).setFontSize(20),
   );
   vBox.addChild(
     new RichText().setText(
       "Players agree upon one player to receive the [b]Lead Investigator token[/b].\n" +
         "Starting with the [b]Lead Investigator[/b] and proceeding clockwise,\n" +
-        "each player chooses one investigator.\n"
-    )
+        "each player chooses one investigator.\n",
+    ),
   );
   const noLeadInvestigatorText =
     "[color=#ff0000]No [b]Lead Investigator[/b] selected![/color]\n" +
@@ -195,7 +195,7 @@ function drawSetupUi() {
     new Text()
       .setText(`${step++}. Select Prelude (optional)`)
       .setFont(arkhamRegFont)
-      .setFontSize(20)
+      .setFontSize(20),
   );
   const preludeBox = new HorizontalBox();
   vBox.addChild(preludeBox);
@@ -227,21 +227,21 @@ function drawSetupUi() {
   gameDifficultyBox.setChildDistance(6);
 
   gameDifficultyBox.addChild(
-    new Text().setText(`${step++}. Adjust Game Difficulty`).setFont(arkhamRegFont).setFontSize(20)
+    new Text().setText(`${step++}. Adjust Game Difficulty`).setFont(arkhamRegFont).setFontSize(20),
   );
 
   gameDifficultyBox.addChild(
-    new Text().setText("Mythos Deck Difficulty").setFont(arkhamRegFont).setFontSize(15)
+    new Text().setText("Mythos Deck Difficulty").setFont(arkhamRegFont).setFontSize(15),
   );
   gameDifficultyBox.addChild(
     new RichText().setText(
       "Players can alter the game's difficulty when building the Mythos deck.\n" +
         "Players can make the game [b]easier[/b] by not using the hard Mythos cards.\n" +
-        "Likewise, players can make the game [b]harder[/b] by not using the easy Mythos cards."
-    )
+        "Likewise, players can make the game [b]harder[/b] by not using the easy Mythos cards.",
+    ),
   );
   gameDifficultyBox.addChild(
-    new RichText().setText("Choose what Mythos cards are used to [b]build[/b] the Mythos deck:")
+    new RichText().setText("Choose what Mythos cards are used to [b]build[/b] the Mythos deck:"),
   );
   const mythosDifficultyBox = new HorizontalBox();
   mythosDifficultyBox.setChildDistance(12);
@@ -264,7 +264,9 @@ function drawSetupUi() {
   //#region ancient one selection
   vBox.addChild(new Text());
   vBox.addChild(
-    new Text().setText(`${step++}. Select Ancient One`).setFont(arkhamRegFont).setFontSize(20)
+    // keeping ++ for consistency
+    // eslint-disable-next-line no-useless-assignment
+    new Text().setText(`${step++}. Select Ancient One`).setFont(arkhamRegFont).setFontSize(20),
   );
   const ancientBox = new HorizontalBox();
   ancientBox.setChildDistance(6);
@@ -286,7 +288,7 @@ function drawSetupUi() {
     const foundAncientOne = world.__eldritchHorror.ancientOnes.get(ancientOne);
     if (!foundAncientOne || !canBuildMythosDeck(foundAncientOne.mythosDeck, mythosDifficulty)) {
       player.showMessage(
-        `Not enough Mythos cards to build the Mythos deck for ${ancientOne}!\nPlease include more expansions and/or adjust difficulty to include more Mythos cards.`
+        `Not enough Mythos cards to build the Mythos deck for ${ancientOne}!\nPlease include more expansions and/or adjust difficulty to include more Mythos cards.`,
       );
 
       return;
@@ -296,7 +298,7 @@ function drawSetupUi() {
       ancientOne,
       mythosDifficulty,
       GameUtil.getActiveIconReference(),
-      GameUtil.getActivePrelude()
+      GameUtil.getActivePrelude(),
     );
     world.removeUIElement(ui);
     world.__eldritchHorror.updateSetupUIFn = undefined;
@@ -354,7 +356,7 @@ function drawSetupUi() {
     .setImage("03 Mountains of Madness/Rise of the Elder Things - button.jpg")
     .setImageSize(157, 100);
   ancientElderThings.onClicked.add((_, player) =>
-    ancientClickFn("Rise of the Elder Things", player)
+    ancientClickFn("Rise of the Elder Things", player),
   );
   ancientBox2.addChild(ancientElderThings);
 
@@ -484,7 +486,7 @@ function drawSetupUi() {
     "eh03",
     "Mountains of Madness",
     [ancientElderThings, ancientIthaqua],
-    "03 Mountains of Madness"
+    "03 Mountains of Madness",
   );
   expansionBox1.addChild(eh03);
 
@@ -495,7 +497,7 @@ function drawSetupUi() {
     "eh05",
     "Under the Pyramids",
     [ancientAbhoth, ancientNephrenKa],
-    "05 Under the Pyramids"
+    "05 Under the Pyramids",
   );
   expansionBox2.addChild(eh05);
 
@@ -506,7 +508,7 @@ function drawSetupUi() {
     "eh07",
     "The Dreamlands",
     [ancientAtlachNacha, ancientHypnos],
-    "07 The Dreamlands"
+    "07 The Dreamlands",
   );
   expansionBox2.addChild(eh07);
 
@@ -517,7 +519,7 @@ function drawSetupUi() {
     "eh09",
     "Masks of Nyarlathotep",
     [ancientAntediluvium, ancientNyarlathotep],
-    "09 Masks of Nyarlathotep"
+    "09 Masks of Nyarlathotep",
   );
   expansionBox3.addChild(eh09);
   //#endregion expansion selection
@@ -618,7 +620,7 @@ function calcSideBoardSpawns(prelude, ancientOne) {
   const startSpawn = new Vector(0, 0, 87);
   const padding = 2;
   const totalPadding = sideBoards.length * padding;
-  const sideBoardsWidth = sideBoards.reduce((prev, next) => (prev += convertToWidth(next)), 0);
+  const sideBoardsWidth = sideBoards.reduce((prev, next) => prev + convertToWidth(next), 0);
   const totalWidth = totalPadding + sideBoardsWidth;
 
   let leftStart = startSpawn.subtract(new Vector(0, totalWidth / 2, 0));

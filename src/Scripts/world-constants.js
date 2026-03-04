@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-nocheck - typescript really doesn't like this file
 const { world, Card, Container, Vector, SnapPoint } = require("@tabletop-playground/api");
 
 /** @type {Card} */
@@ -289,7 +289,7 @@ gameBoardPaths.Arkham.paths.push(
   gameBoardPaths[6],
   gameBoardPaths[8],
   gameBoardPaths[9],
-  gameBoardPaths.London
+  gameBoardPaths.London,
 );
 gameBoardPaths["Buenos Aires"].paths.push(
   gameBoardPaths[3],
@@ -297,13 +297,13 @@ gameBoardPaths["Buenos Aires"].paths.push(
   gameBoardPaths[8],
   gameBoardPaths[11],
   gameBoardPaths[12],
-  gameBoardPaths["The Amazon"]
+  gameBoardPaths["The Amazon"],
 );
 gameBoardPaths.Istanbul.paths.push(
   gameBoardPaths[16],
   gameBoardPaths[17],
   gameBoardPaths.Rome,
-  gameBoardPaths["The Pyramids"]
+  gameBoardPaths["The Pyramids"],
 );
 gameBoardPaths.London.paths.push(gameBoardPaths[13], gameBoardPaths.Arkham, gameBoardPaths.Rome);
 gameBoardPaths.Rome.paths.push(gameBoardPaths[10], gameBoardPaths[14], gameBoardPaths.London);
@@ -312,44 +312,44 @@ gameBoardPaths["San Francisco"].paths.push(
   gameBoardPaths[2],
   gameBoardPaths[5],
   gameBoardPaths[6],
-  gameBoardPaths[7]
+  gameBoardPaths[7],
 );
 gameBoardPaths.Shanghai.paths.push(
   gameBoardPaths[17],
   gameBoardPaths[19],
   gameBoardPaths[20],
   gameBoardPaths["The Himalayas"],
-  gameBoardPaths.Tokyo
+  gameBoardPaths.Tokyo,
 );
 gameBoardPaths.Sydney.paths.push(
   gameBoardPaths[3],
   gameBoardPaths[18],
   gameBoardPaths[20],
   gameBoardPaths[21],
-  gameBoardPaths.Antarctica
+  gameBoardPaths.Antarctica,
 );
 gameBoardPaths["The Amazon"].paths.push(gameBoardPaths[7], gameBoardPaths["Buenos Aires"]);
 gameBoardPaths["The Heart of Africa"].paths.push(
   gameBoardPaths[15],
-  gameBoardPaths["The Pyramids"]
+  gameBoardPaths["The Pyramids"],
 );
 gameBoardPaths["The Himalayas"].paths.push(gameBoardPaths[17], gameBoardPaths.Shanghai);
 gameBoardPaths["The Pyramids"].paths.push(
   gameBoardPaths[10],
   gameBoardPaths.Rome,
-  gameBoardPaths["The Heart of Africa"]
+  gameBoardPaths["The Heart of Africa"],
 );
 gameBoardPaths.Tokyo.paths.push(
   gameBoardPaths[2],
   gameBoardPaths[19],
   gameBoardPaths[20],
-  gameBoardPaths.Shanghai
+  gameBoardPaths.Shanghai,
 );
 gameBoardPaths.Tunguska.paths.push(gameBoardPaths[16], gameBoardPaths[19]);
 gameBoardPaths[1].paths.push(
   gameBoardPaths[4],
   gameBoardPaths[19],
-  gameBoardPaths["San Francisco"]
+  gameBoardPaths["San Francisco"],
 );
 gameBoardPaths[2].paths.push(gameBoardPaths.Tokyo, gameBoardPaths["San Francisco"]);
 gameBoardPaths[3].paths.push(gameBoardPaths.Sydney, gameBoardPaths["Buenos Aires"]);
@@ -357,31 +357,31 @@ gameBoardPaths[4].paths.push(gameBoardPaths[1], gameBoardPaths[5]);
 gameBoardPaths[5].paths.push(
   gameBoardPaths[4],
   gameBoardPaths["San Francisco"],
-  gameBoardPaths.Arkham
+  gameBoardPaths.Arkham,
 );
 gameBoardPaths[6].paths.push(
   gameBoardPaths[7],
   gameBoardPaths["San Francisco"],
-  gameBoardPaths.Arkham
+  gameBoardPaths.Arkham,
 );
 gameBoardPaths[7].paths.push(
   gameBoardPaths[6],
   gameBoardPaths[8],
   gameBoardPaths["San Francisco"],
-  gameBoardPaths["The Amazon"]
+  gameBoardPaths["The Amazon"],
 );
 gameBoardPaths[8].paths.push(
   gameBoardPaths[7],
   gameBoardPaths[10],
   gameBoardPaths.Arkham,
-  gameBoardPaths["Buenos Aires"]
+  gameBoardPaths["Buenos Aires"],
 );
 gameBoardPaths[9].paths.push(gameBoardPaths.Arkham);
 gameBoardPaths[10].paths.push(
   gameBoardPaths[8],
   gameBoardPaths[15],
   gameBoardPaths.Rome,
-  gameBoardPaths["The Pyramids"]
+  gameBoardPaths["The Pyramids"],
 );
 gameBoardPaths[11].paths.push(gameBoardPaths[15], gameBoardPaths["Buenos Aires"]);
 gameBoardPaths[12].paths.push(gameBoardPaths["Buenos Aires"], gameBoardPaths.Antarctica);
@@ -392,7 +392,7 @@ gameBoardPaths[15].paths.push(
   gameBoardPaths[11],
   gameBoardPaths[17],
   gameBoardPaths[18],
-  gameBoardPaths["The Heart of Africa"]
+  gameBoardPaths["The Heart of Africa"],
 );
 gameBoardPaths[16].paths.push(gameBoardPaths[14], gameBoardPaths.Rome, gameBoardPaths.Tunguska);
 gameBoardPaths[17].paths.push(
@@ -400,20 +400,20 @@ gameBoardPaths[17].paths.push(
   gameBoardPaths[20],
   gameBoardPaths.Istanbul,
   gameBoardPaths["The Himalayas"],
-  gameBoardPaths.Shanghai
+  gameBoardPaths.Shanghai,
 );
 gameBoardPaths[18].paths.push(gameBoardPaths[15], gameBoardPaths.Sydney);
 gameBoardPaths[19].paths.push(
   gameBoardPaths[1],
   gameBoardPaths.Tunguska,
   gameBoardPaths.Shanghai,
-  gameBoardPaths.Tokyo
+  gameBoardPaths.Tokyo,
 );
 gameBoardPaths[20].paths.push(
   gameBoardPaths[17],
   gameBoardPaths.Shanghai,
   gameBoardPaths.Tokyo,
-  gameBoardPaths.Sydney
+  gameBoardPaths.Sydney,
 );
 gameBoardPaths[21].paths.push(gameBoardPaths.Sydney);
 

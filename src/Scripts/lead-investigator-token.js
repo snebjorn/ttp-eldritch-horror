@@ -41,11 +41,11 @@ refCard.addUI(ui);
 refCard.onMovementStopped.add((token) => {
   const foundObjects = world.boxOverlap(token.getPosition(), new Vector(6, 6, 2));
   const investigators = foundObjects.filter(
-    (x) => x.getTemplateName() === "Investigators" && x instanceof Card && x.getStackSize() === 1
+    (x) => x.getTemplateName() === "Investigators" && x instanceof Card && x.getStackSize() === 1,
   );
   const tokenPosition = token.getPosition();
   const sortedInvestigators = investigators.sort(
-    (a, b) => tokenPosition.distance(a.getPosition()) - tokenPosition.distance(b.getPosition())
+    (a, b) => tokenPosition.distance(a.getPosition()) - tokenPosition.distance(b.getPosition()),
   );
   let wasUpdated = false;
   const closestInvestigator = sortedInvestigators[0];

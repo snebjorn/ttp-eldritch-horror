@@ -132,5 +132,7 @@
     }
   ],
   "files.insertFinalNewline": false,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.referencesCodeLens.enabled": true,
+  "editor.formatOnSave": true
 }

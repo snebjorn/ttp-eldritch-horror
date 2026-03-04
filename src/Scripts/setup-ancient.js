@@ -129,7 +129,7 @@ function setupResearchCards(researchTemplateIds) {
       "- The illustration on the back of each Research Encounter card indicates the Ancient One it corresponds to.\n" +
       '- When a Research Encounter says, "this Clue," it is referring to the Clue being encountered.\n' +
       "- If the Clue token being encountered is not gained or discarded, it remains on its space and can be encountered again.\n" +
-      '- When a Research Encounter says, "additional Clue," it is referring to Clues in the Clue pool.'
+      '- When a Research Encounter says, "additional Clue," it is referring to Clues in the Clue pool.',
   );
   researchDeck.snap();
   researchDeck.shuffle();
@@ -159,7 +159,7 @@ function setupSpecialCards(specialTemplateIds) {
     specialDeck.setName(specialName);
     specialDeck.setDescription(
       "Special Encounters are unique encounters that relate to the Ancient One.\n" +
-        "- The instructions for resolving Special Encounters is defined by the Ancient One sheet or Mystery cards."
+        "- The instructions for resolving Special Encounters is defined by the Ancient One sheet or Mystery cards.",
     );
     specialDeck.shuffle();
   }

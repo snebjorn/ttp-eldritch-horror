@@ -1,4 +1,4 @@
-const { world, Vector } = require("@tabletop-playground/api");
+const { world } = require("@tabletop-playground/api");
 const { Util } = require("../util");
 const { GameUtil } = require("../game-util");
 const {
@@ -86,7 +86,7 @@ const preludes = {
         }
 
         Util.logScriptAction(
-          "SETUP (Prelude: Call of Cthulhu) set aside 1 Deep One Monster and spawned the Cthylla Epic Monster on space 3."
+          "SETUP (Prelude: Call of Cthulhu) set aside 1 Deep One Monster and spawned the Cthylla Epic Monster on space 3.",
         );
       }
     },
@@ -97,7 +97,7 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       // TODO move to nearest sea space and lose 1 sanity
       if (ancientOne === "Cthulhu") {
@@ -105,11 +105,11 @@ const preludes = {
         // for now just put it on the investigator sheet
 
         Util.logScriptAction(
-          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`
+          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`,
         );
         player.sendChatMessage(
           `You received an Eldritch token. Place it on the nearest sea space that does not contain an Eldritch token. Also move your Investigator to the nearest sea space and lose 1 sanity.`,
-          player.getPlayerColor()
+          player.getPlayerColor(),
         );
 
         return {
@@ -127,17 +127,17 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       if (ancientOne === "Abhoth") {
         // each investigator spawns 1 cultist on a wilderness that does not contain a cultist
         // for now put a cultist monster with the starting items
         Util.logScriptAction(
-          `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) placed 1 Cultist Monster on Investigator sheet.`
+          `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) placed 1 Cultist Monster on Investigator sheet.`,
         );
         player.sendChatMessage(
           `You received a Cultist Monster. Place it on a Wilderness space that does not contain a Cultist Monster.`,
-          player.getPlayerColor()
+          player.getPlayerColor(),
         );
 
         return {
@@ -149,12 +149,12 @@ const preludes = {
         const gameState = GameUtil.getSavedData();
         if (gameState.leadInvestigator === investigator.name) {
           Util.logScriptAction(
-            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue, and placed 1 Child of Abhoth Epic Monster on Investigator sheet.`
+            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue, and placed 1 Child of Abhoth Epic Monster on Investigator sheet.`,
           );
 
           player.sendChatMessage(
             `You received a Child of Abhoth Epic Monster. Place it on the nearest Wilderness space.`,
-            player.getPlayerColor()
+            player.getPlayerColor(),
           );
 
           return {
@@ -164,7 +164,7 @@ const preludes = {
           };
         } else {
           Util.logScriptAction(
-            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue.`
+            `SETUP (Prelude: Epidemic, Investigator: ${investigator.name}) gained 1 Illness Condition and 1 Clue.`,
           );
 
           return {
@@ -208,7 +208,7 @@ const preludes = {
       GameUtil.positionEncounterToken(secondDeck, secondActiveExpeditionToken);
 
       Util.logScriptAction(
-        "SETUP (Prelude: Litany of Secrets) shuffled the Expedition Encounter deck then split it into two decks."
+        "SETUP (Prelude: Litany of Secrets) shuffled the Expedition Encounter deck then split it into two decks.",
       );
     },
   },
@@ -245,7 +245,7 @@ const preludes = {
 
         // spawn 1 monster on active expedition
         const [activeExpeditionMonster, activeExpeditionSpawnEffect] = GameUtil.spawnMonster(
-          activeExpeditionToken.getPosition()
+          activeExpeditionToken.getPosition(),
         );
         const activeExpeditionMonsterName = activeExpeditionMonster?.getCardDetails().name;
 
@@ -259,11 +259,11 @@ const preludes = {
 
         Util.logScriptAction(
           `SETUP (Prelude: Under the Pyramids) randomized the Gate stack then placed the Egypt side board Gates on top in random order.` +
-            `Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`
+            `Then spawned 1 Monster (${activeExpeditionMonsterName}) on the Active Expedition space and 1 Monster (${bentPyramidMonsterName}) on The Bent Pyramid.`,
         );
         if (activeExpeditionSpawnEffect) {
           Util.logScriptAction(
-            `Spawn Effect (${activeExpeditionMonster}): ${activeExpeditionSpawnEffect}.`
+            `Spawn Effect (${activeExpeditionMonster}): ${activeExpeditionSpawnEffect}.`,
           );
         }
         if (bentPyramidSpawnEffect) {
@@ -283,7 +283,7 @@ const preludes = {
         const egyptAdventureSnapPoint = gameBoardLocations.egyptMat.adventure;
         if (!egyptAdventureSnapPoint) {
           throw new Error(
-            "Unable to find snap point for Museum Heist adventure deck on Egypt side board"
+            "Unable to find snap point for Museum Heist adventure deck on Egypt side board",
           );
         }
         Util.moveObject(adventureDeck, egyptAdventureSnapPoint);
@@ -309,7 +309,7 @@ const preludes = {
         Util.moveObject(adventureToken, cairoSnapPoint);
 
         Util.logScriptAction(
-          'SETUP (Prelude: Under the Pyramids) set aside Museum Heist Adventures; then drew the "Framed for Theft" Adventure.'
+          'SETUP (Prelude: Under the Pyramids) set aside Museum Heist Adventures; then drew the "Framed for Theft" Adventure.',
         );
       }
     },

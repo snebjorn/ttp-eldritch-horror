@@ -13,7 +13,7 @@ refCard.onCustomAction.add((stack, player, actionName) => {
       const [gateName, monsterName, spawnEffect] = result[0];
       Util.logScriptAction(
         `${player.getName()} spawned Gate on ${gateName} with ${monsterName} Monster.`,
-        player
+        player,
       );
       if (spawnEffect) {
         Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);

@@ -19,7 +19,7 @@ const antediluvium = {
     // place sanity equal to player count on this sheet.
     const sanityToken = Util.createMultistateObject(
       "CD0FA9DC41E13E96DC743A8A30C2DD75",
-      refCard.getPosition().add(new Vector(0, 0, 1))
+      refCard.getPosition().add(new Vector(0, 0, 1)),
     );
     sanityToken.setId("antediluvium-sanity");
     sanityToken.setName("Antediluvium sanity tracker");
@@ -65,7 +65,7 @@ const antediluvium = {
     Util.logScriptAction(
       "SETUP (Antediluvium) set aside 5 Cultist Monsters and 1 Deep One Monster. " +
         "Set up the Mystic Ruins Encounter deck. " +
-        `Placed 1 Eldritch token on each blue space of the Omen track and Sanity equal to player count on Antediluvium's sheet.`
+        `Placed 1 Eldritch token on each blue space of the Omen track and Sanity equal to player count on Antediluvium's sheet.`,
     );
   },
 };

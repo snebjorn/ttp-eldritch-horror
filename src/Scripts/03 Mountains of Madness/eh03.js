@@ -76,7 +76,7 @@ const preludes = {
       Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.green);
 
       Util.logScriptAction(
-        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on the green space of the Omen track."
+        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on the green space of the Omen track.",
       );
     },
   },
@@ -109,7 +109,7 @@ const preludes = {
           }
           GameUtil.spawnEpicMonster("Rampaging Shoggoth", lakeCamp);
           Util.logScriptAction(
-            "SETUP (Prelude: Doomsayer From Antarctica) spawned the Rampaging Shoggoth Epic Monster on Lake Camp."
+            "SETUP (Prelude: Doomsayer From Antarctica) spawned the Rampaging Shoggoth Epic Monster on Lake Camp.",
           );
         } catch (error) {
           console.error(error.message);
@@ -143,7 +143,7 @@ const preludes = {
 
           world.showPing(adventureToken.getPosition(), Util.Colors.WHITE, true);
           Util.logScriptAction(
-            "SETUP (Prelude: Doomsayer From Antarctica) set aside Antarctica Adventures and draw a random Antarctica I Adventure."
+            "SETUP (Prelude: Doomsayer From Antarctica) set aside Antarctica Adventures and draw a random Antarctica I Adventure.",
           );
         }
 
@@ -159,7 +159,7 @@ const preludes = {
       // activate The Wind-Walker mythos card, before building the mythos deck
       const windWalkerMythos = Util.takeCardNameFromStack(
         mythosSetupDecks.blue.medium,
-        "The Wind-Walker"
+        "The Wind-Walker",
       );
       if (windWalkerMythos && tableLocations.activeMythos) {
         Util.moveObject(windWalkerMythos, tableLocations.activeMythos);
@@ -192,7 +192,7 @@ const preludes = {
         try {
           GameUtil.spawnEpicMonster("Wind-Walker", gameBoardLocations.space[4]);
           Util.logScriptAction(
-            "SETUP (Prelude: Rumors From the North) placed The Wind-Walker Rumor Mythos car in play with 6 Eldritch tokens on it."
+            "SETUP (Prelude: Rumors From the North) placed The Wind-Walker Rumor Mythos car in play with 6 Eldritch tokens on it.",
           );
         } catch (error) {
           console.error(error.message);
@@ -214,7 +214,7 @@ const preludes = {
         const investigator = Util.takeRandomCardsFromStack(investigatorDeck);
         if (investigator) {
           const newPos = investigatorDeckPosition.add(
-            new Vector(-(heightOfSheet * i) - separatorBuffer * i, 0, 2)
+            new Vector(-(heightOfSheet * i) - separatorBuffer * i, 0, 2),
           );
           investigator.setPosition(newPos, 1);
           Util.flip(investigator);
@@ -232,7 +232,7 @@ const preludes = {
       }
 
       Util.logScriptAction(
-        `SETUP (Prelude: Ultimate Sacrifice) sacrificed 2 random investigators. ${sacrificedNames[0]} (Crippled), ${sacrificedNames[1]} (Insane). Placed starting possessions and 1 random facedown Artifact on each Investigator sheet. Advanced doom by 2.`
+        `SETUP (Prelude: Ultimate Sacrifice) sacrificed 2 random investigators. ${sacrificedNames[0]} (Crippled), ${sacrificedNames[1]} (Insane). Placed starting possessions and 1 random facedown Artifact on each Investigator sheet. Advanced doom by 2.`,
       );
     },
   },

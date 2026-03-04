@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "checkJs": true,
-    "lib": ["ES2022", "DOM"],
+    "lib": ["ES2023", "DOM"],
+    "target": "ESNext",
     "module": "CommonJS",
     "noEmit": true,
+    "skipLibCheck": true,
     "strict": true,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
   }
 }

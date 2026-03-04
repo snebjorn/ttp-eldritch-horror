@@ -42,7 +42,7 @@ globalEvents.onDiceRolled.add((player, dice) => {
   };
   for (const die of dice) {
     const dieFace = Number(die.getCurrentFaceName());
-    // @ts-ignore
+    // @ts-expect-error - dieFace is a number between 1 and 6
     summary[dieFace]++;
 
     const templateName = die.getTemplateName();
@@ -66,13 +66,13 @@ globalEvents.onDiceRolled.add((player, dice) => {
   if (summary.successes > 0) {
     world.broadcastChatMessage(
       `${playerName} rolled ${dice.length} dice ${summaryText} = ${summary.successes} ${successPluralized}`,
-      Util.Colors.GREEN
+      Util.Colors.GREEN,
     );
     player.showMessage(`You rolled ${summary.successes} ${successPluralized}!`);
   } else {
     world.broadcastChatMessage(
       `${playerName} rolled ${dice.length} dice ${summaryText} = ${summary.successes} successes`,
-      Util.Colors.LIGHT_CORAL
+      Util.Colors.LIGHT_CORAL,
     );
     player.showMessage("Your roll failed!");
   }

@@ -30,7 +30,7 @@ const shudde = {
     // TODO When a space is devastated, discard all Clues and defeated investigator tokens on that space, search the Expedition Encounter deck for each card that corresponds to that space and return them to the game box
 
     Util.logScriptAction(
-      "SETUP (Shudde M'ell) placed 1 Eldritch token each on spaces 2,5,8,11 of the Doom track. Placed 1 Devastation token on Rome"
+      "SETUP (Shudde M'ell) placed 1 Eldritch token each on spaces 2,5,8,11 of the Doom track. Placed 1 Devastation token on Rome",
     );
   },
 };

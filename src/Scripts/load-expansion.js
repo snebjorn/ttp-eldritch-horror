@@ -135,27 +135,27 @@ function createAssets(expansionItems) {
     expansionItems.uniqueAssetCards,
     tableLocations.uniqueAssets,
     true,
-    "double-sided-deck.js"
+    "double-sided-deck.js",
   );
   addExpansionCardsToExpansionDeck(
     "prelude-deck",
     "Preludes",
     "",
     expansionItems.preludeCards,
-    tableLocations.preludes
+    tableLocations.preludes,
   );
   if (expansionItems.personalStories) {
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-mission-deck"),
-      Util.createCard(expansionSpawn, expansionItems.personalStories.missions)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.missions),
     );
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-reward-deck"),
-      Util.createCard(expansionSpawn, expansionItems.personalStories.rewards)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.rewards),
     );
     addExpansionCardsToDeck(
       Util.getCardObjectById("personal-consequence-deck"),
-      Util.createCard(expansionSpawn, expansionItems.personalStories.consequences)
+      Util.createCard(expansionSpawn, expansionItems.personalStories.consequences),
     );
   }
   if (expansionItems.preludeCards) {
@@ -225,7 +225,7 @@ function addEncounterCards(encounterExpansions) {
   }
 
   /** @type {[keyof EncounterCards, Card][]} */
-  // @ts-ignore
+  // @ts-expect-error - casting
   let expansionEntries = Object.entries(encounterExpansions);
   for (const [encounter, cards] of expansionEntries) {
     const encounterDeck = encounterDecks[encounter];
@@ -242,11 +242,11 @@ function addMythosCards(mythosExpansions) {
   }
 
   /** @type {[keyof Expansion.MythosCards, Partial<MythosCardDifficult>][]} */
-  // @ts-ignore
+  // @ts-expect-error - casting
   let expansionEntries = Object.entries(mythosExpansions);
   for (const [color, difficulties] of expansionEntries) {
     /** @type {[keyof MythosCardDifficult, Card][]} */
-    // @ts-ignore
+    // @ts-expect-error - casting
     let difficultyEntries = Object.entries(difficulties);
     for (const [difficulty, cards] of difficultyEntries) {
       addExpansionCardsToDeck(mythosSetupDecks[color][difficulty], cards);
@@ -282,7 +282,7 @@ function addExpansionCardsToExpansionDeck(
   cards,
   position,
   flip = false,
-  scriptName
+  scriptName,
 ) {
   if (!cards) {
     return;
@@ -375,7 +375,7 @@ function addPreludeCardHolder() {
 
   const cardHolder = Util.createCardHolder(
     "1B65237440585C62CF5B7F96F660E75A",
-    tableLocations.preludeCardHolder
+    tableLocations.preludeCardHolder,
   );
 
   cardHolder.setName("Active Prelude");

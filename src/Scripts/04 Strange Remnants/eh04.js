@@ -77,7 +77,7 @@ const preludes = {
           GameUtil.positionEncounterToken(mysticRuinsDeck, mysticRuinsToken);
 
           Util.logScriptAction(
-            "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck."
+            "SETUP (Prelude: In Cosmic Alignment) set up the Mystic Ruins Encounter Deck.",
           );
 
           world.__eldritchHorror.alreadyLoaded.push(...mysticRuinsIds);
@@ -91,7 +91,7 @@ const preludes = {
         const eldritchToken = GameUtil.takeEldritchTokens(1);
         Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.red);
         Util.logScriptAction(
-          "SETUP (Prelude: In Cosmic Alignment) placed 1 Eldritch token on the red space of the Omen track."
+          "SETUP (Prelude: In Cosmic Alignment) placed 1 Eldritch token on the red space of the Omen track.",
         );
       } else {
         const randomAdventureTemplateId =
@@ -119,7 +119,7 @@ const preludes = {
         adventureToken.setName("Adventure Token: Cosmic Alignment");
         Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
         Util.logScriptAction(
-          `SETUP (Prelude: In Cosmic Alignment) set aside Cosmic Alignment Adventures; then drew the Discovery of a Cosmic Syzygy Adventure and spawned 1 Gate on ${spawnedGate} with ${spawnedMonster} Monster.`
+          `SETUP (Prelude: In Cosmic Alignment) set aside Cosmic Alignment Adventures; then drew the Discovery of a Cosmic Syzygy Adventure and spawned 1 Gate on ${spawnedGate} with ${spawnedMonster} Monster.`,
         );
         if (spawnEffect) {
           Util.logScriptAction(`Spawn Effect (${spawnedMonster}): ${spawnEffect}.`);
@@ -132,7 +132,7 @@ const preludes = {
         sanityToken.setState(sanityToken.getState() - 1);
 
         Util.logScriptAction(
-          `SETUP (Prelude: In Cosmic Alignment, Investigator: ${investigator.name}) lost 1 Sanity and gained 1 Relic Unique Asset.`
+          `SETUP (Prelude: In Cosmic Alignment, Investigator: ${investigator.name}) lost 1 Sanity and gained 1 Relic Unique Asset.`,
         );
 
         return {
@@ -172,7 +172,7 @@ const preludes = {
 
               const activeMysteryCard = Util.takeCardNameFromStack(
                 mysteryDeck,
-                "Spawn of Yog-Sothoth"
+                "Spawn of Yog-Sothoth",
               );
               if (!activeMysteryCard) {
                 throw new Error('Unable to find "Spawn of Yog-Sothoth" in mystery deck');
@@ -188,11 +188,11 @@ const preludes = {
         }
 
         Util.logScriptAction(
-          'SETUP (Prelude: The Dunwich Horror) drew the "Spawn of Yog-Sothoth" Mystery instead of a random Mystery then resolved the "when this card enters play" effect.'
+          'SETUP (Prelude: The Dunwich Horror) drew the "Spawn of Yog-Sothoth" Mystery instead of a random Mystery then resolved the "when this card enters play" effect.',
         );
       } else {
         Util.logScriptAction(
-          'SETUP (Prelude: The Dunwich Horror) spawned the "Dunwich Horror" Epic Monster on Arkham.'
+          'SETUP (Prelude: The Dunwich Horror) spawned the "Dunwich Horror" Epic Monster on Arkham.',
         );
       }
 
@@ -205,7 +205,7 @@ const preludes = {
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       // After resolving setup, each investigator gains 1 Glamour Spell.
       Util.logScriptAction(
-        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Glamour Spell.`
+        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Glamour Spell.`,
       );
 
       return {

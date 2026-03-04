@@ -32,10 +32,10 @@ class GameUtil {
         // doom counter cannot advance further than 0
         advancedDoomCount = 0;
       }
-      // @ts-ignore
-      const advancedDoomSnapShot = gameBoardLocations.doom[advancedDoomCount];
-      if (advancedDoomSnapShot) {
-        Util.moveObject(doomToken, advancedDoomSnapShot);
+      // @ts-expect-error - doom snap points are numbered 0-20
+      const advancedDoomSnapPoint = gameBoardLocations.doom[advancedDoomCount];
+      if (advancedDoomSnapPoint) {
+        Util.moveObject(doomToken, advancedDoomSnapPoint);
 
         return currentDoomCount - advancedDoomCount;
       }
@@ -60,10 +60,10 @@ class GameUtil {
         // doom counter cannot retreat to more than 20
         retreatedDoomCount = 20;
       }
-      // @ts-ignore
-      const retreatedDoomSnapShot = gameBoardLocations.doom[currentDoomCount + count];
-      if (retreatedDoomSnapShot) {
-        Util.moveObject(doomToken, retreatedDoomSnapShot);
+      // @ts-expect-error - doom snap points are numbered 0-20
+      const retreatedDoomSnapPoint = gameBoardLocations.doom[currentDoomCount + count];
+      if (retreatedDoomSnapPoint) {
+        Util.moveObject(doomToken, retreatedDoomSnapPoint);
 
         return retreatedDoomCount - currentDoomCount;
       }
@@ -145,7 +145,7 @@ class GameUtil {
     }
 
     /** @type {keyof GameBoardLocations["space"]} */
-    // @ts-ignore
+    // @ts-expect-error - name of a clue is a space name
     const spaceName = randomClue.getCardDetails().name;
     if (!tableLocations.clueDiscardPile) {
       throw new Error("Unable to find snap point for clue discard pile");
@@ -178,7 +178,7 @@ class GameUtil {
 
   /**
    * @param {number} count
-   * @throws If unable to take ship token from travel tickets template object
+   * @throws {Error} If unable to take ship token from travel tickets template object
    */
   static takeShipTokens(count = 1) {
     const stackPos = shipTicket.getPosition().add(new Vector(0, 0, 3));
@@ -205,13 +205,13 @@ class GameUtil {
    * @param {number} number - Number of gates to spawn
    * @param {Card} [gateStack] - The gate stack to draw from. Default: the `"gate-stack"`
    * @param {boolean} [fromFront] - If true, take the cards from the front of the stack instead of the back. Default: `false`.
-   * @throws If unable to find snap point for spawned gate
+   * @throws {Error} If unable to find snap point for spawned gate
    * @returns {[gateName: string, monsterName?: string, spawnEffect?: string][]}
    */
   static spawnGates(number = 1, gateStack = getGateStack(), fromFront = false) {
     if (!(gateStack instanceof Card)) {
       throw new Error(
-        `Parameter 'gateStack' is not typeof Card instead it is: ${typeof gateStack}`
+        `Parameter 'gateStack' is not typeof Card instead it is: ${typeof gateStack}`,
       );
     }
     /** @type {[gateName: string, monsterName?: string, spawnEffect?: string][]} */
@@ -225,14 +225,14 @@ class GameUtil {
       }
 
       const gateName = gateToken.getCardDetails().name;
-      // @ts-ignore
+      // @ts-expect-error - gateName is a board location space
       let snapPoint = gameBoardLocations.space[gateName];
       if (!snapPoint) {
         throw new Error(`Cannot find snap point for gate location: ${gateName}`);
       }
 
       const locationName = findGateSpawnLocation(gateName, snapPoint);
-      // @ts-ignore
+      // @ts-expect-error - locationName is a board location space
       snapPoint = gameBoardLocations.space[locationName];
       if (!snapPoint) {
         throw new Error(`Cannot find snap point for gate location: ${locationName}`);
@@ -251,7 +251,7 @@ class GameUtil {
 
   /**
    * @param {number} number
-   * @throws If unable to find snap point for spawned clue
+   * @throws {Error} If unable to find snap point for spawned clue
    * @returns {string[]} Names of spawned clues
    */
   static spawnClues(number = 1) {
@@ -261,7 +261,7 @@ class GameUtil {
     for (let i = 0; i < number; i++) {
       const clueToken = Util.takeCards(cluePool, 1);
       const clueName = clueToken.getCardDetails().name;
-      // @ts-ignore
+      // @ts-expect-error - clue name is a board location space
       const snapPoint = gameBoardLocations.space[clueName];
       if (!snapPoint) {
         throw new Error(`Cannot find snap point for clue: ${clueName}`);
@@ -321,7 +321,7 @@ class GameUtil {
   }
 
   static getActivePrelude() {
-    const [preludeCard, preludeName] = GameUtil.getActivePreludeCard();
+    const [_preludeCard, preludeName] = GameUtil.getActivePreludeCard();
     if (preludeName) {
       return world.__eldritchHorror.preludes.get(preludeName);
     }
@@ -394,7 +394,7 @@ class GameUtil {
   /**
    * @param {string} monsterName
    * @param {SnapPoint | Vector} position
-   * @throws If unable to find `monsterName`
+   * @throws {Error} If unable to find `monsterName`
    */
   static spawnEpicMonster(monsterName, position) {
     const epicMonster = Util.takeCardNameFromStack(epicMonsterCup, monsterName);
@@ -472,7 +472,7 @@ class GameUtil {
     traits,
     count = 1,
     excludeCardNames = [],
-    fromFront = false
+    fromFront = false,
   ) {
     return Util.takeCardTagsFromStack(cardStack, traits, count, excludeCardNames, fromFront);
   }
@@ -495,8 +495,10 @@ class GameUtil {
    * @returns {SavedData}
    */
   static getSavedData() {
+    /** @type {SavedData | undefined} */
+    // @ts-expect-error - casting
     const data = Util.getSavedData();
-    if (!data || !data.sets === undefined) {
+    if (!data?.sets) {
       return { sets: [], isPersonalStory: false, isGameBegun: false };
     }
 
@@ -538,15 +540,15 @@ class GameUtil {
 
     const omenSnapPoint = omenToken.getSnappedToPoint();
     const currentOmenIndex = omenTrack.findIndex(
-      (trackSnapPoint) => trackSnapPoint === omenSnapPoint
+      (trackSnapPoint) => trackSnapPoint === omenSnapPoint,
     );
 
     if (currentOmenIndex === -1) {
       throw new Error("Unable to find the Omen token on the Omen Track");
     }
 
-    const advancedOmenSnapShot = omenTrack[(currentOmenIndex + count) % 4];
-    Util.moveOnTopOnPosition(omenToken, advancedOmenSnapShot);
+    const advancedOmenSnapPoint = omenTrack[(currentOmenIndex + count) % 4];
+    Util.moveOnTopOnPosition(omenToken, advancedOmenSnapPoint);
 
     const advancedOmenColor = GameUtil.getCurrentOmenColor();
     const activeGatesMatchingOmen = GameUtil.getActiveGates(advancedOmenColor);
@@ -563,14 +565,14 @@ class GameUtil {
    */
   static getActiveGates(color) {
     /** @type {Card[]} */
-    // @ts-ignore
+    // @ts-expect-error - casting
     const drawnGates = world
       .getAllObjects(true)
       .filter(
         (x) =>
           x.getTemplateName().startsWith("Gates") &&
           x.getId() !== "gate-stack" &&
-          x.getId() !== "gate-discard-pile"
+          x.getId() !== "gate-discard-pile",
       );
     // active gates should be placed on the game board or a side board
     const activeGates = drawnGates.filter((gate) =>
@@ -581,8 +583,8 @@ class GameUtil {
             foundObject.getTemplateName() === "Game Board" ||
             foundObject.getTemplateName() === "Antarctica Side Board" ||
             foundObject.getTemplateName() === "Egypt Side Board" ||
-            foundObject.getTemplateName() === "The Dreamlands Side Board"
-        )
+            foundObject.getTemplateName() === "The Dreamlands Side Board",
+        ),
     );
 
     if (color === undefined) {
@@ -590,7 +592,7 @@ class GameUtil {
     }
 
     return activeGates.filter(
-      (gate) => JSON.parse(gate.getCardDetails().metadata)?.color === color
+      (gate) => JSON.parse(gate.getCardDetails().metadata)?.color === color,
     );
   }
 
@@ -605,7 +607,7 @@ class GameUtil {
    */
   static positionEncounterToken(encounterDeck, token) {
     /** @type {keyof GameBoardLocations["space"]} */
-    // @ts-ignore
+    // @ts-expect-error - casting
     const topCard = encounterDeck.getAllCardDetails().at(-1)?.name;
     const encounterLocation = gameBoardLocations.space[topCard];
     if (encounterLocation) {
@@ -614,7 +616,7 @@ class GameUtil {
       console.error(
         `Unable to find SnapPoint for space "${topCard}". So can't move ${
           token.getCardDetails().name
-        }`
+        }`,
       );
     }
   }
@@ -682,11 +684,11 @@ function findGateSpawnLocation(gateName, snapPoint) {
     setTimeout(
       (dreamPortalLocationArg) => {
         Util.logScriptAction(
-          `Dream Portal found on ${gateName}! Gate moved to ${dreamPortalLocationArg}.`
+          `Dream Portal found on ${gateName}! Gate moved to ${dreamPortalLocationArg}.`,
         );
       },
       0,
-      dreamPortalLocation
+      dreamPortalLocation,
     );
 
     return dreamPortalLocation;
@@ -695,11 +697,11 @@ function findGateSpawnLocation(gateName, snapPoint) {
     setTimeout(
       (dreamPortalLocationArg) => {
         Util.logScriptAction(
-          `Dream Portal and Kate Winthrop found on ${gateName}! The active investigator decides whether the Gate is discarded or moved to ${dreamPortalLocationArg}.`
+          `Dream Portal and Kate Winthrop found on ${gateName}! The active investigator decides whether the Gate is discarded or moved to ${dreamPortalLocationArg}.`,
         );
       },
       0,
-      dreamPortalLocation
+      dreamPortalLocation,
     );
 
     return gateName;

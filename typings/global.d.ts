@@ -137,7 +137,7 @@ declare global {
     step5?: (
       ancientOne: string,
       sideBoardSpawn?: Vector,
-      iconReference?: IconReference
+      iconReference?: IconReference,
     ) => (() => void) | undefined | void;
     /** Create Monster Cup */
     step6?: (ancientOne: string, iconReference?: IconReference) => void;
@@ -155,7 +155,7 @@ declare global {
       sanityToken: MultistateObject,
       pawn: GameObject,
       ancientOne: string,
-      player: Player
+      player: Player,
     ) => ExtraItems | void;
   }
 
@@ -433,18 +433,5 @@ declare global {
 
   interface SortOrder {
     sortOrder?: number;
-  }
-
-  // Needed until https://github.com/microsoft/TypeScript/issues/48829
-  interface Array<T> {
-    findLast(
-      predicate: (element: T, index: number, array: T[]) => boolean,
-      thisArg?: any
-    ): T | undefined;
-
-    findLastIndex(
-      predicate: (element: T, index: number, array: T[]) => boolean,
-      thisArg?: any
-    ): number;
   }
 }

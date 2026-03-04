@@ -63,7 +63,7 @@ const preludes = {
         Util.moveOrAddObject(eldritchToken, gameBoardLocations.doom[14]);
 
         Util.logScriptAction(
-          `SETUP (Prelude: Apocalypse Nigh) placed 1 Eldritch token on space 14 of the Doom track.`
+          `SETUP (Prelude: Apocalypse Nigh) placed 1 Eldritch token on space 14 of the Doom track.`,
         );
       } else {
         Util.moveOrAddObject(GameUtil.takeEldritchTokens(1), gameBoardLocations.doom[2]);
@@ -72,7 +72,7 @@ const preludes = {
         Util.moveOrAddObject(GameUtil.takeEldritchTokens(1), gameBoardLocations.doom[11]);
 
         Util.logScriptAction(
-          `SETUP (Prelude: Apocalypse Nigh) placed 1 Eldritch token each on spaces 2,5,8,11 of the Doom track.`
+          `SETUP (Prelude: Apocalypse Nigh) placed 1 Eldritch token each on spaces 2,5,8,11 of the Doom track.`,
         );
       }
     },
@@ -84,7 +84,7 @@ const preludes = {
       Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.green);
 
       Util.logScriptAction(
-        "SETUP (Prelude: Fall of Man) placed 1 Eldritch token on the green space of the Omen track."
+        "SETUP (Prelude: Fall of Man) placed 1 Eldritch token on the green space of the Omen track.",
       );
     },
   },
@@ -102,20 +102,20 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       // the lead investigator gains 1 For the Greater Good Unique Asset
       // each other investigator gains 1 Clue
       const gameState = GameUtil.getSavedData();
       if (gameState.leadInvestigator === investigator.name) {
         Util.logScriptAction(
-          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 For the Greater Good Unique Asset.`
+          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 For the Greater Good Unique Asset.`,
         );
 
         return { uniqueAsset: "For the Greater Good" };
       } else {
         Util.logScriptAction(
-          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 Clue.`
+          `SETUP (Prelude: You Know What You Must Do, Investigator: ${investigator.name}) gained 1 Clue.`,
         );
 
         return { clues: 1 };
@@ -152,14 +152,14 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
   devastationDeck.setName("Devastation Encounters");
   devastationDeck.setDescription(
     "- Devastation Encounters are complex encounters that may require an investigator to resolve multiple tests.\n" +
-      "- An investigator on a devastated space cannot resolve a General Encounter or a location encounter that corresponds to his space. Instead, during the Encounter Phase, an investigator on a devastated space may encounter that space by drawing and resolving the top card of the Devastation Encounter deck."
+      "- An investigator on a devastated space cannot resolve a General Encounter or a location encounter that corresponds to his space. Instead, during the Encounter Phase, an investigator on a devastated space may encounter that space by drawing and resolving the top card of the Devastation Encounter deck.",
   );
   GameUtil.addEncounterDeck(devastationDeck);
   devastationDeck.shuffle();
 
   // setup Devastation token
   const devastationToken = Util.convertToInfiniteStack(
-    createCard("41A12F664413E91443499C984A9A80F9")
+    createCard("41A12F664413E91443499C984A9A80F9"),
   );
   devastationToken.setId("devastation-token");
   devastationToken.setName("Devastation Token");
@@ -167,7 +167,7 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
     "- When a space is devastated, discard all Clues and defeated investigator tokens on that space, search the Expedition Encounter deck for each card that corresponds to that space and return them to the game box, then place a Devastation token on the space.\n" +
       "- If a Clue would be spawned on a devastated space, discard that Clue instead. A Clue cannot be moved to a devastated space.\n" +
       "- A devastated space does not have a space type; it is no longer a City space.\n" +
-      "- If all nine named City spaces on the main board would be devastated, the investigators lose the game."
+      "- If all nine named City spaces on the main board would be devastated, the investigators lose the game.",
   );
   const devastationTokenSnapPoint = tableLocations.devastationToken;
   if (!devastationTokenSnapPoint) {
@@ -182,7 +182,7 @@ if (!world.__eldritchHorror.alreadyLoaded.includes("Disaster/Devastation")) {
   disasterDeck.setDescription(
     "Disasters represent natural or unnatural destructive forces that act on the cities of the world or other locations.\n" +
       "Some effects cause the investigators to draw and resolve one or more Disasters. To do so, the Lead Investigator draws the top card of the Disaster deck, then he reads the card aloud to all investigators, resolving the card's effects as instructed.\n" +
-      "The card's effect is resolved immediately. After resolving the card's effect in its entirety, the card is discarded to a faceup discard pile by the Disaster deck."
+      "The card's effect is resolved immediately. After resolving the card's effect in its entirety, the card is discarded to a faceup discard pile by the Disaster deck.",
   );
   const disasterSnapPoint = tableLocations.disasterDeck;
   if (!disasterSnapPoint) {

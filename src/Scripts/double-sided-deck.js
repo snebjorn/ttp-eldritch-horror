@@ -19,8 +19,8 @@ refCard.onInserted.add((stack, insertedCard, offset, player) => {
   const insertedCardNames = insertedCard.getAllCardDetails().map((card) => card.name);
   Util.logScriptAction(
     `${player.getName()} discarded "${insertedCardNames.join(
-      '", "'
-    )}". Shuffling ${stack.getName()} deck.`
+      '", "',
+    )}". Shuffling ${stack.getName()} deck.`,
   );
 
   // keeping for now, just in case I need to insert a card at a random location

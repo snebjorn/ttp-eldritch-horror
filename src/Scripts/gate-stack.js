@@ -14,7 +14,7 @@ refCard.onCustomAction.add((stack, player, actionName) => {
       const [gateName, monsterName, spawnEffect] = result[0];
       Util.logScriptAction(
         `${player.getName()} spawned Gate on ${gateName} with ${monsterName} Monster.`,
-        player
+        player,
       );
       if (spawnEffect) {
         Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);
@@ -26,7 +26,7 @@ refCard.onCustomAction.add((stack, player, actionName) => {
     if (revealedGate) {
       Util.logScriptAction(
         `${player.getName()} revealed the top Gate to be ${revealedGate.name}.`,
-        player
+        player,
       );
     }
   }

@@ -77,7 +77,7 @@ const preludes = {
       const investigator = Util.takeRandomCardsFromStack(investigatorDeck);
       if (investigator) {
         const newPos = investigatorDeckPosition.add(
-          new Vector(-heightOfSheet - separatorBuffer, 0, 2)
+          new Vector(-heightOfSheet - separatorBuffer, 0, 2),
         );
         investigator.setPosition(newPos, 1);
         Util.flip(investigator);
@@ -90,7 +90,7 @@ const preludes = {
             : investigator.getPosition();
         if (!startingPosition) {
           throw new Error(
-            `Unable to find "${investigatorData.startingLocation}" (space) on the game board`
+            `Unable to find "${investigatorData.startingLocation}" (space) on the game board`,
           );
         }
         GameUtil.spawnEpicMonster("Doppelganger", startingPosition);
@@ -98,7 +98,7 @@ const preludes = {
         setupCrippledInvestigator(investigator, { randomAssets: 1, clues: 1 });
 
         Util.logScriptAction(
-          `SETUP (Prelude: Lurker Among Us) drew 1 random Investigator (${investigatorData.name}) and crippled it. Placed starting possessions, 1 random facedown Asset, and 1 Clue on his Investigator sheet. Spawned the Doppelganger Epic Monster on the same space as the defeated Investigator and advanced doom by 1.`
+          `SETUP (Prelude: Lurker Among Us) drew 1 random Investigator (${investigatorData.name}) and crippled it. Placed starting possessions, 1 random facedown Asset, and 1 Clue on his Investigator sheet. Spawned the Doppelganger Epic Monster on the same space as the defeated Investigator and advanced doom by 1.`,
         );
       }
     },
@@ -132,8 +132,8 @@ const preludes = {
           randNum === 1
             ? "8B79029944625A6941ACE6B0AC534469"
             : randNum === 2
-            ? "465C147D4AECB3996A8006A2D00C0A76"
-            : "BFA0FDE74C6318E8B058628433AA072D";
+              ? "465C147D4AECB3996A8006A2D00C0A76"
+              : "BFA0FDE74C6318E8B058628433AA072D";
         const adventureDeck = createCard(randomAdventureTemplateId);
 
         adventureDeck.setId("adventure-otherworldly-dreams-deck");
@@ -154,7 +154,7 @@ const preludes = {
         Util.moveObject(adventureToken, gameBoardLocations.space.Arkham);
 
         Util.logScriptAction(
-          'SETUP (Prelude: Otherworldly Dreams) set aside Otherworldly Dreams Adventures; then drew the "A Chance Encounter" Adventure.'
+          'SETUP (Prelude: Otherworldly Dreams) set aside Otherworldly Dreams Adventures; then drew the "A Chance Encounter" Adventure.',
         );
       }
     },
@@ -165,7 +165,7 @@ const preludes = {
         sanityToken.setState(sanityToken.getState() - 1);
 
         Util.logScriptAction(
-          `SETUP (Prelude: Otherworldly Dreams, Investigator: ${investigator.name}) lost 1 Health and 1 Sanity and gained 1 Focus.`
+          `SETUP (Prelude: Otherworldly Dreams, Investigator: ${investigator.name}) lost 1 Health and 1 Sanity and gained 1 Focus.`,
         );
 
         return { focus: 1 };
@@ -194,7 +194,7 @@ const preludes = {
 
               const activeMysteryCard = Util.takeCardNameFromStack(
                 mysteryDeck,
-                "Spawn of the Black Goat"
+                "Spawn of the Black Goat",
               );
               if (!activeMysteryCard) {
                 throw new Error('Unable to find "Spawn of the Black Goat" in mystery deck');
@@ -228,10 +228,10 @@ const preludes = {
         GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
         // Yeb spawn effect: spawn 2 monsters on this space
         const [monster1, spawnEffect1] = GameUtil.spawnMonster(
-          gameBoardLocations.space["The Amazon"]
+          gameBoardLocations.space["The Amazon"],
         );
         const [monster2, spawnEffect2] = GameUtil.spawnMonster(
-          gameBoardLocations.space["The Amazon"]
+          gameBoardLocations.space["The Amazon"],
         );
         const spawnedMonsters = [monster1, monster2].map((monster) => {
           if (monster) {
@@ -243,7 +243,7 @@ const preludes = {
         });
 
         message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
-          ", "
+          ", ",
         )})`;
         if (spawnEffect1) {
           message += `\nSpawn Effect (${spawnedMonsters[0]}): ${spawnEffect1}.`;
@@ -262,11 +262,11 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       // each investigator improves strength and will
       Util.logScriptAction(
-        `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`
+        `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`,
       );
 
       return { strength: 1, will: 1 };
@@ -278,7 +278,7 @@ const preludes = {
         // activate Web Between Worlds mythos card, before building the mythos deck
         const rumorMythos = Util.takeCardNameFromStack(
           mythosSetupDecks.blue.hard,
-          "Web Between Worlds"
+          "Web Between Worlds",
         );
         if (rumorMythos && tableLocations.activeMythos) {
           Util.moveObject(rumorMythos, tableLocations.activeMythos);
@@ -288,7 +288,7 @@ const preludes = {
         }
 
         Util.logScriptAction(
-          'SETUP (Prelude: Web Between Worlds) placed the "Web Between Worlds" Rumor Mythos card in play with 4 Eldritch tokens on it.'
+          'SETUP (Prelude: Web Between Worlds) placed the "Web Between Worlds" Rumor Mythos card in play with 4 Eldritch tokens on it.',
         );
       }
     },
@@ -298,7 +298,7 @@ const preludes = {
         if (spawnedGates.length === 1) {
           const [gateName, monsterName, spawnEffect] = spawnedGates[0];
           Util.logScriptAction(
-            `SETUP (Prelude: Web Between Worlds) 1 Gate on ${gateName} with ${monsterName} Monster.`
+            `SETUP (Prelude: Web Between Worlds) 1 Gate on ${gateName} with ${monsterName} Monster.`,
           );
           if (spawnEffect) {
             Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);
@@ -309,11 +309,11 @@ const preludes = {
               ([gateName, monsterName, spawnEffect]) =>
                 `\t- ${gateName} with ${monsterName} Monster. ${
                   spawnEffect ? `\n\t\t- Spawn Effect (${monsterName}): ${spawnEffect}.` : ""
-                }`
+                }`,
             )
             .join("\n");
           Util.logScriptAction(
-            `SETUP (Prelude: Web Between Worlds) spawned ${spawnedGates.length} Gates on:\n${spawnedGatesText}`
+            `SETUP (Prelude: Web Between Worlds) spawned ${spawnedGates.length} Gates on:\n${spawnedGatesText}`,
           );
         }
       }
@@ -326,7 +326,7 @@ const preludes = {
       Util.flipInStack(getGateStack());
 
       Util.logScriptAction(
-        "SETUP (Prelude: Written In the Stars) retreated Doom by 3. Revealed the top Gate of the Gate stack."
+        "SETUP (Prelude: Written In the Stars) retreated Doom by 3. Revealed the top Gate of the Gate stack.",
       );
     },
   },

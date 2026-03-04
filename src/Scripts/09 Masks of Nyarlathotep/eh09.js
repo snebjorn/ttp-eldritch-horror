@@ -152,7 +152,7 @@ const preludes = {
       }
 
       Util.logScriptAction(
-        `SETUP (Prelude: Aid of the Elder Gods) placed 1 Focus token on Ulthar and Celephaïs and 1 Focus token on the Dream-Quest token (${dreamQuestSpace}).`
+        `SETUP (Prelude: Aid of the Elder Gods) placed 1 Focus token on Ulthar and Celephaïs and 1 Focus token on the Dream-Quest token (${dreamQuestSpace}).`,
       );
     },
     investigatorSetup: (
@@ -162,12 +162,12 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       if (ancientOne === "Nyarlathotep") {
         // each investigator gains 1 Eldritch token
         Util.logScriptAction(
-          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`
+          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`,
         );
 
         return {
@@ -176,7 +176,7 @@ const preludes = {
       } else {
         // each investigator gains a Corruption Condition and 1 Clue
         Util.logScriptAction(
-          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained a Corruption Condition and 1 Clue.`
+          `SETUP (Prelude: Aid of the Elder Gods, Investigator: ${investigator.name}) gained a Corruption Condition and 1 Clue.`,
         );
 
         return {
@@ -195,7 +195,7 @@ const preludes = {
         Util.moveOrAddObject(zombie, snapPoint);
 
         Util.logScriptAction(
-          `SETUP (Prelude: Army of Darkness) placed a Zombie Monster on "${spaceName}" (random space).`
+          `SETUP (Prelude: Army of Darkness) placed a Zombie Monster on "${spaceName}" (random space).`,
         );
       }
     },
@@ -206,13 +206,13 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       // lead investigator loses 2 health and gains 1 Chainsaw Asset
       const gameState = GameUtil.getSavedData();
       if (gameState.leadInvestigator === investigator.name) {
         Util.logScriptAction(
-          `SETUP (Prelude: Army of Darkness, Investigator: ${investigator.name}) lost 2 Health and gained 1 Chainsaw Asset.`
+          `SETUP (Prelude: Army of Darkness, Investigator: ${investigator.name}) lost 2 Health and gained 1 Chainsaw Asset.`,
         );
 
         healthToken.setState(healthToken.getState() - 2);
@@ -240,7 +240,7 @@ const preludes = {
         ]);
 
         Util.logScriptAction(
-          "SETUP (Prelude: Father of Serpents) set aside 1 Serpent People Monster and spawned 1 Monster on each Expedition space."
+          "SETUP (Prelude: Father of Serpents) set aside 1 Serpent People Monster and spawned 1 Monster on each Expedition space.",
         );
         for (const [monsterName, spawnEffect] of spawnedMonsterText) {
           if (spawnEffect) {
@@ -253,7 +253,7 @@ const preludes = {
           Util.moveOrAddObject(monster, gameBoardLocations.space["The Amazon"]);
 
           Util.logScriptAction(
-            "SETUP (Prelude: Father of Serpents) spawned 1 Serpent People Monster on The Amazon."
+            "SETUP (Prelude: Father of Serpents) spawned 1 Serpent People Monster on The Amazon.",
           );
         }
       }
@@ -267,11 +267,11 @@ const preludes = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       if (ancientOne === "Nyarlathotep") {
         Util.logScriptAction(
-          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`
+          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained 1 Eldritch token.`,
         );
 
         player.sendChatMessage(`You must improve 1 skill of your choice.`, player.getPlayerColor());
@@ -281,11 +281,11 @@ const preludes = {
         };
       } else {
         Util.logScriptAction(
-          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained a Corruption Condition.`
+          `SETUP (Prelude: Harbinger of the Outer Gods, Investigator: ${investigator.name}) gained a Corruption Condition.`,
         );
         player.sendChatMessage(
           `You must improve 2 skills of your choice.`,
-          player.getPlayerColor()
+          player.getPlayerColor(),
         );
 
         return {
@@ -338,7 +338,7 @@ const preludes = {
 
               const activeMysteryCard = Util.takeCardNameFromStack(
                 mysteryDeck,
-                "Brotherhood of the Dark Pharaoh"
+                "Brotherhood of the Dark Pharaoh",
               );
               if (!activeMysteryCard) {
                 throw new Error('Unable to find "Brotherhood of the Dark Pharaoh" in mystery deck');
@@ -363,11 +363,11 @@ const preludes = {
         Util.logScriptAction(
           'SETUP (Prelude: In the Lightless Chamber) drew the "Brotherhood of the Dark Pharaoh" Mystery instead of a random Mystery. ' +
             "Spawned The Beast Epic Monster on The Bent Pyramid. " +
-            "Put all Egypt side board gates on top of the Gate stack in randomized order."
+            "Put all Egypt side board gates on top of the Gate stack in randomized order.",
         );
       } else {
         Util.logScriptAction(
-          "SETUP (Prelude: In the Lightless Chamber) put all Egypt side board gates on top of the Gate stack in randomized order."
+          "SETUP (Prelude: In the Lightless Chamber) put all Egypt side board gates on top of the Gate stack in randomized order.",
         );
       }
     },
@@ -394,7 +394,7 @@ const preludes = {
 
               const additionalSanityToken = Util.createMultistateObject(
                 "CD0FA9DC41E13E96DC743A8A30C2DD75",
-                tableLocations.ancientOne.getGlobalPosition().add(new Vector(-1, 1, 1))
+                tableLocations.ancientOne.getGlobalPosition().add(new Vector(-1, 1, 1)),
               );
               additionalSanityToken.setName("The Stars Align sanity tracker");
               additionalSanityToken.snapToGround();
@@ -405,7 +405,7 @@ const preludes = {
           }
 
           Util.logScriptAction(
-            `SETUP (Prelude: The Stars Align) placed additional Sanity (+${halfNumPlayers}) on the Ancient One sheet.`
+            `SETUP (Prelude: The Stars Align) placed additional Sanity (+${halfNumPlayers}) on the Ancient One sheet.`,
           );
         }
       } else {
@@ -436,7 +436,7 @@ const preludes = {
         // place sanity equal to player count on this sheet.
         const sanityToken = Util.createMultistateObject(
           "CD0FA9DC41E13E96DC743A8A30C2DD75",
-          tableLocations.ancientOne.getGlobalPosition().add(new Vector(0, 0, 1))
+          tableLocations.ancientOne.getGlobalPosition().add(new Vector(0, 0, 1)),
         );
         sanityToken.setName("The Stars Align sanity tracker");
         sanityToken.snapToGround();
@@ -446,7 +446,7 @@ const preludes = {
 
         Util.logScriptAction(
           "SETUP (Prelude: The Stars Align) set up the Mystic Ruins Encounter deck. " +
-            `Placed 1 Eldritch token on each blue space of the Omen track and Sanity equal to player count on Antediluvium's sheet.`
+            `Placed 1 Eldritch token on each blue space of the Omen track and Sanity equal to player count on Antediluvium's sheet.`,
         );
       }
     },
@@ -471,7 +471,7 @@ const duplicatePrelude = {
       Util.moveOrAddObject(eldritchToken, gameBoardLocations.omen.green);
 
       Util.logScriptAction(
-        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on the green space of the Omen track."
+        "SETUP (Prelude: Beginning of the End) placed 1 Eldritch token on the green space of the Omen track.",
       );
     },
   },
@@ -493,7 +493,7 @@ const duplicatePrelude = {
         }
 
         Util.logScriptAction(
-          "SETUP (Prelude: Call of Cthulhu) set aside 1 Deep One Monster and spawned the Cthylla Epic Monster on space 3."
+          "SETUP (Prelude: Call of Cthulhu) set aside 1 Deep One Monster and spawned the Cthylla Epic Monster on space 3.",
         );
       }
     },
@@ -504,7 +504,7 @@ const duplicatePrelude = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       // TODO move to nearest sea space and lose 1 sanity
       if (ancientOne === "Cthulhu") {
@@ -512,11 +512,11 @@ const duplicatePrelude = {
         // for now just put it on the investigator sheet
 
         Util.logScriptAction(
-          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`
+          `SETUP (Prelude: Call of Cthulhu, Investigator: ${investigator.name}) gained 1 Eldritch token.`,
         );
         player.sendChatMessage(
           `You received an Eldritch token. Place it on the nearest sea space that does not contain an Eldritch token. Also move your Investigator to the nearest sea space and lose 1 sanity.`,
-          player.getPlayerColor()
+          player.getPlayerColor(),
         );
 
         return {
@@ -545,7 +545,7 @@ const duplicatePrelude = {
 
               const activeMysteryCard = Util.takeCardNameFromStack(
                 mysteryDeck,
-                "Spawn of Yog-Sothoth"
+                "Spawn of Yog-Sothoth",
               );
               if (!activeMysteryCard) {
                 throw new Error('Unable to find "Spawn of Yog-Sothoth" in mystery deck');
@@ -561,11 +561,11 @@ const duplicatePrelude = {
         }
 
         Util.logScriptAction(
-          'SETUP (Prelude: The Dunwich Horror) drew the "Spawn of Yog-Sothoth" Mystery instead of a random Mystery then resolved the "when this card enters play" effect.'
+          'SETUP (Prelude: The Dunwich Horror) drew the "Spawn of Yog-Sothoth" Mystery instead of a random Mystery then resolved the "when this card enters play" effect.',
         );
       } else {
         Util.logScriptAction(
-          'SETUP (Prelude: The Dunwich Horror) spawned the "Dunwich Horror" Epic Monster on Arkham.'
+          'SETUP (Prelude: The Dunwich Horror) spawned the "Dunwich Horror" Epic Monster on Arkham.',
         );
       }
 
@@ -577,7 +577,7 @@ const duplicatePrelude = {
     },
     investigatorSetup: (investigator, sheet, healthToken, sanityToken, pawn, ancientOne) => {
       Util.logScriptAction(
-        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Spell.`
+        `SETUP (Prelude: The Dunwich Horror, Investigator: ${investigator.name}) gained 1 Spell.`,
       );
 
       return {
@@ -608,7 +608,7 @@ const duplicatePrelude = {
 
               const activeMysteryCard = Util.takeCardNameFromStack(
                 mysteryDeck,
-                "Spawn of the Black Goat"
+                "Spawn of the Black Goat",
               );
               if (!activeMysteryCard) {
                 throw new Error('Unable to find "Spawn of the Black Goat" in mystery deck');
@@ -642,10 +642,10 @@ const duplicatePrelude = {
         GameUtil.spawnEpicMonster("Yeb", gameBoardLocations.space["The Amazon"]);
         // Yeb spawn effect: spawn 2 monsters on this space
         const [monster1, spawnEffect1] = GameUtil.spawnMonster(
-          gameBoardLocations.space["The Amazon"]
+          gameBoardLocations.space["The Amazon"],
         );
         const [monster2, spawnEffect2] = GameUtil.spawnMonster(
-          gameBoardLocations.space["The Amazon"]
+          gameBoardLocations.space["The Amazon"],
         );
         const spawnedMonsters = [monster1, monster2].map((monster) => {
           if (monster) {
@@ -657,7 +657,7 @@ const duplicatePrelude = {
         });
 
         message += ` Spawned the Yeb Epic Monster on The Amazon then resolved its spawn effect (${spawnedMonsters.join(
-          ", "
+          ", ",
         )})`;
         if (spawnEffect1) {
           message += `\nSpawn Effect (${spawnedMonsters[0]}): ${spawnEffect1}.`;
@@ -676,10 +676,10 @@ const duplicatePrelude = {
       sanityToken,
       pawn,
       ancientOne,
-      player
+      player,
     ) => {
       Util.logScriptAction(
-        `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`
+        `SETUP (Prelude: Twin Blasphemies of the Black Goat, Investigator: ${investigator.name}) improved strength and will.`,
       );
 
       return { strength: 1, will: 1 };

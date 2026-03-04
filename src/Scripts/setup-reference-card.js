@@ -13,7 +13,7 @@ function setupReferenceCard(iconReference) {
   if (spawnedGates.length === 1) {
     const [gateName, monsterName, spawnEffect] = spawnedGates[0];
     Util.logScriptAction(
-      `SETUP (Step 9E) spawned 1 Gate on ${gateName} with ${monsterName} Monster.`
+      `SETUP (Step 9E) spawned 1 Gate on ${gateName} with ${monsterName} Monster.`,
     );
     if (spawnEffect) {
       Util.logScriptAction(`Spawn Effect (${monsterName}): ${spawnEffect}.`);
@@ -24,11 +24,11 @@ function setupReferenceCard(iconReference) {
         ([gateName, monsterName, spawnEffect]) =>
           `\t- ${gateName} with ${monsterName} Monster. ${
             spawnEffect ? `\n\t\t- Spawn Effect (${monsterName}): ${spawnEffect}.` : ""
-          }`
+          }`,
       )
       .join("\n");
     Util.logScriptAction(
-      `SETUP (Step 9E) spawned ${spawnedGates.length} Gates on:\n${spawnedGatesText}`
+      `SETUP (Step 9E) spawned ${spawnedGates.length} Gates on:\n${spawnedGatesText}`,
     );
   }
 
@@ -36,7 +36,7 @@ function setupReferenceCard(iconReference) {
   if (spawnedClues.length > 0) {
     const spawnedCluesText = spawnedClues.join(", ");
     Util.logScriptAction(
-      `SETUP (Step 9G) spawned ${spawnedClues.length} Clues on spaces: ${spawnedCluesText}.`
+      `SETUP (Step 9G) spawned ${spawnedClues.length} Clues on spaces: ${spawnedCluesText}.`,
     );
   }
 }

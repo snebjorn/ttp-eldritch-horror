@@ -28,7 +28,7 @@ const nyarlathotep = {
       .add(new Vector(0, 7, 0));
     const adventureBag = Util.createContainer(
       "7D4457334FE9A8DF3D57A19518F3C775",
-      adventureBagLocation
+      adventureBagLocation,
     );
     adventureBag.snapToGround();
     adventureBag.setId("nyarlathotep-adventure-bag");

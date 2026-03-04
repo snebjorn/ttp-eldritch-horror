@@ -65,7 +65,7 @@ class Util {
         // put the incorrect card back
         cardStack.addCards(foundCard, fromFront, foundCardOffset);
         throw new Error(
-          `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${foundCardName}" instead`
+          `Tried to fetch "${cardName}" from ${cardStack.getId()} but got "${foundCardName}" instead`,
         );
       }
 
@@ -99,7 +99,7 @@ class Util {
         // put the incorrect card back
         cardStack.addCards(foundCard, fromFront, foundCardOffset);
         throw new Error(
-          `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${foundCardName}" instead`
+          `Tried to fetch "${cardNames}" from ${cardStack.getId()} but got "${foundCardName}" instead`,
         );
       }
 
@@ -154,7 +154,7 @@ class Util {
    * @param {boolean} fromFront - If true, take the cards from the front of the stack instead of the back. Default: `false`.
    * @param {number} offset — Number of cards to leave at the back (or front when {@link fromFront} is `true`) before taking cards. Default: `0`.
    *
-   * @throws If {@link count} is as large or larger than the stack (minus {@link offset}).
+   * @throws {Error} If {@link count} is as large or larger than the stack (minus {@link offset}).
    *
    * @returns {Card} The taken cards. Returns the {@link cardStack} itself if it's only a single card.
    */
@@ -166,7 +166,7 @@ class Util {
     const isOutOfBounds = stackSize - offset < count;
     if (isOutOfBounds) {
       throw new RangeError(
-        `Cannot take ${count} card(s) from "${cardStack.getName()}" (id: ${cardStack.getId()}) as it exceeds the available number of cards`
+        `Cannot take ${count} card(s) from "${cardStack.getName()}" (id: ${cardStack.getId()}) as it exceeds the available number of cards`,
       );
     }
 
@@ -180,7 +180,7 @@ class Util {
       const takenCards = cardStack.takeCards(count, fromFront, offset);
       if (takenCards === undefined) {
         throw new Error(
-          `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`
+          `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`,
         );
       }
       // add the remaining card
@@ -192,7 +192,7 @@ class Util {
     const takenCards = cardStack.takeCards(count, fromFront, offset);
     if (takenCards === undefined) {
       throw new Error(
-        `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`
+        `Unable to take cards from "${cardStack.getName()}" (id: ${cardStack.getId()})`,
       );
     }
 
@@ -211,7 +211,7 @@ class Util {
     predicate,
     count = 1,
     excludeCardNames = [],
-    fromFront = false
+    fromFront = false,
   ) {
     let stack;
     for (let i = 0; i < count; i++) {
@@ -224,7 +224,7 @@ class Util {
         (cardDetails) =>
           !excludeCardNames.includes(cardDetails.name) &&
           cardDetails.metadata !== "" &&
-          predicate(JSON.parse(cardDetails.metadata))
+          predicate(JSON.parse(cardDetails.metadata)),
       );
 
       if (foundCard === undefined) {
@@ -255,7 +255,7 @@ class Util {
     tags,
     count = 1,
     excludeCardNames = [],
-    fromFront = false
+    fromFront = false,
   ) {
     let stack;
     for (let i = 0; i < count; i++) {
@@ -267,7 +267,7 @@ class Util {
       const foundCard = stackDetails.find(
         (cardDetails) =>
           !excludeCardNames.includes(cardDetails.name) &&
-          tags.every((tag) => cardDetails.tags.includes(tag))
+          tags.every((tag) => cardDetails.tags.includes(tag)),
       );
 
       if (foundCard === undefined) {
@@ -331,7 +331,7 @@ class Util {
         .add(new Vector(0, 0, gameObject.getExtent(true).z))
         // add extra height so we're outside the bounding box
         .add(new Vector(0, 0, 0.01)),
-      animationSpeed
+      animationSpeed,
     );
 
     // calling snap() right after calling setPosition() will take care of moving the object
@@ -370,7 +370,7 @@ class Util {
     gameObject,
     destinationObject,
     animationSpeed = 1,
-    searchHeight = 2
+    searchHeight = 2,
   ) {
     const snapLiftedObjectsFn = Util.liftObjectsOnTop(gameObject, destinationObject, searchHeight);
 
@@ -470,7 +470,7 @@ class Util {
             0,
             showAnimation,
             false,
-            searchHeight
+            searchHeight,
           );
           if (isAddedToStack) {
             return; // abort - the gameObject was added to a stack already on position
@@ -509,7 +509,7 @@ class Util {
         gameObject,
         topObjectWithLowerSortOrder.object,
         animationSpeed,
-        remainingDistance
+        remainingDistance,
       );
     } else {
       const snapLiftedObjectsFn = Util.liftObjectsOnTop(gameObject, destination);
@@ -538,7 +538,7 @@ class Util {
       }
       if (!(card instanceof Card)) {
         throw new Error(
-          `Tried to create ${templateIds} as a Card but it's a ${card.constructor.name}`
+          `Tried to create ${templateIds} as a Card but it's a ${card.constructor.name}`,
         );
       }
 
@@ -549,7 +549,7 @@ class Util {
       }
     }
 
-    // @ts-ignore - this is guaranteed to be a Card
+    // @ts-expect-error - this is guaranteed to be a Card
     return deck;
   }
 
@@ -578,7 +578,7 @@ class Util {
     }
     if (!(multistateObject instanceof MultistateObject)) {
       throw new Error(
-        `Tried to create ${templateId} as a MultistateObject but it's a ${multistateObject.constructor.name}`
+        `Tried to create ${templateId} as a MultistateObject but it's a ${multistateObject.constructor.name}`,
       );
     }
     return multistateObject;
@@ -596,7 +596,7 @@ class Util {
     }
     if (!(cardHolder instanceof CardHolder)) {
       throw new Error(
-        `Tried to create ${templateId} as a CardHolder but it's a ${cardHolder.constructor.name}`
+        `Tried to create ${templateId} as a CardHolder but it's a ${cardHolder.constructor.name}`,
       );
     }
     return cardHolder;
@@ -614,7 +614,7 @@ class Util {
     }
     if (!(container instanceof Container)) {
       throw new Error(
-        `Tried to create ${templateId} as a Container but it's a ${container.constructor.name}`
+        `Tried to create ${templateId} as a Container but it's a ${container.constructor.name}`,
       );
     }
     return container;
@@ -669,21 +669,21 @@ class Util {
     cardStackName,
     cardDescription,
     position,
-    scriptName
+    scriptName,
   ) {
     /** @type {Card | undefined} */
-    // @ts-ignore
+    // @ts-expect-error - assuming it's a Card
     const stack = world.getObjectById(cardStackId);
     if (!stack) {
       if (!position) {
         throw new Error(
-          `No position was given to newly created card stack with id: ${cardStackId}`
+          `No position was given to newly created card stack with id: ${cardStackId}`,
         );
       }
       if (position instanceof SnapPoint) {
         if (position.getSnappedObject() !== undefined) {
           throw new Error(
-            `Object already present at given SnapPoint for newly created card stack with id: ${cardStackId}`
+            `Object already present at given SnapPoint for newly created card stack with id: ${cardStackId}`,
           );
         }
         Util.moveObject(card, position);
@@ -729,7 +729,7 @@ class Util {
 
   /**
    * @param {Array<SnapPoint | undefined>} snapPoints
-   * @throws If unable to find available snap point
+   * @throws {Error} If unable to find available snap point
    */
   static getNextAvailableSnapPoint(snapPoints) {
     for (const snapPoint of snapPoints) {
@@ -892,7 +892,7 @@ class Util {
     offset = 0,
     animate = false,
     flipped = false,
-    searchHeight = 2
+    searchHeight = 2,
   ) {
     const snapLiftedObjectsFn = Util.liftObjectsOnTop(cards, cardStack, searchHeight);
 
@@ -963,14 +963,14 @@ class Util {
     const dataStr = JSON.stringify(data);
     if (dataStr.length > 1023) {
       throw new Error(
-        `Provided data object is stringified to ${dataStr.length} chars which exceeds the allowed size of 1023`
+        `Provided data object is stringified to ${dataStr.length} chars which exceeds the allowed size of 1023`,
       );
     }
     world.setSavedData(dataStr);
   }
 
   /**
-   * @returns {any | undefined}
+   * @returns {unknown | undefined}
    */
   static getSavedData() {
     const dataStr = world.getSavedData();
@@ -1015,8 +1015,8 @@ class Util {
    *
    * @param {string} objectId
    * @returns {Card} The {@link Card} with the specified {@link objectId}.
-   * @throws If unable to find {@link objectId}.
-   * @throws If {@link objectId} isn't a {@link Card}.
+   * @throws {Error} If unable to find {@link objectId}.
+   * @throws {Error} If {@link objectId} isn't a {@link Card}.
    */
   static getCardObjectById(objectId) {
     const card = world.getObjectById(objectId);
@@ -1035,8 +1035,8 @@ class Util {
    *
    * @param {string} objectId
    * @returns {MultistateObject} The {@link Card} with the specified {@link objectId}.
-   * @throws If unable to find {@link objectId}.
-   * @throws If {@link objectId} isn't a {@link Card}.
+   * @throws {Error} If unable to find {@link objectId}.
+   * @throws {Error} If {@link objectId} isn't a {@link Card}.
    */
   static getMultistateObjectById(objectId) {
     const obj = world.getObjectById(objectId);
@@ -1046,7 +1046,7 @@ class Util {
     }
     if (!(obj instanceof MultistateObject)) {
       throw new Error(
-        `Found "${objectId}" but it isn't a MultistateObject it's a ${obj.constructor.name}`
+        `Found "${objectId}" but it isn't a MultistateObject it's a ${obj.constructor.name}`,
       );
     }
     return obj;
@@ -1057,8 +1057,8 @@ class Util {
    *
    * @param {string} objectId
    * @returns {CardHolder} The {@link CardHolder} with the specified {@link objectId}.
-   * @throws If unable to find {@link objectId}.
-   * @throws If {@link objectId} isn't a {@link CardHolder}.
+   * @throws {Error} If unable to find {@link objectId}.
+   * @throws {Error} If {@link objectId} isn't a {@link CardHolder}.
    */
   static getCardHolderById(objectId) {
     const obj = world.getObjectById(objectId);
@@ -1068,7 +1068,7 @@ class Util {
     }
     if (!(obj instanceof CardHolder)) {
       throw new Error(
-        `Found "${objectId}" but it isn't a CardHolder it's a ${obj.constructor.name}`
+        `Found "${objectId}" but it isn't a CardHolder it's a ${obj.constructor.name}`,
       );
     }
     return obj;
