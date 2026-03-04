@@ -1,4 +1,5 @@
 {
+  "packageManager": "yarn@4.13.0",
   "scripts": {
     "lint": "eslint ./src --ext .js,.ts"
   },
@@ -9,6 +10,5 @@
     "eslint": "^8.35.0",
     "eslint-plugin-jsdoc": "^40.0.1",
     "typescript": "^4.9.5"
-  },
-  "packageManager": "yarn@3.3.1"
+  }
 }
