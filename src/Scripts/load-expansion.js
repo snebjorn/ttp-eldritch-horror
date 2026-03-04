@@ -66,42 +66,50 @@ exports.loadExpansion = loadExpansion;
 function loadScript(expansion) {
   switch (expansion) {
     case "eh02": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems, expandedAncientOnes } = require("./02 Forsaken Lore/eh02");
       expandAncientOnes(expandedAncientOnes);
 
       return expansionItems;
     }
     case "eh03": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./03 Mountains of Madness/eh03");
 
       return expansionItems;
     }
     case "eh04": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./04 Strange Remnants/eh04");
 
       return expansionItems;
     }
     case "eh05": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./05 Under the Pyramids/eh05");
 
       return expansionItems;
     }
     case "eh06": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./06 Signs of Carcosa/eh06");
 
       return expansionItems;
     }
     case "eh07": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./07 The Dreamlands/eh07");
 
       return expansionItems;
     }
     case "eh08": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./08 Cities in Ruin/eh08");
 
       return expansionItems;
     }
     case "eh09": {
+      // @ts-expect-error - block-scoped, not actually a duplicate
       const { expansionItems } = require("./09 Masks of Nyarlathotep/eh09");
 
       return expansionItems;

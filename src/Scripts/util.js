@@ -626,8 +626,9 @@ class Util {
    * @returns {Card}
    */
   static cloneCard(card, position) {
-    if (card instanceof Card === false) {
-      throw new Error(`Tried to clone a Card but the given card was a ${card.constructor.name}`);
+    const className = card?.constructor?.name ?? "unknown object";
+    if (!(card instanceof Card)) {
+      throw new Error(`Tried to clone a Card but the given card was a ${className}`);
     }
 
     return Util.cloneCardFromJson(card.toJSONString(), position);
