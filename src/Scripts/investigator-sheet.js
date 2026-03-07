@@ -2,7 +2,7 @@ const { UIElement, Button, refCard, Vector, Rotator } = require("@tabletop-playg
 const { setupInvestigator } = require("./setup-investigator");
 const { tableLocations } = require("./world-constants");
 
-const sheetSize = refCard.getExtent(false);
+const sheetSize = refCard.getExtent(false, false);
 const ui = new UIElement();
 ui.position = new Vector(sheetSize.x + 0.63, sheetSize.y / 2, 0);
 ui.rotation = new Rotator(180, 180, 0);

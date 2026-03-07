@@ -81,7 +81,7 @@ function setupCrippledInvestigator(investigatorSheet, extras) {
   if (pawn) {
     const topOfPawn = Util.getTopPosition(pawn)
       // move the token to the center of the pawn
-      .add([pawn.getExtent(false).z, 0, 0]);
+      .add([pawn.getExtent(false, false).z, 0, 0]);
     const health = Util.createMultistateObject("36130392438619D2662948BF02946F4D", topOfPawn);
     health.snapToGround();
   }
@@ -97,7 +97,7 @@ function setupInsaneInvestigator(investigatorSheet, extras) {
   if (pawn) {
     const topOfPawn = Util.getTopPosition(pawn)
       // move the token to the center of the pawn
-      .add([pawn.getExtent(false).z, 0, 0]);
+      .add([pawn.getExtent(false, false).z, 0, 0]);
     const sanity = Util.createMultistateObject("17BAE636408EFD63E2107E85547D315D", topOfPawn);
     sanity.snapToGround();
   }
@@ -115,7 +115,7 @@ function setupDefeatedInvestigator(investigatorSheet, extras) {
     const startingLocation = getStartingLocation(investigatorSheet, foundInvestigator);
     const pawn = setupPawn(foundInvestigator.pawnTemplateId, startingLocation);
     if (pawn) {
-      const pawnHeight = pawn.getExtent(false).z;
+      const pawnHeight = pawn.getExtent(false, false).z;
       pawn.setPosition(pawn.getPosition().add(new Vector(-pawnHeight, 0, 0)), 1);
       pawn.setRotation(new Rotator(-90, 0, 0), 1);
       pawn.snapToGround();
@@ -594,11 +594,11 @@ function fetchConditions(investigatorSheet, itemsGiven, startingItems, extras) {
  * @param {number} offset
  */
 function positionItemOnInvestigatorSheet(investigatorSheet, item, offset) {
-  const sheetSize = investigatorSheet.getExtent(false);
+  const sheetSize = investigatorSheet.getExtent(false, false);
   sheetSize.x *= -1;
   sheetSize.z = 0;
 
-  const itemSize = item.getExtent(false);
+  const itemSize = item.getExtent(false, false);
   itemSize.x *= -1;
   itemSize.z = 0;
 

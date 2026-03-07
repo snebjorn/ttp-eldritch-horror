@@ -404,7 +404,7 @@ function addPersonalStories() {
 
   const topCenter = investigatorDeck
     .getPosition()
-    .add(new Vector(investigatorDeck.getExtent(true).x, 0, 0))
+    .add(new Vector(investigatorDeck.getExtent(true, false).x, 0, 0))
     // spacing
     .add(new Vector(0.5, 0, 0))
     // ½ height of personal story cards

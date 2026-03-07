@@ -9,7 +9,7 @@ refObject.onCustomAction.add((obj, player, actionName) => {
       return; // abort already on its side
     }
     const position = obj.getPosition();
-    const height = obj.getExtent(false).z;
+    const height = obj.getExtent(false, false).z;
     obj.setPosition(position.add(new Vector(-height, 0, 1)), 1);
 
     rotation.pitch = -90;

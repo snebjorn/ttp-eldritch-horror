@@ -25,7 +25,7 @@ function formatName(name) {
   return name;
 }
 
-const extend = refCard.getExtent(false);
+const extend = refCard.getExtent(false, false);
 
 const ui = new UIElement();
 const textUi = new Text()

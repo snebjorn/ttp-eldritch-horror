@@ -328,7 +328,7 @@ class Util {
         // but that happens somewhat randomly and can cause the objects to rotate or move away from their original location.
         //
         // To resolve this issue we need to offset the height (Z-axises) so it doesn't collide with the below surface.
-        .add(new Vector(0, 0, gameObject.getExtent(true).z))
+        .add(new Vector(0, 0, gameObject.getExtent(true, false).z))
         // add extra height so we're outside the bounding box
         .add(new Vector(0, 0, 0.01)),
       animationSpeed,
@@ -832,7 +832,7 @@ class Util {
         // getPosition returns the center of the object
         .getPosition()
         // add half of the height of the object
-        .add(new Vector(0, 0, object.getExtent(true).z))
+        .add(new Vector(0, 0, object.getExtent(true, false).z))
         // add a little extra height so we're outside the bounding box
         .add(new Vector(0, 0, 0.01))
     );

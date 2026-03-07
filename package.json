@@ -4,12 +4,12 @@
   "scripts": {
     "lint": "eslint .",
     "fmt": "prettier --write .",
-    "type-check": "tsc"
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@tabletop-playground/api": "0.33.0",
-    "eslint": "10.0.2",
+    "@tabletop-playground/api": "0.41.0",
+    "eslint": "10.0.3",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "62.7.1",
     "globals": "17.4.0",

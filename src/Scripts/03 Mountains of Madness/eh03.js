@@ -207,7 +207,7 @@ const preludes = {
       // advance doom by 2
       GameUtil.advanceDoom(2);
       const investigatorDeckPosition = investigatorDeck.getPosition();
-      const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
+      const heightOfSheet = investigatorDeck.getExtent(false, false).x * 2;
       const separatorBuffer = 2;
       const sacrificedNames = [];
       for (let i = 1; i < 3; i++) {

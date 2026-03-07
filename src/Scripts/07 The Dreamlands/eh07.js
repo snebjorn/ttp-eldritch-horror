@@ -72,7 +72,7 @@ const preludes = {
     afterResolvingSetup: () => {
       GameUtil.advanceDoom(1);
       const investigatorDeckPosition = investigatorDeck.getPosition();
-      const heightOfSheet = investigatorDeck.getExtent(false).x * 2;
+      const heightOfSheet = investigatorDeck.getExtent(false, false).x * 2;
       const separatorBuffer = 2;
       const investigator = Util.takeRandomCardsFromStack(investigatorDeck);
       if (investigator) {
